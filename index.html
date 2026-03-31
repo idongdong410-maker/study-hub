@@ -34,7 +34,7 @@ a{text-decoration:none}
 <div class="sync" id="sync"><span class="dot" style="background:#f5a623"></span>동기화 확인 중...</div>
 <div class="dday">중간고사 <span id="dd"></span></div>
 <script>
-document.getElementById("dd").textContent=`D-${Math.max(0,Math.ceil((new Date("2026-04-27")-new Date())/864e5))}`;
+document.getElementById("dd").textContent=`D-${Math.max(0,Math.ceil((new Date("2026-04-24")-new Date())/864e5))}`;
 
 const FEED="https://raw.githubusercontent.com/idongdong410-maker/study-hub/main/data/feed.json";
 async function sync(){

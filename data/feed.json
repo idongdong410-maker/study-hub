@@ -1,5 +1,357 @@
 {
-  "lastUpdated": "2026-03-30T00:00:00Z",
-  "questions": [],
-  "cards": []
+  "lastUpdated": "2026-03-31T09:00:00Z",
+  "questions": [
+    {
+      "id": "calc-20260331-001",
+      "subject": "calculus",
+      "topic": "미분계수와 도함수",
+      "question": "함수 f(x) = x³ - 3x + 1에서 f'(2)의 값은?",
+      "options": ["① 6", "② 9", "③ 12", "④ 15"],
+      "answer": 1,
+      "explanation": "f'(x) = 3x² - 3이므로 f'(2) = 3(4) - 3 = 12 - 3 = 9",
+      "difficulty": "하"
+    },
+    {
+      "id": "calc-20260331-002",
+      "subject": "calculus",
+      "topic": "접선의 방정식",
+      "question": "곡선 y = x² + 2x 위의 점 (1, 3)에서의 접선의 기울기는?",
+      "options": ["① 2", "② 3", "③ 4", "④ 5"],
+      "answer": 2,
+      "explanation": "y' = 2x + 2이므로 x = 1에서 기울기 = 2(1) + 2 = 4",
+      "difficulty": "하"
+    },
+    {
+      "id": "calc-20260331-003",
+      "subject": "calculus",
+      "topic": "합성함수 미분",
+      "question": "f(x) = sin(x²)일 때, f'(x)는?",
+      "options": ["① cos(x²)", "② 2x·cos(x²)", "③ 2x·sin(x²)", "④ x²·cos(x²)"],
+      "answer": 1,
+      "explanation": "합성함수 미분법: f'(x) = cos(x²) · (x²)' = cos(x²) · 2x = 2x·cos(x²)",
+      "difficulty": "중"
+    },
+    {
+      "id": "calc-20260331-004",
+      "subject": "calculus",
+      "topic": "합성함수 미분",
+      "question": "y = (3x + 1)⁵일 때, dy/dx는?",
+      "options": ["① 5(3x+1)⁴", "② 15(3x+1)⁴", "③ 3(3x+1)⁵", "④ 5·3(3x+1)³"],
+      "answer": 1,
+      "explanation": "체인룰: dy/dx = 5(3x+1)⁴ · 3 = 15(3x+1)⁴",
+      "difficulty": "중"
+    },
+    {
+      "id": "calc-20260331-005",
+      "subject": "calculus",
+      "topic": "삼각함수 도함수",
+      "question": "d/dx [tan(x)]는?",
+      "options": ["① sec(x)", "② sec²(x)", "③ csc²(x)", "④ -csc²(x)"],
+      "answer": 1,
+      "explanation": "tan(x) = sin(x)/cos(x)를 몫의 미분법으로 미분하면 sec²(x)",
+      "difficulty": "중"
+    },
+    {
+      "id": "calc-20260331-006",
+      "subject": "calculus",
+      "topic": "지수함수 도함수",
+      "question": "f(x) = e^(3x)일 때, f'(x)는?",
+      "options": ["① e^(3x)", "② 3e^(3x)", "③ 3xe^(3x)", "④ e^(3x)/3"],
+      "answer": 1,
+      "explanation": "합성함수 미분: f'(x) = e^(3x) · 3 = 3e^(3x)",
+      "difficulty": "중"
+    },
+    {
+      "id": "calc-20260331-007",
+      "subject": "calculus",
+      "topic": "로그함수 도함수",
+      "question": "f(x) = ln(x² + 1)일 때, f'(x)는?",
+      "options": ["① 1/(x²+1)", "② 2x/(x²+1)", "③ x/(x²+1)", "④ 2/(x²+1)"],
+      "answer": 1,
+      "explanation": "f'(x) = 1/(x²+1) · 2x = 2x/(x²+1)",
+      "difficulty": "중"
+    },
+    {
+      "id": "calc-20260331-008",
+      "subject": "calculus",
+      "topic": "음함수 미분",
+      "question": "x² + y² = 25일 때, dy/dx는?",
+      "options": ["① -x/y", "② x/y", "③ -y/x", "④ y/x"],
+      "answer": 0,
+      "explanation": "양변을 x에 대해 미분: 2x + 2y·(dy/dx) = 0 → dy/dx = -x/y",
+      "difficulty": "중"
+    },
+    {
+      "id": "calc-20260331-009",
+      "subject": "calculus",
+      "topic": "매개변수 미분",
+      "question": "x = t², y = t³일 때, dy/dx는?",
+      "options": ["① 3t/2", "② 2t/3", "③ 3t²/2t", "④ t/2"],
+      "answer": 0,
+      "explanation": "dy/dx = (dy/dt)/(dx/dt) = 3t²/2t = 3t/2",
+      "difficulty": "중"
+    },
+    {
+      "id": "calc-20260331-010",
+      "subject": "calculus",
+      "topic": "역함수 미분",
+      "question": "f(x) = x³ + x이고 f(1) = 2일 때, (f⁻¹)'(2)의 값은?",
+      "options": ["① 1/4", "② 1/3", "③ 1/2", "④ 4"],
+      "answer": 0,
+      "explanation": "(f⁻¹)'(b) = 1/f'(a) (단, f(a)=b). f'(x) = 3x²+1이므로 f'(1) = 4. 따라서 (f⁻¹)'(2) = 1/4",
+      "difficulty": "상"
+    },
+    {
+      "id": "eng-20260331-001",
+      "subject": "english",
+      "topic": "빈칸추론",
+      "question": "다음 빈칸에 들어갈 말로 가장 적절한 것은?\n\nThe greatest obstacle to discovery is not ignorance — it is the illusion of ________.",
+      "options": ["① knowledge", "② power", "③ freedom", "④ wealth"],
+      "answer": 0,
+      "explanation": "무지가 아니라 '안다는 착각'이 발견의 가장 큰 장애물이라는 문맥. illusion of knowledge(지식의 환상)가 적절하다.",
+      "difficulty": "중"
+    },
+    {
+      "id": "eng-20260331-002",
+      "subject": "english",
+      "topic": "어휘",
+      "question": "밑줄 친 'ubiquitous'의 의미와 가장 가까운 것은?\n\nSmartphones have become ubiquitous in modern society.",
+      "options": ["① expensive", "② omnipresent", "③ obsolete", "④ controversial"],
+      "answer": 1,
+      "explanation": "ubiquitous = 어디에나 있는, 편재하는. omnipresent와 동의어이다.",
+      "difficulty": "중"
+    },
+    {
+      "id": "eng-20260331-003",
+      "subject": "english",
+      "topic": "문법",
+      "question": "다음 중 어법상 올바른 문장은?",
+      "options": ["① Had I known, I would have helped.", "② Had I known, I will have helped.", "③ If I know, I would have helped.", "④ Had I known, I would helped."],
+      "answer": 0,
+      "explanation": "가정법 과거완료의 도치 구문: Had + S + p.p., S + would have + p.p. 가 올바른 형태이다.",
+      "difficulty": "중"
+    },
+    {
+      "id": "eng-20260331-004",
+      "subject": "english",
+      "topic": "순서배열",
+      "question": "주어진 글 다음에 이어질 글의 순서로 가장 적절한 것은?\n\nResearchers found that people who regularly engage in creative activities show higher levels of well-being.\n(A) However, the benefits were not limited to artistic pursuits.\n(B) Even simple activities like cooking or gardening counted.\n(C) This suggests that creativity itself, not the specific activity, drives the positive effects.",
+      "options": ["① (A)-(B)-(C)", "② (A)-(C)-(B)", "③ (B)-(A)-(C)", "④ (C)-(A)-(B)"],
+      "answer": 0,
+      "explanation": "창의적 활동의 효과 → (A) 그러나 예술에만 한정되지 않음 → (B) 요리나 정원 가꾸기도 포함 → (C) 결론: 활동 자체가 아닌 창의성이 핵심",
+      "difficulty": "중"
+    },
+    {
+      "id": "eng-20260331-005",
+      "subject": "english",
+      "topic": "수능특강 독해",
+      "question": "다음 글의 주제로 가장 적절한 것은?\n\nWhen we label people, we tend to see them only through the lens of that label. A student called 'gifted' may feel pressure to always perform, while one labeled 'slow' may stop trying altogether.",
+      "options": ["① 영재 교육의 필요성", "② 라벨링이 행동에 미치는 영향", "③ 학업 성취도의 결정 요인", "④ 교사와 학생의 관계 개선 방법"],
+      "answer": 1,
+      "explanation": "라벨(명칭)을 붙이면 그 렌즈로만 보게 되고, 영재/느린 학생 라벨이 행동에 실제로 영향을 준다는 내용이므로 주제는 '라벨링이 행동에 미치는 영향'이다.",
+      "difficulty": "중"
+    },
+    {
+      "id": "eng-20260331-006",
+      "subject": "english",
+      "topic": "문장삽입",
+      "question": "다음 문장이 들어가기에 가장 적절한 곳은?\n\n\"Yet this assumption often proves false.\"\n\n( ① ) People generally believe that more choices lead to greater satisfaction. ( ② ) Research by Barry Schwartz shows that an abundance of options can actually cause anxiety. ( ③ ) This phenomenon, known as the 'paradox of choice,' suggests that limiting options may improve decision-making. ( ④ )",
+      "options": ["① ①", "② ②", "③ ③", "④ ④"],
+      "answer": 1,
+      "explanation": "'더 많은 선택 = 더 큰 만족'이라는 가정(assumption)을 먼저 제시한 뒤, '그러나 이 가정은 틀린 경우가 많다'가 와야 자연스럽다. ② 위치가 적절하다.",
+      "difficulty": "상"
+    },
+    {
+      "id": "kor-20260331-001",
+      "subject": "korean",
+      "topic": "화법 이론",
+      "question": "다음 중 '공감적 듣기'의 방법으로 적절하지 않은 것은?",
+      "options": ["① 상대방의 감정을 인정하는 반응을 보인다", "② 상대방의 말을 요약하여 되물어본다", "③ 자신의 유사한 경험을 즉시 이야기한다", "④ 비언어적 표현(고개 끄덕임 등)으로 경청을 표현한다"],
+      "answer": 2,
+      "explanation": "공감적 듣기는 상대의 감정과 말에 집중하는 것이 핵심. 자신의 경험을 즉시 이야기하는 것은 대화의 초점을 자신에게로 옮기는 것이므로 부적절하다.",
+      "difficulty": "중"
+    },
+    {
+      "id": "kor-20260331-002",
+      "subject": "korean",
+      "topic": "작문 이론",
+      "question": "글을 수정할 때 '고쳐쓰기'의 원리로 적절하지 않은 것은?",
+      "options": ["① 문장 성분 간의 호응이 적절한지 확인한다", "② 불필요한 반복 표현을 삭제한다", "③ 글의 통일성을 위해 주제와 무관한 내용을 삭제한다", "④ 문체의 다양성을 위해 한 단락 안에서 격식체와 비격식체를 혼용한다"],
+      "answer": 3,
+      "explanation": "고쳐쓰기에서는 문체의 일관성이 중요하다. 한 단락 안에서 격식체와 비격식체를 혼용하면 통일성이 깨진다.",
+      "difficulty": "중"
+    },
+    {
+      "id": "kor-20260331-003",
+      "subject": "korean",
+      "topic": "화법 이론",
+      "question": "토론에서 '반론'의 역할로 가장 적절한 것은?",
+      "options": ["① 상대측 주장의 근거를 약화시키는 것", "② 자기 측 주장을 반복 강조하는 것", "③ 새로운 논제를 제시하는 것", "④ 청중의 감정에 호소하는 것"],
+      "answer": 0,
+      "explanation": "반론(반박)은 상대측이 제시한 주장의 근거나 논리의 허점을 지적하여 그 타당성을 약화시키는 역할을 한다.",
+      "difficulty": "하"
+    },
+    {
+      "id": "kor-20260331-004",
+      "subject": "korean",
+      "topic": "작문 이론",
+      "question": "다음 중 '설득하는 글쓰기'에서 논증의 타당성을 높이는 방법으로 적절하지 않은 것은?",
+      "options": ["① 신뢰할 수 있는 통계 자료를 활용한다", "② 전문가의 견해를 인용한다", "③ 구체적인 사례를 들어 뒷받침한다", "④ 감정에 호소하는 표현을 주된 근거로 사용한다"],
+      "answer": 3,
+      "explanation": "논증의 타당성은 객관적 근거(통계, 전문가 견해, 사례)로 높인다. 감정 호소는 보조적 전략일 수 있으나 주된 근거로 쓰면 논리적 타당성이 떨어진다.",
+      "difficulty": "중"
+    },
+    {
+      "id": "kor-20260331-005",
+      "subject": "korean",
+      "topic": "화법 이론",
+      "question": "면접에서 면접관의 질문 의도를 파악하여 답변하는 전략으로 적절하지 않은 것은?",
+      "options": ["① 질문의 핵심을 파악한 후 두괄식으로 답변한다", "② 자신의 경험을 구체적으로 들어 답변한다", "③ 질문과 무관하더라도 자신의 강점을 최대한 어필한다", "④ 모르는 내용은 솔직히 인정하고 배우겠다는 자세를 보인다"],
+      "answer": 2,
+      "explanation": "면접 답변은 질문 의도에 맞게 해야 한다. 질문과 무관한 내용을 말하면 의사소통 능력이 부족하다는 인상을 줄 수 있다.",
+      "difficulty": "하"
+    }
+  ],
+  "cards": [
+    {
+      "id": "calc-card-20260331-001",
+      "deck": "calc",
+      "front": "미분계수의 정의",
+      "back": "f'(a) = lim(h→0) [f(a+h) - f(a)] / h",
+      "tag": "미분계수와 도함수"
+    },
+    {
+      "id": "calc-card-20260331-002",
+      "deck": "calc",
+      "front": "합성함수 미분법 (체인룰)",
+      "back": "{f(g(x))}' = f'(g(x)) · g'(x)\n\n바깥 미분 × 안쪽 미분",
+      "tag": "합성함수 미분"
+    },
+    {
+      "id": "calc-card-20260331-003",
+      "deck": "calc",
+      "front": "(sin x)' = ?",
+      "back": "cos x",
+      "tag": "삼각함수 도함수"
+    },
+    {
+      "id": "calc-card-20260331-004",
+      "deck": "calc",
+      "front": "(cos x)' = ?",
+      "back": "-sin x",
+      "tag": "삼각함수 도함수"
+    },
+    {
+      "id": "calc-card-20260331-005",
+      "deck": "calc",
+      "front": "(tan x)' = ?",
+      "back": "sec²x",
+      "tag": "삼각함수 도함수"
+    },
+    {
+      "id": "calc-card-20260331-006",
+      "deck": "calc",
+      "front": "(e^x)' = ?",
+      "back": "e^x\n\n(a^x)' = a^x · ln a",
+      "tag": "지수함수 도함수"
+    },
+    {
+      "id": "calc-card-20260331-007",
+      "deck": "calc",
+      "front": "(ln x)' = ?",
+      "back": "1/x\n\n(log_a x)' = 1/(x · ln a)",
+      "tag": "로그함수 도함수"
+    },
+    {
+      "id": "calc-card-20260331-008",
+      "deck": "calc",
+      "front": "음함수 미분법",
+      "back": "양변을 x에 대해 미분\ny를 x의 함수로 보고 dy/dx를 구함\n\n예) x²+y²=r² → 2x+2y(dy/dx)=0 → dy/dx=-x/y",
+      "tag": "음함수 미분"
+    },
+    {
+      "id": "calc-card-20260331-009",
+      "deck": "calc",
+      "front": "매개변수 미분법",
+      "back": "dy/dx = (dy/dt) / (dx/dt)\n\nx=f(t), y=g(t)일 때",
+      "tag": "매개변수 미분"
+    },
+    {
+      "id": "calc-card-20260331-010",
+      "deck": "calc",
+      "front": "역함수 미분법",
+      "back": "(f⁻¹)'(b) = 1 / f'(a)\n(단, f(a) = b)\n\n역함수의 기울기 = 원래 함수 기울기의 역수",
+      "tag": "역함수 미분"
+    },
+    {
+      "id": "vocab-20260331-001",
+      "deck": "vocab",
+      "front": "ubiquitous",
+      "back": "어디에나 있는, 편재하는\n예문: Smartphones have become ubiquitous in modern society.",
+      "tag": "수특 1강"
+    },
+    {
+      "id": "vocab-20260331-002",
+      "deck": "vocab",
+      "front": "implications",
+      "back": "영향, 결과; 암시, 함축\n예문: The findings have significant implications for education policy.",
+      "tag": "수특 1강"
+    },
+    {
+      "id": "vocab-20260331-003",
+      "deck": "vocab",
+      "front": "reluctant",
+      "back": "꺼리는, 마지못해 하는\n예문: He was reluctant to admit his mistake.",
+      "tag": "수특 2강"
+    },
+    {
+      "id": "vocab-20260331-004",
+      "deck": "vocab",
+      "front": "paradox",
+      "back": "역설, 모순\n예문: The paradox of choice suggests more options can reduce satisfaction.",
+      "tag": "수특 2강"
+    },
+    {
+      "id": "vocab-20260331-005",
+      "deck": "vocab",
+      "front": "inherent",
+      "back": "내재하는, 본질적인\n예문: There are inherent risks in any new venture.",
+      "tag": "수특 3강"
+    },
+    {
+      "id": "korean-card-20260331-001",
+      "deck": "korean",
+      "front": "공감적 듣기란?",
+      "back": "상대방의 감정과 처지를 이해하며 듣는 것\n· 감정 인정 반응\n· 요약하여 되묻기\n· 비언어적 경청 표현",
+      "tag": "화법"
+    },
+    {
+      "id": "korean-card-20260331-002",
+      "deck": "korean",
+      "front": "토론의 반론 vs 반박",
+      "back": "반론: 상대 주장의 근거를 약화시킴\n반박: 상대 반론에 대해 재반박\n\n핵심: 논리적 근거로 상대 논증의 허점 지적",
+      "tag": "화법"
+    },
+    {
+      "id": "korean-card-20260331-003",
+      "deck": "korean",
+      "front": "고쳐쓰기의 원리",
+      "back": "· 문장 성분 호응 확인\n· 불필요한 반복 삭제\n· 주제 통일성 유지\n· 문체 일관성 유지\n· 맞춤법/띄어쓰기 점검",
+      "tag": "작문"
+    },
+    {
+      "id": "engsum-20260331-001",
+      "deck": "engsum",
+      "front": "라벨링 효과 (Labeling Effect)",
+      "back": "사람에게 라벨을 붙이면 그 라벨의 렌즈로만 보게 됨.\n'영재' 라벨 → 수행 압박\n'느린 학생' 라벨 → 노력 포기\n→ 라벨이 실제 행동에 영향을 미침",
+      "tag": "수특 1강"
+    },
+    {
+      "id": "engsum-20260331-002",
+      "deck": "engsum",
+      "front": "선택의 역설 (Paradox of Choice)",
+      "back": "더 많은 선택지 ≠ 더 큰 만족\nBarry Schwartz 연구: 선택지 과다 → 불안 유발\n→ 선택지를 제한하면 의사결정이 개선됨",
+      "tag": "수특 2강"
+    }
+  ]
 }

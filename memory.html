@@ -154,7 +154,7 @@ function getDueCards(deck){return getDeckCards(deck).filter(isDue)}
 // ===== RENDER =====
 function render(){
   // Header
-  const dd=Math.ceil((new Date("2026-04-27")-new Date())/864e5);
+  const dd=Math.ceil((new Date("2026-04-24")-new Date())/864e5);
   document.getElementById("hdrRight").innerHTML=`D-${dd>0?dd:0}`;
 
   // Overview

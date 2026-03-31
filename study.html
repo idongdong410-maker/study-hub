@@ -231,18 +231,21 @@ function save(){
 // ===== RENDER =====
 function render(){
   // D-day
-  const dd=Math.ceil((new Date("2026-04-27")-new Date())/864e5);
+  const dd=Math.ceil((new Date("2026-04-24")-new Date())/864e5);
   document.getElementById("dday").textContent=`D-${dd>0?dd:0}`;
   document.getElementById("dday").style.color=dd<=7?"var(--red)":"var(--t1)";
 
-  // Stats
-  const ts=Object.values(S.stats).reduce((a,s)=>a+(s.total||0),0);
-  const tc=Object.values(S.stats).reduce((a,s)=>a+(s.correct||0),0);
+  // Stats (per-subject)
+  const sub=SUBJECTS[S.subject];
+  const ts=S.stats[S.subject]?.total||0;
+  const tc=S.stats[S.subject]?.correct||0;
+  const subBank=S.bank.filter(q=>q.subject===S.subject).length;
+  const subWrong=S.wrong.filter(w=>w.subject===S.subject).length;
   document.getElementById("statsArea").innerHTML=`
-    <div class="stat-chip"><div class="stat-num">${ts}</div><div class="stat-label">총 풀이</div></div>
+    <div class="stat-chip"><div class="stat-num">${ts}</div><div class="stat-label">${sub.name} 풀이</div></div>
     <div class="stat-chip"><div class="stat-num" style="color:var(--green)">${ts?Math.round(tc/ts*100):0}%</div><div class="stat-label">정답률</div></div>
-    <div class="stat-chip"><div class="stat-num">${S.bank.length}</div><div class="stat-label">문제은행</div></div>
-    <div class="stat-chip"><div class="stat-num" style="color:var(--red)">${S.wrong.length}</div><div class="stat-label">오답</div></div>`;
+    <div class="stat-chip"><div class="stat-num">${subBank}</div><div class="stat-label">문제은행</div></div>
+    <div class="stat-chip"><div class="stat-num" style="color:var(--red)">${subWrong}</div><div class="stat-label">오답</div></div>`;
 
   // Subject tabs
   document.getElementById("subjectRow").innerHTML=Object.entries(SUBJECTS).map(([k,v])=>
