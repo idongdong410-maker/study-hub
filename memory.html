@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="MemoryFlow">
+<meta name="theme-color" content="#0c0c10">
+<title>MemoryFlow</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+:root{
+  --bg:#0c0c10;--bg2:#16161c;--bg3:#1e1e26;--bg4:#282830;--bg5:#32323c;
+  --t1:#f0eff4;--t2:#a9a8b3;--t3:#6b6a76;
+  --purple:#7c6aef;--blue:#3b9eff;--amber:#f5a623;--teal:#2dd4bf;
+  --green:#34d399;--red:#f87171;--pink:#f472b6;
+  --radius:14px;--radius-sm:10px;
+  font-family:-apple-system,BlinkMacSystemFont,"Pretendard","Noto Sans KR",sans-serif;
+  background:var(--bg);color:var(--t1)
+}
+body{background:var(--bg);min-height:100dvh;padding:env(safe-area-inset-top) 16px calc(env(safe-area-inset-bottom)+16px);max-width:720px;margin:0 auto}
+button,select,textarea{font-family:inherit;cursor:pointer;border:none;outline:none;-webkit-appearance:none}
+
+.hdr{padding:20px 0 12px;display:flex;justify-content:space-between;align-items:center}
+.hdr h1{font-size:22px;font-weight:800;letter-spacing:-.5px}
+.hdr-right{font-size:13px;color:var(--t3)}
+
+.overview{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:20px}
+.ov-card{padding:12px;border-radius:var(--radius-sm);background:var(--bg2);text-align:center}
+.ov-num{font-size:20px;font-weight:700}
+.ov-label{font-size:10px;color:var(--t3);margin-top:2px}
+
+/* Deck select */
+.deck-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:20px}
+.deck-card{padding:18px 14px;border-radius:var(--radius);background:var(--bg2);border:2px solid transparent;transition:all .15s;cursor:pointer;position:relative;overflow:hidden}
+.deck-card:active{transform:scale(.97)}
+.deck-card.active{border-color:currentColor}
+.deck-emoji{font-size:24px;margin-bottom:6px}
+.deck-name{font-size:14px;font-weight:700}
+.deck-count{font-size:11px;color:var(--t3);margin-top:4px}
+.deck-due{position:absolute;top:10px;right:10px;font-size:11px;font-weight:700;padding:2px 8px;border-radius:10px}
+
+/* Nav */
+.nav{display:flex;gap:4px;padding:4px;background:var(--bg2);border-radius:var(--radius);margin-bottom:20px}
+.nav-btn{flex:1;padding:10px 0;border-radius:var(--radius-sm);font-size:13px;font-weight:600;text-align:center;background:transparent;color:var(--t3);transition:all .15s}
+.nav-btn.active{background:var(--bg4);color:var(--t1)}
+
+/* Flashcard */
+.flash-container{perspective:1000px;margin-bottom:20px}
+.flash-card{min-height:220px;border-radius:var(--radius);padding:28px 20px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;cursor:pointer;user-select:none;transition:all .3s;position:relative}
+.flash-card:active{transform:scale(.98)}
+.flash-side{font-size:11px;color:var(--t3);margin-bottom:12px;font-weight:500}
+.flash-content{font-size:18px;font-weight:600;line-height:1.7;white-space:pre-wrap}
+.flash-back .flash-content{font-size:16px;font-weight:400}
+.flash-hint{font-size:12px;color:var(--t3);margin-top:16px}
+.flash-progress{font-size:11px;color:var(--t3);position:absolute;top:12px;right:14px}
+.flash-tag{position:absolute;top:12px;left:14px;font-size:10px;padding:2px 8px;border-radius:8px;font-weight:600}
+
+/* Rating buttons */
+.rating-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:16px}
+.rate-btn{padding:16px 8px;border-radius:var(--radius-sm);text-align:center;font-weight:700;font-size:14px;transition:all .15s}
+.rate-btn:active{transform:scale(.95)}
+.rate-btn .rate-sub{font-size:11px;font-weight:400;margin-top:4px;opacity:.7}
+.rate-forgot{background:rgba(248,113,113,.15);color:var(--red)}
+.rate-fuzzy{background:rgba(245,166,35,.15);color:var(--amber)}
+.rate-knew{background:rgba(52,211,153,.15);color:var(--green)}
+
+/* Card list */
+.card{background:var(--bg2);border:1px solid var(--bg3);border-radius:var(--radius);padding:16px;margin-bottom:10px}
+.card-empty{text-align:center;padding:48px 20px;color:var(--t3);font-size:14px;line-height:1.7}
+
+.btn{padding:12px 20px;border-radius:var(--radius-sm);font-size:14px;font-weight:600;background:var(--bg3);color:var(--t1);transition:all .15s;display:inline-flex;align-items:center;justify-content:center;gap:6px}
+.btn:active{transform:scale(.97);opacity:.85}
+.btn-full{width:100%}
+.btn-primary{color:#fff}
+.btn-sm{padding:6px 12px;font-size:12px}
+.btn-danger{background:rgba(248,113,113,.12);color:var(--red)}
+.btn-ghost{background:transparent;color:var(--t2);padding:8px 12px;font-size:13px}
+
+.textarea{width:100%;min-height:160px;padding:12px;border-radius:var(--radius-sm);border:1px solid var(--bg3);background:var(--bg);color:var(--t1);font-size:12px;font-family:"SF Mono",monospace;resize:vertical;line-height:1.6}
+.prompt-box{background:var(--bg);border:1px solid var(--bg3);border-radius:var(--radius-sm);padding:12px;font-size:11px;font-family:"SF Mono",monospace;color:var(--t2);line-height:1.6;white-space:pre-wrap;max-height:200px;overflow-y:auto}
+
+.status-msg{padding:10px;border-radius:var(--radius-sm);font-size:13px;margin-top:12px}
+.status-ok{background:rgba(52,211,153,.12);color:var(--green)}
+.status-err{background:rgba(248,113,113,.12);color:var(--red)}
+
+.section-title{font-size:16px;font-weight:700;margin-bottom:8px}
+.section-sub{font-size:13px;color:var(--t3);margin-bottom:16px}
+
+.spinner{width:32px;height:32px;border:3px solid var(--bg4);border-top-color:var(--blue);border-radius:50%;animation:spin .7s linear infinite;margin:0 auto}
+@keyframes spin{to{transform:rotate(360deg)}}
+.fade-in{animation:fadeIn .25s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+
+.row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.row-between{display:flex;justify-content:space-between;align-items:center}
+.ml-auto{margin-left:auto}
+.mb-8{margin-bottom:8px}.mb-12{margin-bottom:12px}.mb-16{margin-bottom:16px}.mb-20{margin-bottom:20px}
+.mt-8{margin-top:8px}.mt-12{margin-top:12px}.mt-16{margin-top:16px}
+.hidden{display:none}
+
+.level-bar{display:flex;gap:3px;margin-top:6px}
+.level-dot{width:16px;height:4px;border-radius:2px;background:var(--bg4)}
+</style>
+</head>
+<body>
+
+<div class="hdr">
+  <h1>MemoryFlow</h1>
+  <div class="hdr-right" id="hdrRight"></div>
+</div>
+<div class="overview" id="overview"></div>
+<div id="app"></div>
+
+<script>
+// ===== DECKS =====
+const DECKS={
+  calc:{name:"미적분 공식",emoji:"∫",color:"#7c6aef",dim:"rgba(124,106,239,.12)",
+    prompt:`미적분 시험에 나오는 핵심 공식과 개념을 플래시카드로 만들어줘.\n\nJSON 배열만:\n[{"front":"공식 이름 또는 문제","back":"공식 내용 또는 답","tag":"단원명"}]\n\n규칙:\n- 수학 공식은 텍스트로: f'(x), dy/dx, lim(x→a), ∫, Σ 등\n- 미분계수, 도함수, 접선, 합성함수 미분, 매개변수 미분, 음함수 미분, 역함수 미분, 삼각/지수/로그 도함수 범위\n- 15개 만들어줘\nJSON만 출력.`},
+  vocab:{name:"영단어",emoji:"📝",color:"#3b9eff",dim:"rgba(59,158,255,.12)",
+    prompt:`수능특강 영어에 나오는 핵심 영단어를 플래시카드로 만들어줘.\n\nJSON 배열만:\n[{"front":"English word","back":"한국어 뜻 + 예문","tag":"강/단원"}]\n\n- 수능 빈출 고난도 어휘 위주\n- back에는 뜻과 짧은 예문 포함\n- 15개 만들어줘\nJSON만 출력.`},
+  korean:{name:"화작 핵심",emoji:"✍️",color:"#f5a623",dim:"rgba(245,166,35,.12)",
+    prompt:`화법과 작문 수능 핵심 개념을 플래시카드로 만들어줘.\n\nJSON 배열만:\n[{"front":"개념/용어","back":"정의 및 핵심 설명","tag":"화법/작문"}]\n\n- 화법 이론, 작문 이론, 비문학 독해 전략 포함\n- 시험에 자주 나오는 핵심만\n- 15개 만들어줘\nJSON만 출력.`},
+  engsum:{name:"수특 요약",emoji:"📖",color:"#2dd4bf",dim:"rgba(45,212,191,.12)",
+    prompt:`수능특강 영어 독해 핵심 내용을 플래시카드로 만들어줘.\n\nJSON 배열만:\n[{"front":"지문 주제 또는 핵심 질문","back":"핵심 요약 (2~3문장)","tag":"강번호"}]\n\n- 주요 지문의 핵심 논지, 주제, 요지를 요약\n- 빈칸추론/순서배열에 나올 법한 핵심 로직 포함\n- 15개 만들어줘\nJSON만 출력.`}
+};
+
+// ===== SR ALGORITHM =====
+// Simple SM-2 variant: level 0-5, interval doubles each level
+function getInterval(level){return [0,1,2,4,7,14][Math.min(level,5)]}
+function isDue(card){
+  if(!card.lastReview)return true;
+  const diff=(Date.now()-card.lastReview)/(1000*60*60*24);
+  return diff>=getInterval(card.level||0);
+}
+
+// ===== STATE =====
+let S={
+  deck:null, // null = deck select screen
+  page:"review", // review, browse, add
+  cards:JSON.parse(localStorage.getItem("mf-cards")||"[]"),
+  // Review state
+  currentCard:null,flipped:false,
+  // Add
+  loading:false
+};
+
+function save(){localStorage.setItem("mf-cards",JSON.stringify(S.cards))}
+
+function getDeckCards(deck){return S.cards.filter(c=>c.deck===deck)}
+function getDueCards(deck){return getDeckCards(deck).filter(isDue)}
+
+// ===== RENDER =====
+function render(){
+  // Header
+  const dd=Math.ceil((new Date("2026-04-27")-new Date())/864e5);
+  document.getElementById("hdrRight").innerHTML=`D-${dd>0?dd:0}`;
+
+  // Overview
+  const totalCards=S.cards.length;
+  const totalDue=S.cards.filter(isDue).length;
+  const mastered=S.cards.filter(c=>(c.level||0)>=4).length;
+  document.getElementById("overview").innerHTML=`
+    <div class="ov-card"><div class="ov-num">${totalCards}</div><div class="ov-label">전체 카드</div></div>
+    <div class="ov-card"><div class="ov-num" style="color:var(--amber)">${totalDue}</div><div class="ov-label">복습 대기</div></div>
+    <div class="ov-card"><div class="ov-num" style="color:var(--green)">${mastered}</div><div class="ov-label">마스터</div></div>`;
+
+  const app=document.getElementById("app");
+  if(!S.deck)app.innerHTML=renderDeckSelect();
+  else app.innerHTML=renderDeckView();
+}
+
+// ===== DECK SELECT =====
+function renderDeckSelect(){
+  return`<div class="section-title mb-16">어떤 덱을 복습할까요?</div>
+    <div class="deck-grid">
+    ${Object.entries(DECKS).map(([k,d])=>{
+      const total=getDeckCards(k).length;
+      const due=getDueCards(k).length;
+      return`<div class="deck-card" style="border-color:${d.color}22" onclick="openDeck('${k}')">
+        ${due>0?`<div class="deck-due" style="background:${d.dim};color:${d.color}">${due}개 복습</div>`:""}
+        <div class="deck-emoji">${d.emoji}</div>
+        <div class="deck-name" style="color:${d.color}">${d.name}</div>
+        <div class="deck-count">${total}개 카드</div>
+        <div class="level-bar">
+          ${[0,1,2,3,4].map(l=>{
+            const n=getDeckCards(k).filter(c=>(c.level||0)>=l).length;
+            const pct=total?Math.round(n/total*100):0;
+            return`<div class="level-dot" style="width:${Math.max(8,pct*.6)}px;background:${pct>0?d.color:"var(--bg4)"}"></div>`;
+          }).join("")}
+        </div>
+      </div>`;
+    }).join("")}
+  </div>
+  <button class="btn btn-full mt-16" onclick="reviewAll()" style="background:var(--purple);color:#fff">
+    전체 복습 대기 카드 풀기 (${S.cards.filter(isDue).length}개)
+  </button>`;
+}
+
+function openDeck(k){S.deck=k;S.page="review";S.currentCard=null;S.flipped=false;render()}
+function reviewAll(){
+  const due=S.cards.filter(isDue);
+  if(!due.length)return;
+  S.deck="__all__";S.page="review";S.currentCard=null;S.flipped=false;render();
+}
+
+// ===== DECK VIEW =====
+function renderDeckView(){
+  const isAll=S.deck==="__all__";
+  const d=isAll?{name:"전체 복습",emoji:"🔄",color:"#7c6aef",dim:"rgba(124,106,239,.12)"}:DECKS[S.deck];
+
+  const navPages=[["review","복습"],["browse","카드 목록"],["add","추가"]];
+  if(isAll)navPages.splice(1); // all mode only has review
+
+  let nav=`<div class="row-between mb-16">
+    <button class="btn-ghost" onclick="S.deck=null;S.currentCard=null;render()">← 덱 선택</button>
+    <span style="font-size:14px;font-weight:700;color:${d.color}">${d.emoji} ${d.name}</span>
+  </div>
+  ${!isAll?`<div class="nav mb-20">${navPages.map(([k,l])=>
+    `<button class="nav-btn ${S.page===k?"active":""}" onclick="S.page='${k}';S.currentCard=null;S.flipped=false;render()">${l}</button>`
+  ).join("")}</div>`:""}`;
+
+  if(S.page==="review")return nav+renderReview(d,isAll);
+  if(S.page==="browse")return nav+renderBrowse(d);
+  if(S.page==="add")return nav+renderAdd(d);
+  return nav;
+}
+
+// ===== REVIEW =====
+function renderReview(d,isAll){
+  const due=isAll?S.cards.filter(isDue):getDueCards(S.deck);
+
+  if(!S.currentCard){
+    if(!due.length){
+      const total=isAll?S.cards.length:getDeckCards(S.deck).length;
+      return`<div class="card card-empty fade-in">
+        ${total===0?"카드가 없어요!<br>\"추가\" 탭에서 카드를 넣어주세요.":"모든 카드를 복습했어요! 🎉<br><span style='font-size:12px'>다음 복습 카드가 나올 때까지 쉬세요.</span>"}
+      </div>`;
+    }
+    // Pick next due card (prioritize lower level)
+    due.sort((a,b)=>(a.level||0)-(b.level||0));
+    S.currentCard=due[0];
+    S.flipped=false;
+  }
+
+  const c=S.currentCard;
+  const deckInfo=DECKS[c.deck]||d;
+  const remaining=due.length;
+
+  if(!S.flipped){
+    return`<div class="fade-in">
+      <div style="text-align:center;font-size:12px;color:var(--t3);margin-bottom:12px">남은 복습: ${remaining}개</div>
+      <div class="flash-container">
+        <div class="flash-card" style="background:${deckInfo.dim};border:1px solid ${deckInfo.color}33" onclick="S.flipped=true;render()">
+          <div class="flash-progress">Lv.${c.level||0}</div>
+          ${c.tag?`<div class="flash-tag" style="background:${deckInfo.dim};color:${deckInfo.color}">${c.tag}</div>`:""}
+          <div class="flash-side">앞면</div>
+          <div class="flash-content">${c.front}</div>
+          <div class="flash-hint">탭하여 뒤집기</div>
+        </div>
+      </div>
+    </div>`;
+  }else{
+    return`<div class="fade-in">
+      <div style="text-align:center;font-size:12px;color:var(--t3);margin-bottom:12px">남은 복습: ${remaining}개</div>
+      <div class="flash-container">
+        <div class="flash-card flash-back" style="background:var(--bg2);border:1px solid var(--bg4)">
+          <div class="flash-progress">Lv.${c.level||0}</div>
+          ${c.tag?`<div class="flash-tag" style="background:${deckInfo.dim};color:${deckInfo.color}">${c.tag}</div>`:""}
+          <div class="flash-side">뒷면</div>
+          <div class="flash-content">${c.back}</div>
+        </div>
+      </div>
+      <div class="rating-row">
+        <button class="rate-btn rate-forgot" onclick="rateCard(0)">
+          몰라<div class="rate-sub">다시 보기</div>
+        </button>
+        <button class="rate-btn rate-fuzzy" onclick="rateCard(1)">
+          애매<div class="rate-sub">${getInterval(Math.max(0,(c.level||0)))}일 후</div>
+        </button>
+        <button class="rate-btn rate-knew" onclick="rateCard(2)">
+          알아<div class="rate-sub">${getInterval((c.level||0)+1)}일 후</div>
+        </button>
+      </div>
+    </div>`;
+  }
+}
+
+function rateCard(rating){
+  const c=S.currentCard;
+  const idx=S.cards.findIndex(x=>x.id===c.id);
+  if(idx===-1)return;
+
+  if(rating===0){
+    // Forgot: reset to level 0, review again soon
+    S.cards[idx].level=0;
+    S.cards[idx].lastReview=Date.now()-864e5; // due again immediately
+  }else if(rating===1){
+    // Fuzzy: keep same level, schedule at current interval
+    S.cards[idx].lastReview=Date.now();
+  }else{
+    // Knew: level up
+    S.cards[idx].level=Math.min((S.cards[idx].level||0)+1,5);
+    S.cards[idx].lastReview=Date.now();
+  }
+  S.cards[idx].reviews=(S.cards[idx].reviews||0)+1;
+  save();
+  S.currentCard=null;S.flipped=false;render();
+}
+
+// ===== BROWSE =====
+function renderBrowse(d){
+  const cards=getDeckCards(S.deck);
+  if(!cards.length)return`<div class="card card-empty">카드가 없어요!</div>`;
+
+  return`<div class="row-between mb-12">
+    <span style="font-size:13px;color:var(--t3)">${cards.length}개 카드</span>
+    <div class="row" style="gap:6px">
+      <button class="btn btn-sm" onclick="resetDeck()">레벨 초기화</button>
+      <button class="btn btn-sm btn-danger" onclick="deleteDeck()">전체 삭제</button>
+    </div>
+  </div>
+  ${cards.sort((a,b)=>(a.level||0)-(b.level||0)).map(c=>{
+    const due=isDue(c);
+    const lvl=c.level||0;
+    const lvlColor=lvl>=4?"var(--green)":lvl>=2?"var(--amber)":"var(--red)";
+    return`<div class="card" style="border-left:3px solid ${lvlColor}">
+      <div class="row-between mb-8">
+        <span style="font-size:12px;color:${d.color};font-weight:600">${c.tag||""}</span>
+        <div class="row" style="gap:6px">
+          ${due?'<span style="font-size:10px;padding:2px 6px;border-radius:8px;background:rgba(245,166,35,.12);color:var(--amber)">복습</span>':""}
+          <span style="font-size:11px;color:var(--t3)">Lv.${lvl}</span>
+        </div>
+      </div>
+      <div style="font-size:14px;font-weight:600;margin-bottom:4px">${c.front}</div>
+      <div style="font-size:13px;color:var(--t2);line-height:1.5">${c.back}</div>
+    </div>`;
+  }).join("")}`;
+}
+
+function resetDeck(){
+  if(!confirm("이 덱의 레벨을 전부 초기화할까요?"))return;
+  S.cards=S.cards.map(c=>c.deck===S.deck?{...c,level:0,lastReview:null,reviews:0}:c);
+  save();render();
+}
+function deleteDeck(){
+  if(!confirm("이 덱의 카드를 전부 삭제할까요?"))return;
+  S.cards=S.cards.filter(c=>c.deck!==S.deck);
+  save();render();
+}
+
+// ===== ADD =====
+function renderAdd(d){
+  const dk=DECKS[S.deck];
+  return`<div class="fade-in">
+    <div class="section-title">카드 추가</div>
+    <div class="section-sub">직접 입력하거나, AI가 생성한 JSON을 붙여넣으세요</div>
+
+    <!-- Manual add -->
+    <div class="card mb-16">
+      <div style="font-size:13px;font-weight:600;margin-bottom:8px">직접 추가</div>
+      <input id="addFront" placeholder="앞면 (문제/단어/공식)" style="width:100%;padding:10px 12px;border-radius:var(--radius-sm);border:1px solid var(--bg3);background:var(--bg);color:var(--t1);font-size:14px;margin-bottom:8px;font-family:inherit">
+      <textarea id="addBack" placeholder="뒷면 (답/뜻/설명)" style="width:100%;padding:10px 12px;border-radius:var(--radius-sm);border:1px solid var(--bg3);background:var(--bg);color:var(--t1);font-size:14px;min-height:60px;resize:vertical;font-family:inherit;margin-bottom:8px"></textarea>
+      <input id="addTag" placeholder="태그 (선택, 예: 합성함수)" style="width:100%;padding:10px 12px;border-radius:var(--radius-sm);border:1px solid var(--bg3);background:var(--bg);color:var(--t1);font-size:13px;margin-bottom:10px;font-family:inherit">
+      <button class="btn btn-primary btn-full" style="background:${dk.color}" onclick="addManual()">카드 추가</button>
+      <div id="manualStatus"></div>
+    </div>
+
+    <!-- JSON import -->
+    <div class="card mb-16">
+      <div style="font-size:13px;font-weight:600;margin-bottom:8px">JSON 일괄 추가</div>
+      <div class="card" style="cursor:pointer;padding:12px;background:var(--bg)" onclick="this.querySelector('.pi').classList.toggle('hidden')">
+        <div class="row-between"><span style="font-size:12px">AI 프롬프트 보기</span><span style="font-size:11px;color:var(--t3)">탭</span></div>
+        <div class="pi hidden mt-8">
+          <div class="prompt-box">${dk.prompt}</div>
+          <button class="btn btn-primary btn-full mt-8" style="background:${dk.color}" onclick="event.stopPropagation();navigator.clipboard.writeText(this.closest('.card').querySelector('.prompt-box').textContent);document.getElementById('jsonStatus').innerHTML='<div class=\\'status-msg status-ok\\'>프롬프트 복사!</div>';setTimeout(()=>document.getElementById('jsonStatus').innerHTML='',2000)">프롬프트 복사</button>
+        </div>
+      </div>
+      <textarea class="textarea mt-8" id="jsonInput" placeholder='[{"front":"...", "back":"...", "tag":"..."}]'></textarea>
+      <button class="btn btn-primary btn-full mt-8" style="background:${dk.color}" onclick="importJSON()">일괄 추가</button>
+      <div id="jsonStatus"></div>
+    </div>
+  </div>`;
+}
+
+function addManual(){
+  const front=document.getElementById("addFront").value.trim();
+  const back=document.getElementById("addBack").value.trim();
+  const tag=document.getElementById("addTag").value.trim();
+  if(!front||!back){document.getElementById("manualStatus").innerHTML='<div class="status-msg status-err">앞면과 뒷면을 모두 입력하세요</div>';return}
+  S.cards.push({id:`${S.deck}-${Date.now()}`,deck:S.deck,front,back,tag:tag||"",level:0,lastReview:null,reviews:0});
+  save();
+  document.getElementById("addFront").value="";
+  document.getElementById("addBack").value="";
+  document.getElementById("addTag").value="";
+  document.getElementById("manualStatus").innerHTML='<div class="status-msg status-ok">카드 추가 완료!</div>';
+  setTimeout(()=>{if(document.getElementById("manualStatus"))document.getElementById("manualStatus").innerHTML=""},2000);
+  render();
+}
+
+function importJSON(){
+  try{
+    let raw=document.getElementById("jsonInput").value.trim().replace(/```json|```/g,"").trim();
+    const parsed=JSON.parse(raw);
+    const arr=Array.isArray(parsed)?parsed:[parsed];
+    const valid=arr.filter(c=>c.front&&c.back);
+    if(!valid.length){document.getElementById("jsonStatus").innerHTML='<div class="status-msg status-err">유효한 카드 없음</div>';return}
+    valid.forEach((c,i)=>{
+      S.cards.push({id:`${S.deck}-${Date.now()}-${i}`,deck:S.deck,front:c.front,back:c.back,tag:c.tag||"",level:0,lastReview:null,reviews:0});
+    });
+    save();
+    document.getElementById("jsonInput").value="";
+    document.getElementById("jsonStatus").innerHTML=`<div class="status-msg status-ok">${valid.length}개 카드 추가!</div>`;
+    render();
+  }catch(e){
+    document.getElementById("jsonStatus").innerHTML=`<div class="status-msg status-err">JSON 오류: ${e.message}</div>`;
+  }
+}
+
+render();
+</script>
+</body>
+</html>
