@@ -1,12 +1,17 @@
 {
-  "lastUpdated": "2026-03-31T09:00:00Z",
+  "lastUpdated": "2026-03-31T22:58:59.721512",
   "questions": [
     {
       "id": "calc-20260331-001",
       "subject": "calculus",
       "topic": "미분계수와 도함수",
       "question": "함수 f(x) = x³ - 3x + 1에서 f'(2)의 값은?",
-      "options": ["① 6", "② 9", "③ 12", "④ 15"],
+      "options": [
+        "① 6",
+        "② 9",
+        "③ 12",
+        "④ 15"
+      ],
       "answer": 1,
       "explanation": "f'(x) = 3x² - 3이므로 f'(2) = 3(4) - 3 = 12 - 3 = 9",
       "difficulty": "하"
@@ -16,7 +21,12 @@
       "subject": "calculus",
       "topic": "접선의 방정식",
       "question": "곡선 y = x² + 2x 위의 점 (1, 3)에서의 접선의 기울기는?",
-      "options": ["① 2", "② 3", "③ 4", "④ 5"],
+      "options": [
+        "① 2",
+        "② 3",
+        "③ 4",
+        "④ 5"
+      ],
       "answer": 2,
       "explanation": "y' = 2x + 2이므로 x = 1에서 기울기 = 2(1) + 2 = 4",
       "difficulty": "하"
@@ -26,7 +36,12 @@
       "subject": "calculus",
       "topic": "합성함수 미분",
       "question": "f(x) = sin(x²)일 때, f'(x)는?",
-      "options": ["① cos(x²)", "② 2x·cos(x²)", "③ 2x·sin(x²)", "④ x²·cos(x²)"],
+      "options": [
+        "① cos(x²)",
+        "② 2x·cos(x²)",
+        "③ 2x·sin(x²)",
+        "④ x²·cos(x²)"
+      ],
       "answer": 1,
       "explanation": "합성함수 미분법: f'(x) = cos(x²) · (x²)' = cos(x²) · 2x = 2x·cos(x²)",
       "difficulty": "중"
@@ -36,7 +51,12 @@
       "subject": "calculus",
       "topic": "합성함수 미분",
       "question": "y = (3x + 1)⁵일 때, dy/dx는?",
-      "options": ["① 5(3x+1)⁴", "② 15(3x+1)⁴", "③ 3(3x+1)⁵", "④ 5·3(3x+1)³"],
+      "options": [
+        "① 5(3x+1)⁴",
+        "② 15(3x+1)⁴",
+        "③ 3(3x+1)⁵",
+        "④ 5·3(3x+1)³"
+      ],
       "answer": 1,
       "explanation": "체인룰: dy/dx = 5(3x+1)⁴ · 3 = 15(3x+1)⁴",
       "difficulty": "중"
@@ -46,7 +66,12 @@
       "subject": "calculus",
       "topic": "삼각함수 도함수",
       "question": "d/dx [tan(x)]는?",
-      "options": ["① sec(x)", "② sec²(x)", "③ csc²(x)", "④ -csc²(x)"],
+      "options": [
+        "① sec(x)",
+        "② sec²(x)",
+        "③ csc²(x)",
+        "④ -csc²(x)"
+      ],
       "answer": 1,
       "explanation": "tan(x) = sin(x)/cos(x)를 몫의 미분법으로 미분하면 sec²(x)",
       "difficulty": "중"
@@ -56,7 +81,12 @@
       "subject": "calculus",
       "topic": "지수함수 도함수",
       "question": "f(x) = e^(3x)일 때, f'(x)는?",
-      "options": ["① e^(3x)", "② 3e^(3x)", "③ 3xe^(3x)", "④ e^(3x)/3"],
+      "options": [
+        "① e^(3x)",
+        "② 3e^(3x)",
+        "③ 3xe^(3x)",
+        "④ e^(3x)/3"
+      ],
       "answer": 1,
       "explanation": "합성함수 미분: f'(x) = e^(3x) · 3 = 3e^(3x)",
       "difficulty": "중"
@@ -66,7 +96,12 @@
       "subject": "calculus",
       "topic": "로그함수 도함수",
       "question": "f(x) = ln(x² + 1)일 때, f'(x)는?",
-      "options": ["① 1/(x²+1)", "② 2x/(x²+1)", "③ x/(x²+1)", "④ 2/(x²+1)"],
+      "options": [
+        "① 1/(x²+1)",
+        "② 2x/(x²+1)",
+        "③ x/(x²+1)",
+        "④ 2/(x²+1)"
+      ],
       "answer": 1,
       "explanation": "f'(x) = 1/(x²+1) · 2x = 2x/(x²+1)",
       "difficulty": "중"
@@ -76,7 +111,12 @@
       "subject": "calculus",
       "topic": "음함수 미분",
       "question": "x² + y² = 25일 때, dy/dx는?",
-      "options": ["① -x/y", "② x/y", "③ -y/x", "④ y/x"],
+      "options": [
+        "① -x/y",
+        "② x/y",
+        "③ -y/x",
+        "④ y/x"
+      ],
       "answer": 0,
       "explanation": "양변을 x에 대해 미분: 2x + 2y·(dy/dx) = 0 → dy/dx = -x/y",
       "difficulty": "중"
@@ -86,7 +126,12 @@
       "subject": "calculus",
       "topic": "매개변수 미분",
       "question": "x = t², y = t³일 때, dy/dx는?",
-      "options": ["① 3t/2", "② 2t/3", "③ 3t²/2t", "④ t/2"],
+      "options": [
+        "① 3t/2",
+        "② 2t/3",
+        "③ 3t²/2t",
+        "④ t/2"
+      ],
       "answer": 0,
       "explanation": "dy/dx = (dy/dt)/(dx/dt) = 3t²/2t = 3t/2",
       "difficulty": "중"
@@ -96,7 +141,12 @@
       "subject": "calculus",
       "topic": "역함수 미분",
       "question": "f(x) = x³ + x이고 f(1) = 2일 때, (f⁻¹)'(2)의 값은?",
-      "options": ["① 1/4", "② 1/3", "③ 1/2", "④ 4"],
+      "options": [
+        "① 1/4",
+        "② 1/3",
+        "③ 1/2",
+        "④ 4"
+      ],
       "answer": 0,
       "explanation": "(f⁻¹)'(b) = 1/f'(a) (단, f(a)=b). f'(x) = 3x²+1이므로 f'(1) = 4. 따라서 (f⁻¹)'(2) = 1/4",
       "difficulty": "상"
@@ -106,7 +156,12 @@
       "subject": "english",
       "topic": "빈칸추론",
       "question": "다음 빈칸에 들어갈 말로 가장 적절한 것은?\n\nThe greatest obstacle to discovery is not ignorance — it is the illusion of ________.",
-      "options": ["① knowledge", "② power", "③ freedom", "④ wealth"],
+      "options": [
+        "① knowledge",
+        "② power",
+        "③ freedom",
+        "④ wealth"
+      ],
       "answer": 0,
       "explanation": "무지가 아니라 '안다는 착각'이 발견의 가장 큰 장애물이라는 문맥. illusion of knowledge(지식의 환상)가 적절하다.",
       "difficulty": "중"
@@ -116,7 +171,12 @@
       "subject": "english",
       "topic": "어휘",
       "question": "밑줄 친 'ubiquitous'의 의미와 가장 가까운 것은?\n\nSmartphones have become ubiquitous in modern society.",
-      "options": ["① expensive", "② omnipresent", "③ obsolete", "④ controversial"],
+      "options": [
+        "① expensive",
+        "② omnipresent",
+        "③ obsolete",
+        "④ controversial"
+      ],
       "answer": 1,
       "explanation": "ubiquitous = 어디에나 있는, 편재하는. omnipresent와 동의어이다.",
       "difficulty": "중"
@@ -126,7 +186,12 @@
       "subject": "english",
       "topic": "문법",
       "question": "다음 중 어법상 올바른 문장은?",
-      "options": ["① Had I known, I would have helped.", "② Had I known, I will have helped.", "③ If I know, I would have helped.", "④ Had I known, I would helped."],
+      "options": [
+        "① Had I known, I would have helped.",
+        "② Had I known, I will have helped.",
+        "③ If I know, I would have helped.",
+        "④ Had I known, I would helped."
+      ],
       "answer": 0,
       "explanation": "가정법 과거완료의 도치 구문: Had + S + p.p., S + would have + p.p. 가 올바른 형태이다.",
       "difficulty": "중"
@@ -136,7 +201,12 @@
       "subject": "english",
       "topic": "순서배열",
       "question": "주어진 글 다음에 이어질 글의 순서로 가장 적절한 것은?\n\nResearchers found that people who regularly engage in creative activities show higher levels of well-being.\n(A) However, the benefits were not limited to artistic pursuits.\n(B) Even simple activities like cooking or gardening counted.\n(C) This suggests that creativity itself, not the specific activity, drives the positive effects.",
-      "options": ["① (A)-(B)-(C)", "② (A)-(C)-(B)", "③ (B)-(A)-(C)", "④ (C)-(A)-(B)"],
+      "options": [
+        "① (A)-(B)-(C)",
+        "② (A)-(C)-(B)",
+        "③ (B)-(A)-(C)",
+        "④ (C)-(A)-(B)"
+      ],
       "answer": 0,
       "explanation": "창의적 활동의 효과 → (A) 그러나 예술에만 한정되지 않음 → (B) 요리나 정원 가꾸기도 포함 → (C) 결론: 활동 자체가 아닌 창의성이 핵심",
       "difficulty": "중"
@@ -146,7 +216,12 @@
       "subject": "english",
       "topic": "수능특강 독해",
       "question": "다음 글의 주제로 가장 적절한 것은?\n\nWhen we label people, we tend to see them only through the lens of that label. A student called 'gifted' may feel pressure to always perform, while one labeled 'slow' may stop trying altogether.",
-      "options": ["① 영재 교육의 필요성", "② 라벨링이 행동에 미치는 영향", "③ 학업 성취도의 결정 요인", "④ 교사와 학생의 관계 개선 방법"],
+      "options": [
+        "① 영재 교육의 필요성",
+        "② 라벨링이 행동에 미치는 영향",
+        "③ 학업 성취도의 결정 요인",
+        "④ 교사와 학생의 관계 개선 방법"
+      ],
       "answer": 1,
       "explanation": "라벨(명칭)을 붙이면 그 렌즈로만 보게 되고, 영재/느린 학생 라벨이 행동에 실제로 영향을 준다는 내용이므로 주제는 '라벨링이 행동에 미치는 영향'이다.",
       "difficulty": "중"
@@ -156,7 +231,12 @@
       "subject": "english",
       "topic": "문장삽입",
       "question": "다음 문장이 들어가기에 가장 적절한 곳은?\n\n\"Yet this assumption often proves false.\"\n\n( ① ) People generally believe that more choices lead to greater satisfaction. ( ② ) Research by Barry Schwartz shows that an abundance of options can actually cause anxiety. ( ③ ) This phenomenon, known as the 'paradox of choice,' suggests that limiting options may improve decision-making. ( ④ )",
-      "options": ["① ①", "② ②", "③ ③", "④ ④"],
+      "options": [
+        "① ①",
+        "② ②",
+        "③ ③",
+        "④ ④"
+      ],
       "answer": 1,
       "explanation": "'더 많은 선택 = 더 큰 만족'이라는 가정(assumption)을 먼저 제시한 뒤, '그러나 이 가정은 틀린 경우가 많다'가 와야 자연스럽다. ② 위치가 적절하다.",
       "difficulty": "상"
@@ -166,7 +246,12 @@
       "subject": "korean",
       "topic": "화법 이론",
       "question": "다음 중 '공감적 듣기'의 방법으로 적절하지 않은 것은?",
-      "options": ["① 상대방의 감정을 인정하는 반응을 보인다", "② 상대방의 말을 요약하여 되물어본다", "③ 자신의 유사한 경험을 즉시 이야기한다", "④ 비언어적 표현(고개 끄덕임 등)으로 경청을 표현한다"],
+      "options": [
+        "① 상대방의 감정을 인정하는 반응을 보인다",
+        "② 상대방의 말을 요약하여 되물어본다",
+        "③ 자신의 유사한 경험을 즉시 이야기한다",
+        "④ 비언어적 표현(고개 끄덕임 등)으로 경청을 표현한다"
+      ],
       "answer": 2,
       "explanation": "공감적 듣기는 상대의 감정과 말에 집중하는 것이 핵심. 자신의 경험을 즉시 이야기하는 것은 대화의 초점을 자신에게로 옮기는 것이므로 부적절하다.",
       "difficulty": "중"
@@ -176,7 +261,12 @@
       "subject": "korean",
       "topic": "작문 이론",
       "question": "글을 수정할 때 '고쳐쓰기'의 원리로 적절하지 않은 것은?",
-      "options": ["① 문장 성분 간의 호응이 적절한지 확인한다", "② 불필요한 반복 표현을 삭제한다", "③ 글의 통일성을 위해 주제와 무관한 내용을 삭제한다", "④ 문체의 다양성을 위해 한 단락 안에서 격식체와 비격식체를 혼용한다"],
+      "options": [
+        "① 문장 성분 간의 호응이 적절한지 확인한다",
+        "② 불필요한 반복 표현을 삭제한다",
+        "③ 글의 통일성을 위해 주제와 무관한 내용을 삭제한다",
+        "④ 문체의 다양성을 위해 한 단락 안에서 격식체와 비격식체를 혼용한다"
+      ],
       "answer": 3,
       "explanation": "고쳐쓰기에서는 문체의 일관성이 중요하다. 한 단락 안에서 격식체와 비격식체를 혼용하면 통일성이 깨진다.",
       "difficulty": "중"
@@ -186,7 +276,12 @@
       "subject": "korean",
       "topic": "화법 이론",
       "question": "토론에서 '반론'의 역할로 가장 적절한 것은?",
-      "options": ["① 상대측 주장의 근거를 약화시키는 것", "② 자기 측 주장을 반복 강조하는 것", "③ 새로운 논제를 제시하는 것", "④ 청중의 감정에 호소하는 것"],
+      "options": [
+        "① 상대측 주장의 근거를 약화시키는 것",
+        "② 자기 측 주장을 반복 강조하는 것",
+        "③ 새로운 논제를 제시하는 것",
+        "④ 청중의 감정에 호소하는 것"
+      ],
       "answer": 0,
       "explanation": "반론(반박)은 상대측이 제시한 주장의 근거나 논리의 허점을 지적하여 그 타당성을 약화시키는 역할을 한다.",
       "difficulty": "하"
@@ -196,7 +291,12 @@
       "subject": "korean",
       "topic": "작문 이론",
       "question": "다음 중 '설득하는 글쓰기'에서 논증의 타당성을 높이는 방법으로 적절하지 않은 것은?",
-      "options": ["① 신뢰할 수 있는 통계 자료를 활용한다", "② 전문가의 견해를 인용한다", "③ 구체적인 사례를 들어 뒷받침한다", "④ 감정에 호소하는 표현을 주된 근거로 사용한다"],
+      "options": [
+        "① 신뢰할 수 있는 통계 자료를 활용한다",
+        "② 전문가의 견해를 인용한다",
+        "③ 구체적인 사례를 들어 뒷받침한다",
+        "④ 감정에 호소하는 표현을 주된 근거로 사용한다"
+      ],
       "answer": 3,
       "explanation": "논증의 타당성은 객관적 근거(통계, 전문가 견해, 사례)로 높인다. 감정 호소는 보조적 전략일 수 있으나 주된 근거로 쓰면 논리적 타당성이 떨어진다.",
       "difficulty": "중"
@@ -206,10 +306,150 @@
       "subject": "korean",
       "topic": "화법 이론",
       "question": "면접에서 면접관의 질문 의도를 파악하여 답변하는 전략으로 적절하지 않은 것은?",
-      "options": ["① 질문의 핵심을 파악한 후 두괄식으로 답변한다", "② 자신의 경험을 구체적으로 들어 답변한다", "③ 질문과 무관하더라도 자신의 강점을 최대한 어필한다", "④ 모르는 내용은 솔직히 인정하고 배우겠다는 자세를 보인다"],
+      "options": [
+        "① 질문의 핵심을 파악한 후 두괄식으로 답변한다",
+        "② 자신의 경험을 구체적으로 들어 답변한다",
+        "③ 질문과 무관하더라도 자신의 강점을 최대한 어필한다",
+        "④ 모르는 내용은 솔직히 인정하고 배우겠다는 자세를 보인다"
+      ],
       "answer": 2,
       "explanation": "면접 답변은 질문 의도에 맞게 해야 한다. 질문과 무관한 내용을 말하면 의사소통 능력이 부족하다는 인상을 줄 수 있다.",
       "difficulty": "하"
+    },
+    {
+      "id": "calc-20260331-101",
+      "subject": "calculus",
+      "topic": "매개변수 미분",
+      "question": "매개변수 t로 나타낸 곡선 x = t^2 + 2, y = t^3 + t - 1 에서 t=1일 때 dy/dx 의 값은?",
+      "options": [
+        "① 1",
+        "② 2",
+        "③ 3",
+        "④ 4"
+      ],
+      "answer": 1,
+      "explanation": "x와 y를 각각 t에 대하여 미분하면 dx/dt = 2t 이고 dy/dt = 3t^2 + 1 입니다. 따라서 dy/dx = (dy/dt) / (dx/dt) = (3t^2 + 1) / 2t 입니다. t=1 을 대입하면 (3(1)^2 + 1) / (2(1)) = 4 / 2 = 2 입니다.",
+      "difficulty": "하"
+    },
+    {
+      "id": "calc-20260331-102",
+      "subject": "calculus",
+      "topic": "매개변수 미분",
+      "question": "매개변수 t 로 나타낸 곡선 x = t^2 + tan t, y = e^t - 2at 에 대하여 t=0일 때 dy/dx 의 값이 -3이다. 상수 a의 값은?",
+      "options": [
+        "① 1",
+        "② 2",
+        "③ 3",
+        "④ 4"
+      ],
+      "answer": 1,
+      "explanation": "x와 y를 각각 t에 대하여 미분하면 dx/dt = 2t + sec^2 t, dy/dt = e^t - 2a 입니다. t=0일 때 dx/dt = 0 + sec^2(0) = 1 이고, dy/dt = e^0 - 2a = 1 - 2a 입니다. 따라서 t=0일 때 dy/dx = (1 - 2a) / 1 = 1 - 2a 이며, 이 값이 -3이므로 1 - 2a = -3, 즉 2a = 4 에서 a = 2 입니다.",
+      "difficulty": "중"
+    },
+    {
+      "id": "calc-20260331-103",
+      "subject": "calculus",
+      "topic": "매개변수 미분",
+      "question": "매개변수 t (t > 0)로 나타낸 곡선 x = t + 2 ln t, y = t^3 - 12t 에 대하여 dy/dx 의 최솟값은?",
+      "options": [
+        "① -5",
+        "② -3",
+        "③ -1",
+        "④ 1"
+      ],
+      "answer": 1,
+      "explanation": "x와 y를 각각 t에 대하여 미분하면 dx/dt = 1 + 2/t = (t+2)/t 이고, dy/dt = 3t^2 - 12 = 3(t^2 - 4) 입니다. 따라서 dy/dx = (dy/dt) / (dx/dt) = 3(t^2 - 4) / ((t+2)/t) = 3t(t^2 - 4) / (t+2) = 3t(t-2)(t+2) / (t+2) = 3t(t-2) = 3t^2 - 6t = 3(t-1)^2 - 3 입니다. (단, t>0 이므로 t+2 > 0). 이차함수의 성질에 의해 t=1 일 때 dy/dx는 최솟값 -3 을 가집니다.",
+      "difficulty": "상"
+    },
+    {
+      "id": "eng-20260331-101",
+      "subject": "english",
+      "topic": "빈칸 추론",
+      "question": "다음 빈칸에 들어갈 말로 가장 적절한 것은?\n\nDigital platforms have made a lot of work less sticky. As work becomes ever more modularised, commoditised and standardised, and as markets for digital work are created, ties between service work and particular places can be disconnected. While the business process of outsourcing that emerged in the 1990s allowed large companies to take advantage of a 'global reserve army' by moving their call centres to cheap and distant labour markets, cloudwork changes the volume and granularity at which geographically non-proximate work can take place. A small business in New York can hire a freelance transcriber in Nairobi one day and New Delhi the next. No offices or factories need to be built, no local regulations are observed, and — in most cases — no local taxes are paid. The switch in the production network of work happens by simply sending some emails or clicking some buttons on a digital work platform. And, in this way, the employer ________________.",
+      "options": [
+        "① leaves behind no material traces in the places where it was once an employer",
+        "② must strictly observe the local regulations and pay local taxes",
+        "③ builds new factories to connect with geographically proximate workers",
+        "④ fails to hire freelance transcribers from different countries"
+      ],
+      "answer": 0,
+      "explanation": "디지털 플랫폼과 클라우드 노동으로 인해 고용주가 특정 지역에 물리적인 사무실이나 공장을 지을 필요 없이 이메일과 버튼 클릭만으로 노동 생산 네트워크를 이동할 수 있으므로, 과거에 고용주로 있었던 장소에 물리적 흔적을 남기지 않는다는 ①이 가장 적절합니다.",
+      "difficulty": "중"
+    },
+    {
+      "id": "eng-20260331-102",
+      "subject": "english",
+      "topic": "어휘",
+      "question": "다음 글의 괄호 (A), (B)에 들어갈 문맥상 알맞은 어휘로 짝지어진 것은?\n\nThe study of literature has repeatedly failed to recognize the influence of modern musical lyricists and their contributions to the evolution of language. Unlike Shakespeare, who has been studied and (A) [celebrated / ignored] for his development of the English language, particularly in vocabulary and grammatical structure, modern songwriters have experienced restraints on the acknowledgement of their contributions and largely been (B) [acknowledged / ignored]. Over the past century, we have witnessed an explosion of incredible literary works by these artists, who, through their music, have used linguistic manipulation and storytelling to enrich our language and literature.",
+      "options": [
+        "① (A) celebrated - (B) ignored",
+        "② (A) celebrated - (B) acknowledged",
+        "③ (A) ignored - (B) ignored",
+        "④ (A) ignored - (B) acknowledged"
+      ],
+      "answer": 0,
+      "explanation": "셰익스피어는 영단어 및 문법 구조 발달에 기여한 것으로 '칭송받았으므로(celebrated)', 이와 대조적으로 현대 작사가들은 훌륭한 문학적 기여에도 불구하고 주로 '무시되어(ignored)' 왔다는 흐름이 문맥상 자연스럽습니다.",
+      "difficulty": "하"
+    },
+    {
+      "id": "eng-20260331-103",
+      "subject": "english",
+      "topic": "문장 삽입",
+      "question": "글의 흐름으로 보아, 주어진 문장이 들어가기에 가장 적절한 곳은?\n\n[주어진 문장] But transit is only there if it's coming soon.\n\nRoads are there all the time, so their speed is the most important fact that distinguishes them. ( ① ) If you have a car, you can use a road whenever you want and experience its speed. ( ② ) But transit has to exist when you need it (span), and it needs to be coming soon (frequency). ( ③ ) Otherwise, waiting time will wipe out any time savings from a faster service. ( ④ ) Unless you're comfortable planning your life around a particular scheduled trip, speed is worthless without frequency, so a transit map that screams about speed and whispers about frequency may simply be planting confusion.",
+      "options": [
+        "①",
+        "②",
+        "③",
+        "④"
+      ],
+      "answer": 0,
+      "explanation": "도로는 항상 그곳에 있어 속도가 가장 중요하지만, '대중교통(transit)은 곧 올 때만 그곳에 존재한다'는 내용이 도로와 대비되며 제시되어야 합니다. 그 뒤에 자동차(원할 때 언제든 이용)와 대중교통(운행 빈도와 시간대의 제약)의 차이를 구체적으로 대비하는 문장들이 이어지므로 ① 자리가 가장 적절합니다.",
+      "difficulty": "중"
+    },
+    {
+      "id": "eng-20260331-104",
+      "subject": "english",
+      "topic": "순서 배열",
+      "question": "주어진 글 다음에 이어질 글의 순서로 가장 적절한 것은?\n\nWe are exceptionally smart, and this helps us adapt to a wide range of environments. But we are not nearly smart enough as individuals to solve the adaptive problems that confronted modern humans as they spread across the globe.\n\n(A) We are much better at learning from others than other species are, and we are motivated to learn from others even when we do not understand why our models are doing what they are doing.\n(B) This psychology allows human populations to accumulate pools of adaptive information that greatly exceed the inventive capacities of individuals.\n(C) The package of tools, foraging techniques, ecological knowledge, and social arrangements used by any group of foragers is far too complex for any individual to create. We are able to learn all the things we need to know in each of the many different environments in which we live only because we acquire information from others.",
+      "options": [
+        "① (C) - (A) - (B)",
+        "② (A) - (B) - (C)",
+        "③ (B) - (C) - (A)",
+        "④ (C) - (B) - (A)"
+      ],
+      "answer": 0,
+      "explanation": "개인이 환경 적응 문제를 독자적으로 해결할 만큼 충분히 똑똑하지 않다는 주어진 문장 뒤에는, 개인이 창조하기엔 기술과 지식이 너무 복잡하여 타인으로부터 정보를 습득해야 한다는 (C)가 이어져야 합니다. 그 후 인간이 타 생물종보다 다른 사람으로부터 배우는 것에 뛰어나다는 내용의 (A)가 오고, 마지막으로 이러한 심리가 개인의 발명 능력을 뛰어넘는 적응적 정보의 축적을 가능하게 한다는 (B)가 오는 것이 논리적입니다.",
+      "difficulty": "상"
+    },
+    {
+      "id": "kor-20260331-101",
+      "subject": "korean",
+      "topic": "화법의 원리",
+      "question": "다음 상황에서 '나-전달법'에 따라 말한 것으로 가장 적절한 것은?\n[상황] 모둠장인 나는 발표를 해야 하는데, 모둠원인 친구가 모둠 활동 자료를 제때 완성하지 않아 걱정이 많이 되는 상황이다.",
+      "options": [
+        "① 네가 이번 모둠 활동 준비를 제대로 하지 않아서 나머지 모둠원들에게 큰 피해를 준 것 같아.",
+        "② 나는 모둠 활동을 위해서 어제 늦은 시간까지 준비했는데, 너는 무책임하게 모둠 활동 자료를 완성하지 않은 채 가지고 왔어.",
+        "③ 나는 모둠장으로서 발표를 해야 하는데, 모둠 활동 자료가 제때 완성되지 않아서 준비가 늦어질까 봐 걱정이 많이 되었어. 앞으로는 자료 완성이 어려우면 미리 이야기해서 함께 해결 방법을 찾았으면 좋겠어.",
+        "④ 너는 다른 친구들과 달리 모둠 활동을 준비하려는 노력이 많이 부족했던 것 같아. 다음 모둠 활동을 할 때에는 다른 사람의 입장도 생각해야 해."
+      ],
+      "answer": 2,
+      "explanation": "'나-전달법'은 자신을 주어로 하여 상대방의 행동에 대한 자신의 감정을 비난 없이 솔직하게 표현하고, 바라는 바를 긍정적으로 전달하는 대화 방법입니다\n1\n. ③은 '나'를 주어로 사건(자료 미완성), 감정(걱정), 기대(미리 이야기해서 함께 해결)를 잘 담고 있습니다\n2\n. ①, ②, ④는 상대방을 비난하거나 억압하는 표현이 포함된 '너-전달법'에 해당하므로 적절하지 않습니다\n2\n3\n.",
+      "difficulty": "중"
+    },
+    {
+      "id": "kor-20260331-102",
+      "subject": "korean",
+      "topic": "작문의 원리",
+      "question": "' 관광 지구에 관광세를 도입해야 한다'는 주장의 글을 보완하기 위해 수집한 자료의 활용 방안으로 적절하지 않은 것은?\n[자료 1] 4월과 10월에 관광객 수가 다른 달에 비해 월등히 많은 통계 자료\n[자료 2] 관광객 밀집도 완화를 위해 관광세를 부과한 해외 도시 사례 기사",
+      "options": [
+        "① [자료 1]을 활용하여, 4월과 10월이 한시적 관광세 도입이 필요한 시기라는 점을 뒷받침한다.",
+        "② [자료 2]를 활용하여,  관광 지구에 도입하고자 하는 관광세 정책의 구체적 사례로 제시한다.",
+        "③ [자료 2]를 활용하여, 관광세 도입을 통해 관광객 밀집도가 완화될 수 있다는 기대 효과를 강조한다.",
+        "④ [자료 1]과 [자료 2]를 활용하여, 관광세가 도입되면 해당 지구의 관광 산업이 양적으로 크게 팽창할 것임을 입증한다."
+      ],
+      "answer": 3,
+      "explanation": "관광세 도입 주장은 특정 시기에 과도하게 몰리는 관광객을 분산시키고 관광 여건을 개선하여 지역 문제를 해결하려는 목적을 가집니다\n4\n5\n. 따라서 수집한 자료를 활용하여 관광 산업의 양적 팽창을 입증한다는 ④의 활용 방안은 글의 주장 및 목적에 부합하지 않아 적절하지 않습니다\n6\n7\n.",
+      "difficulty": "중"
     }
   ],
   "cards": [
@@ -352,6 +592,55 @@
       "front": "선택의 역설 (Paradox of Choice)",
       "back": "더 많은 선택지 ≠ 더 큰 만족\nBarry Schwartz 연구: 선택지 과다 → 불안 유발\n→ 선택지를 제한하면 의사결정이 개선됨",
       "tag": "수특 2강"
+    },
+    {
+      "id": "calc-card-20260331-100",
+      "deck": "calc",
+      "front": "매개변수로 나타낸 함수의 미분법",
+      "back": "매개변수 t로 나타낸 함수 x=f(t), y=g(t)에서 두 함수 f(t), g(t)가 미분가능하고 f'(t) ≠ 0일 때, dy/dx = (dy/dt) / (dx/dt) = g'(t) / f'(t) 이다.",
+      "tag": "매개변수 미분"
+    },
+    {
+      "id": "eng-card-20260331-101",
+      "deck": "engsum",
+      "front": "3강 / 디지털 플랫폼과 클라우드 노동",
+      "back": "요약: 디지털 플랫폼은 서비스 노동과 특정 장소 간의 연결을 끊고 비지역적 클라우드 노동을 가능하게 한다.\n핵심 논지: 기업은 지역 사무실을 짓거나 현지 규정을 따를 필요 없이 디지털 플랫폼을 통해 다른 국가의 프리랜서를 고용할 수 있으며, 이로 인해 노동의 공간적 제약이 사라진다.\n주요 어휘: sticky (끈끈한), modularised (모듈화된), non-proximate (비지역적인), trace (흔적)",
+      "tag": "3강"
+    },
+    {
+      "id": "eng-card-20260331-102",
+      "deck": "engsum",
+      "front": "5강 / 현대 작사가들의 문학적 기여",
+      "back": "요약: 문학계는 현대 작사가들이 언어와 문학에 미친 놀라운 기여를 문학의 영역으로 인정해야 한다.\n핵심 논지: 셰익스피어가 영단어 발전에 미친 영향으로 칭송받는 것과 달리 현대 작사가들은 크게 무시되어 왔으나, 이들 역시 복합적인 심상을 띠는 가사를 통해 우리 언어와 문학을 풍요롭게 했다.\n주요 어휘: lyricist (작사가), restraint (제약), manipulation (조작, 솜씨 있게 다루기), imagery (심상)",
+      "tag": "5강"
+    },
+    {
+      "id": "eng-card-20260331-103",
+      "deck": "engsum",
+      "front": "6강 / 대중교통에서 운행 빈도의 중요성",
+      "back": "요약: 대중교통 시스템은 속도보다 원할 때 바로 이용할 수 있는 운행 빈도가 보장되어야 그 가치가 있다.\n핵심 논지: 항상 그 자리에 있는 도로와 달리 대중교통은 다가오고 있어야만 이용이 가능하므로, 빈도(frequency)가 뒷받침되지 않는 속도(speed)의 단축은 대기 시간으로 인해 무의미해진다.\n주요 어휘: frequency (빈도), timetable (시간표), transit (대중교통), worthless (가치 없는)",
+      "tag": "6강"
+    },
+    {
+      "id": "eng-card-20260331-104",
+      "deck": "engsum",
+      "front": "11강 / 적응과 집단적 정보 축적",
+      "back": "요약: 인류가 전 세계의 다양한 환경에 적응할 수 있었던 것은 타인으로부터 배우고 정보를 축적하는 집단적 학습 능력 덕분이다.\n핵심 논지: 인간 개인의 지능만으로는 복잡한 도구나 적응 기술을 창조할 수 없으나, 타인으로부터 모방하고 학습하려는 심리를 통해 개인의 한계를 뛰어넘는 거대한 정보 풀(pool)을 축적할 수 있었다.\n주요 어휘: adapt (적응하다), forage (수렵 채집하다), accumulate (축적하다), capacity (능력)",
+      "tag": "11강"
+    },
+    {
+      "id": "kor-card-20260331-101",
+      "deck": "korean",
+      "front": "화법의 원리 - 갈등 관리와 '나-전달법'",
+      "back": "분석: 갈등 상황에서 상대방을 비난하지 않고 자신의 감정과 생각을 진솔하게 전달하는 대화 방식을 다룸\n1\n.\n핵심 개념: 나-전달법(사건, 감정, 기대를 포함하여 '나'를 주어로 말하기)\n1\n8\n.\n출제 포인트: 주어진 갈등 상황(예: 모둠 활동 자료 미제출 등)에서 '나'를 주어로 사건, 감정, 기대를 포함하여 적절하게 말하는 방식을 고르는 문제 출제 가능\n2\n.",
+      "tag": "화법/작문"
+    },
+    {
+      "id": "kor-card-20260331-102",
+      "deck": "korean",
+      "front": "작문의 원리 - 설득하는 글 쓰기 (관광세 도입)",
+      "back": "분석: 특정 관광 지구의 문제(관광객 과밀, 환경 훼손 등)를 해결하기 위해 '관광세 도입'을 주장하는 논설문 작성 과정을 다룸\n4\n9\n.\n핵심 개념: 타당성, 신뢰성, 공정성을 갖춘 논거 수집 및 매체 활용\n10\n.\n출제 포인트: 초고를 보완하기 위해 수집한 통계 자료, 신문 기사 등 다양한 매체 자료의 적절한 활용 방안을 묻는 문제 출제 가능\n5\n.",
+      "tag": "화법/작문"
     }
   ]
 }
