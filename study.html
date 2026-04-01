@@ -80,6 +80,15 @@ button,select,textarea{font-family:inherit;cursor:pointer;border:none;outline:no
 
 /* Learn section */
 .learn-box{background:var(--bg);border:1px solid var(--bg3);border-radius:var(--radius-sm);padding:16px;margin-bottom:16px;font-size:14px;line-height:1.8;white-space:pre-wrap;max-height:50vh;overflow-y:auto;-webkit-overflow-scrolling:touch}
+.concept-view{background:var(--bg);border:1px solid var(--bg3);border-radius:var(--radius-sm);padding:16px;margin-bottom:16px;font-size:14px;line-height:1.8;max-height:55vh;overflow-y:auto;-webkit-overflow-scrolling:touch}
+.concept-view h2{font-size:15px;font-weight:700;color:var(--t1);margin:14px 0 6px;padding-bottom:4px;border-bottom:1px solid var(--bg3)}
+.concept-view h2:first-child{margin-top:0}
+.concept-view p{margin-bottom:8px;color:var(--t2)}
+.concept-view ul{padding-left:18px;margin-bottom:8px}
+.concept-view li{color:var(--t2);margin-bottom:3px}
+.concept-view code{background:var(--bg3);padding:1px 5px;border-radius:4px;font-size:13px;font-family:monospace}
+.concept-view strong{color:var(--t1)}
+.concept-src-badge{display:inline-flex;align-items:center;gap:4px;font-size:10px;padding:2px 8px;border-radius:10px;background:var(--blue-dim);color:var(--blue);margin-bottom:12px}
 
 /* Difficulty & type select */
 .option-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:16px}
@@ -150,7 +159,7 @@ button,select,textarea{font-family:inherit;cursor:pointer;border:none;outline:no
 <body>
 
 <div class="hdr">
-  <h1 style="cursor:pointer" onclick="window.location.href='index.html'">StudyFlow</h1>
+  <button style="background:none;color:var(--t1);font-size:24px;font-weight:800;letter-spacing:-.5px;padding:0" onclick="window.location.href='index.html'">StudyFlow</button>
   <div class="hdr-right"><div class="hdr-dday" id="dday"></div><div class="hdr-sub">중간고사</div></div>
 </div>
 <div class="stats" id="statsArea"></div>
@@ -233,6 +242,12 @@ function save(){
 
 // ===== API =====
 // No API calls - all data comes from JSON import / feed.json
+
+// ===== EXAM RANGE HELPER =====
+function getExamUnits(subj){
+  const r=JSON.parse(localStorage.getItem("hub-exam-ranges")||"null");
+  return r&&r[subj]?r[subj].units||[]:[];
+}
 
 // ===== RENDER =====
 function render(){
@@ -423,11 +438,24 @@ function renderLearn(){
 
 // Step 1: Select concept
 function renderSelectStep(sub){
+  const units=getExamUnits(S.subject);
+  let topics=sub.topics;
+  let rangeNote="";
+  if(units.length>0){
+    const filtered=sub.topics.filter(t=>units.includes(t.name));
+    if(filtered.length>0){
+      topics=filtered;
+      rangeNote=`<div style="font-size:11px;color:var(--amber);background:var(--amber-dim);border-radius:6px;padding:5px 10px;margin-bottom:12px;display:inline-block">📌 시험 범위: ${units.length}개 단원</div>`;
+    }else{
+      rangeNote=`<div style="font-size:11px;color:var(--t3);background:var(--bg3);border-radius:6px;padding:5px 10px;margin-bottom:12px;display:inline-block">범위 설정됨 (매칭 없음 — 전체 표시)</div>`;
+    }
+  }
   return`<div class="fade-in">
     <div class="section-title">무엇을 공부할까요?</div>
     <div class="section-sub">${sub.name} 개념을 선택하세요</div>
+    ${rangeNote}
     <div class="concept-grid">
-      ${sub.topics.map(t=>{
+      ${topics.map(t=>{
         const sel=S.selectedTopic?.id===t.id;
         return`<div class="concept-card ${sel?"selected":""}" style="${sel?`border-color:${sub.color};background:${sub.dim}`:""}" onclick="selectTopic('${t.id}')">
           <div class="icon">${t.icon}</div>
@@ -453,19 +481,75 @@ function goToConcept(){
   S.step="concept";S.conceptText="";render();
 }
 
-// Step 2: Learn concept (saved notes approach)
+// Minimal markdown → HTML renderer
+function renderMd(text){
+  if(!text)return"";
+  return text
+    .replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;")
+    .replace(/^## (.+)$/gm,"<h2>$1</h2>")
+    .replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>")
+    .replace(/`([^`]+)`/g,"<code>$1</code>")
+    .replace(/^- (.+)$/gm,"<li>$1</li>")
+    .replace(/^\d+\. (.+)$/gm,"<li>$1</li>")
+    .replace(/(<li>[^]*?<\/li>\n?)+/g,m=>"<ul>"+m+"</ul>")
+    .split(/\n{2,}/)
+    .map(chunk=>chunk.trim().startsWith("<")?chunk:`<p>${chunk.replace(/\n/g," ")}</p>`)
+    .join("\n");
+}
+
+// Step 2: Learn concept
 function renderConceptStep(sub){
   const t=S.selectedTopic;
   const savedNote=localStorage.getItem(`note-${S.subject}-${t.id}`)||"";
+  const allConcepts=JSON.parse(localStorage.getItem("hub-concepts")||"[]");
+  const autoConcept=allConcepts
+    .filter(c=>c.subject===S.subject&&c.topic===t.name)
+    .sort((a,b)=>b.date.localeCompare(a.date))[0];
+  const displayContent=savedNote||(autoConcept?.content||"");
+  const isAuto=!!autoConcept&&!savedNote;
 
+  if(displayContent){
+    const renderedHtml=renderMd(displayContent);
+    // 읽기 전용 뷰
+    return`<div class="fade-in">
+      <div class="row-between mb-12">
+        <button class="btn-ghost" onclick="S.step='select';render()">← 뒤로</button>
+        <span style="font-size:13px;color:${sub.color};font-weight:600">${t.icon} ${t.name}</span>
+      </div>
+      <div class="section-title">개념 학습</div>
+      ${isAuto?`<div class="concept-src-badge">🤖 자동생성</div>`:""}
+      <div class="concept-view" id="conceptView">${renderedHtml}</div>
+      <div id="conceptEdit" class="hidden">
+        <textarea id="noteArea" style="width:100%;min-height:200px;padding:14px;border-radius:10px;border:1px solid var(--bg4);background:var(--bg);color:var(--t1);font-size:14px;line-height:1.7;resize:vertical;font-family:inherit">${displayContent.replace(/</g,"&lt;").replace(/>/g,"&gt;")}</textarea>
+      </div>
+      <div class="row mt-12" style="gap:8px">
+        <button id="editToggleBtn" class="btn" style="flex:1" onclick="
+          const v=document.getElementById('conceptView'),
+                e=document.getElementById('conceptEdit'),
+                b=document.getElementById('editToggleBtn');
+          if(e.classList.contains('hidden')){
+            e.classList.remove('hidden');v.classList.add('hidden');b.textContent='저장';
+          }else{
+            const txt=document.getElementById('noteArea').value;
+            localStorage.setItem('note-${S.subject}-${t.id}',txt);
+            e.classList.add('hidden');v.classList.remove('hidden');
+            v.innerHTML=renderMd(txt);b.textContent='편집';
+          }
+        ">편집</button>
+        <button class="btn btn-primary" style="flex:2;background:${sub.color}" onclick="goToConfig()">문제 풀기 →</button>
+      </div>
+    </div>`;
+  }
+
+  // 폴백: 자동 개념 없음 → 수동 입력 폼
   return`<div class="fade-in">
     <div class="row-between mb-12">
       <button class="btn-ghost" onclick="S.step='select';render()">← 뒤로</button>
-      <span style="font-size:13px;color:${sub.color};font-weight:600">${S.selectedTopic.icon} ${S.selectedTopic.name}</span>
+      <span style="font-size:13px;color:${sub.color};font-weight:600">${t.icon} ${t.name}</span>
     </div>
     <div class="section-title">개념 학습</div>
-    <div class="section-sub">NotebookLM/Gemini에서 요약한 내용을 붙여넣고 저장하세요</div>
-    <textarea id="noteArea" style="width:100%;min-height:200px;padding:14px;border-radius:10px;border:1px solid var(--bg4);background:var(--bg);color:var(--t1);font-size:14px;line-height:1.7;resize:vertical;font-family:inherit" placeholder="개념 요약을 여기에 붙여넣기...&#10;&#10;NotebookLM에서:&#10;'${t.name} 핵심 개념을 정리해줘'&#10;라고 물어보세요.">${savedNote}</textarea>
+    <div class="section-sub" style="color:var(--t3)">/generate-study 실행 후 자동 표시됩니다. 직접 입력도 가능해요.</div>
+    <textarea id="noteArea" style="width:100%;min-height:200px;padding:14px;border-radius:10px;border:1px solid var(--bg4);background:var(--bg);color:var(--t1);font-size:14px;line-height:1.7;resize:vertical;font-family:inherit" placeholder="개념 요약을 여기에 붙여넣기...&#10;&#10;NotebookLM에서:&#10;'${t.name} 핵심 개념을 정리해줘'&#10;라고 물어보세요."></textarea>
     <div class="row mt-12" style="gap:8px">
       <button class="btn" style="flex:1" onclick="localStorage.setItem('note-${S.subject}-${t.id}',document.getElementById('noteArea').value);document.getElementById('noteSt').innerHTML='<div class=\\'status-msg status-ok\\'>저장!</div>';setTimeout(()=>{const e=document.getElementById('noteSt');if(e)e.innerHTML=''},2000)">저장</button>
       <button class="btn btn-primary" style="flex:2;background:${sub.color}" onclick="localStorage.setItem('note-${S.subject}-${t.id}',document.getElementById('noteArea').value);goToConfig()">문제 풀기 →</button>
@@ -588,7 +672,10 @@ function renderBank(){
   const sub=SUBJECTS[S.subject],sq=S.bank.filter(q=>q.subject===S.subject);
   if(!sq.length)return`<div class="card card-empty">문제은행이 비어있어요.<br><span style="font-size:13px">"가져오기"에서 추가하세요!</span></div>`;
   const solved=sq.filter(q=>q.solved).length,correct=sq.filter(q=>q.correct===true).length,wrong=sq.filter(q=>q.correct===false).length;
-  const pool=S.bankFilter==="unsolved"?sq.filter(q=>!q.solved):S.bankFilter==="wrong"?sq.filter(q=>q.correct===false):sq;
+  const units=getExamUnits(S.subject);
+  const rsq=units.length>0?sq.filter(q=>units.includes(q.topic)):sq;
+  const rangeActive=units.length>0&&rsq.length<sq.length;
+  const pool=S.bankFilter==="unsolved"?rsq.filter(q=>!q.solved):S.bankFilter==="wrong"?rsq.filter(q=>q.correct===false):rsq;
 
   let qhtml="";
   if(S.bankQ){
@@ -612,8 +699,9 @@ function renderBank(){
   }
 
   return`
+    ${rangeActive?`<div style="font-size:11px;color:var(--amber);background:var(--amber-dim);border-radius:6px;padding:5px 10px;margin-bottom:10px;display:inline-block">📌 범위 내 ${rsq.length}문제</div>`:""}
     <div class="row mb-12">
-      ${[["all",`전체 ${sq.length}`],["unsolved",`안 푼 ${sq.filter(q=>!q.solved).length}`],["wrong",`오답 ${wrong}`]].map(([k,l])=>
+      ${[["all",`전체 ${rsq.length}`],["unsolved",`안 푼 ${rsq.filter(q=>!q.solved).length}`],["wrong",`오답 ${rsq.filter(q=>q.correct===false).length}`]].map(([k,l])=>
         `<button class="btn-sm btn ${S.bankFilter===k?"btn-primary":""}" onclick="S.bankFilter='${k}';S.bankQ=null;render()" style="${S.bankFilter===k?`background:${sub.color}`:""}">${l}</button>`
       ).join("")}
       <button class="btn btn-primary ml-auto" style="background:${sub.color}" onclick="pickBankQ()">${S.bankQ?"다음":"시작"}</button>
@@ -633,7 +721,10 @@ function pickBankQ(){
   const sq=S.bank.filter(q=>q.subject===S.subject);
   const pool=S.bankFilter==="unsolved"?sq.filter(q=>!q.solved):S.bankFilter==="wrong"?sq.filter(q=>q.correct===false):sq;
   if(!pool.length)return;
-  S.bankQ=pool[Math.floor(Math.random()*pool.length)];S.bankSel=null;S.bankRevealed=false;render();
+  const units=getExamUnits(S.subject);
+  let rangePool=units.length>0?pool.filter(q=>units.includes(q.topic)):pool;
+  if(!rangePool.length)rangePool=pool;
+  S.bankQ=rangePool[Math.floor(Math.random()*rangePool.length)];S.bankSel=null;S.bankRevealed=false;render();
 }
 
 function bankAns(i){
