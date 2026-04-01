@@ -33,6 +33,58 @@ a{text-decoration:none}
 </div>
 <div class="sync" id="sync"><span class="dot" style="background:#f5a623"></span>동기화 확인 중...</div>
 <div class="dday">중간고사 <span id="dd"></span></div>
+
+<!-- 학습 통계 -->
+<div style="width:100%;max-width:400px;margin-top:12px">
+  <button onclick="togglePanel('stats')" style="width:100%;padding:12px 16px;border-radius:12px;background:#16161c;border:1px solid #1e1e26;font-size:12px;color:#6b6a76;display:flex;justify-content:space-between;align-items:center;cursor:pointer;font-family:inherit">
+    <span>📊 학습 통계</span>
+    <span id="statsChev" style="transition:transform .25s;display:inline-block">▼</span>
+  </button>
+  <div id="statsPanel" style="display:none;margin-top:8px"></div>
+</div>
+
+<!-- 학습 플래너 -->
+<div style="width:100%;max-width:400px;margin-top:12px">
+  <button onclick="togglePanel('planner')" style="width:100%;padding:12px 16px;border-radius:12px;background:#16161c;border:1px solid #1e1e26;font-size:12px;color:#6b6a76;display:flex;justify-content:space-between;align-items:center;cursor:pointer;font-family:inherit">
+    <span>📅 학습 플래너</span>
+    <span id="plannerChev" style="transition:transform .25s;display:inline-block">▼</span>
+  </button>
+  <div id="plannerPanel" style="display:none;margin-top:8px"></div>
+</div>
+
+<!-- 시험 범위 설정 -->
+<div style="width:100%;max-width:400px;margin-top:12px">
+  <button onclick="toggleRangePanel()" style="width:100%;padding:12px 16px;border-radius:12px;background:#16161c;border:1px solid #1e1e26;font-size:12px;color:#6b6a76;display:flex;justify-content:space-between;align-items:center;cursor:pointer;font-family:inherit">
+    <span>📋 시험 범위 설정</span>
+    <span id="rangeChev" style="transition:transform .25s;display:inline-block">▼</span>
+  </button>
+  <div id="rangePanel" style="display:none;margin-top:8px;flex-direction:column;gap:8px">
+    <div style="padding:16px;border-radius:14px;background:#16161c;border:1px solid #1e1e26">
+      <div style="font-size:13px;font-weight:700;color:#7c6aef;margin-bottom:10px">∫ 미적분</div>
+      <div style="font-size:11px;color:#6b6a76;margin-bottom:4px">단원 목록 (줄바꿈으로 구분)</div>
+      <textarea id="ru-calculus" rows="3" placeholder="예) 미분계수와 도함수&#10;접선의 방정식&#10;합성함수 미분" style="width:100%;padding:8px 10px;border-radius:10px;border:1px solid #1e1e26;background:#0c0c10;color:#f0eff4;font-size:12px;font-family:inherit;resize:vertical;margin-bottom:8px"></textarea>
+      <div style="font-size:11px;color:#6b6a76;margin-bottom:4px">메모</div>
+      <input id="rn-calculus" type="text" placeholder="예) 1~3단원" style="width:100%;padding:8px 10px;border-radius:10px;border:1px solid #1e1e26;background:#0c0c10;color:#f0eff4;font-size:12px;font-family:inherit">
+    </div>
+    <div style="padding:16px;border-radius:14px;background:#16161c;border:1px solid #1e1e26">
+      <div style="font-size:13px;font-weight:700;color:#3b9eff;margin-bottom:10px">EN 영어</div>
+      <div style="font-size:11px;color:#6b6a76;margin-bottom:4px">단원 목록 (줄바꿈으로 구분)</div>
+      <textarea id="ru-english" rows="3" placeholder="예) 수특 1강&#10;수특 2강&#10;수특 3강" style="width:100%;padding:8px 10px;border-radius:10px;border:1px solid #1e1e26;background:#0c0c10;color:#f0eff4;font-size:12px;font-family:inherit;resize:vertical;margin-bottom:8px"></textarea>
+      <div style="font-size:11px;color:#6b6a76;margin-bottom:4px">메모</div>
+      <input id="rn-english" type="text" placeholder="예) 수특 1~10강" style="width:100%;padding:8px 10px;border-radius:10px;border:1px solid #1e1e26;background:#0c0c10;color:#f0eff4;font-size:12px;font-family:inherit">
+    </div>
+    <div style="padding:16px;border-radius:14px;background:#16161c;border:1px solid #1e1e26">
+      <div style="font-size:13px;font-weight:700;color:#f5a623;margin-bottom:10px">글 화법과 작문</div>
+      <div style="font-size:11px;color:#6b6a76;margin-bottom:4px">단원 목록 (줄바꿈으로 구분)</div>
+      <textarea id="ru-korean" rows="3" placeholder="예) 화법 이론&#10;작문 이론&#10;비문학 독해" style="width:100%;padding:8px 10px;border-radius:10px;border:1px solid #1e1e26;background:#0c0c10;color:#f0eff4;font-size:12px;font-family:inherit;resize:vertical;margin-bottom:8px"></textarea>
+      <div style="font-size:11px;color:#6b6a76;margin-bottom:4px">메모</div>
+      <input id="rn-korean" type="text" placeholder="예) 전 범위" style="width:100%;padding:8px 10px;border-radius:10px;border:1px solid #1e1e26;background:#0c0c10;color:#f0eff4;font-size:12px;font-family:inherit">
+    </div>
+    <button onclick="saveRanges()" style="padding:12px;border-radius:10px;background:rgba(124,106,239,.15);color:#7c6aef;font-size:13px;font-weight:700;width:100%;font-family:inherit;cursor:pointer;border:none">저장</button>
+    <div id="rangeSaveMsg" style="font-size:12px;text-align:center;color:#6b6a76;min-height:18px"></div>
+  </div>
+</div>
+
 <script>
 document.getElementById("dd").textContent=`D-${Math.max(0,Math.ceil((new Date("2026-04-24")-new Date())/864e5))}`;
 
@@ -43,7 +95,7 @@ async function sync(){
     const r=await fetch(FEED+"?t="+Date.now());
     if(!r.ok)throw 0;
     const d=await r.json();
-    let nQ=0,nC=0;
+    let nQ=0,nC=0,nConcept=0;
     if(d.questions?.length){
       const b=JSON.parse(localStorage.getItem("sf-bank")||"[]");
       const ids=new Set(b.map(q=>q.id));
@@ -56,11 +108,184 @@ async function sync(){
       const nw=d.cards.filter(x=>!ids.has(x.id)).map((x,i)=>({...x,id:x.id||`ac-${Date.now()}-${i}`,dk:x.deck||x.dk||"calc",lv:0,lr:null,rv:0}));
       if(nw.length){c.push(...nw);localStorage.setItem("mf-cards",JSON.stringify(c));nC=nw.length}
     }
-    if(nQ||nC){el.innerHTML=`<span class="dot" style="background:#34d399"></span>새 데이터: 문제 ${nQ}개, 카드 ${nC}개 동기화 완료!`;el.style.color="#34d399"}
+    if(d.concepts?.length){
+      const existing=JSON.parse(localStorage.getItem("hub-concepts")||"[]");
+      const ids=new Set(existing.map(c=>c.id));
+      const nw=d.concepts.filter(c=>!ids.has(c.id));
+      if(nw.length){existing.push(...nw);localStorage.setItem("hub-concepts",JSON.stringify(existing));nConcept=nw.length}
+    }
+    if(nQ||nC||nConcept){el.innerHTML=`<span class="dot" style="background:#34d399"></span>새 데이터: 문제 ${nQ}개, 카드 ${nC}개, 개념 ${nConcept}개 동기화 완료!`;el.style.color="#34d399"}
     else{el.innerHTML=`<span class="dot" style="background:#34d399"></span>최신 상태`;el.style.color="#6b6a76"}
   }catch(e){el.innerHTML=`<span class="dot" style="background:#6b6a76"></span>오프라인 모드 · 수동 import 가능`}
 }
 sync();
+
+// ===== 패널 토글 =====
+const panelOpen={stats:false,planner:false};
+function togglePanel(id){
+  panelOpen[id]=!panelOpen[id];
+  const p=document.getElementById(id+"Panel");
+  const c=document.getElementById(id+"Chev");
+  c.style.transform=panelOpen[id]?"rotate(180deg)":"";
+  if(panelOpen[id]){
+    p.style.display="block";
+    if(id==="stats")p.innerHTML=renderStats();
+    if(id==="planner")p.innerHTML=renderPlanner();
+  }else{
+    p.style.display="none";
+  }
+}
+
+// ===== 학습 통계 =====
+function renderStats(){
+  const bank=JSON.parse(localStorage.getItem("sf-bank")||"[]");
+  const cards=JSON.parse(localStorage.getItem("mf-cards")||"[]");
+  const SUBJS=[
+    {key:"calculus",label:"∫ 미적분",color:"#7c6aef"},
+    {key:"english",label:"EN 영어",color:"#3b9eff"},
+    {key:"korean",label:"글 화작",color:"#f5a623"}
+  ];
+  // 과목별 정답률
+  const subjBars=SUBJS.map(s=>{
+    const qs=bank.filter(q=>q.subject===s.key&&q.solved);
+    const total=qs.length;
+    const correct=qs.filter(q=>q.correct).length;
+    const pct=total?Math.round(correct/total*100):0;
+    return`<div style="margin-bottom:10px">
+      <div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:4px">
+        <span style="color:${s.color};font-weight:600">${s.label}</span>
+        <span style="color:#6b6a76">${total?`${correct}/${total} · ${pct}%`:"문제 없음"}</span>
+      </div>
+      <div style="background:#1e1e26;border-radius:4px;height:6px;overflow:hidden">
+        <div style="background:${s.color};width:${pct}%;height:100%;border-radius:4px;transition:width .4s"></div>
+      </div>
+    </div>`;
+  }).join("");
+  // 취약 단원 TOP 3
+  const topicMap={};
+  bank.filter(q=>q.solved).forEach(q=>{
+    const k=q.topic||"(기타)";
+    if(!topicMap[k])topicMap[k]={c:0,t:0};
+    topicMap[k].t++;
+    if(q.correct)topicMap[k].c++;
+  });
+  const topicList=Object.entries(topicMap)
+    .filter(([,v])=>v.t>=2)
+    .sort((a,b)=>(a[1].c/a[1].t)-(b[1].c/b[1].t))
+    .slice(0,3);
+  const weakTopics=topicList.length
+    ?topicList.map(([name,v])=>{
+        const pct=Math.round(v.c/v.t*100);
+        return`<div style="display:flex;justify-content:space-between;font-size:12px;padding:6px 0;border-bottom:1px solid #1e1e26">
+          <span style="color:#c4c3cc">${name}</span>
+          <span style="color:${pct<50?"#f87171":"#6b6a76"}">${v.c}/${v.t} · ${pct}%</span>
+        </div>`;
+      }).join("")
+    :`<div style="font-size:12px;color:#6b6a76;padding:8px 0">문제를 더 풀면 취약 단원이 표시돼요</div>`;
+  // 카드 마스터
+  const totalCards=cards.length;
+  const masteredCards=cards.filter(c=>c.lv>=3).length;
+  const cardPct=totalCards?Math.round(masteredCards/totalCards*100):0;
+  return`<div style="padding:16px;border-radius:14px;background:#16161c;border:1px solid #1e1e26">
+    <div style="font-size:13px;font-weight:700;color:#f0eff4;margin-bottom:14px">과목별 정답률</div>
+    ${subjBars}
+    <div style="font-size:13px;font-weight:700;color:#f0eff4;margin:16px 0 8px">취약 단원 TOP 3</div>
+    ${weakTopics}
+    <div style="font-size:13px;font-weight:700;color:#f0eff4;margin:16px 0 8px">플래시카드 마스터</div>
+    <div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:4px">
+      <span style="color:#2dd4bf;font-weight:600">전체 ${totalCards}장</span>
+      <span style="color:#6b6a76">lv3+ · ${masteredCards}장 · ${cardPct}%</span>
+    </div>
+    <div style="background:#1e1e26;border-radius:4px;height:6px;overflow:hidden">
+      <div style="background:#2dd4bf;width:${cardPct}%;height:100%;border-radius:4px;transition:width .4s"></div>
+    </div>
+  </div>`;
+}
+
+// ===== 학습 플래너 =====
+function renderPlanner(){
+  const ranges=JSON.parse(localStorage.getItem("hub-exam-ranges")||"null");
+  if(!ranges||!Object.values(ranges).some(s=>(s.units||[]).length)){
+    return`<div style="padding:16px;border-radius:14px;background:#16161c;border:1px solid #1e1e26;font-size:13px;color:#6b6a76;text-align:center">시험 범위를 먼저 설정해주세요 👇</div>`;
+  }
+  const bank=JSON.parse(localStorage.getItem("sf-bank")||"[]");
+  const dday=Math.max(1,Math.ceil((new Date("2026-04-24")-new Date())/864e5));
+  const SUBJS=[
+    {key:"calculus",label:"∫ 미적분",color:"#7c6aef"},
+    {key:"english",label:"EN 영어",color:"#3b9eff"},
+    {key:"korean",label:"글 화작",color:"#f5a623"}
+  ];
+  const solvedTopics=new Set(bank.filter(q=>q.solved).map(q=>q.subject+"|"+q.topic));
+  let todayRec=[];
+  const blocks=SUBJS.map(s=>{
+    const units=(ranges[s.key]?.units||[]);
+    if(!units.length)return"";
+    const done=units.filter(u=>solvedTopics.has(s.key+"|"+u));
+    const todo=units.filter(u=>!solvedTopics.has(s.key+"|"+u));
+    const perDay=Math.ceil(todo.length/dday);
+    if(todo.length)todayRec.push({label:s.label,color:s.color,unit:todo[0],perDay});
+    const items=units.map(u=>{
+      const isDone=solvedTopics.has(s.key+"|"+u);
+      return`<div style="display:flex;align-items:center;gap:8px;font-size:13px;padding:5px 0;border-bottom:1px solid #1e1e26">
+        <span style="font-size:15px">${isDone?"✅":"⬜"}</span>
+        <span style="color:${isDone?"#6b6a76":"#f0eff4"};${isDone?"text-decoration:line-through":""}">${u}</span>
+      </div>`;
+    }).join("");
+    return`<div style="margin-bottom:14px">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
+        <span style="font-size:13px;font-weight:700;color:${s.color}">${s.label}</span>
+        <span style="font-size:11px;color:#6b6a76">${done.length}/${units.length} 완료</span>
+      </div>
+      ${items}
+    </div>`;
+  }).join("");
+  const todayHtml=todayRec.length
+    ?`<div style="padding:12px;border-radius:10px;background:rgba(124,106,239,.08);border:1px solid rgba(124,106,239,.2);margin-bottom:14px">
+        <div style="font-size:11px;color:#7c6aef;font-weight:700;margin-bottom:6px">오늘 권장</div>
+        ${todayRec.map(r=>`<div style="font-size:12px;color:#f0eff4;margin-bottom:2px"><span style="color:${r.color}">${r.label}</span> · ${r.unit}</div>`).join("")}
+      </div>`
+    :`<div style="padding:12px;border-radius:10px;background:rgba(52,211,153,.08);border:1px solid rgba(52,211,153,.2);margin-bottom:14px;font-size:12px;color:#34d399;text-align:center">모든 단원 학습 완료!</div>`;
+  return`<div style="padding:16px;border-radius:14px;background:#16161c;border:1px solid #1e1e26">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px">
+      <div style="font-size:13px;font-weight:700;color:#f0eff4">단원별 진행</div>
+      <div style="font-size:12px;color:#f87171;font-weight:600">D-${dday}</div>
+    </div>
+    ${todayHtml}
+    ${blocks}
+  </div>`;
+}
+
+// ===== 시험 범위 설정 =====
+const RANGE_KEY="hub-exam-ranges";
+function initRangePanel(){
+  const data=JSON.parse(localStorage.getItem(RANGE_KEY)||"null")||{calculus:{units:[],note:""},english:{units:[],note:""},korean:{units:[],note:""}};
+  ["calculus","english","korean"].forEach(s=>{
+    document.getElementById("ru-"+s).value=(data[s].units||[]).join("\n");
+    document.getElementById("rn-"+s).value=data[s].note||"";
+  });
+}
+let rangeOpen=false;
+function toggleRangePanel(){
+  const p=document.getElementById("rangePanel");
+  const c=document.getElementById("rangeChev");
+  rangeOpen=!rangeOpen;
+  p.style.display=rangeOpen?"flex":"none";
+  c.style.transform=rangeOpen?"rotate(180deg)":"";
+  if(rangeOpen)initRangePanel();
+}
+function saveRanges(){
+  const data={};
+  ["calculus","english","korean"].forEach(s=>{
+    data[s]={
+      units:document.getElementById("ru-"+s).value.split("\n").map(x=>x.trim()).filter(Boolean),
+      note:document.getElementById("rn-"+s).value.trim()
+    };
+  });
+  localStorage.setItem(RANGE_KEY,JSON.stringify(data));
+  const m=document.getElementById("rangeSaveMsg");
+  m.textContent="저장 완료!";m.style.color="#34d399";
+  setTimeout(()=>m.textContent="",2000);
+}
 </script>
 </body>
 </html>
