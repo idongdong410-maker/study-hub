@@ -105,7 +105,7 @@ a{text-decoration:none}
 </div>
 
 <script>
-document.getElementById("dd").textContent=`D-${Math.max(0,Math.ceil((new Date("2026-04-24")-new Date())/864e5))}`;
+document.getElementById("dd").textContent=`D-${Math.max(0,Math.ceil((new Date("2026-04-23")-new Date())/864e5))}`;
 
 const FEED="https://raw.githubusercontent.com/idongdong410-maker/study-hub/main/data/feed.json";
 async function sync(){
@@ -277,7 +277,7 @@ function renderPlanner(){
     return`<div style="padding:16px;border-radius:14px;background:#16161c;border:1px solid #1e1e26;font-size:13px;color:#6b6a76;text-align:center">시험 범위를 먼저 설정해주세요 👇</div>`;
   }
   const bank=JSON.parse(localStorage.getItem("sf-bank")||"[]");
-  const dday=Math.max(1,Math.ceil((new Date("2026-04-24")-new Date())/864e5));
+  const dday=Math.max(1,Math.ceil((new Date("2026-04-23")-new Date())/864e5));
   const SUBJS=[
     {key:"calculus",label:"∫ 미적분",color:"#7c6aef"},
     {key:"english",label:"EN 영어",color:"#3b9eff"},
