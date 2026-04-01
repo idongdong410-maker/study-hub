@@ -137,7 +137,7 @@ async function sync(){
     else{el.innerHTML=`<span class="dot" style="background:#34d399"></span>최신 상태`;el.style.color="#6b6a76"}
   }catch(e){el.innerHTML=`<span class="dot" style="background:#6b6a76"></span>오프라인 모드 · 수동 import 가능`}
 }
-sync();
+sync().then(()=>pullProgress());
 
 // ===== Cross-device sync =====
 const _SYNC_API="https://api.github.com/repos/idongdong410-maker/study-hub/contents/data/progress.json";
@@ -215,7 +215,6 @@ function togglePanel(id){
   }
 }
 updateSyncLabel();
-pullProgress();
 
 // ===== 학습 통계 =====
 function renderStats(){
