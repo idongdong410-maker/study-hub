@@ -472,19 +472,60 @@ function goToConcept(){
   S.step="concept";S.conceptText="";render();
 }
 
-// Step 2: Learn concept (saved notes approach)
+// Step 2: Learn concept
 function renderConceptStep(sub){
   const t=S.selectedTopic;
   const savedNote=localStorage.getItem(`note-${S.subject}-${t.id}`)||"";
+  const allConcepts=JSON.parse(localStorage.getItem("hub-concepts")||"[]");
+  const autoConcept=allConcepts
+    .filter(c=>c.subject===S.subject&&c.topic===t.name)
+    .sort((a,b)=>b.date.localeCompare(a.date))[0];
+  const displayContent=savedNote||(autoConcept?.content||"");
+  const isAuto=!!autoConcept&&!savedNote;
 
+  if(displayContent){
+    // 읽기 전용 뷰
+    return`<div class="fade-in">
+      <div class="row-between mb-12">
+        <button class="btn-ghost" onclick="S.step='select';render()">← 뒤로</button>
+        <div class="row" style="gap:6px">
+          ${isAuto?`<span style="font-size:10px;padding:2px 8px;border-radius:8px;background:var(--blue-dim);color:var(--blue)">🤖 자동생성</span>`:""}
+          <span style="font-size:13px;color:${sub.color};font-weight:600">${t.icon} ${t.name}</span>
+        </div>
+      </div>
+      <div class="section-title">개념 학습</div>
+      <div class="learn-box" id="conceptView">${displayContent}</div>
+      <div id="conceptEdit" class="hidden">
+        <textarea id="noteArea" style="width:100%;min-height:200px;padding:14px;border-radius:10px;border:1px solid var(--bg4);background:var(--bg);color:var(--t1);font-size:14px;line-height:1.7;resize:vertical;font-family:inherit">${displayContent}</textarea>
+      </div>
+      <div class="row mt-12" style="gap:8px">
+        <button id="editToggleBtn" class="btn" style="flex:1" onclick="
+          const v=document.getElementById('conceptView'),
+                e=document.getElementById('conceptEdit'),
+                b=document.getElementById('editToggleBtn');
+          if(e.classList.contains('hidden')){
+            e.classList.remove('hidden');v.classList.add('hidden');b.textContent='저장';
+          }else{
+            const txt=document.getElementById('noteArea').value;
+            localStorage.setItem('note-${S.subject}-${t.id}',txt);
+            e.classList.add('hidden');v.classList.remove('hidden');
+            v.textContent=txt;b.textContent='편집';
+          }
+        ">편집</button>
+        <button class="btn btn-primary" style="flex:2;background:${sub.color}" onclick="goToConfig()">문제 풀기 →</button>
+      </div>
+    </div>`;
+  }
+
+  // 폴백: 자동 개념 없음 → 수동 입력 폼
   return`<div class="fade-in">
     <div class="row-between mb-12">
       <button class="btn-ghost" onclick="S.step='select';render()">← 뒤로</button>
-      <span style="font-size:13px;color:${sub.color};font-weight:600">${S.selectedTopic.icon} ${S.selectedTopic.name}</span>
+      <span style="font-size:13px;color:${sub.color};font-weight:600">${t.icon} ${t.name}</span>
     </div>
     <div class="section-title">개념 학습</div>
-    <div class="section-sub">NotebookLM/Gemini에서 요약한 내용을 붙여넣고 저장하세요</div>
-    <textarea id="noteArea" style="width:100%;min-height:200px;padding:14px;border-radius:10px;border:1px solid var(--bg4);background:var(--bg);color:var(--t1);font-size:14px;line-height:1.7;resize:vertical;font-family:inherit" placeholder="개념 요약을 여기에 붙여넣기...&#10;&#10;NotebookLM에서:&#10;'${t.name} 핵심 개념을 정리해줘'&#10;라고 물어보세요.">${savedNote}</textarea>
+    <div class="section-sub" style="color:var(--t3)">/generate-study 실행 후 자동 표시됩니다. 직접 입력도 가능해요.</div>
+    <textarea id="noteArea" style="width:100%;min-height:200px;padding:14px;border-radius:10px;border:1px solid var(--bg4);background:var(--bg);color:var(--t1);font-size:14px;line-height:1.7;resize:vertical;font-family:inherit" placeholder="개념 요약을 여기에 붙여넣기...&#10;&#10;NotebookLM에서:&#10;'${t.name} 핵심 개념을 정리해줘'&#10;라고 물어보세요."></textarea>
     <div class="row mt-12" style="gap:8px">
       <button class="btn" style="flex:1" onclick="localStorage.setItem('note-${S.subject}-${t.id}',document.getElementById('noteArea').value);document.getElementById('noteSt').innerHTML='<div class=\\'status-msg status-ok\\'>저장!</div>';setTimeout(()=>{const e=document.getElementById('noteSt');if(e)e.innerHTML=''},2000)">저장</button>
       <button class="btn btn-primary" style="flex:2;background:${sub.color}" onclick="localStorage.setItem('note-${S.subject}-${t.id}',document.getElementById('noteArea').value);goToConfig()">문제 풀기 →</button>

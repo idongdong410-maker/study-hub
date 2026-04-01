@@ -90,7 +90,14 @@ async function sync(){
       const nw=d.cards.filter(x=>!ids.has(x.id)).map((x,i)=>({...x,id:x.id||`ac-${Date.now()}-${i}`,dk:x.deck||x.dk||"calc",lv:0,lr:null,rv:0}));
       if(nw.length){c.push(...nw);localStorage.setItem("mf-cards",JSON.stringify(c));nC=nw.length}
     }
-    if(nQ||nC){el.innerHTML=`<span class="dot" style="background:#34d399"></span>새 데이터: 문제 ${nQ}개, 카드 ${nC}개 동기화 완료!`;el.style.color="#34d399"}
+    let nConcept=0;
+    if(d.concepts?.length){
+      const existing=JSON.parse(localStorage.getItem("hub-concepts")||"[]");
+      const ids=new Set(existing.map(c=>c.id));
+      const nw=d.concepts.filter(c=>!ids.has(c.id));
+      if(nw.length){existing.push(...nw);localStorage.setItem("hub-concepts",JSON.stringify(existing));nConcept=nw.length}
+    }
+    if(nQ||nC||nConcept){el.innerHTML=`<span class="dot" style="background:#34d399"></span>새 데이터: 문제 ${nQ}개, 카드 ${nC}개, 개념 ${nConcept}개 동기화 완료!`;el.style.color="#34d399"}
     else{el.innerHTML=`<span class="dot" style="background:#34d399"></span>최신 상태`;el.style.color="#6b6a76"}
   }catch(e){el.innerHTML=`<span class="dot" style="background:#6b6a76"></span>오프라인 모드 · 수동 import 가능`}
 }
