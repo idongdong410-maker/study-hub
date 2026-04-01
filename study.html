@@ -234,6 +234,12 @@ function save(){
 // ===== API =====
 // No API calls - all data comes from JSON import / feed.json
 
+// ===== EXAM RANGE HELPER =====
+function getExamUnits(subj){
+  const r=JSON.parse(localStorage.getItem("hub-exam-ranges")||"null");
+  return r&&r[subj]?r[subj].units||[]:[];
+}
+
 // ===== RENDER =====
 function render(){
   // D-day
@@ -423,11 +429,24 @@ function renderLearn(){
 
 // Step 1: Select concept
 function renderSelectStep(sub){
+  const units=getExamUnits(S.subject);
+  let topics=sub.topics;
+  let rangeNote="";
+  if(units.length>0){
+    const filtered=sub.topics.filter(t=>units.includes(t.name));
+    if(filtered.length>0){
+      topics=filtered;
+      rangeNote=`<div style="font-size:11px;color:var(--amber);background:var(--amber-dim);border-radius:6px;padding:5px 10px;margin-bottom:12px;display:inline-block">📌 시험 범위: ${units.length}개 단원</div>`;
+    }else{
+      rangeNote=`<div style="font-size:11px;color:var(--t3);background:var(--bg3);border-radius:6px;padding:5px 10px;margin-bottom:12px;display:inline-block">범위 설정됨 (매칭 없음 — 전체 표시)</div>`;
+    }
+  }
   return`<div class="fade-in">
     <div class="section-title">무엇을 공부할까요?</div>
     <div class="section-sub">${sub.name} 개념을 선택하세요</div>
+    ${rangeNote}
     <div class="concept-grid">
-      ${sub.topics.map(t=>{
+      ${topics.map(t=>{
         const sel=S.selectedTopic?.id===t.id;
         return`<div class="concept-card ${sel?"selected":""}" style="${sel?`border-color:${sub.color};background:${sub.dim}`:""}" onclick="selectTopic('${t.id}')">
           <div class="icon">${t.icon}</div>
@@ -588,7 +607,10 @@ function renderBank(){
   const sub=SUBJECTS[S.subject],sq=S.bank.filter(q=>q.subject===S.subject);
   if(!sq.length)return`<div class="card card-empty">문제은행이 비어있어요.<br><span style="font-size:13px">"가져오기"에서 추가하세요!</span></div>`;
   const solved=sq.filter(q=>q.solved).length,correct=sq.filter(q=>q.correct===true).length,wrong=sq.filter(q=>q.correct===false).length;
-  const pool=S.bankFilter==="unsolved"?sq.filter(q=>!q.solved):S.bankFilter==="wrong"?sq.filter(q=>q.correct===false):sq;
+  const units=getExamUnits(S.subject);
+  const rsq=units.length>0?sq.filter(q=>units.includes(q.topic)):sq;
+  const rangeActive=units.length>0&&rsq.length<sq.length;
+  const pool=S.bankFilter==="unsolved"?rsq.filter(q=>!q.solved):S.bankFilter==="wrong"?rsq.filter(q=>q.correct===false):rsq;
 
   let qhtml="";
   if(S.bankQ){
@@ -612,8 +634,9 @@ function renderBank(){
   }
 
   return`
+    ${rangeActive?`<div style="font-size:11px;color:var(--amber);background:var(--amber-dim);border-radius:6px;padding:5px 10px;margin-bottom:10px;display:inline-block">📌 범위 내 ${rsq.length}문제</div>`:""}
     <div class="row mb-12">
-      ${[["all",`전체 ${sq.length}`],["unsolved",`안 푼 ${sq.filter(q=>!q.solved).length}`],["wrong",`오답 ${wrong}`]].map(([k,l])=>
+      ${[["all",`전체 ${rsq.length}`],["unsolved",`안 푼 ${rsq.filter(q=>!q.solved).length}`],["wrong",`오답 ${rsq.filter(q=>q.correct===false).length}`]].map(([k,l])=>
         `<button class="btn-sm btn ${S.bankFilter===k?"btn-primary":""}" onclick="S.bankFilter='${k}';S.bankQ=null;render()" style="${S.bankFilter===k?`background:${sub.color}`:""}">${l}</button>`
       ).join("")}
       <button class="btn btn-primary ml-auto" style="background:${sub.color}" onclick="pickBankQ()">${S.bankQ?"다음":"시작"}</button>
@@ -633,7 +656,10 @@ function pickBankQ(){
   const sq=S.bank.filter(q=>q.subject===S.subject);
   const pool=S.bankFilter==="unsolved"?sq.filter(q=>!q.solved):S.bankFilter==="wrong"?sq.filter(q=>q.correct===false):sq;
   if(!pool.length)return;
-  S.bankQ=pool[Math.floor(Math.random()*pool.length)];S.bankSel=null;S.bankRevealed=false;render();
+  const units=getExamUnits(S.subject);
+  let rangePool=units.length>0?pool.filter(q=>units.includes(q.topic)):pool;
+  if(!rangePool.length)rangePool=pool;
+  S.bankQ=rangePool[Math.floor(Math.random()*rangePool.length)];S.bankSel=null;S.bankRevealed=false;render();
 }
 
 function bankAns(i){
