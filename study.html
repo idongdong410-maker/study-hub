@@ -80,6 +80,15 @@ button,select,textarea{font-family:inherit;cursor:pointer;border:none;outline:no
 
 /* Learn section */
 .learn-box{background:var(--bg);border:1px solid var(--bg3);border-radius:var(--radius-sm);padding:16px;margin-bottom:16px;font-size:14px;line-height:1.8;white-space:pre-wrap;max-height:50vh;overflow-y:auto;-webkit-overflow-scrolling:touch}
+.concept-view{background:var(--bg);border:1px solid var(--bg3);border-radius:var(--radius-sm);padding:16px;margin-bottom:16px;font-size:14px;line-height:1.8;max-height:55vh;overflow-y:auto;-webkit-overflow-scrolling:touch}
+.concept-view h2{font-size:15px;font-weight:700;color:var(--t1);margin:14px 0 6px;padding-bottom:4px;border-bottom:1px solid var(--bg3)}
+.concept-view h2:first-child{margin-top:0}
+.concept-view p{margin-bottom:8px;color:var(--t2)}
+.concept-view ul{padding-left:18px;margin-bottom:8px}
+.concept-view li{color:var(--t2);margin-bottom:3px}
+.concept-view code{background:var(--bg3);padding:1px 5px;border-radius:4px;font-size:13px;font-family:monospace}
+.concept-view strong{color:var(--t1)}
+.concept-src-badge{display:inline-flex;align-items:center;gap:4px;font-size:10px;padding:2px 8px;border-radius:10px;background:var(--blue-dim);color:var(--blue);margin-bottom:12px}
 
 /* Difficulty & type select */
 .option-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:16px}
@@ -472,6 +481,22 @@ function goToConcept(){
   S.step="concept";S.conceptText="";render();
 }
 
+// Minimal markdown → HTML renderer
+function renderMd(text){
+  if(!text)return"";
+  return text
+    .replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;")
+    .replace(/^## (.+)$/gm,"<h2>$1</h2>")
+    .replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>")
+    .replace(/`([^`]+)`/g,"<code>$1</code>")
+    .replace(/^- (.+)$/gm,"<li>$1</li>")
+    .replace(/^\d+\. (.+)$/gm,"<li>$1</li>")
+    .replace(/(<li>[^]*?<\/li>\n?)+/g,m=>"<ul>"+m+"</ul>")
+    .split(/\n{2,}/)
+    .map(chunk=>chunk.trim().startsWith("<")?chunk:`<p>${chunk.replace(/\n/g," ")}</p>`)
+    .join("\n");
+}
+
 // Step 2: Learn concept
 function renderConceptStep(sub){
   const t=S.selectedTopic;
@@ -484,19 +509,18 @@ function renderConceptStep(sub){
   const isAuto=!!autoConcept&&!savedNote;
 
   if(displayContent){
+    const renderedHtml=renderMd(displayContent);
     // 읽기 전용 뷰
     return`<div class="fade-in">
       <div class="row-between mb-12">
         <button class="btn-ghost" onclick="S.step='select';render()">← 뒤로</button>
-        <div class="row" style="gap:6px">
-          ${isAuto?`<span style="font-size:10px;padding:2px 8px;border-radius:8px;background:var(--blue-dim);color:var(--blue)">🤖 자동생성</span>`:""}
-          <span style="font-size:13px;color:${sub.color};font-weight:600">${t.icon} ${t.name}</span>
-        </div>
+        <span style="font-size:13px;color:${sub.color};font-weight:600">${t.icon} ${t.name}</span>
       </div>
       <div class="section-title">개념 학습</div>
-      <div class="learn-box" id="conceptView">${displayContent}</div>
+      ${isAuto?`<div class="concept-src-badge">🤖 자동생성</div>`:""}
+      <div class="concept-view" id="conceptView">${renderedHtml}</div>
       <div id="conceptEdit" class="hidden">
-        <textarea id="noteArea" style="width:100%;min-height:200px;padding:14px;border-radius:10px;border:1px solid var(--bg4);background:var(--bg);color:var(--t1);font-size:14px;line-height:1.7;resize:vertical;font-family:inherit">${displayContent}</textarea>
+        <textarea id="noteArea" style="width:100%;min-height:200px;padding:14px;border-radius:10px;border:1px solid var(--bg4);background:var(--bg);color:var(--t1);font-size:14px;line-height:1.7;resize:vertical;font-family:inherit">${displayContent.replace(/</g,"&lt;").replace(/>/g,"&gt;")}</textarea>
       </div>
       <div class="row mt-12" style="gap:8px">
         <button id="editToggleBtn" class="btn" style="flex:1" onclick="
@@ -509,7 +533,7 @@ function renderConceptStep(sub){
             const txt=document.getElementById('noteArea').value;
             localStorage.setItem('note-${S.subject}-${t.id}',txt);
             e.classList.add('hidden');v.classList.remove('hidden');
-            v.textContent=txt;b.textContent='편집';
+            v.innerHTML=renderMd(txt);b.textContent='편집';
           }
         ">편집</button>
         <button class="btn btn-primary" style="flex:2;background:${sub.color}" onclick="goToConfig()">문제 풀기 →</button>
