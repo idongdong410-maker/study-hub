@@ -33,6 +33,40 @@ a{text-decoration:none}
 </div>
 <div class="sync" id="sync"><span class="dot" style="background:#f5a623"></span>동기화 확인 중...</div>
 <div class="dday">중간고사 <span id="dd"></span></div>
+
+<!-- 시험 범위 설정 -->
+<div style="width:100%;max-width:400px;margin-top:16px">
+  <button onclick="toggleRangePanel()" style="width:100%;padding:12px 16px;border-radius:12px;background:#16161c;border:1px solid #1e1e26;font-size:12px;color:#6b6a76;display:flex;justify-content:space-between;align-items:center;cursor:pointer;font-family:inherit">
+    <span>📋 시험 범위 설정</span>
+    <span id="rangeChev" style="transition:transform .25s;display:inline-block">▼</span>
+  </button>
+  <div id="rangePanel" style="display:none;margin-top:8px;flex-direction:column;gap:8px">
+    <div style="padding:16px;border-radius:14px;background:#16161c;border:1px solid #1e1e26">
+      <div style="font-size:13px;font-weight:700;color:#7c6aef;margin-bottom:10px">∫ 미적분</div>
+      <div style="font-size:11px;color:#6b6a76;margin-bottom:4px">단원 목록 (줄바꿈으로 구분)</div>
+      <textarea id="ru-calculus" rows="3" placeholder="예) 미분계수와 도함수&#10;접선의 방정식&#10;합성함수 미분" style="width:100%;padding:8px 10px;border-radius:10px;border:1px solid #1e1e26;background:#0c0c10;color:#f0eff4;font-size:12px;font-family:inherit;resize:vertical;margin-bottom:8px"></textarea>
+      <div style="font-size:11px;color:#6b6a76;margin-bottom:4px">메모</div>
+      <input id="rn-calculus" type="text" placeholder="예) 1~3단원" style="width:100%;padding:8px 10px;border-radius:10px;border:1px solid #1e1e26;background:#0c0c10;color:#f0eff4;font-size:12px;font-family:inherit">
+    </div>
+    <div style="padding:16px;border-radius:14px;background:#16161c;border:1px solid #1e1e26">
+      <div style="font-size:13px;font-weight:700;color:#3b9eff;margin-bottom:10px">EN 영어</div>
+      <div style="font-size:11px;color:#6b6a76;margin-bottom:4px">단원 목록 (줄바꿈으로 구분)</div>
+      <textarea id="ru-english" rows="3" placeholder="예) 수특 1강&#10;수특 2강&#10;수특 3강" style="width:100%;padding:8px 10px;border-radius:10px;border:1px solid #1e1e26;background:#0c0c10;color:#f0eff4;font-size:12px;font-family:inherit;resize:vertical;margin-bottom:8px"></textarea>
+      <div style="font-size:11px;color:#6b6a76;margin-bottom:4px">메모</div>
+      <input id="rn-english" type="text" placeholder="예) 수특 1~10강" style="width:100%;padding:8px 10px;border-radius:10px;border:1px solid #1e1e26;background:#0c0c10;color:#f0eff4;font-size:12px;font-family:inherit">
+    </div>
+    <div style="padding:16px;border-radius:14px;background:#16161c;border:1px solid #1e1e26">
+      <div style="font-size:13px;font-weight:700;color:#f5a623;margin-bottom:10px">글 화법과 작문</div>
+      <div style="font-size:11px;color:#6b6a76;margin-bottom:4px">단원 목록 (줄바꿈으로 구분)</div>
+      <textarea id="ru-korean" rows="3" placeholder="예) 화법 이론&#10;작문 이론&#10;비문학 독해" style="width:100%;padding:8px 10px;border-radius:10px;border:1px solid #1e1e26;background:#0c0c10;color:#f0eff4;font-size:12px;font-family:inherit;resize:vertical;margin-bottom:8px"></textarea>
+      <div style="font-size:11px;color:#6b6a76;margin-bottom:4px">메모</div>
+      <input id="rn-korean" type="text" placeholder="예) 전 범위" style="width:100%;padding:8px 10px;border-radius:10px;border:1px solid #1e1e26;background:#0c0c10;color:#f0eff4;font-size:12px;font-family:inherit">
+    </div>
+    <button onclick="saveRanges()" style="padding:12px;border-radius:10px;background:rgba(124,106,239,.15);color:#7c6aef;font-size:13px;font-weight:700;width:100%;font-family:inherit;cursor:pointer;border:none">저장</button>
+    <div id="rangeSaveMsg" style="font-size:12px;text-align:center;color:#6b6a76;min-height:18px"></div>
+  </div>
+</div>
+
 <script>
 document.getElementById("dd").textContent=`D-${Math.max(0,Math.ceil((new Date("2026-04-24")-new Date())/864e5))}`;
 
@@ -61,6 +95,38 @@ async function sync(){
   }catch(e){el.innerHTML=`<span class="dot" style="background:#6b6a76"></span>오프라인 모드 · 수동 import 가능`}
 }
 sync();
+
+// ===== 시험 범위 설정 =====
+const RANGE_KEY="hub-exam-ranges";
+function initRangePanel(){
+  const data=JSON.parse(localStorage.getItem(RANGE_KEY)||"null")||{calculus:{units:[],note:""},english:{units:[],note:""},korean:{units:[],note:""}};
+  ["calculus","english","korean"].forEach(s=>{
+    document.getElementById("ru-"+s).value=(data[s].units||[]).join("\n");
+    document.getElementById("rn-"+s).value=data[s].note||"";
+  });
+}
+let rangeOpen=false;
+function toggleRangePanel(){
+  const p=document.getElementById("rangePanel");
+  const c=document.getElementById("rangeChev");
+  rangeOpen=!rangeOpen;
+  p.style.display=rangeOpen?"flex":"none";
+  c.style.transform=rangeOpen?"rotate(180deg)":"";
+  if(rangeOpen)initRangePanel();
+}
+function saveRanges(){
+  const data={};
+  ["calculus","english","korean"].forEach(s=>{
+    data[s]={
+      units:document.getElementById("ru-"+s).value.split("\n").map(x=>x.trim()).filter(Boolean),
+      note:document.getElementById("rn-"+s).value.trim()
+    };
+  });
+  localStorage.setItem(RANGE_KEY,JSON.stringify(data));
+  const m=document.getElementById("rangeSaveMsg");
+  m.textContent="저장 완료!";m.style.color="#34d399";
+  setTimeout(()=>m.textContent="",2000);
+}
 </script>
 </body>
 </html>
