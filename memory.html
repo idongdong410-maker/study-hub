@@ -146,7 +146,7 @@ let S={
   loading:false
 };
 
-function save(){localStorage.setItem("mf-cards",JSON.stringify(S.cards))}
+function save(){localStorage.setItem("mf-cards",JSON.stringify(S.cards));schedulePush()}
 
 function getDeckCards(deck){return S.cards.filter(c=>c.deck===deck)}
 function getDueCards(deck){return getDeckCards(deck).filter(isDue)}
@@ -418,7 +418,74 @@ function importJSON(){
   }
 }
 
-render();
+// ===== Cross-device sync =====
+const _SYNC_API="https://api.github.com/repos/idongdong410-maker/study-hub/contents/data/progress.json";
+let _pushTimer=null;
+function _ghToken(){return localStorage.getItem("hub-gh-token")||""}
+function _buildProgress(){
+  const sfP={};
+  JSON.parse(localStorage.getItem("sf-bank")||"[]").filter(q=>q.solved).forEach(q=>{sfP[q.id]={solved:q.solved,correct:q.correct}});
+  const mfP={};
+  S.cards.filter(c=>c.level||c.lv||c.reviews||c.rv).forEach(c=>{
+    mfP[c.id]={level:c.level??c.lv??0,lastReview:c.lastReview??c.lr??null,reviews:c.reviews??c.rv??0};
+  });
+  return{sfProgress:sfP,sfWrong:JSON.parse(localStorage.getItem("sf-wrong")||"[]"),mfProgress:mfP,
+    examRanges:JSON.parse(localStorage.getItem("hub-exam-ranges")||"null"),
+    concepts:JSON.parse(localStorage.getItem("hub-concepts")||"[]"),ts:Date.now()};
+}
+function _applyProgress(d){
+  if(!d)return;
+  if(d.sfProgress){
+    const bank=JSON.parse(localStorage.getItem("sf-bank")||"[]");
+    const updated=bank.map(q=>{const r=d.sfProgress[q.id];if(!r)return q;return{...q,solved:q.solved||r.solved,correct:q.solved?q.correct:r.correct}});
+    localStorage.setItem("sf-bank",JSON.stringify(updated));
+  }
+  if(d.sfWrong?.length){
+    const ex=JSON.parse(localStorage.getItem("sf-wrong")||"[]");
+    const keys=new Set(ex.map(w=>w.question+w.date));
+    const nw=d.sfWrong.filter(w=>!keys.has(w.question+w.date));
+    if(nw.length)localStorage.setItem("sf-wrong",JSON.stringify([...ex,...nw]));
+  }
+  if(d.mfProgress){
+    S.cards=S.cards.map(c=>{const r=d.mfProgress[c.id];if(!r)return c;const rv=(c.reviews??c.rv??0);return(r.reviews||0)>rv?{...c,level:r.level,lastReview:r.lastReview,reviews:r.reviews}:c});
+    localStorage.setItem("mf-cards",JSON.stringify(S.cards));
+  }
+  if(d.examRanges&&!localStorage.getItem("hub-exam-ranges"))localStorage.setItem("hub-exam-ranges",JSON.stringify(d.examRanges));
+  if(d.concepts?.length){
+    const ex=JSON.parse(localStorage.getItem("hub-concepts")||"[]");
+    const ids=new Set(ex.map(c=>c.id));
+    const nw=d.concepts.filter(c=>!ids.has(c.id));
+    if(nw.length)localStorage.setItem("hub-concepts",JSON.stringify([...ex,...nw]));
+  }
+}
+async function pullProgress(){
+  const t=_ghToken();if(!t)return;
+  try{
+    const r=await fetch(_SYNC_API+"?t="+Date.now(),{headers:{Authorization:`token ${t}`,Accept:"application/vnd.github.v3+json"}});
+    if(!r.ok)return;
+    const j=await r.json();
+    _applyProgress(JSON.parse(decodeURIComponent(escape(atob(j.content.replace(/\n/g,""))))));
+  }catch(e){}
+}
+async function pushProgress(){
+  const t=_ghToken();if(!t)return;
+  try{
+    const content=btoa(unescape(encodeURIComponent(JSON.stringify(_buildProgress(),null,2))));
+    let sha="";
+    const g=await fetch(_SYNC_API,{headers:{Authorization:`token ${t}`,Accept:"application/vnd.github.v3+json"}});
+    if(g.ok){const gj=await g.json();sha=gj.sha||""}
+    await fetch(_SYNC_API,{method:"PUT",headers:{Authorization:`token ${t}`,"Content-Type":"application/json"},
+      body:JSON.stringify({message:"chore: sync progress",content,...(sha?{sha}:{})})});
+  }catch(e){}
+}
+function schedulePush(){clearTimeout(_pushTimer);_pushTimer=setTimeout(pushProgress,3000)}
+document.addEventListener("visibilitychange",()=>{if(document.hidden)pushProgress()});
+window.addEventListener("beforeunload",()=>pushProgress());
+
+pullProgress().then(()=>{
+  S.cards=JSON.parse(localStorage.getItem("mf-cards")||"[]");
+  render();
+});
 </script>
 </body>
 </html>
