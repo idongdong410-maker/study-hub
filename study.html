@@ -226,7 +226,7 @@ let S={
   conceptText:"",
   difficulty:null,
   qtype:null,
-  quiz:null,quizSel:null,quizRevealed:false,quizCount:0,quizCorrect:0,
+  quiz:null,quizSel:null,quizRevealed:false,quizCount:0,quizCorrect:0,quizComplete:false,
   // Bank
   bank:JSON.parse(localStorage.getItem("sf-bank")||"[]"),
   bankQ:null,bankSel:null,bankRevealed:false,bankFilter:"all",
@@ -598,13 +598,13 @@ function renderConfigStep(sub){
 // Step 4: Solve
 async function startQuiz(){
   S.step="solve";S.loading=false;
-  // Pick from bank matching topic + difficulty
   const pool=S.bank.filter(q=>q.subject===S.subject&&q.topic===S.selectedTopic?.name);
   const diffPool=S.difficulty?pool.filter(q=>(q.difficulty||"중")===(DIFF_MAP[S.difficulty]||"중")):pool;
   const src=diffPool.length>0?diffPool:pool;
   const unsolved=src.filter(q=>!q.solved);
-  const pick=unsolved.length>0?unsolved:src;
-  if(pick.length){S.quiz=pick[Math.floor(Math.random()*pick.length)]}else{S.quiz=null}
+  if(unsolved.length>0){S.quiz=unsolved[Math.floor(Math.random()*unsolved.length)];S.quizComplete=false;}
+  else if(src.length>0){S.quiz=null;S.quizComplete=true;}
+  else{S.quiz=null;S.quizComplete=false;}
   S.quizSel=null;S.quizRevealed=false;render();
 }
 
@@ -613,15 +613,48 @@ function loadNewQuestion(){
   const diffPool=S.difficulty?pool.filter(q=>(q.difficulty||"중")===(DIFF_MAP[S.difficulty]||"중")):pool;
   const src=diffPool.length>0?diffPool:pool;
   const unsolved=src.filter(q=>!q.solved);
-  const pick=unsolved.length>0?unsolved:src;
-  if(pick.length){S.quiz=pick[Math.floor(Math.random()*pick.length)]}else{S.quiz=null}
+  if(unsolved.length>0){S.quiz=unsolved[Math.floor(Math.random()*unsolved.length)];S.quizComplete=false;}
+  else if(src.length>0){S.quiz=null;S.quizComplete=true;}
+  else{S.quiz=null;S.quizComplete=false;}
   S.quizSel=null;S.quizRevealed=false;render();
+}
+
+function resetTopicProgress(wrongOnly){
+  S.bank=S.bank.map(q=>{
+    const inPool=q.subject===S.subject&&q.topic===S.selectedTopic?.name;
+    if(!inPool)return q;
+    if(wrongOnly&&q.correct)return q;
+    return{...q,solved:false,correct:false};
+  });
+  S.quizComplete=false;
+  save();
+  startQuiz();
 }
 
 function renderSolveStep(sub){
   const t=S.selectedTopic;
   const diffLabel=DIFFICULTIES.find(d=>d.id===S.difficulty);
   const typeLabel=QTYPES.find(q=>q.id===S.qtype);
+
+  if(S.quizComplete){
+    const pool=S.bank.filter(q=>q.subject===S.subject&&q.topic===t.name);
+    const diffPool=S.difficulty?pool.filter(q=>(q.difficulty||"중")===(DIFF_MAP[S.difficulty]||"중")):pool;
+    const src=diffPool.length>0?diffPool:pool;
+    const total=src.length,correct=src.filter(q=>q.correct===true).length;
+    const wrongCnt=src.filter(q=>q.correct===false).length;
+    const pct=total?Math.round(correct/total*100):0;
+    return`<div class="card fade-in" style="text-align:center;padding:32px 20px">
+      <div style="font-size:48px;margin-bottom:12px">✅</div>
+      <div style="font-size:20px;font-weight:700;color:${sub.color};margin-bottom:6px">${t.name} 완료!</div>
+      <div style="font-size:14px;color:var(--t2);margin-bottom:4px">총 ${total}문제 중 ${correct}개 정답</div>
+      <div style="font-size:28px;font-weight:800;color:${pct>=80?"var(--green)":pct>=60?"var(--amber)":"var(--red)"};margin-bottom:24px">${pct}%</div>
+      <div style="display:flex;flex-direction:column;gap:10px">
+        ${wrongCnt>0?`<button class="btn btn-primary" style="background:var(--red)" onclick="resetTopicProgress(true)">오답만 다시 풀기 (${wrongCnt}개)</button>`:""}
+        <button class="btn btn-primary" style="background:${sub.color}" onclick="resetTopicProgress(false)">처음부터 다시 풀기</button>
+        <button class="btn" onclick="S.step='select';S.selectedTopic=null;S.quizComplete=false;render()">다른 개념 선택</button>
+      </div>
+    </div>`;
+  }
 
   if(!S.quiz)return`<div class="card card-empty fade-in">이 조건에 맞는 문제가 없어요.<br><span style="font-size:13px">"가져오기"에서 "${t.name}" 문제를 추가하세요</span><br>
     <div class="row mt-16" style="justify-content:center;gap:8px">
