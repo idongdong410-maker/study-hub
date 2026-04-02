@@ -16,6 +16,10 @@
       "solved": true,
       "correct": true
     },
+    "calc-20260331-006": {
+      "solved": true,
+      "correct": false
+    },
     "calc-20260331-007": {
       "solved": true,
       "correct": true
@@ -85,6 +89,22 @@
       "explanation": "x와 y를 각각 t에 대하여 미분하면 dx/dt = 1 + 2/t = (t+2)/t 이고, dy/dt = 3t^2 - 12 = 3(t^2 - 4) 입니다. 따라서 dy/dx = (dy/dt) / (dx/dt) = 3(t^2 - 4) / ((t+2)/t) = 3t(t^2 - 4) / (t+2) = 3t(t-2)(t+2) / (t+2) = 3t(t-2) = 3t^2 - 6t = 3(t-1)^2 - 3 입니다. (단, t>0 이므로 t+2 > 0). 이차함수의 성질에 의해 t=1 일 때 dy/dx는 최솟값 -3 을 가집니다.",
       "date": "2026. 4. 1.",
       "fromBank": true
+    },
+    {
+      "subject": "calculus",
+      "topic": "지수함수 도함수",
+      "question": "f(x) = e^(3x)일 때, f'(x)는?",
+      "options": [
+        "① e^(3x)",
+        "② 3e^(3x)",
+        "③ 3xe^(3x)",
+        "④ e^(3x)/3"
+      ],
+      "correct": "② 3e^(3x)",
+      "selected": "③ 3xe^(3x)",
+      "explanation": "합성함수 미분: f'(x) = e^(3x) · 3 = 3e^(3x)",
+      "date": "2026. 4. 2.",
+      "fromBank": true
     }
   ],
   "mfProgress": {
@@ -149,5 +169,5 @@
     }
   },
   "concepts": [],
-  "ts": 1775106631226
+  "ts": 1775106653949
 }
