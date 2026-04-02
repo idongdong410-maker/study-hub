@@ -97,6 +97,21 @@
       "level": 1,
       "lastReview": 1775083027814,
       "reviews": 1
+    },
+    "vocab-20260331-003": {
+      "level": 1,
+      "lastReview": 1775094985587,
+      "reviews": 1
+    },
+    "vocab-20260331-004": {
+      "level": 1,
+      "lastReview": 1775094988002,
+      "reviews": 1
+    },
+    "vocab-20260331-005": {
+      "level": 1,
+      "lastReview": 1775094990486,
+      "reviews": 1
     }
   },
   "examRanges": {
@@ -134,5 +149,5 @@
     }
   },
   "concepts": [],
-  "ts": 1775094916373
+  "ts": 1775094993491
 }
