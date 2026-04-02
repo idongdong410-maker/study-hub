@@ -172,24 +172,27 @@ button,select,textarea{font-family:inherit;cursor:pointer;border:none;outline:no
 const SUBJECTS={
   calculus:{name:"미적분",emoji:"∫",color:"#7c6aef",dim:"rgba(124,106,239,.12)",
     topics:[
-      {id:"deriv-def",name:"미분계수와 도함수",icon:"📐",desc:"정의와 기본 공식"},
-      {id:"tangent",name:"접선의 방정식",icon:"📏",desc:"기울기와 접선"},
-      {id:"chain",name:"합성함수 미분",icon:"🔗",desc:"체인룰"},
-      {id:"param",name:"매개변수 미분",icon:"📊",desc:"dx/dt, dy/dt"},
-      {id:"implicit",name:"음함수 미분",icon:"🔄",desc:"양변 미분"},
-      {id:"inverse",name:"역함수 미분",icon:"↩️",desc:"역함수 도함수"},
-      {id:"trig",name:"삼각함수 도함수",icon:"📐",desc:"sin, cos, tan"},
-      {id:"exp",name:"지수함수 도함수",icon:"📈",desc:"e^x, a^x"},
-      {id:"log",name:"로그함수 도함수",icon:"📉",desc:"ln x, log x"}
+      {id:"seq-limit",name:"수열의 극한",icon:"∞",desc:"수열의 극한값"},
+      {id:"series",name:"급수",icon:"Σ",desc:"무한급수·등비급수"},
+      {id:"various-diff",name:"여러 가지 함수의 미분",icon:"📐",desc:"삼각·지수·로그 미분"},
+      {id:"various-methods",name:"여러가지 미분법(음함수의 미분)까지",icon:"🔄",desc:"음함수·매개변수·역함수"}
     ]},
   english:{name:"영어",emoji:"EN",color:"#3b9eff",dim:"rgba(59,158,255,.12)",
     topics:[
-      {id:"reading",name:"수능특강 독해",icon:"📖",desc:"지문 독해"},
-      {id:"vocab",name:"어휘",icon:"📝",desc:"핵심 단어"},
-      {id:"grammar",name:"문법",icon:"✏️",desc:"문법 포인트"},
-      {id:"blank",name:"빈칸추론",icon:"🔍",desc:"빈칸 완성"},
-      {id:"order",name:"순서배열",icon:"🔢",desc:"문장 순서"},
-      {id:"insert",name:"문장삽입",icon:"📌",desc:"적절한 위치"}
+      {id:"purpose",name:"글의 목적 파악",icon:"✉️",desc:"1강"},
+      {id:"emotion",name:"심경 변화 파악",icon:"😊",desc:"2강"},
+      {id:"implication",name:"함축적 의미 파악",icon:"💬",desc:"3강"},
+      {id:"main-idea",name:"요지 파악",icon:"💡",desc:"4강"},
+      {id:"argument",name:"주장 파악",icon:"👊",desc:"5강"},
+      {id:"topic",name:"주제 파악",icon:"🎯",desc:"6강"},
+      {id:"title",name:"제목 파악",icon:"📰",desc:"7강"},
+      {id:"grammar",name:"어법 정확성 파악",icon:"✏️",desc:"11강"},
+      {id:"vocab",name:"어휘 적절성 파악",icon:"📝",desc:"12강"},
+      {id:"blank",name:"빈칸 내용 추론",icon:"🔍",desc:"13강"},
+      {id:"philosophy",name:"철학·역사 지문",icon:"🏛️",desc:"21강"},
+      {id:"environment",name:"환경·자원 지문",icon:"🌿",desc:"22강"},
+      {id:"science",name:"과학 지문",icon:"🔬",desc:"23강"},
+      {id:"sports",name:"스포츠·레저 지문",icon:"⚽",desc:"24강"}
     ]},
   korean:{name:"화법과 작문",emoji:"글",color:"#f5a623",dim:"rgba(245,166,35,.12)",
     topics:[
@@ -832,7 +835,7 @@ function _applyProgress(d){
     const updated=cards.map(c=>{const r=d.mfProgress[c.id];if(!r)return c;const rv=(c.reviews??c.rv??0);return(r.reviews||0)>rv?{...c,level:r.level,lastReview:r.lastReview,reviews:r.reviews,lv:r.level,lr:r.lastReview,rv:r.reviews}:c});
     localStorage.setItem("mf-cards",JSON.stringify(updated));
   }
-  if(d.examRanges&&!localStorage.getItem("hub-exam-ranges"))localStorage.setItem("hub-exam-ranges",JSON.stringify(d.examRanges));
+  if(d.examRanges)localStorage.setItem("hub-exam-ranges",JSON.stringify(d.examRanges));
   if(d.concepts?.length){
     const ex=JSON.parse(localStorage.getItem("hub-concepts")||"[]");
     const ids=new Set(ex.map(c=>c.id));

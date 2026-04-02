@@ -160,7 +160,7 @@ async function pullProgress(){
     if(!r.ok)return;
     const j=await r.json();
     const d=JSON.parse(decodeURIComponent(escape(atob(j.content.replace(/\n/g,"")))));
-    if(d.examRanges&&!localStorage.getItem("hub-exam-ranges"))localStorage.setItem("hub-exam-ranges",JSON.stringify(d.examRanges));
+    if(d.examRanges)localStorage.setItem("hub-exam-ranges",JSON.stringify(d.examRanges));
     if(d.sfWrong?.length){const ex=JSON.parse(localStorage.getItem("sf-wrong")||"[]");const keys=new Set(ex.map(w=>w.question+w.date));const nw=d.sfWrong.filter(w=>!keys.has(w.question+w.date));if(nw.length)localStorage.setItem("sf-wrong",JSON.stringify([...ex,...nw]))}
     if(d.sfProgress){const bank=JSON.parse(localStorage.getItem("sf-bank")||"[]");localStorage.setItem("sf-bank",JSON.stringify(bank.map(q=>{const r=d.sfProgress[q.id];if(!r)return q;return{...q,solved:q.solved||r.solved,correct:q.solved?q.correct:r.correct}})))}
     if(d.mfProgress){const cards=JSON.parse(localStorage.getItem("mf-cards")||"[]");localStorage.setItem("mf-cards",JSON.stringify(cards.map(c=>{const r=d.mfProgress[c.id];if(!r)return c;const rv=(c.reviews??c.rv??0);return(r.reviews||0)>rv?{...c,level:r.level,lastReview:r.lastReview,reviews:r.reviews}:c})))}

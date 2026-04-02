@@ -450,7 +450,7 @@ function _applyProgress(d){
     S.cards=S.cards.map(c=>{const r=d.mfProgress[c.id];if(!r)return c;const rv=(c.reviews??c.rv??0);return(r.reviews||0)>rv?{...c,level:r.level,lastReview:r.lastReview,reviews:r.reviews}:c});
     localStorage.setItem("mf-cards",JSON.stringify(S.cards));
   }
-  if(d.examRanges&&!localStorage.getItem("hub-exam-ranges"))localStorage.setItem("hub-exam-ranges",JSON.stringify(d.examRanges));
+  if(d.examRanges)localStorage.setItem("hub-exam-ranges",JSON.stringify(d.examRanges));
   if(d.concepts?.length){
     const ex=JSON.parse(localStorage.getItem("hub-concepts")||"[]");
     const ids=new Set(ex.map(c=>c.id));
