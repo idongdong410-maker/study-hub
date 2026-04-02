@@ -125,6 +125,22 @@
       "explanation": "양변을 x에 대해 미분: 2x + 2y·(dy/dx) = 0 → dy/dx = -x/y",
       "date": "2026. 4. 2.",
       "fromBank": true
+    },
+    {
+      "subject": "calculus",
+      "topic": "매개변수 미분",
+      "question": "x = t², y = t³일 때, dy/dx는?",
+      "options": [
+        "① 3t/2",
+        "② 2t/3",
+        "③ 3t²/2t",
+        "④ t/2"
+      ],
+      "correct": "① 3t/2",
+      "selected": "③ 3t²/2t",
+      "explanation": "dy/dx = (dy/dt)/(dx/dt) = 3t²/2t = 3t/2",
+      "date": "2026. 4. 2.",
+      "fromBank": true
     }
   ],
   "mfProgress": {
@@ -189,5 +205,5 @@
     }
   },
   "concepts": [],
-  "ts": 1775106673455
+  "ts": 1775106693788
 }
