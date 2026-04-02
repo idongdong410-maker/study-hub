@@ -1,1 +1,31 @@
-﻿{"exam_ranges":{"calculus":{"units":[],"note":"아직 설정 안 됨"},"english":{"units":[],"note":"아직 설정 안 됨"},"korean":{"units":[],"note":"아직 설정 안 됨"}},"daily_quota":{"calculus":{"concepts":1,"questions":3},"english":{"passages":4,"questions":4},"korean":{"passages":2,"questions":2}},"notebooks":{"calculus":"https://notebooklm.google.com/notebook/b7c4a509-91f3-42c7-9df4-cdc2891fa779","english":"https://notebooklm.google.com/notebook/6d79c301-01b6-4e9b-bd4e-70b96d3aff71","korean":"https://notebooklm.google.com/notebook/a7a7587b-bc92-4cdb-807c-a71a6756c274"}}
+{
+  "exam_ranges": {
+    "calculus": {
+      "units": ["수열의 극한", "급수", "여러 가지 함수의 미분", "여러가지 미분법(음함수의 미분)까지"],
+      "note": ""
+    },
+    "english": {
+      "units": [
+        "글의 목적 파악", "심경 변화 파악", "함축적 의미 파악",
+        "요지 파악", "주장 파악", "주제 파악", "제목 파악",
+        "어법 정확성 파악", "어휘 적절성 파악", "빈칸 내용 추론",
+        "철학·역사 지문", "환경·자원 지문", "과학 지문", "스포츠·레저 지문"
+      ],
+      "note": ""
+    },
+    "korean": {
+      "units": [],
+      "note": ""
+    }
+  },
+  "daily_quota": {
+    "calculus": {"concepts": 1, "questions": 3},
+    "english": {"passages": 4, "questions": 4},
+    "korean": {"passages": 2, "questions": 2}
+  },
+  "notebooks": {
+    "calculus": "https://notebooklm.google.com/notebook/b7c4a509-91f3-42c7-9df4-cdc2891fa779",
+    "english": "https://notebooklm.google.com/notebook/6d79c301-01b6-4e9b-bd4e-70b96d3aff71",
+    "korean": "https://notebooklm.google.com/notebook/a7a7587b-bc92-4cdb-807c-a71a6756c274"
+  }
+}

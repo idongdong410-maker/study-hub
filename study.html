@@ -562,7 +562,7 @@ function renderConceptStep(sub){
   </div>`;
 }
 
-function goToConfig(){S.step="config";S.difficulty=null;S.qtype=null;render()}
+function goToConfig(){S.step="config";render()}
 
 // Step 3: Choose difficulty & type
 function renderConfigStep(sub){
@@ -596,11 +596,17 @@ function renderConfigStep(sub){
 }
 
 // Step 4: Solve
-async function startQuiz(){
-  S.step="solve";S.loading=false;
+function _buildPool(){
   const pool=S.bank.filter(q=>q.subject===S.subject&&q.topic===S.selectedTopic?.name);
   const diffPool=S.difficulty?pool.filter(q=>(q.difficulty||"중")===(DIFF_MAP[S.difficulty]||"중")):pool;
-  const src=diffPool.length>0?diffPool:pool;
+  const diffSrc=diffPool.length>0?diffPool:pool;
+  const qtypePool=S.qtype?diffSrc.filter(q=>q.qtype===S.qtype):diffSrc;
+  return qtypePool.length>0?qtypePool:diffSrc;
+}
+
+async function startQuiz(){
+  S.step="solve";S.loading=false;
+  const src=_buildPool();
   const unsolved=src.filter(q=>!q.solved);
   if(unsolved.length>0){S.quiz=unsolved[Math.floor(Math.random()*unsolved.length)];S.quizComplete=false;}
   else if(src.length>0){S.quiz=null;S.quizComplete=true;}
@@ -609,9 +615,7 @@ async function startQuiz(){
 }
 
 function loadNewQuestion(){
-  const pool=S.bank.filter(q=>q.subject===S.subject&&q.topic===S.selectedTopic?.name);
-  const diffPool=S.difficulty?pool.filter(q=>(q.difficulty||"중")===(DIFF_MAP[S.difficulty]||"중")):pool;
-  const src=diffPool.length>0?diffPool:pool;
+  const src=_buildPool();
   const unsolved=src.filter(q=>!q.solved);
   if(unsolved.length>0){S.quiz=unsolved[Math.floor(Math.random()*unsolved.length)];S.quizComplete=false;}
   else if(src.length>0){S.quiz=null;S.quizComplete=true;}
@@ -697,9 +701,13 @@ function solveAnswer(i){
   // Mark in bank if it has an id
   if(S.quiz.id){S.bank=S.bank.map(q=>q.id===S.quiz.id?{...q,solved:true,correct:ok}:q)}
   S.stats[s]={total:(S.stats[s]?.total||0)+1,correct:(S.stats[s]?.correct||0)+(ok?1:0)};
+  // 재풀기에서 맞히면 오답 목록에서 제거
+  if(ok){const key=S.quiz.question+(t?.name||"");S.wrong=S.wrong.filter(w=>!(w.question+w.topic===key&&w.subject===s))}
   if(!ok){
-    const q=S.quiz;
-    S.wrong.push({subject:s,topic:t.name,question:q.question,options:q.options,correct:q.options[q.answer],selected:q.options[i],explanation:q.explanation,difficulty:DIFF_MAP[S.difficulty],qtype:S.qtype,date:new Date().toLocaleDateString("ko-KR")});
+    const q=S.quiz,key=q.question+(t?.name||"");
+    const dupIdx=S.wrong.findIndex(w=>w.question+w.topic===key);
+    const entry={subject:s,topic:t.name,question:q.question,options:q.options,correct:q.options[q.answer],selected:q.options[i],explanation:q.explanation,difficulty:DIFF_MAP[S.difficulty],qtype:S.qtype,date:new Date().toLocaleDateString("ko-KR")};
+    if(dupIdx>=0)S.wrong[dupIdx]=entry;else S.wrong.push(entry);
   }
   save();render();
 }
@@ -795,7 +803,32 @@ function renderWrong(){
       <div class="wrong-q">${w.question}</div>
       <div style="font-size:13px"><span style="color:var(--red)">내 답: ${w.selected}</span> → <span style="color:var(--green)">정답: ${w.correct}</span></div>
       <p style="font-size:13px;margin-top:8px;color:var(--t3);white-space:pre-wrap">${w.explanation}</p>
+      <button class="btn btn-sm" style="margin-top:10px" onclick="retryWrong(${f.indexOf(w)})">다시 풀기</button>
     </div>`).join("")}`;
+}
+
+function retryWrong(idx){
+  const f=S.wrong.filter(w=>w.subject===S.subject);
+  const w=f[idx];if(!w)return;
+  // Convert wrong entry to a quiz-compatible question object
+  const bankQ=S.bank.find(q=>q.question===w.question&&q.topic===w.topic);
+  if(bankQ){
+    // Reset solved flag so it can be re-answered
+    S.bank=S.bank.map(q=>q.id===bankQ.id?{...q,solved:false,correct:null}:q);
+    // Navigate to learn mode with topic selected
+    const sub=SUBJECTS[S.subject];
+    const topic=sub.topics.find(t=>t.name===w.topic)||sub.topics[0];
+    S.selectedTopic=topic;S.difficulty=null;S.qtype=null;
+    S.quiz=bankQ;S.quizSel=null;S.quizRevealed=false;S.quizComplete=false;S.step="solve";
+    S.page="learn";save();render();
+  }else{
+    // If not in bank, create a temporary quiz object from wrong entry
+    S.quiz={question:w.question,options:w.options,answer:w.options.indexOf(w.correct),explanation:w.explanation,topic:w.topic,difficulty:w.difficulty};
+    const sub=SUBJECTS[S.subject];
+    const topic=sub.topics.find(t=>t.name===w.topic)||sub.topics[0];
+    S.selectedTopic=topic;S.quizSel=null;S.quizRevealed=false;S.quizComplete=false;S.step="solve";
+    S.page="learn";render();
+  }
 }
 
 // ===== IMPORT =====

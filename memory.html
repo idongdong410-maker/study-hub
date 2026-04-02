@@ -257,7 +257,7 @@ function renderReview(d,isAll){
           ${c.tag?`<div class="flash-tag" style="background:${deckInfo.dim};color:${deckInfo.color}">${c.tag}</div>`:""}
           <div class="flash-side">앞면</div>
           <div class="flash-content">${c.front}</div>
-          <div class="flash-hint">탭하여 뒤집기</div>
+          <div class="flash-hint">탭하여 뒤집기 · Space</div>
         </div>
       </div>
     </div>`;
@@ -489,6 +489,16 @@ window.addEventListener("beforeunload",()=>pushProgress());
 pullProgress().then(()=>{
   S.cards=JSON.parse(localStorage.getItem("mf-cards")||"[]");
   render();
+});
+
+// ===== Keyboard Shortcuts =====
+document.addEventListener("keydown",e=>{
+  if(e.target.tagName==="INPUT"||e.target.tagName==="TEXTAREA")return;
+  if(S.page!=="review")return;
+  if(e.code==="Space"){e.preventDefault();if(!S.flipped){S.flipped=true;render()}}
+  else if(e.key==="1"&&S.flipped)rateCard(0);
+  else if(e.key==="2"&&S.flipped)rateCard(1);
+  else if(e.key==="3"&&S.flipped)rateCard(2);
 });
 </script>
 </body>

@@ -154,7 +154,7 @@
     {
       "id": "eng-20260331-001",
       "subject": "english",
-      "topic": "빈칸추론",
+      "topic": "빈칸 내용 추론",
       "question": "다음 빈칸에 들어갈 말로 가장 적절한 것은?\n\nThe greatest obstacle to discovery is not ignorance — it is the illusion of ________.",
       "options": [
         "① knowledge",
@@ -169,7 +169,7 @@
     {
       "id": "eng-20260331-002",
       "subject": "english",
-      "topic": "어휘",
+      "topic": "어휘 적절성 파악",
       "question": "밑줄 친 'ubiquitous'의 의미와 가장 가까운 것은?\n\nSmartphones have become ubiquitous in modern society.",
       "options": [
         "① expensive",
@@ -184,7 +184,7 @@
     {
       "id": "eng-20260331-003",
       "subject": "english",
-      "topic": "문법",
+      "topic": "어법 정확성 파악",
       "question": "다음 중 어법상 올바른 문장은?",
       "options": [
         "① Had I known, I would have helped.",
@@ -199,22 +199,22 @@
     {
       "id": "eng-20260331-004",
       "subject": "english",
-      "topic": "순서배열",
-      "question": "주어진 글 다음에 이어질 글의 순서로 가장 적절한 것은?\n\nResearchers found that people who regularly engage in creative activities show higher levels of well-being.\n(A) However, the benefits were not limited to artistic pursuits.\n(B) Even simple activities like cooking or gardening counted.\n(C) This suggests that creativity itself, not the specific activity, drives the positive effects.",
+      "topic": "글의 목적 파악",
+      "question": "다음 글의 목적으로 가장 적절한 것은?\n\nDear Ms. Thompson,\n\nI am writing to express my sincere gratitude for your mentorship during my internship at GreenTech Solutions. Your guidance not only helped me develop technical skills but also showed me the importance of environmental stewardship in business. I would not have had the confidence to present my research findings at the company meeting without your encouragement. I hope to stay in touch as I begin my career in renewable energy.\n\nSincerely,\nJun-ho Park",
       "options": [
-        "① (A)-(B)-(C)",
-        "② (A)-(C)-(B)",
-        "③ (B)-(A)-(C)",
-        "④ (C)-(A)-(B)"
+        "① 인턴십 프로그램에 지원하려고",
+        "② 멘토에게 감사함을 전하려고",
+        "③ 환경 정책 개선을 건의하려고",
+        "④ 회의 발표 일정을 확인하려고"
       ],
-      "answer": 0,
-      "explanation": "창의적 활동의 효과 → (A) 그러나 예술에만 한정되지 않음 → (B) 요리나 정원 가꾸기도 포함 → (C) 결론: 활동 자체가 아닌 창의성이 핵심",
-      "difficulty": "중"
+      "answer": 1,
+      "explanation": "'I am writing to express my sincere gratitude(감사함을 전하기 위해 씁니다)'라는 첫 문장이 목적을 직접 밝히고 있다. 멘토링에 대한 감사와 앞으로의 연락 희망이 글의 핵심이므로 ②가 적절하다.",
+      "difficulty": "하"
     },
     {
       "id": "eng-20260331-005",
       "subject": "english",
-      "topic": "수능특강 독해",
+      "topic": "주제 파악",
       "question": "다음 글의 주제로 가장 적절한 것은?\n\nWhen we label people, we tend to see them only through the lens of that label. A student called 'gifted' may feel pressure to always perform, while one labeled 'slow' may stop trying altogether.",
       "options": [
         "① 영재 교육의 필요성",
@@ -229,17 +229,17 @@
     {
       "id": "eng-20260331-006",
       "subject": "english",
-      "topic": "문장삽입",
-      "question": "다음 문장이 들어가기에 가장 적절한 곳은?\n\n\"Yet this assumption often proves false.\"\n\n( ① ) People generally believe that more choices lead to greater satisfaction. ( ② ) Research by Barry Schwartz shows that an abundance of options can actually cause anxiety. ( ③ ) This phenomenon, known as the 'paradox of choice,' suggests that limiting options may improve decision-making. ( ④ )",
+      "topic": "주장 파악",
+      "question": "다음 글에서 필자가 주장하는 바로 가장 적절한 것은?\n\nIn today's world, many students rush through assignments to meet deadlines without truly understanding the material. However, deep learning requires time and reflection. Educators should design assessments that reward the process of thinking, not just the final answer. When students are given space to explore and make mistakes, they develop critical thinking skills that will serve them throughout their lives. We must shift our focus from performance to genuine understanding.",
       "options": [
-        "① ①",
-        "② ②",
-        "③ ③",
-        "④ ④"
+        "① 학습 결과보다 사고 과정을 중시하는 평가를 설계해야 한다",
+        "② 과제 마감 기한을 더 엄격히 지켜야 한다",
+        "③ 학생의 성적을 더 세밀하게 평가해야 한다",
+        "④ 교사와 학생 간의 소통을 강화해야 한다"
       ],
-      "answer": 1,
-      "explanation": "'더 많은 선택 = 더 큰 만족'이라는 가정(assumption)을 먼저 제시한 뒤, '그러나 이 가정은 틀린 경우가 많다'가 와야 자연스럽다. ② 위치가 적절하다.",
-      "difficulty": "상"
+      "answer": 0,
+      "explanation": "'We must shift our focus from performance to genuine understanding(성과가 아닌 진정한 이해로 초점을 옮겨야 한다)'라는 결론 문장이 핵심 주장이다. should와 must 등 당위 표현이 글 전체에 나타나며, ①이 이를 가장 잘 담고 있다.",
+      "difficulty": "중"
     },
     {
       "id": "kor-20260331-001",
@@ -364,7 +364,7 @@
     {
       "id": "eng-20260331-101",
       "subject": "english",
-      "topic": "빈칸 추론",
+      "topic": "빈칸 내용 추론",
       "question": "다음 빈칸에 들어갈 말로 가장 적절한 것은?\n\nDigital platforms have made a lot of work less sticky. As work becomes ever more modularised, commoditised and standardised, and as markets for digital work are created, ties between service work and particular places can be disconnected. While the business process of outsourcing that emerged in the 1990s allowed large companies to take advantage of a 'global reserve army' by moving their call centres to cheap and distant labour markets, cloudwork changes the volume and granularity at which geographically non-proximate work can take place. A small business in New York can hire a freelance transcriber in Nairobi one day and New Delhi the next. No offices or factories need to be built, no local regulations are observed, and — in most cases — no local taxes are paid. The switch in the production network of work happens by simply sending some emails or clicking some buttons on a digital work platform. And, in this way, the employer ________________.",
       "options": [
         "① leaves behind no material traces in the places where it was once an employer",
@@ -379,7 +379,7 @@
     {
       "id": "eng-20260331-102",
       "subject": "english",
-      "topic": "어휘",
+      "topic": "어휘 적절성 파악",
       "question": "다음 글의 괄호 (A), (B)에 들어갈 문맥상 알맞은 어휘로 짝지어진 것은?\n\nThe study of literature has repeatedly failed to recognize the influence of modern musical lyricists and their contributions to the evolution of language. Unlike Shakespeare, who has been studied and (A) [celebrated / ignored] for his development of the English language, particularly in vocabulary and grammatical structure, modern songwriters have experienced restraints on the acknowledgement of their contributions and largely been (B) [acknowledged / ignored]. Over the past century, we have witnessed an explosion of incredible literary works by these artists, who, through their music, have used linguistic manipulation and storytelling to enrich our language and literature.",
       "options": [
         "① (A) celebrated - (B) ignored",
@@ -394,37 +394,37 @@
     {
       "id": "eng-20260331-103",
       "subject": "english",
-      "topic": "문장 삽입",
-      "question": "글의 흐름으로 보아, 주어진 문장이 들어가기에 가장 적절한 곳은?\n\n[주어진 문장] But transit is only there if it's coming soon.\n\nRoads are there all the time, so their speed is the most important fact that distinguishes them. ( ① ) If you have a car, you can use a road whenever you want and experience its speed. ( ② ) But transit has to exist when you need it (span), and it needs to be coming soon (frequency). ( ③ ) Otherwise, waiting time will wipe out any time savings from a faster service. ( ④ ) Unless you're comfortable planning your life around a particular scheduled trip, speed is worthless without frequency, so a transit map that screams about speed and whispers about frequency may simply be planting confusion.",
+      "topic": "요지 파악",
+      "question": "다음 글의 요지로 가장 적절한 것은?\n\nWhen you watch a master chef prepare a meal, you see someone who has internalized thousands of hours of practice into effortless action. This is the power of habits. Habits allow the brain to operate on autopilot for routine tasks, freeing up cognitive resources for more complex challenges. The key insight is that building the right habits transforms effort into ease. Rather than relying on willpower alone, we should design our environment and routines to make good behaviors automatic.",
       "options": [
-        "①",
-        "②",
-        "③",
-        "④"
+        "① 좋은 습관을 형성하면 바람직한 행동이 자동화된다",
+        "② 의지력이 강한 사람이 더 성공적인 삶을 산다",
+        "③ 복잡한 과제를 수행하려면 체계적인 훈련이 필요하다",
+        "④ 인간의 뇌는 반복 학습을 통해 지속적으로 발달한다"
       ],
       "answer": 0,
-      "explanation": "도로는 항상 그곳에 있어 속도가 가장 중요하지만, '대중교통(transit)은 곧 올 때만 그곳에 존재한다'는 내용이 도로와 대비되며 제시되어야 합니다. 그 뒤에 자동차(원할 때 언제든 이용)와 대중교통(운행 빈도와 시간대의 제약)의 차이를 구체적으로 대비하는 문장들이 이어지므로 ① 자리가 가장 적절합니다.",
+      "explanation": "'building the right habits transforms effort into ease(올바른 습관을 형성하면 노력이 용이함으로 변한다)'가 핵심 주장이다. 역접(Rather than) 이후 'make good behaviors automatic'이 결론이므로 ①이 적절하다.",
       "difficulty": "중"
     },
     {
       "id": "eng-20260331-104",
       "subject": "english",
-      "topic": "순서 배열",
-      "question": "주어진 글 다음에 이어질 글의 순서로 가장 적절한 것은?\n\nWe are exceptionally smart, and this helps us adapt to a wide range of environments. But we are not nearly smart enough as individuals to solve the adaptive problems that confronted modern humans as they spread across the globe.\n\n(A) We are much better at learning from others than other species are, and we are motivated to learn from others even when we do not understand why our models are doing what they are doing.\n(B) This psychology allows human populations to accumulate pools of adaptive information that greatly exceed the inventive capacities of individuals.\n(C) The package of tools, foraging techniques, ecological knowledge, and social arrangements used by any group of foragers is far too complex for any individual to create. We are able to learn all the things we need to know in each of the many different environments in which we live only because we acquire information from others.",
+      "topic": "제목 파악",
+      "question": "다음 글의 제목으로 가장 적절한 것은?\n\nResearchers have discovered that the same neural pathways activated during physical pain are also triggered during social rejection. When someone is excluded from a group or ignored by peers, the brain registers this experience in a manner similar to physical injury. This finding challenges the common dismissal of emotional hurt as 'just feelings' and suggests that social belonging is a fundamental human need, not a luxury. Organizations and communities should take social exclusion as seriously as they do physical harm.",
       "options": [
-        "① (C) - (A) - (B)",
-        "② (A) - (B) - (C)",
-        "③ (B) - (C) - (A)",
-        "④ (C) - (B) - (A)"
+        "① Social Pain: When Rejection Hurts Like Physical Injury",
+        "② How to Build Stronger Social Networks",
+        "③ The Brain's Role in Managing Physical Pain",
+        "④ Why Emotional Intelligence Matters in Leadership"
       ],
       "answer": 0,
-      "explanation": "개인이 환경 적응 문제를 독자적으로 해결할 만큼 충분히 똑똑하지 않다는 주어진 문장 뒤에는, 개인이 창조하기엔 기술과 지식이 너무 복잡하여 타인으로부터 정보를 습득해야 한다는 (C)가 이어져야 합니다. 그 후 인간이 타 생물종보다 다른 사람으로부터 배우는 것에 뛰어나다는 내용의 (A)가 오고, 마지막으로 이러한 심리가 개인의 발명 능력을 뛰어넘는 적응적 정보의 축적을 가능하게 한다는 (B)가 오는 것이 논리적입니다.",
-      "difficulty": "상"
+      "explanation": "사회적 거절이 신체적 고통과 동일한 신경 경로를 활성화한다는 연구 결과를 다루며, 사회적 소속이 기본 욕구임을 주장하는 글이다. '사회적 고통: 거절이 신체적 부상처럼 아픈 이유'를 담은 ①이 가장 적절하다.",
+      "difficulty": "중"
     },
     {
       "id": "kor-20260331-101",
       "subject": "korean",
-      "topic": "화법의 원리",
+      "topic": "화법 이론",
       "question": "다음 상황에서 '나-전달법'에 따라 말한 것으로 가장 적절한 것은?\n[상황] 모둠장인 나는 발표를 해야 하는데, 모둠원인 친구가 모둠 활동 자료를 제때 완성하지 않아 걱정이 많이 되는 상황이다.",
       "options": [
         "① 네가 이번 모둠 활동 준비를 제대로 하지 않아서 나머지 모둠원들에게 큰 피해를 준 것 같아.",
@@ -439,7 +439,7 @@
     {
       "id": "kor-20260331-102",
       "subject": "korean",
-      "topic": "작문의 원리",
+      "topic": "작문 이론",
       "question": "' 관광 지구에 관광세를 도입해야 한다'는 주장의 글을 보완하기 위해 수집한 자료의 활용 방안으로 적절하지 않은 것은?\n[자료 1] 4월과 10월에 관광객 수가 다른 달에 비해 월등히 많은 통계 자료\n[자료 2] 관광객 밀집도 완화를 위해 관광세를 부과한 해외 도시 사례 기사",
       "options": [
         "① [자료 1]을 활용하여, 4월과 10월이 한시적 관광세 도입이 필요한 시기라는 점을 뒷받침한다.",
@@ -450,6 +450,66 @@
       "answer": 3,
       "explanation": "관광세 도입 주장은 특정 시기에 과도하게 몰리는 관광객을 분산시키고 관광 여건을 개선하여 지역 문제를 해결하려는 목적을 가집니다\n4\n5\n. 따라서 수집한 자료를 활용하여 관광 산업의 양적 팽창을 입증한다는 ④의 활용 방안은 글의 주장 및 목적에 부합하지 않아 적절하지 않습니다\n6\n7\n.",
       "difficulty": "중"
+    },
+    {
+      "id": "calc-20260402-001",
+      "subject": "calculus",
+      "topic": "수열의 극한",
+      "question": "lim(n→∞) (2n+1)/(3n-2)의 값은?",
+      "options": ["① 1/3", "② 2/3", "③ 3/2", "④ 2"],
+      "answer": 1,
+      "explanation": "분모·분자를 n으로 나누면 (2+1/n)/(3-2/n)이 되고, n→∞이면 1/n→0이므로 극한값은 2/3이다.",
+      "difficulty": "하"
+    },
+    {
+      "id": "calc-20260402-002",
+      "subject": "calculus",
+      "topic": "수열의 극한",
+      "question": "lim(n→∞) (√(n²+4n) - n)의 값은?",
+      "options": ["① 1", "② 2", "③ 4", "④ 8"],
+      "answer": 1,
+      "explanation": "분자를 유리화: (√(n²+4n) - n) × (√(n²+4n) + n)/(√(n²+4n) + n) = 4n/(√(n²+4n) + n). 분자분모를 n으로 나누면 4/(√(1+4/n) + 1) → 4/2 = 2",
+      "difficulty": "중"
+    },
+    {
+      "id": "calc-20260402-003",
+      "subject": "calculus",
+      "topic": "수열의 극한",
+      "question": "lim(n→∞) (3^(n+1) + 2^n)/(3^n - 1)의 값은?",
+      "options": ["① 1", "② 2", "③ 3", "④ 6"],
+      "answer": 2,
+      "explanation": "분모·분자를 3^n으로 나누면 (3 + (2/3)^n)/(1 - (1/3)^n)이 된다. n→∞이면 (2/3)^n→0, (1/3)^n→0이므로 극한값은 3/1 = 3이다.",
+      "difficulty": "상"
+    },
+    {
+      "id": "calc-20260402-004",
+      "subject": "calculus",
+      "topic": "급수",
+      "question": "등비급수 3 + 1 + 1/3 + 1/9 + ...의 합은?",
+      "options": ["① 4", "② 9/2", "③ 5", "④ 6"],
+      "answer": 1,
+      "explanation": "첫째항 a=3, 공비 r=1/3. |r|<1이므로 등비급수는 수렴한다. S = a/(1-r) = 3/(1-1/3) = 3/(2/3) = 9/2",
+      "difficulty": "하"
+    },
+    {
+      "id": "calc-20260402-005",
+      "subject": "calculus",
+      "topic": "급수",
+      "question": "Σ(n=1 to ∞) 3/(n(n+3))의 값은?",
+      "options": ["① 11/6", "② 2", "③ 11/3", "④ 3"],
+      "answer": 0,
+      "explanation": "부분분수 분해: 3/(n(n+3)) = 1/n - 1/(n+3). 텔레스코핑 급수에서 S_N = (1/1 + 1/2 + 1/3) - (1/(N+1) + 1/(N+2) + 1/(N+3)) → 1 + 1/2 + 1/3 = 11/6",
+      "difficulty": "중"
+    },
+    {
+      "id": "calc-20260402-006",
+      "subject": "calculus",
+      "topic": "급수",
+      "question": "수열 {a_n}의 첫째항부터 제n항까지의 합이 S_n = 3n/(n+1)일 때, Σ(n=1 to ∞) a_n의 값은?",
+      "options": ["① 1", "② 2", "③ 3", "④ 발산"],
+      "answer": 2,
+      "explanation": "급수의 합 = lim(n→∞) S_n = lim 3n/(n+1). 분모·분자를 n으로 나누면 3/(1+1/n) → 3. 또한 a_n = S_n - S_{n-1} = 3/(n(n+1)) > 0이고 lim a_n = 0이므로 수렴이 보장된다. 따라서 Σa_n = 3",
+      "difficulty": "상"
     }
   ],
   "cards": [
