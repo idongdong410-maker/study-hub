@@ -256,7 +256,7 @@ function getExamUnits(subj){
 // ===== RENDER =====
 function render(){
   // D-day
-  const dd=Math.ceil((new Date("2026-04-23")-new Date())/864e5);
+  const _td=new Date();_td.setHours(0,0,0,0);const dd=Math.round((new Date("2026-04-23")-_td)/864e5);
   document.getElementById("dday").textContent=`D-${dd>0?dd:0}`;
   document.getElementById("dday").style.color=dd<=7?"var(--red)":"var(--t1)";
 
