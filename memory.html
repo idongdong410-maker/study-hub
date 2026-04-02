@@ -469,14 +469,18 @@ async function pullProgress(){
 }
 async function pushProgress(){
   const t=_ghToken();if(!t)return;
-  try{
-    const content=btoa(unescape(encodeURIComponent(JSON.stringify(_buildProgress(),null,2))));
-    let sha="";
-    const g=await fetch(_SYNC_API,{headers:{Authorization:`token ${t}`,Accept:"application/vnd.github.v3+json"}});
-    if(g.ok){const gj=await g.json();sha=gj.sha||""}
-    await fetch(_SYNC_API,{method:"PUT",headers:{Authorization:`token ${t}`,"Content-Type":"application/json"},
-      body:JSON.stringify({message:"chore: sync progress",content,...(sha?{sha}:{})})});
-  }catch(e){}
+  for(let i=0;i<3;i++){
+    try{
+      const content=btoa(unescape(encodeURIComponent(JSON.stringify(_buildProgress(),null,2))));
+      let sha="";
+      const g=await fetch(_SYNC_API,{headers:{Authorization:`token ${t}`,Accept:"application/vnd.github.v3+json"}});
+      if(g.ok){const gj=await g.json();sha=gj.sha||""}
+      const r=await fetch(_SYNC_API,{method:"PUT",headers:{Authorization:`token ${t}`,"Content-Type":"application/json"},
+        body:JSON.stringify({message:"chore: sync progress",content,...(sha?{sha}:{})})});
+      if(r.ok)return;
+    }catch(e){}
+    await new Promise(r=>setTimeout(r,1000*(i+1)));
+  }
 }
 function schedulePush(){clearTimeout(_pushTimer);_pushTimer=setTimeout(pushProgress,3000)}
 document.addEventListener("visibilitychange",()=>{if(document.hidden)pushProgress()});

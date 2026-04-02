@@ -642,5 +642,133 @@
       "back": "분석: 특정 관광 지구의 문제(관광객 과밀, 환경 훼손 등)를 해결하기 위해 '관광세 도입'을 주장하는 논설문 작성 과정을 다룸\n4\n9\n.\n핵심 개념: 타당성, 신뢰성, 공정성을 갖춘 논거 수집 및 매체 활용\n10\n.\n출제 포인트: 초고를 보완하기 위해 수집한 통계 자료, 신문 기사 등 다양한 매체 자료의 적절한 활용 방안을 묻는 문제 출제 가능\n5\n.",
       "tag": "화법/작문"
     }
+  ],
+  "concepts": [
+    {
+      "id": "concept-calc-seq-limit",
+      "subject": "calculus",
+      "topic": "수열의 극한",
+      "content": "## 핵심 개념\n수열 {a_n}에서 n이 무한히 커질 때 a_n이 일정한 값 α에 가까워지면 lim(n→∞) a_n = α 라 한다. 수렴하지 않으면 발산.\n\n## 핵심 공식\n- 유리식 극한: 분모·분자를 n의 최고차항으로 나누기\n- 무리식 극한: 분자유리화(공액식 곱하기) 후 정리\n  lim(n→∞) (√(n²+an) - n) = a/2\n- 등비수열: |r|<1 → 0, |r|=1 → 1, r=-1 → 발산, |r|>1 → ∞\n\n## 풀이 포인트\n1. 분수형: 최고차항으로 나눠 ∞/∞ 형태 해소\n2. 무리식: 공액식 곱해 분자유리화\n3. ∞-∞ 형태: 통분 또는 유리화로 변환\n4. 최종 답: 분모 차수 > 분자 → 0, 같으면 계수비, 분자가 크면 ±∞\n\n## 예제\nlim(n→∞) (3n+1)/(2n-1) = 3/2  (분모·분자를 n으로 나누면)\nlim(n→∞) (√(n²+n) - n) = lim n/(√(n²+n)+n) = 1/2",
+      "date": "20260402"
+    },
+    {
+      "id": "concept-calc-series",
+      "subject": "calculus",
+      "topic": "급수",
+      "content": "## 핵심 개념\n무한급수 Σa_n의 부분합 S_n이 S로 수렴할 때 급수값이 S. 부분합 수열의 극한이 급수값.\n\n## 핵심 공식\n- 등비급수: 첫째항 a, 공비 r (|r|<1) → S = a/(1-r)\n- 급수-수열 관계: Σa_n 수렴 → lim a_n = 0 (역은 불성립)\n- 부분분수: 1/(n(n+1)) = 1/n - 1/(n+1) (텔레스코핑)\n- a_n = S_n - S_{n-1} (n≥2), a_1 = S_1\n\n## 풀이 포인트\n1. 등비급수: 공비 |r|<1 확인 후 a/(1-r) 적용\n2. 부분합 S_n 주어질 때: a_n = S_n - S_{n-1} 이용\n3. lim a_n ≠ 0이면 급수 발산 (가장 빠른 판정법)\n4. 텔레스코핑: 인수분해 후 부분분수, 항 소거\n\n## 예제\n1 + 1/2 + 1/4 + ... = 1/(1-1/2) = 2\nΣ 1/(n(n+1)) = Σ(1/n - 1/(n+1)) = 1 (텔레스코핑)",
+      "date": "20260402"
+    },
+    {
+      "id": "concept-calc-various-diff",
+      "subject": "calculus",
+      "topic": "여러 가지 함수의 미분",
+      "content": "## 핵심 개념\n삼각함수, 지수함수, 로그함수의 도함수 공식. 합성함수 미분법(체인룰)과 결합해 적용.\n\n## 핵심 공식\n- (sin x)' = cos x\n- (cos x)' = -sin x\n- (tan x)' = sec²x\n- (e^x)' = e^x,  (a^x)' = a^x·ln a\n- (ln x)' = 1/x,  (log_a x)' = 1/(x·ln a)\n- 합성함수 체인룰: {f(g(x))}' = f'(g(x))·g'(x)\n\n## 풀이 포인트\n1. 체인룰 적용: 바깥 미분 × 안쪽 미분\n2. e^{h(x)} → h'(x)·e^{h(x)}\n3. ln(h(x)) → h'(x)/h(x)\n4. a^{h(x)} → h'(x)·a^{h(x)}·ln a\n5. 곱의 미분 (f·g)' = f'g + fg' 병행 활용\n\n## 예제\nf(x) = e^{3x}: f'(x) = 3e^{3x}\nf(x) = ln(x²+1): f'(x) = 2x/(x²+1)",
+      "date": "20260402"
+    },
+    {
+      "id": "concept-calc-various-methods",
+      "subject": "calculus",
+      "topic": "여러가지 미분법(음함수의 미분)까지",
+      "content": "## 핵심 개념\n음함수, 매개변수, 역함수 미분법. F(x,y)=0, x=f(t)·y=g(t), y=f⁻¹(x) 형태 처리.\n\n## 핵심 공식\n- 음함수: 양변을 x에 대해 미분 (y 포함 항은 ×dy/dx)\n- 매개변수: dy/dx = (dy/dt)÷(dx/dt)  (dx/dt≠0)\n- 역함수: (f⁻¹)'(b) = 1/f'(a)  (단, f(a)=b)\n\n## 풀이 포인트\n1. 음함수: y를 x의 함수로 취급, 미분 후 dy/dx 이항\n2. 매개변수: dx/dt와 dy/dt 각각 구한 후 나누기\n3. 역함수: f(a)=b인 a값 먼저 찾고 f'(a) 계산\n4. 매개변수 dy/dx 최솟값: 완전제곱식으로 변환\n5. 이계도함수: d²y/dx² = d(dy/dx)/dt ÷ dx/dt\n\n## 예제\nx²+y²=25 → 2x+2y(dy/dx)=0 → dy/dx=-x/y\nx=t², y=t³ → dy/dx = 3t²/2t = 3t/2",
+      "date": "20260402"
+    },
+    {
+      "id": "concept-eng-purpose",
+      "subject": "english",
+      "topic": "글의 목적 파악",
+      "content": "## 핵심 개념\n글쓴이가 글을 쓴 이유(목적)를 파악. 편지·이메일·공고문 형식이 많으며 행동 지향적 표현이 핵심.\n\n## 풀이 포인트\n1. 첫 문장과 마지막 문장에 집중\n2. 요청·권유·감사·항의·안내 등 행동 표현 찾기\n3. 선택지: to inform / to request / to complain / to invite / to apologize\n4. 글의 수신자(누구에게)와 발신자(누가) 파악\n\n## 핵심 표현\n- I am writing to... / I would like to...\n- We are pleased to inform you that...\n- Please note that... / I am contacting you regarding...\n\n## 오답 주의\n- 목적과 내용(소재)을 혼동하지 말 것\n- 글 전체 흐름으로 판단, 일부 문장만 보고 결정 금지",
+      "date": "20260402"
+    },
+    {
+      "id": "concept-eng-emotion",
+      "subject": "english",
+      "topic": "심경 변화 파악",
+      "content": "## 핵심 개념\n글 속 인물의 심경이 어떻게 변하는지 파악. 전반부 심경 → 전환 사건 → 후반부 심경 구조.\n\n## 풀이 포인트\n1. 전환 신호어: but, however, suddenly, then, at that moment\n2. 감정 형용사·동사·신체 반응 표현에 표시하며 읽기\n3. 전반부와 후반부 심경을 각각 파악 후 쌍 선택\n4. 신체적 반응(heart pounded, sighed with relief)이 심경 간접 표현\n\n## 자주 나오는 심경 쌍\n- anxious/nervous → calm/relieved\n- disappointed/frustrated → excited/delighted\n- bored/indifferent → curious/interested\n- confident → embarrassed/ashamed\n\n## 오답 주의\n- 변화 전 또는 변화 후 심경 하나만 고르지 말 것\n- 글에 없는 심경 선택 주의",
+      "date": "20260402"
+    },
+    {
+      "id": "concept-eng-implication",
+      "subject": "english",
+      "topic": "함축적 의미 파악",
+      "content": "## 핵심 개념\n밑줄 친 어구의 문자적 의미가 아닌 문맥 속 함축 의미를 파악.\n\n## 풀이 포인트\n1. 밑줄 앞뒤 2~3문장 문맥을 넓게 파악\n2. 비유·은유·관용 표현의 실제 의미 추론\n3. 글의 핵심 주제와 연결지어 해석\n4. 선택지에서 문자적 의미 그대로인 것은 오답\n\n## 풀이 전략\n1. 먼저 밑줄 표현의 문자적 의미 파악\n2. 글 전체 맥락에서 필자가 말하려는 바 파악\n3. 두 의미가 어떻게 연결되는지 추론\n\n## 오답 주의\n- 문자적 의미만 해석한 선택지\n- 글의 주제와 무관한 해석",
+      "date": "20260402"
+    },
+    {
+      "id": "concept-eng-main-idea",
+      "subject": "english",
+      "topic": "요지 파악",
+      "content": "## 핵심 개념\n글 전체가 전달하려는 핵심 요점(what the author wants to say)을 파악. 세부 내용이 아닌 전체 흐름.\n\n## 풀이 포인트\n1. 두괄식: 첫 문장이 요지 → 나머지는 예시/근거\n2. 미괄식: 마지막 문장이 결론\n3. 역접(however, but, yet) 이후 내용이 핵심인 경우 多\n4. 반복 등장하는 핵심 어휘 파악\n\n## 선택지 분석\n- 너무 구체적(특정 사례만 언급) → 오답\n- 너무 광범위(글과 관련 없는 일반화) → 오답\n- 글의 핵심 주장을 간결하게 표현한 것 → 정답\n\n## 오답 주의\n- 예시나 근거를 요지로 착각 금지\n- 지문에 없는 내용으로 일반화 금지",
+      "date": "20260402"
+    },
+    {
+      "id": "concept-eng-argument",
+      "subject": "english",
+      "topic": "주장 파악",
+      "content": "## 핵심 개념\n글쓴이가 독자에게 주장하는 내용 파악. 당위성 표현(~해야 한다)이 많이 등장.\n\n## 풀이 포인트\n1. 당위 표현 찾기: should, must, need to, have to, ought to\n2. \"우리는 ~해야 한다\"는 결론 문장 위치 파악\n3. 반복되는 핵심어로 주장의 대상 파악\n4. 구체적 사례·수치는 주장의 근거\n\n## 선택지 분석\n- 주장 = 필자가 독자에게 권고하는 행동/태도\n- We should... / It is important to... 형태가 정답에 多\n\n## 오답 주의\n- 사실 진술(~이다)을 주장(~해야 한다)으로 혼동 금지\n- 글의 일부 내용만 반영한 선택지 주의",
+      "date": "20260402"
+    },
+    {
+      "id": "concept-eng-topic",
+      "subject": "english",
+      "topic": "주제 파악",
+      "content": "## 핵심 개념\n글 전체를 아우르는 중심 소재와 글의 방향(주제)을 파악. 요지보다 넓고 중립적.\n\n## 풀이 포인트\n1. 첫 문단과 마지막 문단 집중\n2. 반복 어휘(핵심어) 파악 → 소재 결정\n3. 글의 방향(긍정/부정/중립) 파악 → 주제 결정\n4. 선택지: 'the + 핵심어 + of/in + 맥락' 형식 多\n\n## 선택지 분석\n- 너무 구체적이거나 너무 광범위한 것 제거\n- 글 전체를 아우르는 것 선택\n\n## 오답 주의\n- 글의 한 문단 내용만 담은 선택지\n- 지문에 없는 개념 포함된 선택지",
+      "date": "20260402"
+    },
+    {
+      "id": "concept-eng-title",
+      "subject": "english",
+      "topic": "제목 파악",
+      "content": "## 핵심 개념\n글의 핵심 내용을 가장 잘 나타내는 제목 선택. 주제보다 더 구체적이고 함축적·수사적.\n\n## 풀이 포인트\n1. 주제를 먼저 파악 → 이를 가장 잘 담은 제목 선택\n2. 비유·수사적·흥미로운 표현 활용한 제목 多\n3. 콜론(:) 구조: 핵심어: 부연 설명\n4. 글의 논조(긍정/부정/의문)와 일치하는 제목 선택\n\n## 선택지 분석\n- 부분적 내용만 담은 제목 → 오답\n- 너무 광범위하거나 글과 관계없는 제목 → 오답\n- 전체 내용을 함축하는 제목 → 정답\n\n## 오답 주의\n- 제목은 주제보다 구체적이어야 함\n- 지문에 없는 개념이 포함된 제목 주의",
+      "date": "20260402"
+    },
+    {
+      "id": "concept-eng-grammar",
+      "subject": "english",
+      "topic": "어법 정확성 파악",
+      "content": "## 핵심 개념\n밑줄 친 어법 표현의 정오 판단 또는 (A)(B)(C)에서 적절한 표현 선택.\n\n## 핵심 포인트\n1. 준동사: to부정사 vs 동명사, 현재분사 vs 과거분사\n2. 관계사: which(선행사O) vs what(선행사X), 관계대명사 vs 관계부사\n3. 수일치: 주어가 단수/복수인지, 수식어 제거 후 판단\n4. 접속사 vs 전치사: although(S+V) vs despite(명사)\n5. 능동/수동: 주어가 행위의 주체면 능동, 대상이면 수동\n\n## 자주 출제되는 포인트\n- 분사구문: 의미상 주어와 분사의 능동/수동 관계\n- 병렬구조: and/or/but 앞뒤 품사·형식 일치\n- it ~ that 강조구문 vs 가주어 it\n- 부사 vs 형용사: 명사 수식(형용사) vs 동사·형용사 수식(부사)\n\n## 오답 주의\n- 문법적으로 옳지만 문맥에 안 맞는 것 주의\n- 긴 수식어구에 가려진 진짜 주어 파악",
+      "date": "20260402"
+    },
+    {
+      "id": "concept-eng-vocab",
+      "subject": "english",
+      "topic": "어휘 적절성 파악",
+      "content": "## 핵심 개념\n(A)(B)의 두 어휘 중 문맥상 적절한 것 선택, 또는 밑줄 친 어휘 중 문맥상 부적절한 것 찾기.\n\n## 풀이 포인트\n1. 문맥의 흐름(긍정/부정/대조) 파악\n2. 접속사/부사로 논리 관계 파악: because·so(인과), however(역접), therefore(결론)\n3. 반의어 쌍으로 출제: increase/decrease, accept/reject, positive/negative\n4. 오답 어휘: 반대 의미 또는 비슷하지만 의미 다른 어휘\n\n## 풀이 전략 (부적절한 어휘 찾기)\n1. 각 밑줄 어휘를 반의어로 바꿔보기\n2. 바꿨을 때 문맥이 더 자연스러우면 그 어휘가 오답\n3. 앞뒤 문장과의 논리 관계 확인\n\n## 오답 주의\n- 단어 자체의 의미만 보지 말고 문맥에서 판단\n- 글 전체 논지와 반대되는 어휘가 오답인 경우 多",
+      "date": "20260402"
+    },
+    {
+      "id": "concept-eng-blank",
+      "subject": "english",
+      "topic": "빈칸 내용 추론",
+      "content": "## 핵심 개념\n빈칸에 들어갈 단어·구·절을 문맥으로 추론. 수능 최고난도 유형.\n\n## 풀이 포인트\n1. 빈칸 앞뒤 문장에서 직접 단서 찾기\n2. 빈칸이 결론부: 글 전체 핵심 주장을 담은 것 선택\n3. 빈칸이 근거부: 결론과 논리적으로 연결되는 것 선택\n4. 반복 어휘·개념이 빈칸 내용과 연결\n5. 선택지를 먼저 훑고 가설 세우며 읽기\n\n## 오답 제거법\n- 지문에 없는 내용이 담긴 선택지\n- 너무 구체적이거나 반대 방향의 선택지\n- 문맥상 연결이 어색한 선택지\n\n## 오답 주의\n- 빈칸 바로 앞뒤만 보지 말고 전체 논리 파악\n- 매력적이지만 글과 방향이 다른 선택지 주의",
+      "date": "20260402"
+    },
+    {
+      "id": "concept-eng-philosophy",
+      "subject": "english",
+      "topic": "철학·역사 지문",
+      "content": "## 핵심 개념\n철학·종교·역사·풍습·지리 관련 논설문/설명문. 추상적 개념 이해와 대조 구조 파악이 핵심.\n\n## 풀이 포인트\n1. 핵심 추상 개념의 정의를 첫 문단에서 파악\n2. 대조되는 두 관점을 명확히 구분\n3. 철학자·역사적 사건은 예시로 활용됨 (주제 아님)\n4. 어려운 어휘도 문맥으로 의미 추론 가능\n\n## 핵심 어휘\n- notion(개념), paradigm(패러다임), perspective(관점)\n- philosophical, ethical, empirical(경험적)\n- subjective(주관적) vs objective(객관적)\n- rationalism(합리주의), empiricism(경험주의)\n\n## 오답 주의\n- 철학자 이름이나 역사적 사건 자체가 주제가 아님\n- 예시를 핵심 주장으로 혼동 금지",
+      "date": "20260402"
+    },
+    {
+      "id": "concept-eng-environment",
+      "subject": "english",
+      "topic": "환경·자원 지문",
+      "content": "## 핵심 개념\n환경문제·자원고갈·재활용·지속가능성 관련 지문. 인과관계와 해결책 구조가 많음.\n\n## 풀이 포인트\n1. 문제 제기 → 원인 → 결과 → 해결책 구조 파악\n2. 수치·통계는 예시 (주제가 아님)\n3. 역접(however, yet) 이후 핵심 논지 위치\n4. 환경 문제의 원인과 해결책을 구분하여 파악\n\n## 핵심 어휘\n- sustainable(지속가능한), emission(배출)\n- renewable(재생가능한), depletion(고갈)\n- biodiversity(생물다양성), carbon footprint\n- conservation(보존), ecosystem(생태계)\n\n## 오답 주의\n- 문제 제시 부분을 글의 요지로 착각 금지\n- 해결책이 글의 핵심인 경우 多",
+      "date": "20260402"
+    },
+    {
+      "id": "concept-eng-science",
+      "subject": "english",
+      "topic": "과학 지문",
+      "content": "## 핵심 개념\n물리·화학·생명과학·지구과학 관련 설명문. 과학적 원리·현상 설명 구조.\n\n## 풀이 포인트\n1. 과학적 현상의 원인-결과 관계 파악\n2. 실험·연구 결과가 글의 핵심 논거\n3. 어려운 전문 용어는 문맥으로 의미 파악\n4. 비교·대조 구조 자주 등장\n5. 과학적 원리 설명 후 실생활 적용 사례 등장\n\n## 핵심 어휘\n- hypothesis(가설), phenomenon(현상), organism(유기체)\n- approximately(대략), significantly(상당히)\n- evolution(진화), stimulus(자극), receptor(수용체)\n- molecule(분자), atom(원자), compound(화합물)\n\n## 오답 주의\n- 실험 과정과 결론을 혼동 금지\n- 과학 용어 모르더라도 문맥으로 추론 가능",
+      "date": "20260402"
+    },
+    {
+      "id": "concept-eng-sports",
+      "subject": "english",
+      "topic": "스포츠·레저 지문",
+      "content": "## 핵심 개념\n스포츠·레저·취미·여행 관련 지문. 비교적 친숙한 소재로 접근성 높음.\n\n## 풀이 포인트\n1. 특정 스포츠/활동의 특징·규칙·역사 설명 구조\n2. 심리적·사회적 효과를 다루는 경우도 多\n3. 수치·기록이 포함될 수 있음 (예시로 활용)\n4. 일반적인 독해 전략(주제 파악 → 세부 추론) 적용\n\n## 핵심 어휘\n- competition(경쟁/대회), athlete(선수), endurance(지구력)\n- leisure(여가), recreation(오락), tournament(토너먼트)\n- discipline(훈련/종목), stamina(체력), strategy(전략)\n\n## 오답 주의\n- 특정 선수/팀 이름이 예시이므로 주제로 혼동 금지\n- 긍정적 효과를 다루면 마지막 부분에 핵심 논지",
+      "date": "20260402"
+    }
   ]
 }
