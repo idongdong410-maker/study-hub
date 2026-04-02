@@ -14,7 +14,11 @@
     },
     "calc-20260331-004": {
       "solved": true,
-      "correct": true
+      "correct": false
+    },
+    "calc-20260331-005": {
+      "solved": true,
+      "correct": false
     },
     "calc-20260331-006": {
       "solved": true,
@@ -38,11 +42,11 @@
     },
     "calc-20260331-101": {
       "solved": true,
-      "correct": true
+      "correct": false
     },
     "calc-20260331-102": {
       "solved": true,
-      "correct": false
+      "correct": true
     },
     "calc-20260331-103": {
       "solved": true,
@@ -161,6 +165,134 @@
       "explanation": "dy/dx = (dy/dt)/(dx/dt) = 3t²/2t = 3t/2",
       "date": "2026. 4. 2.",
       "fromBank": true
+    },
+    {
+      "subject": "calculus",
+      "topic": "매개변수 미분",
+      "question": "x = t², y = t³일 때, dy/dx는?",
+      "options": [
+        "① 3t/2",
+        "② 2t/3",
+        "③ 3t²/2t",
+        "④ t/2"
+      ],
+      "correct": "① 3t/2",
+      "selected": "③ 3t²/2t",
+      "explanation": "dy/dx = (dy/dt)/(dx/dt) = 3t²/2t = 3t/2",
+      "date": "2026. 4. 2.",
+      "fromBank": true
+    },
+    {
+      "subject": "calculus",
+      "topic": "음함수 미분",
+      "question": "x² + y² = 25일 때, dy/dx는?",
+      "options": [
+        "① -x/y",
+        "② x/y",
+        "③ -y/x",
+        "④ y/x"
+      ],
+      "correct": "① -x/y",
+      "selected": "③ -y/x",
+      "explanation": "양변을 x에 대해 미분: 2x + 2y·(dy/dx) = 0 → dy/dx = -x/y",
+      "date": "2026. 4. 2.",
+      "fromBank": true
+    },
+    {
+      "subject": "calculus",
+      "topic": "매개변수 미분",
+      "question": "매개변수 t로 나타낸 곡선 x = t^2 + 2, y = t^3 + t - 1 에서 t=1일 때 dy/dx 의 값은?",
+      "options": [
+        "① 1",
+        "② 2",
+        "③ 3",
+        "④ 4"
+      ],
+      "correct": "② 2",
+      "selected": "③ 3",
+      "explanation": "x와 y를 각각 t에 대하여 미분하면 dx/dt = 2t 이고 dy/dt = 3t^2 + 1 입니다. 따라서 dy/dx = (dy/dt) / (dx/dt) = (3t^2 + 1) / 2t 입니다. t=1 을 대입하면 (3(1)^2 + 1) / (2(1)) = 4 / 2 = 2 입니다.",
+      "date": "2026. 4. 2.",
+      "fromBank": true
+    },
+    {
+      "subject": "calculus",
+      "topic": "삼각함수 도함수",
+      "question": "d/dx [tan(x)]는?",
+      "options": [
+        "① sec(x)",
+        "② sec²(x)",
+        "③ csc²(x)",
+        "④ -csc²(x)"
+      ],
+      "correct": "② sec²(x)",
+      "selected": "③ csc²(x)",
+      "explanation": "tan(x) = sin(x)/cos(x)를 몫의 미분법으로 미분하면 sec²(x)",
+      "date": "2026. 4. 2.",
+      "fromBank": true
+    },
+    {
+      "subject": "calculus",
+      "topic": "매개변수 미분",
+      "question": "x = t², y = t³일 때, dy/dx는?",
+      "options": [
+        "① 3t/2",
+        "② 2t/3",
+        "③ 3t²/2t",
+        "④ t/2"
+      ],
+      "correct": "① 3t/2",
+      "selected": "③ 3t²/2t",
+      "explanation": "dy/dx = (dy/dt)/(dx/dt) = 3t²/2t = 3t/2",
+      "date": "2026. 4. 2.",
+      "fromBank": true
+    },
+    {
+      "subject": "calculus",
+      "topic": "매개변수 미분",
+      "question": "매개변수 t로 나타낸 곡선 x = t^2 + 2, y = t^3 + t - 1 에서 t=1일 때 dy/dx 의 값은?",
+      "options": [
+        "① 1",
+        "② 2",
+        "③ 3",
+        "④ 4"
+      ],
+      "correct": "② 2",
+      "selected": "③ 3",
+      "explanation": "x와 y를 각각 t에 대하여 미분하면 dx/dt = 2t 이고 dy/dt = 3t^2 + 1 입니다. 따라서 dy/dx = (dy/dt) / (dx/dt) = (3t^2 + 1) / 2t 입니다. t=1 을 대입하면 (3(1)^2 + 1) / (2(1)) = 4 / 2 = 2 입니다.",
+      "date": "2026. 4. 2.",
+      "fromBank": true
+    },
+    {
+      "subject": "calculus",
+      "topic": "지수함수 도함수",
+      "question": "f(x) = e^(3x)일 때, f'(x)는?",
+      "options": [
+        "① e^(3x)",
+        "② 3e^(3x)",
+        "③ 3xe^(3x)",
+        "④ e^(3x)/3"
+      ],
+      "correct": "② 3e^(3x)",
+      "selected": "③ 3xe^(3x)",
+      "explanation": "합성함수 미분: f'(x) = e^(3x) · 3 = 3e^(3x)",
+      "date": "2026. 4. 2.",
+      "fromBank": true
+    },
+    {
+      "subject": "calculus",
+      "topic": "합성함수 미분",
+      "question": "y = (3x + 1)⁵일 때, dy/dx는?",
+      "options": [
+        "① 5(3x+1)⁴",
+        "② 15(3x+1)⁴",
+        "③ 3(3x+1)⁵",
+        "④ 5·3(3x+1)³"
+      ],
+      "correct": "② 15(3x+1)⁴",
+      "selected": "③ 3(3x+1)⁵",
+      "explanation": "체인룰: dy/dx = 5(3x+1)⁴ · 3 = 15(3x+1)⁴",
+      "date": "2026. 4. 2.",
+      "fromBank": true
     }
   ],
   "mfProgress": {
@@ -225,5 +357,5 @@
     }
   },
   "concepts": [],
-  "ts": 1775106751296
+  "ts": 1775106763828
 }
