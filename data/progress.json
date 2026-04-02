@@ -24,6 +24,10 @@
       "solved": true,
       "correct": true
     },
+    "calc-20260331-008": {
+      "solved": true,
+      "correct": false
+    },
     "calc-20260331-009": {
       "solved": true,
       "correct": false
@@ -105,6 +109,22 @@
       "explanation": "합성함수 미분: f'(x) = e^(3x) · 3 = 3e^(3x)",
       "date": "2026. 4. 2.",
       "fromBank": true
+    },
+    {
+      "subject": "calculus",
+      "topic": "음함수 미분",
+      "question": "x² + y² = 25일 때, dy/dx는?",
+      "options": [
+        "① -x/y",
+        "② x/y",
+        "③ -y/x",
+        "④ y/x"
+      ],
+      "correct": "① -x/y",
+      "selected": "④ y/x",
+      "explanation": "양변을 x에 대해 미분: 2x + 2y·(dy/dx) = 0 → dy/dx = -x/y",
+      "date": "2026. 4. 2.",
+      "fromBank": true
     }
   ],
   "mfProgress": {
@@ -169,5 +189,5 @@
     }
   },
   "concepts": [],
-  "ts": 1775106653949
+  "ts": 1775106663805
 }
