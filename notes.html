@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="노트">
+<meta name="theme-color" content="#0f0f12">
+<title>노트</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+:root{--bg:#0f0f12;--bg2:#16161c;--bg3:#1e1e26;--bg4:#2a2a35;--t1:#f0eff4;--t2:#c4c3cc;--t3:#6b6a76;--purple:#7c6aef;--blue:#3b9eff;--amber:#f5a623;--teal:#2dd4bf;--radius:16px;--radius-sm:10px}
+body{font-family:-apple-system,BlinkMacSystemFont,"Pretendard","Noto Sans KR",sans-serif;background:var(--bg);color:var(--t1);min-height:100dvh;padding-bottom:40px}
+.hdr{display:flex;justify-content:space-between;align-items:center;padding:16px 20px;border-bottom:1px solid var(--bg3);position:sticky;top:0;background:var(--bg);z-index:10}
+.hdr-title{font-size:18px;font-weight:800;letter-spacing:-.5px}
+.hdr-right{font-size:13px;color:var(--t3)}
+.wrap{max-width:480px;margin:0 auto;padding:20px 16px}
+/* Subject tabs */
+.subj-tabs{display:flex;gap:8px;margin-bottom:20px}
+.subj-tab{flex:1;padding:10px 4px;border-radius:var(--radius-sm);border:1px solid var(--bg3);background:var(--bg2);font-size:12px;font-weight:600;color:var(--t3);cursor:pointer;text-align:center;transition:all .15s}
+.subj-tab.active{color:#fff;border-color:transparent}
+/* Topic list */
+.topic-card{background:var(--bg2);border:1px solid var(--bg3);border-radius:var(--radius);padding:16px;margin-bottom:12px}
+.topic-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.topic-name{font-size:14px;font-weight:700;color:var(--t1)}
+.topic-badge{font-size:10px;padding:2px 8px;border-radius:20px;font-weight:600}
+.badge-auto{background:rgba(124,106,239,.15);color:var(--purple)}
+.badge-user{background:rgba(45,212,191,.15);color:var(--teal)}
+.badge-empty{background:var(--bg3);color:var(--t3)}
+/* Concept view */
+.concept-view{font-size:13px;line-height:1.8;color:var(--t2);max-height:300px;overflow-y:auto;margin-bottom:12px}
+.concept-view h2{font-size:13px;font-weight:700;color:var(--t1);margin:12px 0 4px;padding-bottom:3px;border-bottom:1px solid var(--bg3)}
+.concept-view h2:first-child{margin-top:0}
+.concept-view p{margin-bottom:6px}
+.concept-view ul{padding-left:16px;margin-bottom:6px}
+.concept-view li{margin-bottom:2px}
+.concept-view code{background:var(--bg3);padding:1px 5px;border-radius:4px;font-size:12px;font-family:monospace}
+.concept-view strong{color:var(--t1)}
+.empty-hint{font-size:12px;color:var(--t3);padding:12px 0;margin-bottom:12px}
+/* Edit area */
+textarea{width:100%;min-height:180px;padding:12px;border-radius:var(--radius-sm);border:1px solid var(--bg4);background:var(--bg);color:var(--t1);font-size:13px;line-height:1.7;resize:vertical;font-family:inherit;margin-bottom:10px}
+textarea:focus{outline:none;border-color:var(--purple)}
+/* Buttons */
+.btn-row{display:flex;gap:8px}
+.btn{padding:9px 16px;border-radius:10px;border:1px solid var(--bg4);background:var(--bg3);color:var(--t2);font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;transition:all .15s}
+.btn:active{opacity:.7}
+.btn-primary{background:var(--purple);border-color:var(--purple);color:#fff;flex:1}
+.btn-sm{padding:6px 12px;font-size:12px}
+.status-ok{font-size:12px;color:var(--teal);margin-top:6px}
+.hidden{display:none}
+.fade-in{animation:fadeIn .2s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<div class="hdr">
+  <button style="background:none;color:var(--t1);font-size:18px;font-weight:800;letter-spacing:-.5px;padding:0;font-family:inherit" onclick="window.location.href='index.html'">📝 노트</button>
+  <div class="hdr-right" id="hdrRight"></div>
+</div>
+<div class="wrap">
+  <div class="subj-tabs" id="subjTabs"></div>
+  <div id="topicList"></div>
+</div>
+
+<script>
+// ===== SUBJECTS (study.html과 동일한 topic ID 유지) =====
+const SUBJECTS={
+  calculus:{name:"미적분",emoji:"∫",color:"#7c6aef",
+    topics:[
+      {id:"seq-limit",name:"수열의 극한",icon:"∞"},
+      {id:"series",name:"급수",icon:"Σ"},
+      {id:"various-diff",name:"여러 가지 함수의 미분",icon:"📐"},
+      {id:"various-methods",name:"여러가지 미분법(음함수의 미분)까지",icon:"🔄"}
+    ]},
+  english:{name:"영어",emoji:"EN",color:"#3b9eff",
+    topics:[
+      {id:"purpose",name:"글의 목적 파악",icon:"✉️"},
+      {id:"emotion",name:"심경 변화 파악",icon:"😊"},
+      {id:"implication",name:"함축적 의미 파악",icon:"💬"},
+      {id:"main-idea",name:"요지 파악",icon:"💡"},
+      {id:"argument",name:"주장 파악",icon:"👊"},
+      {id:"topic",name:"주제 파악",icon:"🎯"},
+      {id:"title",name:"제목 파악",icon:"📰"},
+      {id:"grammar",name:"어법 정확성 파악",icon:"✏️"},
+      {id:"vocab",name:"어휘 적절성 파악",icon:"📝"},
+      {id:"blank",name:"빈칸 내용 추론",icon:"🔍"},
+      {id:"philosophy",name:"철학·역사 지문",icon:"🏛️"},
+      {id:"environment",name:"환경·자원 지문",icon:"🌿"},
+      {id:"science",name:"과학 지문",icon:"🔬"},
+      {id:"sports",name:"스포츠·레저 지문",icon:"⚽"}
+    ]},
+  korean:{name:"화법과 작문",emoji:"글",color:"#f5a623",
+    topics:[
+      {id:"speech",name:"화법 이론",icon:"🗣️"},
+      {id:"writing",name:"작문 이론",icon:"✍️"},
+      {id:"nonlit",name:"3모 비문학",icon:"📄"}
+    ]}
+};
+
+// ===== STATE =====
+let S={subject:"calculus"};
+
+// ===== HELPERS =====
+function getExamUnits(subj){
+  const r=JSON.parse(localStorage.getItem("hub-exam-ranges")||"null");
+  if(r&&r[subj]&&(r[subj].units||[]).length)return r[subj].units;
+  const p=JSON.parse(localStorage.getItem("hub-progress")||"null");
+  return p?.examRanges?.[subj]?.units||[];
+}
+
+function getTopics(subj){
+  const units=getExamUnits(subj);
+  const sub=SUBJECTS[subj];
+  if(!units.length)return sub.topics;
+  const filtered=sub.topics.filter(t=>units.includes(t.name));
+  return filtered.length?filtered:sub.topics;
+}
+
+function getNote(subj,topicId){
+  return localStorage.getItem(`note-${subj}-${topicId}`)||"";
+}
+
+function saveNote(subj,topicId,text){
+  localStorage.setItem(`note-${subj}-${topicId}`,text);
+}
+
+function getAutoConcept(subj,topicName){
+  const all=JSON.parse(localStorage.getItem("hub-concepts")||"[]");
+  return all.filter(c=>c.subject===subj&&c.topic===topicName).sort((a,b)=>b.date.localeCompare(a.date))[0]||null;
+}
+
+function renderMd(text){
+  if(!text)return"";
+  return text
+    .replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;")
+    .replace(/^## (.+)$/gm,"<h2>$1</h2>")
+    .replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>")
+    .replace(/`([^`]+)`/g,"<code>$1</code>")
+    .replace(/^- (.+)$/gm,"<li>$1</li>")
+    .replace(/^\d+\. (.+)$/gm,"<li>$1</li>")
+    .replace(/(<li>[^]*?<\/li>\n?)+/g,m=>"<ul>"+m+"</ul>")
+    .split(/\n{2,}/)
+    .map(chunk=>chunk.trim().startsWith("<")?chunk:`<p>${chunk.replace(/\n/g," ")}</p>`)
+    .join("\n");
+}
+
+// ===== RENDER =====
+function render(){
+  // D-day
+  const _td=new Date();_td.setHours(0,0,0,0);
+  const dd=Math.round((new Date("2026-04-23")-_td)/864e5);
+  document.getElementById("hdrRight").textContent=`D-${dd>0?dd:0}`;
+
+  // Subject tabs
+  document.getElementById("subjTabs").innerHTML=Object.entries(SUBJECTS).map(([k,v])=>{
+    const active=S.subject===k;
+    return`<button class="subj-tab${active?" active":""}" style="${active?`background:${v.color};color:#fff`:""}" onclick="S.subject='${k}';render()">${v.emoji} ${v.name}</button>`;
+  }).join("");
+
+  // Topic list
+  const sub=SUBJECTS[S.subject];
+  const topics=getTopics(S.subject);
+  document.getElementById("topicList").innerHTML=`<div class="fade-in">${topics.map(t=>renderTopicCard(t,sub)).join("")}</div>`;
+}
+
+function renderTopicCard(t,sub){
+  const userNote=getNote(S.subject,t.id);
+  const autoConcept=getAutoConcept(S.subject,t.name);
+  const content=userNote||(autoConcept?.content||"");
+  const hasUser=!!userNote;
+  const hasAuto=!!autoConcept&&!userNote;
+  const isEmpty=!content;
+
+  const badge=hasUser
+    ?`<span class="topic-badge badge-user">내 노트</span>`
+    :hasAuto
+    ?`<span class="topic-badge badge-auto">🤖 자동</span>`
+    :`<span class="topic-badge badge-empty">미작성</span>`;
+
+  const viewId=`view-${S.subject}-${t.id}`;
+  const editId=`edit-${S.subject}-${t.id}`;
+  const taId=`ta-${S.subject}-${t.id}`;
+  const stId=`st-${S.subject}-${t.id}`;
+  const btnId=`btn-${S.subject}-${t.id}`;
+
+  const viewHtml=isEmpty
+    ?`<div class="empty-hint" id="${viewId}">/generate-study 실행 후 자동 표시됩니다.<br>직접 입력도 가능합니다.</div>`
+    :`<div class="concept-view" id="${viewId}">${renderMd(content)}</div>`;
+
+  const safeContent=content.replace(/\\/g,"\\\\").replace(/`/g,"\\`");
+
+  return`<div class="topic-card">
+    <div class="topic-header">
+      <span class="topic-name">${t.icon} ${t.name}</span>
+      ${badge}
+    </div>
+    ${viewHtml}
+    <div class="hidden" id="${editId}">
+      <textarea id="${taId}" placeholder="개념 요약을 입력하세요...&#10;&#10;예) ## 핵심 개념&#10;내용...">${content.replace(/</g,"&lt;").replace(/>/g,"&gt;")}</textarea>
+    </div>
+    <div class="btn-row">
+      <button class="btn btn-sm" id="${btnId}" onclick="toggleEdit('${S.subject}','${t.id}','${viewId}','${editId}','${taId}','${btnId}')">편집</button>
+    </div>
+    <div id="${stId}"></div>
+  </div>`;
+}
+
+function toggleEdit(subj,topicId,viewId,editId,taId,btnId){
+  const view=document.getElementById(viewId);
+  const edit=document.getElementById(editId);
+  const btn=document.getElementById(btnId);
+  const st=document.getElementById(`st-${subj}-${topicId}`);
+
+  if(edit.classList.contains("hidden")){
+    // 편집 모드로 전환
+    edit.classList.remove("hidden");
+    view.classList.add("hidden");
+    btn.textContent="저장";
+  }else{
+    // 저장 후 읽기 모드로 복귀
+    const txt=document.getElementById(taId).value;
+    saveNote(subj,topicId,txt);
+    edit.classList.add("hidden");
+    view.classList.remove("hidden");
+    view.className=txt?"concept-view":"empty-hint";
+    view.innerHTML=txt?renderMd(txt):"/generate-study 실행 후 자동 표시됩니다.<br>직접 입력도 가능합니다.";
+    btn.textContent="편집";
+    st.innerHTML=`<div class="status-ok">저장됨 ✓</div>`;
+    setTimeout(()=>{if(st)st.innerHTML=""},2000);
+  }
+}
+
+render();
+</script>
+</body>
+</html>
