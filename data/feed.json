@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-03-31T22:58:59.721512",
+  "lastUpdated": "2026-04-04T00:40:58.753345",
   "questions": [
     {
       "id": "calc-20260331-001",
@@ -540,6 +540,96 @@
       "answer": 2,
       "explanation": "급수의 합 = lim(n→∞) S_n = lim 3n/(n+1). 분모·분자를 n으로 나누면 3/(1+1/n) → 3. 또한 a_n = S_n - S_{n-1} = 3/(n(n+1)) > 0이고 lim a_n = 0이므로 수렴이 보장된다. 따라서 Σa_n = 3",
       "difficulty": "상"
+    },
+    {
+      "id": "eng-20260404-001",
+      "subject": "english",
+      "topic": "글의 목적 파악",
+      "question": "다음 글의 목적으로 가장 적절한 것은?\n\nDear Parents,\nAt Greenwood High School, we take great pride in the cultural diversity that enriches our community. We are very pleased to share with you our special new project, a recipe book, created to celebrate the traditions and flavors of families from around the world. This unique collection features 100 recipes from 26 countries, highlighting beloved dishes passed down through generations. It offers a special chance to explore global cuisine and share meaningful moments with your children. We encourage you to try some of these recipes together over the summer. You can download this online recipe book from our school website. Food brings us together, and this project reflects the joy and unity that diversity brings to our school. Thank you, as always, for your continued support.\n\nWarm regards,\nDr. Helen Brooks\nPrincipal, Greenwood High School",
+      "options": [
+        "① 학생들의 특별 요리 실습 계획을 안내하려고",
+        "② 학교에서 제작한 온라인 요리책 이용을 권장하려고",
+        "③ 다문화 교육 관련 학부모 설명회 개최를 홍보하려고",
+        "④ 학교의 다문화 축제에 학부모들의 참여를 독려하려고"
+      ],
+      "answer": 1,
+      "explanation": "다문화 가정을 아우르는 전 세계의 요리법을 담은 온라인 요리책(recipe book)을 제작했음을 알리며, 학부모들에게 웹사이트에서 다운로드하여 자녀와 함께 요리해 볼 것을 권장(encourage)하는 글이므로 ②가 가장 적절합니다.",
+      "difficulty": "하"
+    },
+    {
+      "id": "eng-20260404-002",
+      "subject": "english",
+      "topic": "제목 파악",
+      "question": "다음 글의 제목으로 가장 적절한 것은?\n\nYou’ve probably heard that it takes about ten thousand hours of practice to become an expert in anything — a musical instrument, a sport, chess, cooking, or a foreign language. The research by K. Anders Ericsson on this topic has been written about many times, and it was made even more famous when Malcolm Gladwell described it in his bestselling book Outliers. However, recently, a cohort of researchers reexamined the studies and research behind the 10K figure and said, quite dramatically, that the ten-thousand-hour rule was utter nonsense. Specifically, there is nothing particularly special about ten thousand hours, and while practice is clearly important to boost performance, other factors may play an even more important role. What are those other factors that get us to expert levels of performance? Pure innate talent? Intelligence? Luck of the draw? Perseverance? Hard work? Yes, it’s all of that... and more. Age, experience, and environment all play a role. In other words, there’s no one certain factor that can predict or ensure mastery or optimal performance of anything.",
+      "options": [
+        "① The 10,000-hour Myth: Mastery Requires More Than Practice",
+        "② Follow the Crowd: Truth Lies in Popular Belief",
+        "③ Born to Be Great: Why Natural Talent Beats Hard Work",
+        "④ Unlocking Genius: Intelligence Matters More Than Luck!"
+      ],
+      "answer": 0,
+      "explanation": "이 글은 전문가가 되기 위해 1만 시간의 연습이 필요하다는 기존의 대중적인 규칙(ten-thousand-hour rule)이 실제로는 허구(utter nonsense)이며, 훈련뿐만 아니라 선천적 재능, 지능, 운, 인내, 경험, 환경 등 매우 다양하고 복합적인 요소들이 숙달(mastery)에 필요하다는 내용을 다루고 있습니다. 따라서 ① '1만 시간의 신화: 숙달은 연습 그 이상을 요구한다'가 제목으로 가장 적절합니다.",
+      "difficulty": "중"
+    },
+    {
+      "id": "eng-20260404-003",
+      "subject": "english",
+      "topic": "어휘 적절성 파악",
+      "question": "다음 글의 밑줄 친 부분 중, 문맥상 낱말의 쓰임이 적절하지 않은 것은?\n\nSituational ethics is an ethical theory that takes into account the context of a situation or an act when judging whether it is ethical. Supporters of this theory willingly permit casting aside ① absolute moral standards. In the absence of a universal standard or law, what matters is the outcome or consequences; so, the end ② justifies the means. Possibly the following contrasting realities can help illustrate the application of situational ethics. In a pickup game of basketball played among friends, everyone is expected to call his or her own fouls or acknowledge knocking the ball out-of-bounds. Caring about one’s friends and maybe getting to keep playing with the group leads to these actions. But, once an organized game is played with officials, most athletes will not admit to the same fouls or violations as the end goal of winning is more important than expressing ③ concern for competitors. Situational ethics has been extended by many athletes and coaches to mean trying to get away with as many actions on the field or court as possible to ④ abandon competitive advantages.",
+      "options": [
+        "① absolute",
+        "② justifies",
+        "③ concern",
+        "④ abandon"
+      ],
+      "answer": 3,
+      "explanation": "상황 윤리(Situational ethics)는 맥락을 중시하며 결과가 수단을 정당화한다는 이론입니다. 심판이 있는 정식 경기에서 선수나 코치들은 승리라는 목적을 위해 최대한 규칙 위반을 들키지 않고 넘어가려 애쓰며 이를 통해 경쟁적 우위를 '버리려는(abandon)' 것이 아니라 '얻으려는(gain)' 것이므로 ④번의 쓰임이 문맥상 적절하지 않습니다.",
+      "difficulty": "상"
+    },
+    {
+      "id": "eng-20260404-004",
+      "subject": "english",
+      "topic": "환경·자원 지문",
+      "question": "다음 글의 주제로 가장 적절한 것은?\n\nWhat is soft-path river engineering? One way to visualize its spirit is to liken it to a footpath in the forest. Suppose a tree falls across a footpath. A soft-path response would be simply to redirect the trail around the fallen tree. A more interventionist response would be to remove the tree and restore the original route. A still more interventionist response might be to straighten and pave the path to insert it more permanently in the landscape. The true high-modernist step would, of course, be to create a superhighway that removes the landscape and bulldozes straight through all obstacles in the topography. Soft-path engineering has the unique advantage of intellectual modesty with respect to what we actually know about river movement and its environmental effects. In contrast to hard-path engineering, soft-path engineering accepts variability in the river’s movement as significant until proven otherwise. Backwaters, short-lived wetlands, braids and channels, swamps — all undesirable to hard-path engineering — are presumed by soft-path engineers to be ecologically important.",
+      "options": [
+        "① benefits of modernizing and straightening river infrastructures",
+        "② approaches of soft-path engineering respecting natural variability",
+        "③ negative environmental effects of creating forest footpaths",
+        "④ necessity of removing natural obstacles for public safety"
+      ],
+      "answer": 1,
+      "explanation": "장애물을 강제로 제거하고 포장하는 개입주의적인 하드 패스 공학(hard-path engineering)과 대비하여, 자연의 가변성(variability)을 존중하고 우회하며 생태학적 중요성을 지키는 소프트 패스 하천 공학(soft-path engineering)의 특징과 자연 친화적 접근법을 설명하는 글입니다. 따라서 ②가 가장 적절합니다.",
+      "difficulty": "중"
+    },
+    {
+      "id": "kor-20260404-001",
+      "subject": "korean",
+      "topic": "화법의 원리",
+      "question": "다음은 전문가의 강연 일부를 듣고 파악한 내용이다. 이 강연에 대한 설명으로 가장 적절한 것은?\n[강연 내용 요약] 국립국악원 학예 연구사가 고등학생들을 대상으로 궁중 연회 의례 문서인 '홀기'와 '정재'의 뜻을 설명하고, 홀기의 영인 작업이 지니는 의의를 시청각 자료와 함께 전달함.",
+      "options": [
+        "① 강연의 진행 순서를 밝혀 청중이 내용을 예측하며 듣도록 하고 있다.",
+        "② 낯선 용어의 개념을 정의하여 강연 내용에 대한 청중의 이해를 돕고 있다.",
+        "③ 제재를 선정하게 된 계기를 밝히며 강연을 시작하고 있다.",
+        "④ 강연 중간중간에 앞서 언급한 주요 내용을 요약하여 주제를 강조하고 있다."
+      ],
+      "answer": 1,
+      "explanation": "강연의 앞부분에서 '홀기', '정재'와 같은 전문 용어의 개념을 정의하여 강연 내용에 대한 청중의 이해를 돕고 있으므로 ②가 가장 적절합니다. 강연의 진행 순서나 제재 선정 계기, 중간 내용 요약 등은 나타나지 않습니다.",
+      "difficulty": "중"
+    },
+    {
+      "id": "kor-20260404-002",
+      "subject": "korean",
+      "topic": "작문의 원리",
+      "question": "'인공 강우 기술'을 제재로 설명문 초고를 작성하기 위해 세운 글쓰기 계획 중, 초고에 반영되지 않은 것은?\n[초고 내용 요약] 인공 강우가 생성되는 원리와 과정 설명, 생태계 및 주변국에 미칠 수 있는 잠재적 위험과 부작용 제시, 기후 변화 대응 기술로서의 유망성과 관련 진학 학과(기상학과 등) 소개 포함.",
+      "options": [
+        "① 인공 강우 기술의 원리를 알려 주기 위해 인공 강우가 생성되는 과정을 구체적으로 설명해야겠어.",
+        "② 기후 변화 대응과 관련된 진로의 유망성을 안내하기 위해 관련된 학문을 전공할 수 있는 학과를 소개해야겠어.",
+        "③ 인공 강우 기술의 발전 과정을 소개하기 위해 국가별 인공 강우 기술의 발전 수준을 비교해야겠어.",
+        "④ 인공 강우의 잠재적 위험을 강조하기 위해 환경적 논란과 국제적 영향에 대한 문제를 포함해야겠어."
+      ],
+      "answer": 2,
+      "explanation": "글에서 인공 강우 기술이 과거 미국에서 처음 시작되어 우리나라에서도 실험이 이어져 오고 있다고 언급하지만, '국가별 인공 강우 기술의 발전 수준'을 서로 비교하여 서술한 부분은 찾아볼 수 없으므로 ③이 적절하지 않습니다. 생성 과정(①), 학과 소개(②), 잠재적 위험(④)은 모두 반영되었습니다.",
+      "difficulty": "중"
     }
   ],
   "cards": [
@@ -731,6 +821,48 @@
       "front": "작문의 원리 - 설득하는 글 쓰기 (관광세 도입)",
       "back": "분석: 특정 관광 지구의 문제(관광객 과밀, 환경 훼손 등)를 해결하기 위해 '관광세 도입'을 주장하는 논설문 작성 과정을 다룸\n4\n9\n.\n핵심 개념: 타당성, 신뢰성, 공정성을 갖춘 논거 수집 및 매체 활용\n10\n.\n출제 포인트: 초고를 보완하기 위해 수집한 통계 자료, 신문 기사 등 다양한 매체 자료의 적절한 활용 방안을 묻는 문제 출제 가능\n5\n.",
       "tag": "화법/작문"
+    },
+    {
+      "id": "eng-card-20260404-001",
+      "deck": "engsum",
+      "front": "1강 / 온라인 요리책 이용 권장",
+      "back": "요약: 전 세계의 요리법을 모아 학교에서 제작한 온라인 요리책을 학부모들에게 소개하며 활용을 권장합니다.\n핵심 논지: 문화적 다양성을 기념하기 위해 26개국 100가지 요리법을 담은 레시피 북을 출간했으니, 자녀와 함께 의미 있는 요리 시간을 가져보기를 권합니다.\n주요 어휘: diversity (다양성), feature (특징으로 하다/포함하다), culinary/cuisine (요리)",
+      "tag": "1강"
+    },
+    {
+      "id": "eng-card-20260404-002",
+      "deck": "engsum",
+      "front": "7강 / 1만 시간의 법칙의 허상",
+      "back": "요약: 전문가가 되기 위해 단순히 1만 시간의 연습만 필요한 것이 아니며, 여러 가지 다양한 요인들이 복합적으로 작용합니다.\n핵심 논지: 1만 시간의 연습 규칙은 매력적이지만 터무니없는 주장(utter nonsense)이며, 최고 수준의 수행 능력을 위해서는 선천적 재능, 인내, 운, 환경, 경험 등 많은 요소가 함께 중요합니다.\n주요 어휘: cohort (집단), utter (완전한), innate (타고난), perseverance (인내), optimal (최적의)",
+      "tag": "7강"
+    },
+    {
+      "id": "eng-card-20260404-003",
+      "deck": "engsum",
+      "front": "12강 / 상황 윤리의 적용",
+      "back": "요약: 맥락과 상황에 따라 윤리성이 달라진다는 상황 윤리가 스포츠 경기에 어떻게 적용되는지 보여줍니다.\n핵심 논지: 상황 윤리는 목적이 수단을 정당화한다고 봅니다. 친선 경기에서는 배려를 중시해 스스로 파울을 시인하지만, 정식 경기에서는 이기기 위해 파울을 속이고 경쟁적 우위를 취하는 것이 그 예입니다.\n주요 어휘: situational ethics (상황 윤리), outcome (결과), justify (정당화하다), competitive advantage (경쟁적 우위)",
+      "tag": "12강"
+    },
+    {
+      "id": "eng-card-20260404-004",
+      "deck": "engsum",
+      "front": "22강 / 소프트 패스 하천 공학",
+      "back": "요약: 자연의 장애물을 억지로 제거하는 대신, 하천의 흐름과 생태계를 존중하는 소프트 패스 하천 공학의 우수성을 설명합니다.\n핵심 논지: 인위적이고 통제 지향적인 '하드 패스' 공학과 달리 '소프트 패스' 공학은 자연의 지형과 변동성을 수용하며 지류와 늪지 등의 생태학적 중요성을 인정합니다.\n주요 어휘: interventionist (개입주의적인), topography (지형), modesty (겸손), variability (변동성), backwater (지류)",
+      "tag": "22강"
+    },
+    {
+      "id": "kor-card-20260404-001",
+      "deck": "korean",
+      "front": "화법 유형 - 정보 전달 강연 (전통 춤과 홀기)",
+      "back": "분석: 국립국악원 학예 연구사가 고등학생을 대상으로 '홀기(의례 문서)'의 개념과 고해상도 영인 작업의 의의를 설명하는 전문가 강연 지문.\n핵심 개념: 정보 전달을 위한 말하기 전략 (청자 수준을 고려한 개념 정의, 동영상 등 시각 매체 자료 활용).\n출제 포인트: 화자의 말하기 방식(개념 정의, 경험 환기 등) 파악 및 제시된 자료(사진, 영상)의 구체적인 활용 목적과 청중의 반응 분석.",
+      "tag": "화법/작문"
+    },
+    {
+      "id": "kor-card-20260404-002",
+      "deck": "korean",
+      "front": "작문 유형 - 설명문 쓰기 (인공 강우 기술)",
+      "back": "분석: 필자가 자신의 진로(기상학, 환경 공학)와 관련하여 '인공 강우 기술'의 생성 원리, 한계점, 유망성 등을 친구들에게 설명하기 위해 작성한 초고.\n핵심 개념: 작문 맥락(예상 독자, 목적)을 고려한 내용 생성 및 조직, 신뢰성 있는 자료의 선별과 활용.\n출제 포인트: 작문 계획이 초고에 실제 어떻게 반영되었는지 확인하는 문제, 초고 보완을 위해 추가 수집한 자료(통계 자료, 학술 자료)의 적절한 활용 방안 평가.",
+      "tag": "화법/작문"
     }
   ],
   "concepts": [
@@ -761,6 +893,20 @@
       "topic": "여러가지 미분법(음함수의 미분)까지",
       "content": "## 핵심 개념\n음함수, 매개변수, 역함수 미분법. F(x,y)=0, x=f(t)·y=g(t), y=f⁻¹(x) 형태 처리.\n\n## 핵심 공식\n- 음함수: 양변을 x에 대해 미분 (y 포함 항은 ×dy/dx)\n- 매개변수: dy/dx = (dy/dt)÷(dx/dt)  (dx/dt≠0)\n- 역함수: (f⁻¹)'(b) = 1/f'(a)  (단, f(a)=b)\n\n## 풀이 포인트\n1. 음함수: y를 x의 함수로 취급, 미분 후 dy/dx 이항\n2. 매개변수: dx/dt와 dy/dt 각각 구한 후 나누기\n3. 역함수: f(a)=b인 a값 먼저 찾고 f'(a) 계산\n4. 매개변수 dy/dx 최솟값: 완전제곱식으로 변환\n5. 이계도함수: d²y/dx² = d(dy/dx)/dt ÷ dx/dt\n\n## 예제\nx²+y²=25 → 2x+2y(dy/dx)=0 → dy/dx=-x/y\nx=t², y=t³ → dy/dx = 3t²/2t = 3t/2",
       "date": "20260402"
+    },
+    {
+      "id": "concept-eng-20260404",
+      "subject": "english",
+      "topic": "수능특강 독해",
+      "content": "## 오늘의 지문 요약\n- **1강(목적)**: 다문화 가정을 기리는 온라인 요리책 제작을 알리며 자녀와의 요리 체험을 장려함.\n- **7강(제목)**: 숙달의 조건으로 '1만 시간의 법칙'은 허상이며, 지능, 재능, 환경, 인내 등 다양한 요소가 필수적임.\n- **12강(어휘)**: 상황 윤리의 개념, 즉 맥락과 목적에 따라 도덕적 기준이 달라짐을 스포츠 경기의 예(친선전 vs 정식 경기)로 설명함.\n- **22강(환경/자원)**: 자연의 지형을 파괴하는 하드 패스 공학과 대조되는, 자연의 변동성과 생태계를 수용하는 소프트 패스 하천 공학의 접근법.\n\n## 핵심 어휘\n- **perseverance**: 인내(심) - 목표 달성을 위한 복합적 요인 중 하나.\n- **justify**: 정당화하다 - 상황 윤리에서 '목적이 수단을 정당화한다(the end justifies the means)'에 사용.\n- **interventionist**: 개입주의적인 - 자연을 인위적으로 통제하려는 태도.\n- **topography**: 지형 - 자연이 만들어낸 물리적 표면 상태.\n\n## 독해 포인트\n- **글의 목적 파악**: 주로 서반부의 배경 설명 후, 후반부의 'I am writing to~', 'We encourage you to~' 등의 동사를 통해 글쓴이의 실제 의도를 잡아냅니다.\n- **어휘 적절성 파악**: 반의어가 들어갈 자리를 노립니다. 특히 문장 내 인과관계(승리가 가장 중요하므로 -> 반칙을 숨겨서 이점을 '버린다(abandon)'가 아닌 '얻으려(gain)' 한다)를 정밀히 파악해야 합니다.\n- **제목 및 요지 파악**: 첫 문장의 통념(1만 시간의 법칙)이 'However' 등의 역접을 통해 어떻게 반박되는지 파악하여 진정한 주제를 도출합니다.",
+      "date": "20260404"
+    },
+    {
+      "id": "concept-kor-20260404",
+      "subject": "korean",
+      "topic": "화법과 작문의 원리 및 실제",
+      "content": "## 오늘의 지문 분석\n1. 강연 (홀기와 전통 춤 복원): 전문가가 고등학생의 눈높이에 맞춰 '홀기'와 '정재'라는 낯선 개념을 정의하고, 사진과 영상을 통해 전통 춤 복원의 가치를 효과적으로 전달한 화법 지문.\n2. 설명문 (인공 강우 기술): 기상/환경 분야로 진로를 희망하는 학생이 인공 강우의 원리와 부작용, 전망을 인과 및 나열의 방식으로 체계화하여 전달한 작문 지문.\n\n## 핵심 개념 정리\n- 정보 전달을 위한 화법: 청자의 흥미와 배경지식을 분석하고, 어려운 전문 용어는 쉽게 풀어서 설명(개념 정의)하며, 시청각 매체를 적절히 활용하여 정보의 이해도와 전달력을 높임.\n- 정보 전달을 위한 작문: 글의 목적과 독자 수준을 분석해 글쓰기 계획을 세우고, 가치 있는 정보를 선별하여 논리적(분류, 인과, 비교/대조 등)으로 조직함.\n\n## 출제 포인트\n- 화법: 발표자(강연자)의 말하기 방식 특징(질문, 내용 요약, 매체 활용 등) 파악, 청중의 반응(이해, 점검, 추가 정보 탐색 등) 분석 문제.\n- 작문: 글쓰기 계획의 초고 반영 여부 점검, 글을 다듬기 위한 조건별 고쳐쓰기, 그리고 가장 빈출되는 '추가 수집 자료의 적절한 활용 방안' 파악 문제.",
+      "date": "20260404"
     }
   ]
 }
