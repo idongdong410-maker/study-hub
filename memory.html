@@ -148,7 +148,33 @@ let S={
 
 function save(){localStorage.setItem("mf-cards",JSON.stringify(S.cards));schedulePush()}
 
-function getDeckCards(deck){return S.cards.filter(c=>c.deck===deck)}
+// ===== EXAM RANGE FILTER =====
+function _examUnits(subj){
+  const r=JSON.parse(localStorage.getItem("hub-exam-ranges")||"null");
+  if(r&&r[subj]&&(r[subj].units||[]).length)return r[subj].units;
+  const p=JSON.parse(localStorage.getItem("hub-progress")||"null");
+  return p?.examRanges?.[subj]?.units||[];
+}
+const _ENG_GANG={"글의 목적 파악":1,"심경 변화 파악":2,"함축적 의미 파악":3,"요지 파악":4,"주장 파악":5,"주제 파악":6,"제목 파악":7,"어법 정확성 파악":11,"어휘 적절성 파악":12,"빈칸 내용 추론":13,"철학·역사 지문":21,"환경·자원 지문":22,"과학 지문":23,"스포츠·레저 지문":24};
+function _filterByRange(cards,deck){
+  if(deck==="calc"){
+    const u=_examUnits("calculus");
+    return u.length?cards.filter(c=>!c.tag||u.includes(c.tag)):cards;
+  }
+  if(deck==="engsum"||deck==="vocab"){
+    const u=_examUnits("english");
+    if(!u.length)return cards;
+    const gs=new Set(u.map(n=>_ENG_GANG[n]).filter(Boolean));
+    return cards.filter(c=>{const m=c.tag?.match(/(\d+)강/);return!m||gs.has(Number(m[1]));});
+  }
+  if(deck==="korean"){
+    const u=_examUnits("korean");
+    return u.length?cards.filter(c=>!c.tag||u.some(n=>c.tag.includes(n))):cards;
+  }
+  return cards;
+}
+
+function getDeckCards(deck){return _filterByRange(S.cards.filter(c=>c.deck===deck),deck)}
 function getDueCards(deck){return getDeckCards(deck).filter(isDue)}
 
 // ===== RENDER =====
@@ -157,10 +183,11 @@ function render(){
   const _td=new Date();_td.setHours(0,0,0,0);const dd=Math.round((new Date("2026-04-23")-_td)/864e5);
   document.getElementById("hdrRight").innerHTML=`D-${dd>0?dd:0}`;
 
-  // Overview
-  const totalCards=S.cards.length;
-  const totalDue=S.cards.filter(isDue).length;
-  const mastered=S.cards.filter(c=>(c.level||0)>=4).length;
+  // Overview (범위 내 카드만 집계)
+  const _allRanged=Object.keys(DECKS).flatMap(k=>getDeckCards(k));
+  const totalCards=_allRanged.length;
+  const totalDue=_allRanged.filter(isDue).length;
+  const mastered=_allRanged.filter(c=>(c.level||0)>=4).length;
   document.getElementById("overview").innerHTML=`
     <div class="ov-card"><div class="ov-num">${totalCards}</div><div class="ov-label">전체 카드</div></div>
     <div class="ov-card"><div class="ov-num" style="color:var(--amber)">${totalDue}</div><div class="ov-label">복습 대기</div></div>
@@ -194,7 +221,7 @@ function renderDeckSelect(){
     }).join("")}
   </div>
   <button class="btn btn-full mt-16" onclick="reviewAll()" style="background:var(--purple);color:#fff">
-    전체 복습 대기 카드 풀기 (${S.cards.filter(isDue).length}개)
+    전체 복습 대기 카드 풀기 (${Object.keys(DECKS).flatMap(k=>getDeckCards(k)).filter(isDue).length}개)
   </button>`;
 }
 
@@ -229,11 +256,12 @@ function renderDeckView(){
 
 // ===== REVIEW =====
 function renderReview(d,isAll){
-  const due=isAll?S.cards.filter(isDue):getDueCards(S.deck);
+  const _rangedAll=Object.keys(DECKS).flatMap(k=>getDeckCards(k));
+  const due=isAll?_rangedAll.filter(isDue):getDueCards(S.deck);
 
   if(!S.currentCard){
     if(!due.length){
-      const total=isAll?S.cards.length:getDeckCards(S.deck).length;
+      const total=isAll?_rangedAll.length:getDeckCards(S.deck).length;
       return`<div class="card card-empty fade-in">
         ${total===0?"카드가 없어요!<br>\"추가\" 탭에서 카드를 넣어주세요.":"모든 카드를 복습했어요! 🎉<br><span style='font-size:12px'>다음 복습 카드가 나올 때까지 쉬세요.</span>"}
       </div>`;
