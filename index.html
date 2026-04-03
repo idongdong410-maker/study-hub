@@ -280,6 +280,13 @@ function renderStats(){
 }
 
 // ===== 학습 플래너 =====
+const PLANNER_KEY="hub-planner-done";
+function plannerToggle(key){
+  const done=new Set(JSON.parse(localStorage.getItem(PLANNER_KEY)||"[]"));
+  done.has(key)?done.delete(key):done.add(key);
+  localStorage.setItem(PLANNER_KEY,JSON.stringify([...done]));
+  document.getElementById("plannerPanel").innerHTML=renderPlanner();
+}
 function renderPlanner(){
   let ranges=JSON.parse(localStorage.getItem("hub-exam-ranges")||"null");
   if(!ranges||!Object.values(ranges).some(s=>(s.units||[]).length)){
@@ -289,25 +296,25 @@ function renderPlanner(){
   if(!ranges||!Object.values(ranges).some(s=>(s.units||[]).length)){
     return`<div style="padding:16px;border-radius:14px;background:#16161c;border:1px solid #1e1e26;font-size:13px;color:#6b6a76;text-align:center">시험 범위를 먼저 설정해주세요 👇</div>`;
   }
-  const bank=JSON.parse(localStorage.getItem("sf-bank")||"[]");
+  const checkedTopics=new Set(JSON.parse(localStorage.getItem(PLANNER_KEY)||"[]"));
   const _t2=new Date();_t2.setHours(0,0,0,0);const dday=Math.max(1,Math.round((new Date("2026-04-23")-_t2)/864e5));
   const SUBJS=[
     {key:"calculus",label:"∫ 미적분",color:"#7c6aef"},
     {key:"english",label:"EN 영어",color:"#3b9eff"},
     {key:"korean",label:"글 화작",color:"#f5a623"}
   ];
-  const solvedTopics=new Set(bank.filter(q=>q.solved&&q.topic).map(q=>q.subject+"|"+q.topic));
   let todayRec=[];
   const blocks=SUBJS.map(s=>{
     const units=(ranges[s.key]?.units||[]);
     if(!units.length)return"";
-    const done=units.filter(u=>solvedTopics.has(s.key+"|"+u));
-    const todo=units.filter(u=>!solvedTopics.has(s.key+"|"+u));
+    const done=units.filter(u=>checkedTopics.has(s.key+"|"+u));
+    const todo=units.filter(u=>!checkedTopics.has(s.key+"|"+u));
     const perDay=Math.ceil(todo.length/dday);
     todo.slice(0,perDay).forEach(u=>todayRec.push({label:s.label,color:s.color,unit:u}));
     const items=units.map(u=>{
-      const isDone=solvedTopics.has(s.key+"|"+u);
-      return`<div style="display:flex;align-items:center;gap:8px;font-size:13px;padding:5px 0;border-bottom:1px solid #1e1e26">
+      const isDone=checkedTopics.has(s.key+"|"+u);
+      const k=s.key+"|"+u;
+      return`<div style="display:flex;align-items:center;gap:8px;font-size:13px;padding:5px 0;border-bottom:1px solid #1e1e26;cursor:pointer" onclick="plannerToggle('${k.replace(/'/g,"\\'")}')">
         <span style="font-size:15px">${isDone?"✅":"⬜"}</span>
         <span style="color:${isDone?"#6b6a76":"#f0eff4"};${isDone?"text-decoration:line-through":""}">${u}</span>
       </div>`;
