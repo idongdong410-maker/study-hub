@@ -1,5 +1,42 @@
 {
-  "sfProgress": {},
+  "sfProgress": {
+    "calc-20260331-001": {
+      "solved": true,
+      "correct": true
+    },
+    "calc-20260331-002": {
+      "solved": true,
+      "correct": true
+    },
+    "calc-20260331-003": {
+      "solved": true,
+      "correct": true
+    },
+    "calc-20260331-004": {
+      "solved": true,
+      "correct": true
+    },
+    "calc-20260331-007": {
+      "solved": true,
+      "correct": true
+    },
+    "calc-20260331-009": {
+      "solved": true,
+      "correct": false
+    },
+    "calc-20260331-101": {
+      "solved": true,
+      "correct": true
+    },
+    "calc-20260331-102": {
+      "solved": true,
+      "correct": false
+    },
+    "calc-20260331-103": {
+      "solved": true,
+      "correct": false
+    }
+  },
   "sfWrong": [
     {
       "subject": "calculus",
@@ -447,5 +484,5 @@
       "date": "20260402"
     }
   ],
-  "ts": 1775180856755
+  "ts": 1775210384690
 }
