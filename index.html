@@ -224,6 +224,10 @@ updateSyncLabel();
 function renderStats(){
   const bank=JSON.parse(localStorage.getItem("sf-bank")||"[]");
   const cards=JSON.parse(localStorage.getItem("mf-cards")||"[]");
+  // 시험 범위 (취약 단원 필터용)
+  let _sr=JSON.parse(localStorage.getItem("hub-exam-ranges")||"null");
+  if(!_sr||!Object.values(_sr).some(s=>(s.units||[]).length)){const _p=JSON.parse(localStorage.getItem("hub-progress")||"null");if(_p?.examRanges)_sr=_p.examRanges;}
+  const allRangeUnits=_sr?new Set([...(_sr.calculus?.units||[]).map(u=>"calculus|"+u),...(_sr.english?.units||[]).map(u=>"english|"+u),...(_sr.korean?.units||[]).map(u=>"korean|"+u)]):new Set();
   const SUBJS=[
     {key:"calculus",label:"∫ 미적분",color:"#7c6aef"},
     {key:"english",label:"EN 영어",color:"#3b9eff"},
@@ -245,8 +249,9 @@ function renderStats(){
     </div>`;
   }).join("");
   const topicMap={};
-  bank.filter(q=>q.solved).forEach(q=>{
-    const k=q.topic||"(기타)";
+  bank.filter(q=>q.solved&&q.topic).forEach(q=>{
+    if(allRangeUnits.size&&!allRangeUnits.has(q.subject+"|"+q.topic))return;
+    const k=q.topic;
     if(!topicMap[k])topicMap[k]={c:0,t:0};
     topicMap[k].t++;
     if(q.correct)topicMap[k].c++;
@@ -256,7 +261,7 @@ function renderStats(){
     ?topicList.map(([name,v])=>{const pct=Math.round(v.c/v.t*100);return`<div style="display:flex;justify-content:space-between;font-size:12px;padding:6px 0;border-bottom:1px solid #1e1e26"><span style="color:#c4c3cc">${name}</span><span style="color:${pct<50?"#f87171":"#6b6a76"}">${v.c}/${v.t} · ${pct}%</span></div>`;}).join("")
     :`<div style="font-size:12px;color:#6b6a76;padding:8px 0">문제를 더 풀면 취약 단원이 표시돼요</div>`;
   const totalCards=cards.length;
-  const masteredCards=cards.filter(c=>c.lv>=3||(c.level||0)>=3).length;
+  const masteredCards=cards.filter(c=>(c.level??c.lv??0)>=4).length;
   const cardPct=totalCards?Math.round(masteredCards/totalCards*100):0;
   return`<div style="padding:16px;border-radius:14px;background:#16161c;border:1px solid #1e1e26">
     <div style="font-size:13px;font-weight:700;color:#f0eff4;margin-bottom:14px">과목별 정답률</div>
@@ -266,7 +271,7 @@ function renderStats(){
     <div style="font-size:13px;font-weight:700;color:#f0eff4;margin:16px 0 8px">플래시카드 마스터</div>
     <div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:4px">
       <span style="color:#2dd4bf;font-weight:600">전체 ${totalCards}장</span>
-      <span style="color:#6b6a76">lv3+ · ${masteredCards}장 · ${cardPct}%</span>
+      <span style="color:#6b6a76">lv4+ · ${masteredCards}장 · ${cardPct}%</span>
     </div>
     <div style="background:#1e1e26;border-radius:4px;height:6px;overflow:hidden">
       <div style="background:#2dd4bf;width:${cardPct}%;height:100%;border-radius:4px;transition:width .4s"></div>
@@ -276,7 +281,11 @@ function renderStats(){
 
 // ===== 학습 플래너 =====
 function renderPlanner(){
-  const ranges=JSON.parse(localStorage.getItem("hub-exam-ranges")||"null");
+  let ranges=JSON.parse(localStorage.getItem("hub-exam-ranges")||"null");
+  if(!ranges||!Object.values(ranges).some(s=>(s.units||[]).length)){
+    const p=JSON.parse(localStorage.getItem("hub-progress")||"null");
+    if(p?.examRanges)ranges=p.examRanges;
+  }
   if(!ranges||!Object.values(ranges).some(s=>(s.units||[]).length)){
     return`<div style="padding:16px;border-radius:14px;background:#16161c;border:1px solid #1e1e26;font-size:13px;color:#6b6a76;text-align:center">시험 범위를 먼저 설정해주세요 👇</div>`;
   }
@@ -287,14 +296,15 @@ function renderPlanner(){
     {key:"english",label:"EN 영어",color:"#3b9eff"},
     {key:"korean",label:"글 화작",color:"#f5a623"}
   ];
-  const solvedTopics=new Set(bank.filter(q=>q.solved).map(q=>q.subject+"|"+q.topic));
+  const solvedTopics=new Set(bank.filter(q=>q.solved&&q.topic).map(q=>q.subject+"|"+q.topic));
   let todayRec=[];
   const blocks=SUBJS.map(s=>{
     const units=(ranges[s.key]?.units||[]);
     if(!units.length)return"";
     const done=units.filter(u=>solvedTopics.has(s.key+"|"+u));
     const todo=units.filter(u=>!solvedTopics.has(s.key+"|"+u));
-    if(todo.length)todayRec.push({label:s.label,color:s.color,unit:todo[0]});
+    const perDay=Math.ceil(todo.length/dday);
+    todo.slice(0,perDay).forEach(u=>todayRec.push({label:s.label,color:s.color,unit:u}));
     const items=units.map(u=>{
       const isDone=solvedTopics.has(s.key+"|"+u);
       return`<div style="display:flex;align-items:center;gap:8px;font-size:13px;padding:5px 0;border-bottom:1px solid #1e1e26">
