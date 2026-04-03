@@ -250,7 +250,9 @@ function save(){
 // ===== EXAM RANGE HELPER =====
 function getExamUnits(subj){
   const r=JSON.parse(localStorage.getItem("hub-exam-ranges")||"null");
-  return r&&r[subj]?r[subj].units||[]:[];
+  if(r&&r[subj]&&(r[subj].units||[]).length)return r[subj].units;
+  const p=JSON.parse(localStorage.getItem("hub-progress")||"null");
+  return p?.examRanges?.[subj]?.units||[];
 }
 
 // ===== RENDER =====
