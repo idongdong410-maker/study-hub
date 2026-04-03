@@ -124,7 +124,8 @@ topic 이름은 반드시 위 목록의 이름 그대로 사용해야 해 (예: 
     {"id":"kor-{오늘날짜}-NUM","subject":"korean","topic":"단원명","question":"문제 내용","options":["① a","② b","③ c","④ d"],"answer":0,"explanation":"풀이","difficulty":"중"}
   ],
   "cards": [
-    {"id":"kor-card-{오늘날짜}-NUM","deck":"korean","front":"지문 유형/주제","back":"분석: ...\n핵심 개념: ...\n출제 포인트: ...","tag":"화법/작문"}
+    {"id":"kor-card-{오늘날짜}-NUM","deck":"korean","front":"지문 유형/주제","back":"분석: ...\n핵심 개념: ...\n출제 포인트: ...","tag":"화법/작문"},
+    {"id":"korsum-card-{오늘날짜}-NUM","deck":"korsum","front":"지문 제목 또는 주제","back":"내용 요약: ...\n핵심 포인트: ...","tag":"화법/작문"}
   ],
   "concepts": [
     {"id":"concept-kor-{오늘날짜}","subject":"korean","topic":"화법 이론","content":"## 오늘의 지문 분석\n각 지문의 화법/작문 유형과 핵심 개념\n\n## 핵심 개념 정리\n오늘 다룬 화법·작문 이론 요약\n\n## 출제 포인트\n시험에 자주 나오는 유형과 함정","date":"{오늘날짜}"}
