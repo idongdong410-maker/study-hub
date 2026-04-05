@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-04-04T00:40:58.753345",
+  "lastUpdated": "2026-04-06T00:00:00Z",
   "questions": [
     {
       "id": "calc-20260331-001",
@@ -630,6 +630,84 @@
       "answer": 2,
       "explanation": "글에서 인공 강우 기술이 과거 미국에서 처음 시작되어 우리나라에서도 실험이 이어져 오고 있다고 언급하지만, '국가별 인공 강우 기술의 발전 수준'을 서로 비교하여 서술한 부분은 찾아볼 수 없으므로 ③이 적절하지 않습니다. 생성 과정(①), 학과 소개(②), 잠재적 위험(④)은 모두 반영되었습니다.",
       "difficulty": "중"
+    },
+    {
+      "id": "calc-20260406-001",
+      "subject": "calculus",
+      "topic": "수열의 극한",
+      "question": "lim(n→∞) (10n^3+5) / (n^2(2n+3)) 의 값은?",
+      "options": [
+        "① 2",
+        "② 3",
+        "③ 4",
+        "④ 5"
+      ],
+      "answer": 3,
+      "explanation": "분자와 분모의 최고차항의 차수가 3차로 서로 같습니다. 분자의 최고차항은 10n^3이고, 분모의 최고차항은 n^2 * 2n = 2n^3입니다. 무한대/무한대 꼴의 극한에서 최고차항의 차수가 같을 때는 최고차항의 계수의 비가 극한값이 되므로, lim(n→∞) (10n^3+5) / (2n^3+3n^2) = 10 / 2 = 5가 됩니다.",
+      "difficulty": "하",
+      "variationType": "수치 변형"
+    },
+    {
+      "id": "calc-20260406-002",
+      "subject": "calculus",
+      "topic": "수열의 극한",
+      "question": "두 수열 {a_n}, {b_n}에 대하여 lim(n→∞) (2n^2+1)a_n = 8, lim(n→∞) b_n / (n^2+3n) = 3 일 때, lim(n→∞) a_n * b_n 의 값은?",
+      "options": [
+        "① 6",
+        "② 8",
+        "③ 12",
+        "④ 24"
+      ],
+      "answer": 2,
+      "explanation": "구하고자 하는 극한의 식을 주어진 조건의 형태로 변형해야 합니다. a_n * b_n = (2n^2+1)a_n * (b_n / (n^2+3n)) * ((n^2+3n) / (2n^2+1)) 로 쓸 수 있습니다. 각각의 극한값이 존재하므로 극한의 기본 성질에 의해 lim(n→∞) a_n * b_n = lim(n→∞) (2n^2+1)a_n * lim(n→∞) (b_n / (n^2+3n)) * lim(n→∞) ((n^2+3n) / (2n^2+1)) 가 됩니다. 조건에서 앞의 두 극한값은 각각 8과 3이며, 마지막 극한값은 최고차항의 계수비인 1/2이 됩니다. 따라서 8 * 3 * (1/2) = 12가 됩니다.",
+      "difficulty": "중",
+      "variationType": "조건 변형"
+    },
+    {
+      "id": "calc-20260406-003",
+      "subject": "calculus",
+      "topic": "수열의 극한",
+      "question": "수열 {a_n}의 첫째항부터 제n항까지의 합을 S_n이라 하자. S_n = n^2 + 2n 일 때, lim(n→∞) { √(a_n^2 + 3n) - a_n } 의 값을 구하시오.",
+      "options": [
+        "① 1/4",
+        "② 1/2",
+        "③ 3/4",
+        "④ 1"
+      ],
+      "answer": 2,
+      "explanation": "수열의 합과 일반항의 관계에 의해 n>=2일 때 a_n = S_n - S_{n-1} = (n^2 + 2n) - ((n-1)^2 + 2(n-1)) = 2n + 1 입니다. (a_1 = S_1 = 3으로 일치하므로 모든 자연수 n에 대해 성립합니다). 구하고자 하는 식에 a_n = 2n+1을 대입하면 lim(n→∞) { √((2n+1)^2 + 3n) - (2n+1) } = lim(n→∞) { √(4n^2 + 7n + 1) - (2n+1) } 이 됩니다. 무한대 - 무한대 꼴이므로 분자를 유리화하기 위해 켤레식을 분모, 분자에 곱해주면 lim(n→∞) (4n^2 + 7n + 1 - (4n^2 + 4n + 1)) / (√(4n^2 + 7n + 1) + 2n + 1) = lim(n→∞) (3n) / (√(4n^2 + 7n + 1) + 2n + 1) 이 됩니다. 분모와 분자를 n으로 나누어 극한을 구하면 최고차항의 계수비에 의해 3 / (√4 + 2) = 3/4 이 됩니다.",
+      "difficulty": "상",
+      "variationType": "복합 변형"
+    },
+    {
+      "id": "eng-20260406-001",
+      "subject": "english",
+      "topic": "글의 목적 파악",
+      "question": "다음 글의 목적으로 가장 적절한 것은?\n\nDear Professor Langford,\nFirst of all, we apologize for contacting you during the holiday season. We understand that this is a busy time, but as the revision deadline of your manuscript (December 27th) is quickly approaching, we kindly ask for your cooperation in addressing the reviewers’ comments as thoroughly as possible within the limited time available. The reviewers have carefully evaluated your manuscript and provided insightful and critical feedback. To help you revise, we have summarized the key points raised by both reviewers. Please review these comments carefully and submit a revised version of your manuscript. We are confident that incorporating these suggestions will significantly improve the manuscript and provide stronger support for your main claims. We hope that the revised manuscript will satisfy the reviewers and be accepted in our journal. Thank you for your attention and cooperation.\n\nBest regards,\nNora Ellison, Associate Editor",
+      "options": [
+        "① 제출된 원고의 게재 거절을 통보하려고",
+        "② 연휴 기간 중의 원고 심사 지연을 사과하려고",
+        "③ 검토자들의 피드백을 반영한 원고 수정을 요청하려고",
+        "④ 새로운 논문의 동료 심사 위원으로 초빙하려고"
+      ],
+      "answer": 2,
+      "explanation": "학술지의 부편집장이 Langford 교수에게 보내는 서한으로, 휴가 기간임에도 원고 수정 마감일이 임박했음을 알리며 검토자들의 의견을 철저히 반영하여 원고 수정본을 제출해 줄 것을 당부하고 있습니다. 따라서 글의 목적으로 가장 적절한 것은 ③입니다.",
+      "difficulty": "하"
+    },
+    {
+      "id": "kor-20260406-001",
+      "subject": "korean",
+      "topic": "화법 이론",
+      "question": "다음은 전시를 관람한 학생과 큐레이터의 대화이다. 위 대화에 나타난 대화 참여자들의 말하기 방식 및 태도에 대한 설명으로 가장 적절한 것은?\n[대화 상황] 큐레이터가 학생의 관찰력을 칭찬하자, 학생은 \"아무것도 모르는 제가 전시의 다양한 장치들을 통해 전통 정원을 생생하게 느껴 봤어요.\"라고 대답함.",
+      "options": [
+        "① 상대방의 발화에 반박하며 자신의 주장이 지닌 논리적 타당성을 입증하고 있다.",
+        "② 대화를 할 때 상대방은 높이고 자신은 낮추려고 하는 언어 공동체의 담화 관습을 따르고 있다.",
+        "③ 시사적인 현안에 대한 객관적인 자료를 제시하여 자신의 관점대로 상대를 설득하려 하고 있다.",
+        "④ 과거의 개인적 경험을 나열하며 화제와 관련된 갈등 상황의 심각성을 부각하고 있다."
+      ],
+      "answer": 1,
+      "explanation": "대화에서 큐레이터는 학생에게 \"정말 백 점짜리 관람객인데요.\"라며 상대를 칭찬하고, 학생은 \"아무것도 모르는 제가~\"라며 자신을 낮추고 있습니다. 이는 우리 언어 공동체에서 상대를 존중하고 높이며 자신은 낮추려는 보편적인 '담화 관습'이 반영된 결과입니다. 이 대화는 상호 협력적 관계를 맺고 감상을 나누는 목적이므로 설득이나 반박의 의도는 없습니다.",
+      "difficulty": "중"
     }
   ],
   "cards": [
@@ -1073,6 +1151,41 @@
       "front": "설명문 내용 조직 순서",
       "back": "서론: 주제·목적 제시, 관심 유발\n본론: 개념 정의 → 원리 설명 → 사례/효과\n결론: 요약·정리, 의의·전망\n예) 인공강우: 정의→원리→효과→한계",
       "tag": "작문"
+    },
+    {
+      "id": "calc-card-20260406-001",
+      "deck": "calc",
+      "front": "수열의 극한에 대한 기본 성질",
+      "back": "두 수열 {a_n}, {b_n}이 모두 수렴할 때만 성립합니다.\n1. lim c(a_n) = c(lim a_n)\n2. lim (a_n ± b_n) = lim a_n ± lim b_n\n3. lim (a_n × b_n) = (lim a_n) × (lim b_n)\n4. lim (a_n / b_n) = (lim a_n) / (lim b_n) (단, 분모 극한값 ≠ 0)",
+      "tag": "수열의 극한"
+    },
+    {
+      "id": "calc-card-20260406-002",
+      "deck": "calc",
+      "front": "수열의 극한의 대소 관계 (샌드위치 정리)",
+      "back": "수렴하는 두 수열 {a_n}, {b_n}에 대하여 모든 자연수 n에 대해 a_n ≤ b_n (또는 a_n < b_n)이면 극한값은 lim a_n ≤ lim b_n 입니다. (극한을 취하면 부등식에 등호가 생길 수 있음!)\n또한 a_n ≤ c_n ≤ b_n 이고 lim a_n = lim b_n = α 이면 중간에 끼인 lim c_n = α 가 성립합니다.",
+      "tag": "수열의 극한"
+    },
+    {
+      "id": "eng-card-20260406-001",
+      "deck": "engsum",
+      "front": "1강 2번 / 원고 수정 요청",
+      "back": "요약: 학술지 부편집장이 교수에게 리뷰어들의 피드백을 반영하여 원고 수정을 기한 내에 마쳐줄 것을 요청함.\n핵심 논지: 원고의 수정 마감일이 임박했으므로, 논문의 질을 높이고 저널 게재 승인을 받기 위해 검토자들의 의견을 철저히 반영하여 수정본을 제출해야 한다.\n주요 어휘: manuscript (원고), revision (수정), incorporate (포함하다), thoroughly (철저하게)",
+      "tag": "1강"
+    },
+    {
+      "id": "kor-card-20260406-001",
+      "deck": "korean",
+      "front": "화법 유형 - 대화 (전시 관람객과 큐레이터)",
+      "back": "분석: 전통 정원 전시회 관람 후, 학생과 큐레이터가 전시에 대한 긍정적 감상(차경 기법 등)을 묻고 답하며 상호 협력적 관계를 맺는 대화 지문.\n핵심 개념: 화법의 사회적 상호 작용, 자아 성장, 언어 공동체의 담화 관습(자신을 낮추고 상대를 높임).\n출제 포인트: 대화 참여자들의 의사소통 목적(설득 의도 유무 등) 파악, 발화에 반영된 사회·문화적 담화 관습 분석 문제 빈출.",
+      "tag": "화법 이론"
+    },
+    {
+      "id": "korsum-card-20260406-001",
+      "deck": "korsum",
+      "front": "전통 정원 전시회 감상 대화",
+      "back": "내용 요약: 학생이 전통 정원 전시에 대한 생생한 감상을 전하자, 큐레이터가 대형 화면과 '차경' 기법의 효과를 설명함. 큐레이터가 학생의 관찰력을 칭찬하고, 학생은 자신을 낮추며 겸손하게 화답함.\n핵심 포인트: 시·공간을 공유하는 대면 의사소통, 상대방에 대한 칭찬을 극대화하고 자신을 낮추는 한국어 공동체의 언어 예절.",
+      "tag": "화법 이론"
     }
   ],
   "concepts": [
@@ -1299,6 +1412,27 @@
       "topic": "3모 비문학",
       "content": "## 3모 비문학 핵심 요약\n3모 비문학에 자주 등장하는 토론과 협상, 고쳐쓰기 유형의 주요 포인트입니다.\n\n## 출제 포인트\n상대방의 논리적 허점을 파악하는 비판적 듣기와 맥락에 맞는 쓰기 전략.",
       "date": "20260405"
+    },
+    {
+      "id": "concept-calc-20260406",
+      "subject": "calculus",
+      "topic": "수열의 극한",
+      "content": "## 핵심 개념\n수열 {a_n}에서 n이 한없이 커질 때 일반항 a_n의 값이 일정한 상수 α에 한없이 가까워지면 이 수열은 α에 수렴한다고 하며 lim_{n→∞} a_n = α 로 나타냅니다. 수렴하지 않고 양/음의 무한대로 커지거나 값이 교대로 나타나며 진동하는 경우는 모두 발산한다고 합니다.\n\n## 핵심 공식\n- 극한의 기본 성질: 수렴하는 수열에 한해 실수배, 덧셈, 뺄셈, 곱셈, 나눗셈(분모≠0)에 대해 극한(lim)을 분배하여 계산할 수 있습니다.\n- 등비수열 {r^n}의 수렴 조건: -1 < r ≤ 1\n- 수열의 대소 관계(샌드위치 정리): a_n ≤ c_n ≤ b_n 이고 lim a_n = lim b_n = α 이면 lim c_n = α\n\n## 풀이 포인트\n∞/∞ 꼴의 극한은 분모의 최고차항으로 분모와 분자를 각각 나누어 계산하며, 분모와 분자의 차수가 같으면 최고차항 계수의 비로 수렴합니다. 무리식이 포함된 ∞-∞ 꼴은 무리식 부분을 유리화하여 ∞/∞ 꼴로 변형한 뒤 풉니다. 특히 참/거짓 판단 문제나 극한 성질 적용 시 주어진 수열이 '수렴한다'는 전제 조건이 있는지 반드시 확인해야 오류를 방지할 수 있습니다.\n\n## 예제\nlim_{n→∞} (2n^2 + 3n - 1) / (n^2 + 1) 의 값은?\n[풀이] ∞/∞ 꼴이며 분모와 분자가 모두 2차식으로 차수가 같으므로, 최고차항의 계수의 비를 구하면 2 / 1 = 2 에 수렴합니다.",
+      "date": "20260406"
+    },
+    {
+      "id": "concept-eng-1-20260406",
+      "subject": "english",
+      "topic": "글의 목적 파악",
+      "content": "## 지문 원문\nDear Professor Langford,\nFirst of all, we apologize for contacting you during the holiday season. We understand that this is a busy time, but as the revision deadline of your manuscript (December 27th) is quickly approaching, we kindly ask for your cooperation in addressing the reviewers’ comments as thoroughly as possible within the limited time available. The reviewers have carefully evaluated your manuscript and provided insightful and critical feedback. To help you revise, we have summarized the key points raised by both reviewers. Please review these comments carefully and submit a revised version of your manuscript. We are confident that incorporating these suggestions will significantly improve the manuscript and provide stronger support for your main claims. We hope that the revised manuscript will satisfy the reviewers and be accepted in our journal. Thank you for your attention and cooperation.\n\nBest regards,\nNora Ellison, Associate Editor\n\n## 전체 해석\nLangford 교수님께,\n우선, 휴가 기간에 연락을 드리게 된 점 사과드립니다. 이때가 바쁜 시기라는 것을 이해하지만, 교수님의 원고 수정 마감일(12월 27일)이 빠르게 다가오고 있으니, 제한된 이용 가능 시간 내에 가능한 한 철저하게 검토자들의 의견을 처리하는 것에 협조를 간곡히 부탁드립니다. 검토자들은 교수님의 원고를 신중히 검토하였고, 통찰력 있고 중대한 피드백을 제공했습니다. 교수님께서 수정하시는 것을 돕기 위해, 검토자 두 분 모두가 제기한 주요 사항들을 요약해 놓았습니다. 이 의견들을 신중히 검토하시고 원고의 수정본을 제출해 주시기 바랍니다. 이 제안 사항들을 포함하는 것이 원고를 크게 향상시키고 교수님의 주요 주장에 대한 더 강한 근거를 제공할 것이라고 확신합니다. 수정된 원고가 검토자들을 만족시켜 저희 학술지에 게재가 승인되기를 소망합니다. 교수님의 관심과 협조에 감사드립니다.\n부편집장, Nora Ellison 드림\n\n## 핵심 단어\n- manuscript: 원고\n- revision: 수정\n- incorporate: 포함하다, 반영하다\n- insightful: 통찰력 있는\n- thoroughly: 철저하게\n\n## 핵심 문법\n1. **과거분사구의 후치 수식**: `the key points [raised by both reviewers]`에서 과거분사 `raised`가 이끄는 분사구가 수동의 의미로 앞의 명사 `the key points`를 수식합니다(양 검토자가 '제기한' 주요 사항들).\n2. **명사절을 이끄는 접속사 that과 병렬 구조**: `We are confident [that incorporating these suggestions will {significantly improve the manuscript} and {provide stronger support for your main claims}].` 구문에서 `that`은 `confident`의 내용을 보충하는 명사절을 이끌며, 그 안에서 두 개의 동사 원형 `improve`와 `provide`가 `and`로 연결되어 조동사 `will`에 병렬로 이어집니다.",
+      "date": "20260406"
+    },
+    {
+      "id": "concept-kor-20260406",
+      "subject": "korean",
+      "topic": "화법 이론",
+      "content": "## 오늘의 지문 분석\n- **유형**: 대화 (면대면 의사소통)\n- **상황**: 전시를 관람한 학생과 기획자인 큐레이터가 '관람객 감상평' 코너에서 전시 기법(차경)에 대해 묻고 답함.\n- **특징**: 두 사람은 시·공간을 공유하며 전시에 대한 긍정적 감상을 나누는 상호 협력적 관계를 맺고 있습니다. 학생은 전시를 통한 새로운 경험으로 자아 성장을 도모하고, 큐레이터는 업무의 일환으로 관람객의 이야기를 경청합니다.\n\n## 핵심 개념 정리\n- **사회적 의사소통 행위로서의 화법**: 화법은 개인 내적 의사소통을 통해 자아를 성찰·성장시키고, 개인 간 의사소통을 통해 인간관계를 형성 및 발전시키는 중요한 사회적 행위입니다.\n- **담화 관습 (Discourse Convention)**: 각 언어 공동체의 사회·문화적 특성이 반영된 공통된 발화 경향을 의미합니다. 우리 언어 공동체는 대화 시 상대방에게 피해가 되는 직접적인 표현을 삼가고, 상대방은 칭찬하여 높이되 자신은 겸손하게 낮추려는 언어 예절이 발달해 있습니다.\n\n## 출제 포인트\n1. **참여자의 의사소통 목적과 태도 파악**: 화자가 상대를 설득하려는지, 공감하려는지, 단순히 감상을 공유하려는지 정확히 파악해야 합니다. (본 지문에는 '설득' 의도가 없습니다.)\n2. **담화 관습의 올바른 이해**: 주어진 발화(예: \"아무것도 모르는 제가\", \"백 점짜리 관람객\")에 반영된 언어 공동체의 문화적 관습을 연결하는 문제가 자주 출제됩니다.",
+      "date": "20260406"
     }
   ]
 }
