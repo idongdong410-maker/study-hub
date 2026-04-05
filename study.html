@@ -80,6 +80,15 @@ button,select,textarea{font-family:inherit;cursor:pointer;border:none;outline:no
 
 /* Learn section */
 .learn-box{background:var(--bg);border:1px solid var(--bg3);border-radius:var(--radius-sm);padding:16px;margin-bottom:16px;font-size:14px;line-height:1.8;white-space:pre-wrap;max-height:50vh;overflow-y:auto;-webkit-overflow-scrolling:touch}
+.concept-view{background:var(--bg);border:1px solid var(--bg3);border-radius:var(--radius-sm);padding:16px;margin-bottom:16px;font-size:14px;line-height:1.8;max-height:55vh;overflow-y:auto;-webkit-overflow-scrolling:touch}
+.concept-view h2{font-size:15px;font-weight:700;color:var(--t1);margin:14px 0 6px;padding-bottom:4px;border-bottom:1px solid var(--bg3)}
+.concept-view h2:first-child{margin-top:0}
+.concept-view p{margin-bottom:8px;color:var(--t2)}
+.concept-view ul{padding-left:18px;margin-bottom:8px}
+.concept-view li{color:var(--t2);margin-bottom:3px}
+.concept-view code{background:var(--bg3);padding:1px 5px;border-radius:4px;font-size:13px;font-family:monospace}
+.concept-view strong{color:var(--t1)}
+.concept-src-badge{display:inline-flex;align-items:center;gap:4px;font-size:10px;padding:2px 8px;border-radius:10px;background:var(--blue-dim);color:var(--blue);margin-bottom:12px}
 
 /* Difficulty & type select */
 .option-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:16px}
@@ -139,12 +148,18 @@ button,select,textarea{font-family:inherit;cursor:pointer;border:none;outline:no
 
 .section-title{font-size:16px;font-weight:700;margin-bottom:12px}
 .section-sub{font-size:13px;color:var(--t3);margin-bottom:16px}
+
+.acc-header{display:flex;justify-content:space-between;align-items:center;cursor:pointer;padding:2px 0}
+.acc-body{max-height:0;overflow:hidden;transition:max-height .3s ease,opacity .3s ease;opacity:0}
+.acc-body.open{max-height:300px;opacity:1}
+.chev{font-size:12px;color:var(--t3);transition:transform .3s;display:inline-block}
+.chev.open{transform:rotate(180deg)}
 </style>
 </head>
 <body>
 
 <div class="hdr">
-  <h1>StudyFlow</h1>
+  <button style="background:none;color:var(--t1);font-size:24px;font-weight:800;letter-spacing:-.5px;padding:0" onclick="window.location.href='index.html'">StudyFlow</button>
   <div class="hdr-right"><div class="hdr-dday" id="dday"></div><div class="hdr-sub">중간고사</div></div>
 </div>
 <div class="stats" id="statsArea"></div>
@@ -157,24 +172,42 @@ button,select,textarea{font-family:inherit;cursor:pointer;border:none;outline:no
 const SUBJECTS={
   calculus:{name:"미적분",emoji:"∫",color:"#7c6aef",dim:"rgba(124,106,239,.12)",
     topics:[
-      {id:"deriv-def",name:"미분계수와 도함수",icon:"📐",desc:"정의와 기본 공식"},
-      {id:"tangent",name:"접선의 방정식",icon:"📏",desc:"기울기와 접선"},
-      {id:"chain",name:"합성함수 미분",icon:"🔗",desc:"체인룰"},
-      {id:"param",name:"매개변수 미분",icon:"📊",desc:"dx/dt, dy/dt"},
-      {id:"implicit",name:"음함수 미분",icon:"🔄",desc:"양변 미분"},
-      {id:"inverse",name:"역함수 미분",icon:"↩️",desc:"역함수 도함수"},
-      {id:"trig",name:"삼각함수 도함수",icon:"📐",desc:"sin, cos, tan"},
-      {id:"exp",name:"지수함수 도함수",icon:"📈",desc:"e^x, a^x"},
-      {id:"log",name:"로그함수 도함수",icon:"📉",desc:"ln x, log x"}
+      {id:"seq-conv",name:"수열의 수렴과 발산",icon:"∞"},
+      {id:"seq-limit-calc",name:"극한값의 계산",icon:"∞"},
+      {id:"geom-series-limit",name:"등비급수의 극한",icon:"∞"},
+      {id:"seq-limit-order",name:"수열의 극한의 대소 관계",icon:"∞"},
+      {id:"sandwich-thm",name:"샌드위치 정리",icon:"∞"},
+      {id:"series-conv",name:"급수의 수렴과 발산",icon:"Σ"},
+      {id:"geom-series",name:"등비급수",icon:"Σ"},
+      {id:"series-prop",name:"급수의 성질",icon:"Σ"},
+      {id:"series-partial",name:"급수와 부분합의 관계",icon:"Σ"},
+      {id:"various-series",name:"여러 가지 급수의 합",icon:"Σ"},
+      {id:"exp-diff",name:"지수함수의 미분",icon:"📐"},
+      {id:"log-diff",name:"로그함수의 미분",icon:"📐"},
+      {id:"trig-diff",name:"삼각함수의 미분",icon:"📐"},
+      {id:"trig-limit",name:"삼각함수의 극한",icon:"📐"},
+      {id:"natural-e",name:"자연로그의 밑 e",icon:"📐"},
+      {id:"comp-diff",name:"합성함수의 미분법",icon:"🔄"},
+      {id:"param-diff",name:"매개변수로 나타낸 함수의 미분법",icon:"🔄"},
+      {id:"impl-diff",name:"음함수의 미분법",icon:"🔄"},
+      {id:"inv-diff",name:"역함수의 미분법",icon:"🔄"}
     ]},
   english:{name:"영어",emoji:"EN",color:"#3b9eff",dim:"rgba(59,158,255,.12)",
     topics:[
-      {id:"reading",name:"수능특강 독해",icon:"📖",desc:"지문 독해"},
-      {id:"vocab",name:"어휘",icon:"📝",desc:"핵심 단어"},
-      {id:"grammar",name:"문법",icon:"✏️",desc:"문법 포인트"},
-      {id:"blank",name:"빈칸추론",icon:"🔍",desc:"빈칸 완성"},
-      {id:"order",name:"순서배열",icon:"🔢",desc:"문장 순서"},
-      {id:"insert",name:"문장삽입",icon:"📌",desc:"적절한 위치"}
+      {id:"purpose",name:"글의 목적 파악",icon:"✉️",desc:"1강"},
+      {id:"emotion",name:"심경 변화 파악",icon:"😊",desc:"2강"},
+      {id:"implication",name:"함축적 의미 파악",icon:"💬",desc:"3강"},
+      {id:"main-idea",name:"요지 파악",icon:"💡",desc:"4강"},
+      {id:"argument",name:"주장 파악",icon:"👊",desc:"5강"},
+      {id:"topic",name:"주제 파악",icon:"🎯",desc:"6강"},
+      {id:"title",name:"제목 파악",icon:"📰",desc:"7강"},
+      {id:"grammar",name:"어법 정확성 파악",icon:"✏️",desc:"11강"},
+      {id:"vocab",name:"어휘 적절성 파악",icon:"📝",desc:"12강"},
+      {id:"blank",name:"빈칸 내용 추론",icon:"🔍",desc:"13강"},
+      {id:"philosophy",name:"철학·역사 지문",icon:"🏛️",desc:"21강"},
+      {id:"environment",name:"환경·자원 지문",icon:"🌿",desc:"22강"},
+      {id:"science",name:"과학 지문",icon:"🔬",desc:"23강"},
+      {id:"sports",name:"스포츠·레저 지문",icon:"⚽",desc:"24강"}
     ]},
   korean:{name:"화법과 작문",emoji:"글",color:"#f5a623",dim:"rgba(245,166,35,.12)",
     topics:[
@@ -208,7 +241,7 @@ let S={
   conceptText:"",
   difficulty:null,
   qtype:null,
-  quiz:null,quizSel:null,quizRevealed:false,quizCount:0,quizCorrect:0,
+  quiz:null,quizSel:null,quizRevealed:false,quizCount:0,quizCorrect:0,quizComplete:false,
   // Bank
   bank:JSON.parse(localStorage.getItem("sf-bank")||"[]"),
   bankQ:null,bankSel:null,bankRevealed:false,bankFilter:"all",
@@ -223,15 +256,24 @@ function save(){
   localStorage.setItem("sf-bank",JSON.stringify(S.bank));
   localStorage.setItem("sf-wrong",JSON.stringify(S.wrong));
   localStorage.setItem("sf-stats",JSON.stringify(S.stats));
+  schedulePush();
 }
 
 // ===== API =====
 // No API calls - all data comes from JSON import / feed.json
 
+// ===== EXAM RANGE HELPER =====
+function getExamUnits(subj){
+  const r=JSON.parse(localStorage.getItem("hub-exam-ranges")||"null");
+  if(r&&r[subj]&&(r[subj].units||[]).length)return r[subj].units;
+  const p=JSON.parse(localStorage.getItem("hub-progress")||"null");
+  return p?.examRanges?.[subj]?.units||[];
+}
+
 // ===== RENDER =====
 function render(){
   // D-day
-  const dd=Math.ceil((new Date("2026-04-24")-new Date())/864e5);
+  const _td=new Date();_td.setHours(0,0,0,0);const dd=Math.round((new Date("2026-04-23")-_td)/864e5);
   document.getElementById("dday").textContent=`D-${dd>0?dd:0}`;
   document.getElementById("dday").style.color=dd<=7?"var(--red)":"var(--t1)";
 
@@ -279,7 +321,7 @@ function renderDashboard(){
 
   let html=`<div class="fade-in">`;
 
-  // === Per-subject overview ===
+  // === Per-subject overview (accordion) ===
   html+=`<div class="section-title" style="margin-bottom:14px">과목별 현황</div>`;
   Object.entries(SUBJECTS).forEach(([k,sub])=>{
     const qs=S.bank.filter(q=>q.subject===k);
@@ -288,25 +330,35 @@ function renderDashboard(){
     const wrong=qs.filter(q=>q.correct===false).length;
     const unsolved=total-solved;
     const acc=solved>0?Math.round(correct/solved*100):0;
+    const accColor=acc>=70?"var(--green)":acc>=40?"var(--amber)":"var(--red)";
     const wrongTopics={};
     S.wrong.filter(w=>w.subject===k).forEach(w=>{wrongTopics[w.topic]=(wrongTopics[w.topic]||0)+1});
     const weakest=Object.entries(wrongTopics).sort((a,b)=>b[1]-a[1]).slice(0,2);
 
-    html+=`<div class="card" style="border-left:3px solid ${sub.color};margin-bottom:10px">
-      <div class="row-between" style="margin-bottom:10px">
-        <span style="font-size:15px;font-weight:700;color:${sub.color}">${sub.emoji} ${sub.name}</span>
-        <span style="font-size:13px;color:var(--t3)">${total}문제</span>
+    html+=`<div class="card" style="border-left:3px solid ${sub.color};margin-bottom:8px;padding:14px 16px">
+      <div class="acc-header" onclick="var b=this.nextElementSibling,c=this.querySelector('.chev');b.classList.toggle('open');c.classList.toggle('open')">
+        <span style="font-size:14px;font-weight:700;color:${sub.color}">${sub.emoji} ${sub.name}</span>
+        <div style="display:flex;gap:10px;align-items:center">
+          <span style="font-size:13px;font-weight:600;color:${accColor}">${acc}%</span>
+          <span style="font-size:12px;color:var(--t3)">${total}문제</span>
+          ${unsolved>0?`<span style="font-size:11px;color:var(--amber)">미완 ${unsolved}</span>`:""}
+          <span class="chev">▼</span>
+        </div>
       </div>
-      <div style="display:flex;gap:16px;font-size:13px;margin-bottom:8px">
-        <span>정답률 <strong style="color:${acc>=70?"var(--green)":acc>=40?"var(--amber)":"var(--red)"}">${acc}%</strong></span>
-        <span>안 푼 <strong>${unsolved}</strong></span>
-        <span style="color:var(--red)">오답 <strong>${wrong}</strong></span>
+      <div class="acc-body">
+        <div style="margin-top:12px">
+          <div style="display:flex;gap:16px;font-size:13px;margin-bottom:10px">
+            <span>정답률 <strong style="color:${accColor}">${acc}%</strong></span>
+            <span>안 푼 <strong>${unsolved}</strong></span>
+            <span style="color:var(--red)">오답 <strong>${wrong}</strong></span>
+          </div>
+          ${total>0?`<div style="height:6px;border-radius:3px;background:var(--bg4);overflow:hidden;display:flex">
+            <div style="width:${(correct/total)*100}%;background:var(--green);transition:width .3s"></div>
+            <div style="width:${(wrong/total)*100}%;background:var(--red);transition:width .3s"></div>
+          </div>`:""}
+          ${weakest.length?`<div style="margin-top:8px;font-size:11px;color:var(--t3)">약점: ${weakest.map(([t,n])=>`<span style="color:var(--red)">${t}(${n})</span>`).join(" · ")}</div>`:""}
+        </div>
       </div>
-      ${total>0?`<div class="progress-bar" style="height:6px;border-radius:3px;background:var(--bg4);overflow:hidden;display:flex">
-        <div style="width:${(correct/total)*100}%;background:var(--green);transition:width .3s"></div>
-        <div style="width:${(wrong/total)*100}%;background:var(--red);transition:width .3s"></div>
-      </div>`:""}
-      ${weakest.length?`<div style="margin-top:8px;font-size:11px;color:var(--t3)">약점: ${weakest.map(([t,n])=>`<span style="color:var(--red)">${t}(${n})</span>`).join(" · ")}</div>`:""}
     </div>`;
   });
 
@@ -407,11 +459,24 @@ function renderLearn(){
 
 // Step 1: Select concept
 function renderSelectStep(sub){
+  const units=getExamUnits(S.subject);
+  let topics=sub.topics;
+  let rangeNote="";
+  if(units.length>0){
+    const filtered=sub.topics.filter(t=>units.includes(t.name));
+    if(filtered.length>0){
+      topics=filtered;
+      rangeNote=`<div style="font-size:11px;color:var(--amber);background:var(--amber-dim);border-radius:6px;padding:5px 10px;margin-bottom:12px;display:inline-block">📌 시험 범위: ${units.length}개 단원</div>`;
+    }else{
+      rangeNote=`<div style="font-size:11px;color:var(--t3);background:var(--bg3);border-radius:6px;padding:5px 10px;margin-bottom:12px;display:inline-block">범위 설정됨 (매칭 없음 — 전체 표시)</div>`;
+    }
+  }
   return`<div class="fade-in">
     <div class="section-title">무엇을 공부할까요?</div>
     <div class="section-sub">${sub.name} 개념을 선택하세요</div>
+    ${rangeNote}
     <div class="concept-grid">
-      ${sub.topics.map(t=>{
+      ${topics.map(t=>{
         const sel=S.selectedTopic?.id===t.id;
         return`<div class="concept-card ${sel?"selected":""}" style="${sel?`border-color:${sub.color};background:${sub.dim}`:""}" onclick="selectTopic('${t.id}')">
           <div class="icon">${t.icon}</div>
@@ -437,19 +502,99 @@ function goToConcept(){
   S.step="concept";S.conceptText="";render();
 }
 
-// Step 2: Learn concept (saved notes approach)
+// Minimal markdown → HTML renderer
+function renderMd(text){
+  if(!text)return"";
+  return text
+    .replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;")
+    .replace(/^## (.+)$/gm,"<h2>$1</h2>")
+    .replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>")
+    .replace(/`([^`]+)`/g,"<code>$1</code>")
+    .replace(/^- (.+)$/gm,"<li>$1</li>")
+    .replace(/^\d+\. (.+)$/gm,"<li>$1</li>")
+    .replace(/(<li>[^]*?<\/li>\n?)+/g,m=>"<ul>"+m+"</ul>")
+    .split(/\n{2,}/)
+    .map(chunk=>chunk.trim().startsWith("<")?chunk:`<p>${chunk.replace(/\n/g," ")}</p>`)
+    .join("\n");
+}
+
+// Step 2: Learn concept
 function renderConceptStep(sub){
   const t=S.selectedTopic;
   const savedNote=localStorage.getItem(`note-${S.subject}-${t.id}`)||"";
+  const allConcepts=JSON.parse(localStorage.getItem("hub-concepts")||"[]");
+  const autoConcept=allConcepts
+    .filter(c=>c.subject===S.subject&&c.topic===t.name)
+    .sort((a,b)=>b.date.localeCompare(a.date))[0];
+  // 2차 폴백: mf-cards에서 관련 카드 매칭
+  let mfFallback="";
+  if(!savedNote&&!autoConcept){
+    const allCards=JSON.parse(localStorage.getItem("mf-cards")||"[]");
+    const relCards=allCards.filter(c=>{
+      if(!c.tag)return false;
+      const tn=t.name.replace(/\s+/g,"");
+      const ct=c.tag.replace(/\s+/g,"");
+      if(tn.includes(ct)||ct.includes(tn))return true;
+      if(S.subject==="english"&&(c.dk==="engsum"||c.dk==="vocab")){
+        if(t.id==="reading"&&c.dk==="engsum"&&ct.includes("수특"))return true;
+        if(t.id==="reading"&&c.dk==="engsum"&&ct.includes("강"))return true;
+        if(t.id==="vocab"&&c.dk==="vocab")return true;
+      }
+      if(S.subject==="korean"&&c.dk==="korean"){
+        if(tn.includes("화법")&&ct.includes("화법"))return true;
+        if(tn.includes("작문")&&ct.includes("작문"))return true;
+      }
+      return false;
+    });
+    if(relCards.length>0){
+      mfFallback=relCards.map(c=>`\u{1F4CC} [${c.tag}] ${c.front}\n${c.back}`).join("\n\n");
+    }
+  }
+  const displayContent=savedNote||(autoConcept?.content||"")||mfFallback;
+  const isAuto=!savedNote&&(!!autoConcept||!!mfFallback);
 
+  if(displayContent){
+    const renderedHtml=renderMd(displayContent);
+    // 읽기 전용 뷰
+    return`<div class="fade-in">
+      <div class="row-between mb-12">
+        <button class="btn-ghost" onclick="S.step='select';render()">← 뒤로</button>
+        <span style="font-size:13px;color:${sub.color};font-weight:600">${t.icon} ${t.name}</span>
+      </div>
+      <div class="section-title">개념 학습</div>
+      ${isAuto?`<div class="concept-src-badge">🤖 자동생성</div>`:""}
+      <div class="concept-view" id="conceptView">${renderedHtml}</div>
+      <div id="conceptEdit" class="hidden">
+        <textarea id="noteArea" style="width:100%;min-height:200px;padding:14px;border-radius:10px;border:1px solid var(--bg4);background:var(--bg);color:var(--t1);font-size:14px;line-height:1.7;resize:vertical;font-family:inherit">${displayContent.replace(/</g,"&lt;").replace(/>/g,"&gt;")}</textarea>
+      </div>
+      <div class="row mt-12" style="gap:8px">
+        <button id="editToggleBtn" class="btn" style="flex:1" onclick="
+          const v=document.getElementById('conceptView'),
+                e=document.getElementById('conceptEdit'),
+                b=document.getElementById('editToggleBtn');
+          if(e.classList.contains('hidden')){
+            e.classList.remove('hidden');v.classList.add('hidden');b.textContent='저장';
+          }else{
+            const txt=document.getElementById('noteArea').value;
+            localStorage.setItem('note-${S.subject}-${t.id}',txt);
+            e.classList.add('hidden');v.classList.remove('hidden');
+            v.innerHTML=renderMd(txt);b.textContent='편집';
+          }
+        ">편집</button>
+        <button class="btn btn-primary" style="flex:2;background:${sub.color}" onclick="goToConfig()">문제 풀기 →</button>
+      </div>
+    </div>`;
+  }
+
+  // 폴백: 자동 개념 없음 → 수동 입력 폼
   return`<div class="fade-in">
     <div class="row-between mb-12">
       <button class="btn-ghost" onclick="S.step='select';render()">← 뒤로</button>
-      <span style="font-size:13px;color:${sub.color};font-weight:600">${S.selectedTopic.icon} ${S.selectedTopic.name}</span>
+      <span style="font-size:13px;color:${sub.color};font-weight:600">${t.icon} ${t.name}</span>
     </div>
     <div class="section-title">개념 학습</div>
-    <div class="section-sub">NotebookLM/Gemini에서 요약한 내용을 붙여넣고 저장하세요</div>
-    <textarea id="noteArea" style="width:100%;min-height:200px;padding:14px;border-radius:10px;border:1px solid var(--bg4);background:var(--bg);color:var(--t1);font-size:14px;line-height:1.7;resize:vertical;font-family:inherit" placeholder="개념 요약을 여기에 붙여넣기...&#10;&#10;NotebookLM에서:&#10;'${t.name} 핵심 개념을 정리해줘'&#10;라고 물어보세요.">${savedNote}</textarea>
+    <div class="section-sub" style="color:var(--t3)">/generate-study 실행 후 자동 표시됩니다. 직접 입력도 가능해요.</div>
+    <textarea id="noteArea" style="width:100%;min-height:200px;padding:14px;border-radius:10px;border:1px solid var(--bg4);background:var(--bg);color:var(--t1);font-size:14px;line-height:1.7;resize:vertical;font-family:inherit" placeholder="개념 요약을 여기에 붙여넣기...&#10;&#10;NotebookLM에서:&#10;'${t.name} 핵심 개념을 정리해줘'&#10;라고 물어보세요."></textarea>
     <div class="row mt-12" style="gap:8px">
       <button class="btn" style="flex:1" onclick="localStorage.setItem('note-${S.subject}-${t.id}',document.getElementById('noteArea').value);document.getElementById('noteSt').innerHTML='<div class=\\'status-msg status-ok\\'>저장!</div>';setTimeout(()=>{const e=document.getElementById('noteSt');if(e)e.innerHTML=''},2000)">저장</button>
       <button class="btn btn-primary" style="flex:2;background:${sub.color}" onclick="localStorage.setItem('note-${S.subject}-${t.id}',document.getElementById('noteArea').value);goToConfig()">문제 풀기 →</button>
@@ -458,7 +603,7 @@ function renderConceptStep(sub){
   </div>`;
 }
 
-function goToConfig(){S.step="config";S.difficulty=null;S.qtype=null;render()}
+function goToConfig(){S.step="config";render()}
 
 // Step 3: Choose difficulty & type
 function renderConfigStep(sub){
@@ -492,32 +637,69 @@ function renderConfigStep(sub){
 }
 
 // Step 4: Solve
-async function startQuiz(){
-  S.step="solve";S.loading=false;
-  // Pick from bank matching topic + difficulty
+function _buildPool(){
   const pool=S.bank.filter(q=>q.subject===S.subject&&q.topic===S.selectedTopic?.name);
   const diffPool=S.difficulty?pool.filter(q=>(q.difficulty||"중")===(DIFF_MAP[S.difficulty]||"중")):pool;
-  const src=diffPool.length>0?diffPool:pool;
+  const diffSrc=diffPool.length>0?diffPool:pool;
+  const qtypePool=S.qtype?diffSrc.filter(q=>q.qtype===S.qtype):diffSrc;
+  return qtypePool.length>0?qtypePool:diffSrc;
+}
+
+async function startQuiz(){
+  S.step="solve";S.loading=false;
+  const src=_buildPool();
   const unsolved=src.filter(q=>!q.solved);
-  const pick=unsolved.length>0?unsolved:src;
-  if(pick.length){S.quiz=pick[Math.floor(Math.random()*pick.length)]}else{S.quiz=null}
+  if(unsolved.length>0){S.quiz=unsolved[Math.floor(Math.random()*unsolved.length)];S.quizComplete=false;}
+  else if(src.length>0){S.quiz=null;S.quizComplete=true;}
+  else{S.quiz=null;S.quizComplete=false;}
   S.quizSel=null;S.quizRevealed=false;render();
 }
 
 function loadNewQuestion(){
-  const pool=S.bank.filter(q=>q.subject===S.subject&&q.topic===S.selectedTopic?.name);
-  const diffPool=S.difficulty?pool.filter(q=>(q.difficulty||"중")===(DIFF_MAP[S.difficulty]||"중")):pool;
-  const src=diffPool.length>0?diffPool:pool;
+  const src=_buildPool();
   const unsolved=src.filter(q=>!q.solved);
-  const pick=unsolved.length>0?unsolved:src;
-  if(pick.length){S.quiz=pick[Math.floor(Math.random()*pick.length)]}else{S.quiz=null}
+  if(unsolved.length>0){S.quiz=unsolved[Math.floor(Math.random()*unsolved.length)];S.quizComplete=false;}
+  else if(src.length>0){S.quiz=null;S.quizComplete=true;}
+  else{S.quiz=null;S.quizComplete=false;}
   S.quizSel=null;S.quizRevealed=false;render();
+}
+
+function resetTopicProgress(wrongOnly){
+  S.bank=S.bank.map(q=>{
+    const inPool=q.subject===S.subject&&q.topic===S.selectedTopic?.name;
+    if(!inPool)return q;
+    if(wrongOnly&&q.correct)return q;
+    return{...q,solved:false,correct:false};
+  });
+  S.quizComplete=false;
+  save();
+  startQuiz();
 }
 
 function renderSolveStep(sub){
   const t=S.selectedTopic;
   const diffLabel=DIFFICULTIES.find(d=>d.id===S.difficulty);
   const typeLabel=QTYPES.find(q=>q.id===S.qtype);
+
+  if(S.quizComplete){
+    const pool=S.bank.filter(q=>q.subject===S.subject&&q.topic===t.name);
+    const diffPool=S.difficulty?pool.filter(q=>(q.difficulty||"중")===(DIFF_MAP[S.difficulty]||"중")):pool;
+    const src=diffPool.length>0?diffPool:pool;
+    const total=src.length,correct=src.filter(q=>q.correct===true).length;
+    const wrongCnt=src.filter(q=>q.correct===false).length;
+    const pct=total?Math.round(correct/total*100):0;
+    return`<div class="card fade-in" style="text-align:center;padding:32px 20px">
+      <div style="font-size:48px;margin-bottom:12px">✅</div>
+      <div style="font-size:20px;font-weight:700;color:${sub.color};margin-bottom:6px">${t.name} 완료!</div>
+      <div style="font-size:14px;color:var(--t2);margin-bottom:4px">총 ${total}문제 중 ${correct}개 정답</div>
+      <div style="font-size:28px;font-weight:800;color:${pct>=80?"var(--green)":pct>=60?"var(--amber)":"var(--red)"};margin-bottom:24px">${pct}%</div>
+      <div style="display:flex;flex-direction:column;gap:10px">
+        ${wrongCnt>0?`<button class="btn btn-primary" style="background:var(--red)" onclick="resetTopicProgress(true)">오답만 다시 풀기 (${wrongCnt}개)</button>`:""}
+        <button class="btn btn-primary" style="background:${sub.color}" onclick="resetTopicProgress(false)">처음부터 다시 풀기</button>
+        <button class="btn" onclick="S.step='select';S.selectedTopic=null;S.quizComplete=false;render()">다른 개념 선택</button>
+      </div>
+    </div>`;
+  }
 
   if(!S.quiz)return`<div class="card card-empty fade-in">이 조건에 맞는 문제가 없어요.<br><span style="font-size:13px">"가져오기"에서 "${t.name}" 문제를 추가하세요</span><br>
     <div class="row mt-16" style="justify-content:center;gap:8px">
@@ -560,9 +742,13 @@ function solveAnswer(i){
   // Mark in bank if it has an id
   if(S.quiz.id){S.bank=S.bank.map(q=>q.id===S.quiz.id?{...q,solved:true,correct:ok}:q)}
   S.stats[s]={total:(S.stats[s]?.total||0)+1,correct:(S.stats[s]?.correct||0)+(ok?1:0)};
+  // 재풀기에서 맞히면 오답 목록에서 제거
+  if(ok){const key=S.quiz.question+(t?.name||"");S.wrong=S.wrong.filter(w=>!(w.question+w.topic===key&&w.subject===s))}
   if(!ok){
-    const q=S.quiz;
-    S.wrong.push({subject:s,topic:t.name,question:q.question,options:q.options,correct:q.options[q.answer],selected:q.options[i],explanation:q.explanation,difficulty:DIFF_MAP[S.difficulty],qtype:S.qtype,date:new Date().toLocaleDateString("ko-KR")});
+    const q=S.quiz,key=q.question+(t?.name||"");
+    const dupIdx=S.wrong.findIndex(w=>w.question+w.topic===key);
+    const entry={subject:s,topic:t.name,question:q.question,options:q.options,correct:q.options[q.answer],selected:q.options[i],explanation:q.explanation,difficulty:DIFF_MAP[S.difficulty],qtype:S.qtype,date:new Date().toLocaleDateString("ko-KR")};
+    if(dupIdx>=0)S.wrong[dupIdx]=entry;else S.wrong.push(entry);
   }
   save();render();
 }
@@ -572,7 +758,10 @@ function renderBank(){
   const sub=SUBJECTS[S.subject],sq=S.bank.filter(q=>q.subject===S.subject);
   if(!sq.length)return`<div class="card card-empty">문제은행이 비어있어요.<br><span style="font-size:13px">"가져오기"에서 추가하세요!</span></div>`;
   const solved=sq.filter(q=>q.solved).length,correct=sq.filter(q=>q.correct===true).length,wrong=sq.filter(q=>q.correct===false).length;
-  const pool=S.bankFilter==="unsolved"?sq.filter(q=>!q.solved):S.bankFilter==="wrong"?sq.filter(q=>q.correct===false):sq;
+  const units=getExamUnits(S.subject);
+  const rsq=units.length>0?sq.filter(q=>units.includes(q.topic)):sq;
+  const rangeActive=units.length>0&&rsq.length<sq.length;
+  const pool=S.bankFilter==="unsolved"?rsq.filter(q=>!q.solved):S.bankFilter==="wrong"?rsq.filter(q=>q.correct===false):rsq;
 
   let qhtml="";
   if(S.bankQ){
@@ -596,8 +785,9 @@ function renderBank(){
   }
 
   return`
+    ${rangeActive?`<div style="font-size:11px;color:var(--amber);background:var(--amber-dim);border-radius:6px;padding:5px 10px;margin-bottom:10px;display:inline-block">📌 범위 내 ${rsq.length}문제</div>`:""}
     <div class="row mb-12">
-      ${[["all",`전체 ${sq.length}`],["unsolved",`안 푼 ${sq.filter(q=>!q.solved).length}`],["wrong",`오답 ${wrong}`]].map(([k,l])=>
+      ${[["all",`전체 ${rsq.length}`],["unsolved",`안 푼 ${rsq.filter(q=>!q.solved).length}`],["wrong",`오답 ${rsq.filter(q=>q.correct===false).length}`]].map(([k,l])=>
         `<button class="btn-sm btn ${S.bankFilter===k?"btn-primary":""}" onclick="S.bankFilter='${k}';S.bankQ=null;render()" style="${S.bankFilter===k?`background:${sub.color}`:""}">${l}</button>`
       ).join("")}
       <button class="btn btn-primary ml-auto" style="background:${sub.color}" onclick="pickBankQ()">${S.bankQ?"다음":"시작"}</button>
@@ -617,7 +807,10 @@ function pickBankQ(){
   const sq=S.bank.filter(q=>q.subject===S.subject);
   const pool=S.bankFilter==="unsolved"?sq.filter(q=>!q.solved):S.bankFilter==="wrong"?sq.filter(q=>q.correct===false):sq;
   if(!pool.length)return;
-  S.bankQ=pool[Math.floor(Math.random()*pool.length)];S.bankSel=null;S.bankRevealed=false;render();
+  const units=getExamUnits(S.subject);
+  let rangePool=units.length>0?pool.filter(q=>units.includes(q.topic)):pool;
+  if(!rangePool.length)rangePool=pool;
+  S.bankQ=rangePool[Math.floor(Math.random()*rangePool.length)];S.bankSel=null;S.bankRevealed=false;render();
 }
 
 function bankAns(i){
@@ -651,7 +844,32 @@ function renderWrong(){
       <div class="wrong-q">${w.question}</div>
       <div style="font-size:13px"><span style="color:var(--red)">내 답: ${w.selected}</span> → <span style="color:var(--green)">정답: ${w.correct}</span></div>
       <p style="font-size:13px;margin-top:8px;color:var(--t3);white-space:pre-wrap">${w.explanation}</p>
+      <button class="btn btn-sm" style="margin-top:10px" onclick="retryWrong(${f.indexOf(w)})">다시 풀기</button>
     </div>`).join("")}`;
+}
+
+function retryWrong(idx){
+  const f=S.wrong.filter(w=>w.subject===S.subject);
+  const w=f[idx];if(!w)return;
+  // Convert wrong entry to a quiz-compatible question object
+  const bankQ=S.bank.find(q=>q.question===w.question&&q.topic===w.topic);
+  if(bankQ){
+    // Reset solved flag so it can be re-answered
+    S.bank=S.bank.map(q=>q.id===bankQ.id?{...q,solved:false,correct:null}:q);
+    // Navigate to learn mode with topic selected
+    const sub=SUBJECTS[S.subject];
+    const topic=sub.topics.find(t=>t.name===w.topic)||sub.topics[0];
+    S.selectedTopic=topic;S.difficulty=null;S.qtype=null;
+    S.quiz=bankQ;S.quizSel=null;S.quizRevealed=false;S.quizComplete=false;S.step="solve";
+    S.page="learn";save();render();
+  }else{
+    // If not in bank, create a temporary quiz object from wrong entry
+    S.quiz={question:w.question,options:w.options,answer:w.options.indexOf(w.correct),explanation:w.explanation,topic:w.topic,difficulty:w.difficulty};
+    const sub=SUBJECTS[S.subject];
+    const topic=sub.topics.find(t=>t.name===w.topic)||sub.topics[0];
+    S.selectedTopic=topic;S.quizSel=null;S.quizRevealed=false;S.quizComplete=false;S.step="solve";
+    S.page="learn";render();
+  }
 }
 
 // ===== IMPORT =====
@@ -693,7 +911,79 @@ function doImport(){
   }catch(e){document.getElementById("importStatus").innerHTML=`<div class="status-msg status-err">JSON 오류: ${e.message}</div>`}
 }
 
-render();
+// ===== Cross-device sync =====
+const _SYNC_API="https://api.github.com/repos/idongdong410-maker/study-hub/contents/data/progress.json";
+let _pushTimer=null;
+function _ghToken(){return localStorage.getItem("hub-gh-token")||""}
+function _buildProgress(){
+  const sfP={};
+  S.bank.filter(q=>q.solved).forEach(q=>{sfP[q.id]={solved:q.solved,correct:q.correct}});
+  const mfP={};
+  JSON.parse(localStorage.getItem("mf-cards")||"[]").filter(c=>c.level||c.lv||c.reviews||c.rv).forEach(c=>{
+    mfP[c.id]={level:c.level??c.lv??0,lastReview:c.lastReview??c.lr??null,reviews:c.reviews??c.rv??0};
+  });
+  return{sfProgress:sfP,sfWrong:S.wrong,mfProgress:mfP,
+    examRanges:JSON.parse(localStorage.getItem("hub-exam-ranges")||"null"),
+    concepts:JSON.parse(localStorage.getItem("hub-concepts")||"[]"),ts:Date.now()};
+}
+function _applyProgress(d){
+  if(!d)return;
+  if(d.sfProgress){
+    S.bank=S.bank.map(q=>{const r=d.sfProgress[q.id];if(!r)return q;return{...q,solved:q.solved||r.solved,correct:q.solved?q.correct:r.correct}});
+    localStorage.setItem("sf-bank",JSON.stringify(S.bank));
+  }
+  if(d.sfWrong?.length){
+    const keys=new Set(S.wrong.map(w=>w.question+w.date));
+    const nw=d.sfWrong.filter(w=>!keys.has(w.question+w.date));
+    if(nw.length){S.wrong.push(...nw);localStorage.setItem("sf-wrong",JSON.stringify(S.wrong))}
+  }
+  if(d.mfProgress){
+    const cards=JSON.parse(localStorage.getItem("mf-cards")||"[]");
+    const updated=cards.map(c=>{const r=d.mfProgress[c.id];if(!r)return c;const rv=(c.reviews??c.rv??0);return(r.reviews||0)>rv?{...c,level:r.level,lastReview:r.lastReview,reviews:r.reviews,lv:r.level,lr:r.lastReview,rv:r.reviews}:c});
+    localStorage.setItem("mf-cards",JSON.stringify(updated));
+  }
+  if(d.examRanges)localStorage.setItem("hub-exam-ranges",JSON.stringify(d.examRanges));
+  if(d.concepts?.length){
+    const ex=JSON.parse(localStorage.getItem("hub-concepts")||"[]");
+    const ids=new Set(ex.map(c=>c.id));
+    const nw=d.concepts.filter(c=>!ids.has(c.id));
+    if(nw.length)localStorage.setItem("hub-concepts",JSON.stringify([...ex,...nw]));
+  }
+}
+async function pullProgress(){
+  const t=_ghToken();if(!t)return;
+  try{
+    const r=await fetch(_SYNC_API+"?t="+Date.now(),{headers:{Authorization:`token ${t}`,Accept:"application/vnd.github.v3+json"}});
+    if(!r.ok)return;
+    const j=await r.json();
+    _applyProgress(JSON.parse(decodeURIComponent(escape(atob(j.content.replace(/\n/g,""))))));
+  }catch(e){}
+}
+async function pushProgress(){
+  const t=_ghToken();if(!t)return;
+  for(let i=0;i<3;i++){
+    try{
+      const content=btoa(unescape(encodeURIComponent(JSON.stringify(_buildProgress(),null,2))));
+      let sha="";
+      const g=await fetch(_SYNC_API,{headers:{Authorization:`token ${t}`,Accept:"application/vnd.github.v3+json"}});
+      if(g.ok){const gj=await g.json();sha=gj.sha||""}
+      const r=await fetch(_SYNC_API,{method:"PUT",headers:{Authorization:`token ${t}`,"Content-Type":"application/json"},
+        body:JSON.stringify({message:"chore: sync progress",content,...(sha?{sha}:{})})});
+      if(r.ok)return;
+    }catch(e){}
+    await new Promise(r=>setTimeout(r,1000*(i+1)));
+  }
+}
+function schedulePush(){clearTimeout(_pushTimer);_pushTimer=setTimeout(pushProgress,3000)}
+document.addEventListener("visibilitychange",()=>{if(document.hidden)pushProgress()});
+window.addEventListener("beforeunload",()=>pushProgress());
+
+pullProgress().then(()=>{
+  S.bank=JSON.parse(localStorage.getItem("sf-bank")||"[]");
+  S.wrong=JSON.parse(localStorage.getItem("sf-wrong")||"[]");
+  S.stats=JSON.parse(localStorage.getItem("sf-stats")||"{}");
+  render();
+});
 </script>
 </body>
 </html>

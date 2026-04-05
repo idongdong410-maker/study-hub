@@ -1,12 +1,17 @@
 {
-  "lastUpdated": "2026-04-05T09:00:00Z",
+  "lastUpdated": "2026-04-04T00:40:58.753345",
   "questions": [
     {
       "id": "calc-20260331-001",
       "subject": "calculus",
       "topic": "미분계수와 도함수",
       "question": "함수 f(x) = x³ - 3x + 1에서 f'(2)의 값은?",
-      "options": ["① 6", "② 9", "③ 12", "④ 15"],
+      "options": [
+        "① 6",
+        "② 9",
+        "③ 12",
+        "④ 15"
+      ],
       "answer": 1,
       "explanation": "f'(x) = 3x² - 3이므로 f'(2) = 3(4) - 3 = 12 - 3 = 9",
       "difficulty": "하"
@@ -16,7 +21,12 @@
       "subject": "calculus",
       "topic": "접선의 방정식",
       "question": "곡선 y = x² + 2x 위의 점 (1, 3)에서의 접선의 기울기는?",
-      "options": ["① 2", "② 3", "③ 4", "④ 5"],
+      "options": [
+        "① 2",
+        "② 3",
+        "③ 4",
+        "④ 5"
+      ],
       "answer": 2,
       "explanation": "y' = 2x + 2이므로 x = 1에서 기울기 = 2(1) + 2 = 4",
       "difficulty": "하"
@@ -26,7 +36,12 @@
       "subject": "calculus",
       "topic": "합성함수 미분",
       "question": "f(x) = sin(x²)일 때, f'(x)는?",
-      "options": ["① cos(x²)", "② 2x·cos(x²)", "③ 2x·sin(x²)", "④ x²·cos(x²)"],
+      "options": [
+        "① cos(x²)",
+        "② 2x·cos(x²)",
+        "③ 2x·sin(x²)",
+        "④ x²·cos(x²)"
+      ],
       "answer": 1,
       "explanation": "합성함수 미분법: f'(x) = cos(x²) · (x²)' = cos(x²) · 2x = 2x·cos(x²)",
       "difficulty": "중"
@@ -36,7 +51,12 @@
       "subject": "calculus",
       "topic": "합성함수 미분",
       "question": "y = (3x + 1)⁵일 때, dy/dx는?",
-      "options": ["① 5(3x+1)⁴", "② 15(3x+1)⁴", "③ 3(3x+1)⁵", "④ 5·3(3x+1)³"],
+      "options": [
+        "① 5(3x+1)⁴",
+        "② 15(3x+1)⁴",
+        "③ 3(3x+1)⁵",
+        "④ 5·3(3x+1)³"
+      ],
       "answer": 1,
       "explanation": "체인룰: dy/dx = 5(3x+1)⁴ · 3 = 15(3x+1)⁴",
       "difficulty": "중"
@@ -46,7 +66,12 @@
       "subject": "calculus",
       "topic": "삼각함수 도함수",
       "question": "d/dx [tan(x)]는?",
-      "options": ["① sec(x)", "② sec²(x)", "③ csc²(x)", "④ -csc²(x)"],
+      "options": [
+        "① sec(x)",
+        "② sec²(x)",
+        "③ csc²(x)",
+        "④ -csc²(x)"
+      ],
       "answer": 1,
       "explanation": "tan(x) = sin(x)/cos(x)를 몫의 미분법으로 미분하면 sec²(x)",
       "difficulty": "중"
@@ -56,7 +81,12 @@
       "subject": "calculus",
       "topic": "지수함수 도함수",
       "question": "f(x) = e^(3x)일 때, f'(x)는?",
-      "options": ["① e^(3x)", "② 3e^(3x)", "③ 3xe^(3x)", "④ e^(3x)/3"],
+      "options": [
+        "① e^(3x)",
+        "② 3e^(3x)",
+        "③ 3xe^(3x)",
+        "④ e^(3x)/3"
+      ],
       "answer": 1,
       "explanation": "합성함수 미분: f'(x) = e^(3x) · 3 = 3e^(3x)",
       "difficulty": "중"
@@ -66,7 +96,12 @@
       "subject": "calculus",
       "topic": "로그함수 도함수",
       "question": "f(x) = ln(x² + 1)일 때, f'(x)는?",
-      "options": ["① 1/(x²+1)", "② 2x/(x²+1)", "③ x/(x²+1)", "④ 2/(x²+1)"],
+      "options": [
+        "① 1/(x²+1)",
+        "② 2x/(x²+1)",
+        "③ x/(x²+1)",
+        "④ 2/(x²+1)"
+      ],
       "answer": 1,
       "explanation": "f'(x) = 1/(x²+1) · 2x = 2x/(x²+1)",
       "difficulty": "중"
@@ -76,7 +111,12 @@
       "subject": "calculus",
       "topic": "음함수 미분",
       "question": "x² + y² = 25일 때, dy/dx는?",
-      "options": ["① -x/y", "② x/y", "③ -y/x", "④ y/x"],
+      "options": [
+        "① -x/y",
+        "② x/y",
+        "③ -y/x",
+        "④ y/x"
+      ],
       "answer": 0,
       "explanation": "양변을 x에 대해 미분: 2x + 2y·(dy/dx) = 0 → dy/dx = -x/y",
       "difficulty": "중"
@@ -86,7 +126,12 @@
       "subject": "calculus",
       "topic": "매개변수 미분",
       "question": "x = t², y = t³일 때, dy/dx는?",
-      "options": ["① 3t/2", "② 2t/3", "③ 3t²/2t", "④ t/2"],
+      "options": [
+        "① 3t/2",
+        "② 2t/3",
+        "③ 3t²/2t",
+        "④ t/2"
+      ],
       "answer": 0,
       "explanation": "dy/dx = (dy/dt)/(dx/dt) = 3t²/2t = 3t/2",
       "difficulty": "중"
@@ -96,7 +141,12 @@
       "subject": "calculus",
       "topic": "역함수 미분",
       "question": "f(x) = x³ + x이고 f(1) = 2일 때, (f⁻¹)'(2)의 값은?",
-      "options": ["① 1/4", "② 1/3", "③ 1/2", "④ 4"],
+      "options": [
+        "① 1/4",
+        "② 1/3",
+        "③ 1/2",
+        "④ 4"
+      ],
       "answer": 0,
       "explanation": "(f⁻¹)'(b) = 1/f'(a) (단, f(a)=b). f'(x) = 3x²+1이므로 f'(1) = 4. 따라서 (f⁻¹)'(2) = 1/4",
       "difficulty": "상"
@@ -104,9 +154,14 @@
     {
       "id": "eng-20260331-001",
       "subject": "english",
-      "topic": "빈칸추론",
+      "topic": "빈칸 내용 추론",
       "question": "다음 빈칸에 들어갈 말로 가장 적절한 것은?\n\nThe greatest obstacle to discovery is not ignorance — it is the illusion of ________.",
-      "options": ["① knowledge", "② power", "③ freedom", "④ wealth"],
+      "options": [
+        "① knowledge",
+        "② power",
+        "③ freedom",
+        "④ wealth"
+      ],
       "answer": 0,
       "explanation": "무지가 아니라 '안다는 착각'이 발견의 가장 큰 장애물이라는 문맥. illusion of knowledge(지식의 환상)가 적절하다.",
       "difficulty": "중"
@@ -114,9 +169,14 @@
     {
       "id": "eng-20260331-002",
       "subject": "english",
-      "topic": "어휘",
+      "topic": "어휘 적절성 파악",
       "question": "밑줄 친 'ubiquitous'의 의미와 가장 가까운 것은?\n\nSmartphones have become ubiquitous in modern society.",
-      "options": ["① expensive", "② omnipresent", "③ obsolete", "④ controversial"],
+      "options": [
+        "① expensive",
+        "② omnipresent",
+        "③ obsolete",
+        "④ controversial"
+      ],
       "answer": 1,
       "explanation": "ubiquitous = 어디에나 있는, 편재하는. omnipresent와 동의어이다.",
       "difficulty": "중"
@@ -124,9 +184,14 @@
     {
       "id": "eng-20260331-003",
       "subject": "english",
-      "topic": "문법",
+      "topic": "어법 정확성 파악",
       "question": "다음 중 어법상 올바른 문장은?",
-      "options": ["① Had I known, I would have helped.", "② Had I known, I will have helped.", "③ If I know, I would have helped.", "④ Had I known, I would helped."],
+      "options": [
+        "① Had I known, I would have helped.",
+        "② Had I known, I will have helped.",
+        "③ If I know, I would have helped.",
+        "④ Had I known, I would helped."
+      ],
       "answer": 0,
       "explanation": "가정법 과거완료의 도치 구문: Had + S + p.p., S + would have + p.p. 가 올바른 형태이다.",
       "difficulty": "중"
@@ -134,19 +199,29 @@
     {
       "id": "eng-20260331-004",
       "subject": "english",
-      "topic": "순서배열",
-      "question": "주어진 글 다음에 이어질 글의 순서로 가장 적절한 것은?\n\nResearchers found that people who regularly engage in creative activities show higher levels of well-being.\n(A) However, the benefits were not limited to artistic pursuits.\n(B) Even simple activities like cooking or gardening counted.\n(C) This suggests that creativity itself, not the specific activity, drives the positive effects.",
-      "options": ["① (A)-(B)-(C)", "② (A)-(C)-(B)", "③ (B)-(A)-(C)", "④ (C)-(A)-(B)"],
-      "answer": 0,
-      "explanation": "창의적 활동의 효과 → (A) 그러나 예술에만 한정되지 않음 → (B) 요리나 정원 가꾸기도 포함 → (C) 결론: 활동 자체가 아닌 창의성이 핵심",
-      "difficulty": "중"
+      "topic": "글의 목적 파악",
+      "question": "다음 글의 목적으로 가장 적절한 것은?\n\nDear Ms. Thompson,\n\nI am writing to express my sincere gratitude for your mentorship during my internship at GreenTech Solutions. Your guidance not only helped me develop technical skills but also showed me the importance of environmental stewardship in business. I would not have had the confidence to present my research findings at the company meeting without your encouragement. I hope to stay in touch as I begin my career in renewable energy.\n\nSincerely,\nJun-ho Park",
+      "options": [
+        "① 인턴십 프로그램에 지원하려고",
+        "② 멘토에게 감사함을 전하려고",
+        "③ 환경 정책 개선을 건의하려고",
+        "④ 회의 발표 일정을 확인하려고"
+      ],
+      "answer": 1,
+      "explanation": "'I am writing to express my sincere gratitude(감사함을 전하기 위해 씁니다)'라는 첫 문장이 목적을 직접 밝히고 있다. 멘토링에 대한 감사와 앞으로의 연락 희망이 글의 핵심이므로 ②가 적절하다.",
+      "difficulty": "하"
     },
     {
       "id": "eng-20260331-005",
       "subject": "english",
-      "topic": "수능특강 독해",
+      "topic": "주제 파악",
       "question": "다음 글의 주제로 가장 적절한 것은?\n\nWhen we label people, we tend to see them only through the lens of that label. A student called 'gifted' may feel pressure to always perform, while one labeled 'slow' may stop trying altogether.",
-      "options": ["① 영재 교육의 필요성", "② 라벨링이 행동에 미치는 영향", "③ 학업 성취도의 결정 요인", "④ 교사와 학생의 관계 개선 방법"],
+      "options": [
+        "① 영재 교육의 필요성",
+        "② 라벨링이 행동에 미치는 영향",
+        "③ 학업 성취도의 결정 요인",
+        "④ 교사와 학생의 관계 개선 방법"
+      ],
       "answer": 1,
       "explanation": "라벨(명칭)을 붙이면 그 렌즈로만 보게 되고, 영재/느린 학생 라벨이 행동에 실제로 영향을 준다는 내용이므로 주제는 '라벨링이 행동에 미치는 영향'이다.",
       "difficulty": "중"
@@ -154,19 +229,29 @@
     {
       "id": "eng-20260331-006",
       "subject": "english",
-      "topic": "문장삽입",
-      "question": "다음 문장이 들어가기에 가장 적절한 곳은?\n\n\"Yet this assumption often proves false.\"\n\n( ① ) People generally believe that more choices lead to greater satisfaction. ( ② ) Research by Barry Schwartz shows that an abundance of options can actually cause anxiety. ( ③ ) This phenomenon, known as the 'paradox of choice,' suggests that limiting options may improve decision-making. ( ④ )",
-      "options": ["① ①", "② ②", "③ ③", "④ ④"],
-      "answer": 1,
-      "explanation": "'더 많은 선택 = 더 큰 만족'이라는 가정(assumption)을 먼저 제시한 뒤, '그러나 이 가정은 틀린 경우가 많다'가 와야 자연스럽다. ② 위치가 적절하다.",
-      "difficulty": "상"
+      "topic": "주장 파악",
+      "question": "다음 글에서 필자가 주장하는 바로 가장 적절한 것은?\n\nIn today's world, many students rush through assignments to meet deadlines without truly understanding the material. However, deep learning requires time and reflection. Educators should design assessments that reward the process of thinking, not just the final answer. When students are given space to explore and make mistakes, they develop critical thinking skills that will serve them throughout their lives. We must shift our focus from performance to genuine understanding.",
+      "options": [
+        "① 학습 결과보다 사고 과정을 중시하는 평가를 설계해야 한다",
+        "② 과제 마감 기한을 더 엄격히 지켜야 한다",
+        "③ 학생의 성적을 더 세밀하게 평가해야 한다",
+        "④ 교사와 학생 간의 소통을 강화해야 한다"
+      ],
+      "answer": 0,
+      "explanation": "'We must shift our focus from performance to genuine understanding(성과가 아닌 진정한 이해로 초점을 옮겨야 한다)'라는 결론 문장이 핵심 주장이다. should와 must 등 당위 표현이 글 전체에 나타나며, ①이 이를 가장 잘 담고 있다.",
+      "difficulty": "중"
     },
     {
       "id": "kor-20260331-001",
       "subject": "korean",
       "topic": "화법 이론",
       "question": "다음 중 '공감적 듣기'의 방법으로 적절하지 않은 것은?",
-      "options": ["① 상대방의 감정을 인정하는 반응을 보인다", "② 상대방의 말을 요약하여 되물어본다", "③ 자신의 유사한 경험을 즉시 이야기한다", "④ 비언어적 표현(고개 끄덕임 등)으로 경청을 표현한다"],
+      "options": [
+        "① 상대방의 감정을 인정하는 반응을 보인다",
+        "② 상대방의 말을 요약하여 되물어본다",
+        "③ 자신의 유사한 경험을 즉시 이야기한다",
+        "④ 비언어적 표현(고개 끄덕임 등)으로 경청을 표현한다"
+      ],
       "answer": 2,
       "explanation": "공감적 듣기는 상대의 감정과 말에 집중하는 것이 핵심. 자신의 경험을 즉시 이야기하는 것은 대화의 초점을 자신에게로 옮기는 것이므로 부적절하다.",
       "difficulty": "중"
@@ -176,7 +261,12 @@
       "subject": "korean",
       "topic": "작문 이론",
       "question": "글을 수정할 때 '고쳐쓰기'의 원리로 적절하지 않은 것은?",
-      "options": ["① 문장 성분 간의 호응이 적절한지 확인한다", "② 불필요한 반복 표현을 삭제한다", "③ 글의 통일성을 위해 주제와 무관한 내용을 삭제한다", "④ 문체의 다양성을 위해 한 단락 안에서 격식체와 비격식체를 혼용한다"],
+      "options": [
+        "① 문장 성분 간의 호응이 적절한지 확인한다",
+        "② 불필요한 반복 표현을 삭제한다",
+        "③ 글의 통일성을 위해 주제와 무관한 내용을 삭제한다",
+        "④ 문체의 다양성을 위해 한 단락 안에서 격식체와 비격식체를 혼용한다"
+      ],
       "answer": 3,
       "explanation": "고쳐쓰기에서는 문체의 일관성이 중요하다. 한 단락 안에서 격식체와 비격식체를 혼용하면 통일성이 깨진다.",
       "difficulty": "중"
@@ -186,7 +276,12 @@
       "subject": "korean",
       "topic": "화법 이론",
       "question": "토론에서 '반론'의 역할로 가장 적절한 것은?",
-      "options": ["① 상대측 주장의 근거를 약화시키는 것", "② 자기 측 주장을 반복 강조하는 것", "③ 새로운 논제를 제시하는 것", "④ 청중의 감정에 호소하는 것"],
+      "options": [
+        "① 상대측 주장의 근거를 약화시키는 것",
+        "② 자기 측 주장을 반복 강조하는 것",
+        "③ 새로운 논제를 제시하는 것",
+        "④ 청중의 감정에 호소하는 것"
+      ],
       "answer": 0,
       "explanation": "반론(반박)은 상대측이 제시한 주장의 근거나 논리의 허점을 지적하여 그 타당성을 약화시키는 역할을 한다.",
       "difficulty": "하"
@@ -196,7 +291,12 @@
       "subject": "korean",
       "topic": "작문 이론",
       "question": "다음 중 '설득하는 글쓰기'에서 논증의 타당성을 높이는 방법으로 적절하지 않은 것은?",
-      "options": ["① 신뢰할 수 있는 통계 자료를 활용한다", "② 전문가의 견해를 인용한다", "③ 구체적인 사례를 들어 뒷받침한다", "④ 감정에 호소하는 표현을 주된 근거로 사용한다"],
+      "options": [
+        "① 신뢰할 수 있는 통계 자료를 활용한다",
+        "② 전문가의 견해를 인용한다",
+        "③ 구체적인 사례를 들어 뒷받침한다",
+        "④ 감정에 호소하는 표현을 주된 근거로 사용한다"
+      ],
       "answer": 3,
       "explanation": "논증의 타당성은 객관적 근거(통계, 전문가 견해, 사례)로 높인다. 감정 호소는 보조적 전략일 수 있으나 주된 근거로 쓰면 논리적 타당성이 떨어진다.",
       "difficulty": "중"
@@ -206,10 +306,330 @@
       "subject": "korean",
       "topic": "화법 이론",
       "question": "면접에서 면접관의 질문 의도를 파악하여 답변하는 전략으로 적절하지 않은 것은?",
-      "options": ["① 질문의 핵심을 파악한 후 두괄식으로 답변한다", "② 자신의 경험을 구체적으로 들어 답변한다", "③ 질문과 무관하더라도 자신의 강점을 최대한 어필한다", "④ 모르는 내용은 솔직히 인정하고 배우겠다는 자세를 보인다"],
+      "options": [
+        "① 질문의 핵심을 파악한 후 두괄식으로 답변한다",
+        "② 자신의 경험을 구체적으로 들어 답변한다",
+        "③ 질문과 무관하더라도 자신의 강점을 최대한 어필한다",
+        "④ 모르는 내용은 솔직히 인정하고 배우겠다는 자세를 보인다"
+      ],
       "answer": 2,
       "explanation": "면접 답변은 질문 의도에 맞게 해야 한다. 질문과 무관한 내용을 말하면 의사소통 능력이 부족하다는 인상을 줄 수 있다.",
       "difficulty": "하"
+    },
+    {
+      "id": "calc-20260331-101",
+      "subject": "calculus",
+      "topic": "매개변수 미분",
+      "question": "매개변수 t로 나타낸 곡선 x = t^2 + 2, y = t^3 + t - 1 에서 t=1일 때 dy/dx 의 값은?",
+      "options": [
+        "① 1",
+        "② 2",
+        "③ 3",
+        "④ 4"
+      ],
+      "answer": 1,
+      "explanation": "x와 y를 각각 t에 대하여 미분하면 dx/dt = 2t 이고 dy/dt = 3t^2 + 1 입니다. 따라서 dy/dx = (dy/dt) / (dx/dt) = (3t^2 + 1) / 2t 입니다. t=1 을 대입하면 (3(1)^2 + 1) / (2(1)) = 4 / 2 = 2 입니다.",
+      "difficulty": "하"
+    },
+    {
+      "id": "calc-20260331-102",
+      "subject": "calculus",
+      "topic": "매개변수 미분",
+      "question": "매개변수 t 로 나타낸 곡선 x = t^2 + tan t, y = e^t - 2at 에 대하여 t=0일 때 dy/dx 의 값이 -3이다. 상수 a의 값은?",
+      "options": [
+        "① 1",
+        "② 2",
+        "③ 3",
+        "④ 4"
+      ],
+      "answer": 1,
+      "explanation": "x와 y를 각각 t에 대하여 미분하면 dx/dt = 2t + sec^2 t, dy/dt = e^t - 2a 입니다. t=0일 때 dx/dt = 0 + sec^2(0) = 1 이고, dy/dt = e^0 - 2a = 1 - 2a 입니다. 따라서 t=0일 때 dy/dx = (1 - 2a) / 1 = 1 - 2a 이며, 이 값이 -3이므로 1 - 2a = -3, 즉 2a = 4 에서 a = 2 입니다.",
+      "difficulty": "중"
+    },
+    {
+      "id": "calc-20260331-103",
+      "subject": "calculus",
+      "topic": "매개변수 미분",
+      "question": "매개변수 t (t > 0)로 나타낸 곡선 x = t + 2 ln t, y = t^3 - 12t 에 대하여 dy/dx 의 최솟값은?",
+      "options": [
+        "① -5",
+        "② -3",
+        "③ -1",
+        "④ 1"
+      ],
+      "answer": 1,
+      "explanation": "x와 y를 각각 t에 대하여 미분하면 dx/dt = 1 + 2/t = (t+2)/t 이고, dy/dt = 3t^2 - 12 = 3(t^2 - 4) 입니다. 따라서 dy/dx = (dy/dt) / (dx/dt) = 3(t^2 - 4) / ((t+2)/t) = 3t(t^2 - 4) / (t+2) = 3t(t-2)(t+2) / (t+2) = 3t(t-2) = 3t^2 - 6t = 3(t-1)^2 - 3 입니다. (단, t>0 이므로 t+2 > 0). 이차함수의 성질에 의해 t=1 일 때 dy/dx는 최솟값 -3 을 가집니다.",
+      "difficulty": "상"
+    },
+    {
+      "id": "eng-20260331-101",
+      "subject": "english",
+      "topic": "빈칸 내용 추론",
+      "question": "다음 빈칸에 들어갈 말로 가장 적절한 것은?\n\nDigital platforms have made a lot of work less sticky. As work becomes ever more modularised, commoditised and standardised, and as markets for digital work are created, ties between service work and particular places can be disconnected. While the business process of outsourcing that emerged in the 1990s allowed large companies to take advantage of a 'global reserve army' by moving their call centres to cheap and distant labour markets, cloudwork changes the volume and granularity at which geographically non-proximate work can take place. A small business in New York can hire a freelance transcriber in Nairobi one day and New Delhi the next. No offices or factories need to be built, no local regulations are observed, and — in most cases — no local taxes are paid. The switch in the production network of work happens by simply sending some emails or clicking some buttons on a digital work platform. And, in this way, the employer ________________.",
+      "options": [
+        "① leaves behind no material traces in the places where it was once an employer",
+        "② must strictly observe the local regulations and pay local taxes",
+        "③ builds new factories to connect with geographically proximate workers",
+        "④ fails to hire freelance transcribers from different countries"
+      ],
+      "answer": 0,
+      "explanation": "디지털 플랫폼과 클라우드 노동으로 인해 고용주가 특정 지역에 물리적인 사무실이나 공장을 지을 필요 없이 이메일과 버튼 클릭만으로 노동 생산 네트워크를 이동할 수 있으므로, 과거에 고용주로 있었던 장소에 물리적 흔적을 남기지 않는다는 ①이 가장 적절합니다.",
+      "difficulty": "중"
+    },
+    {
+      "id": "eng-20260331-102",
+      "subject": "english",
+      "topic": "어휘 적절성 파악",
+      "question": "다음 글의 괄호 (A), (B)에 들어갈 문맥상 알맞은 어휘로 짝지어진 것은?\n\nThe study of literature has repeatedly failed to recognize the influence of modern musical lyricists and their contributions to the evolution of language. Unlike Shakespeare, who has been studied and (A) [celebrated / ignored] for his development of the English language, particularly in vocabulary and grammatical structure, modern songwriters have experienced restraints on the acknowledgement of their contributions and largely been (B) [acknowledged / ignored]. Over the past century, we have witnessed an explosion of incredible literary works by these artists, who, through their music, have used linguistic manipulation and storytelling to enrich our language and literature.",
+      "options": [
+        "① (A) celebrated - (B) ignored",
+        "② (A) celebrated - (B) acknowledged",
+        "③ (A) ignored - (B) ignored",
+        "④ (A) ignored - (B) acknowledged"
+      ],
+      "answer": 0,
+      "explanation": "셰익스피어는 영단어 및 문법 구조 발달에 기여한 것으로 '칭송받았으므로(celebrated)', 이와 대조적으로 현대 작사가들은 훌륭한 문학적 기여에도 불구하고 주로 '무시되어(ignored)' 왔다는 흐름이 문맥상 자연스럽습니다.",
+      "difficulty": "하"
+    },
+    {
+      "id": "eng-20260331-103",
+      "subject": "english",
+      "topic": "요지 파악",
+      "question": "다음 글의 요지로 가장 적절한 것은?\n\nWhen you watch a master chef prepare a meal, you see someone who has internalized thousands of hours of practice into effortless action. This is the power of habits. Habits allow the brain to operate on autopilot for routine tasks, freeing up cognitive resources for more complex challenges. The key insight is that building the right habits transforms effort into ease. Rather than relying on willpower alone, we should design our environment and routines to make good behaviors automatic.",
+      "options": [
+        "① 좋은 습관을 형성하면 바람직한 행동이 자동화된다",
+        "② 의지력이 강한 사람이 더 성공적인 삶을 산다",
+        "③ 복잡한 과제를 수행하려면 체계적인 훈련이 필요하다",
+        "④ 인간의 뇌는 반복 학습을 통해 지속적으로 발달한다"
+      ],
+      "answer": 0,
+      "explanation": "'building the right habits transforms effort into ease(올바른 습관을 형성하면 노력이 용이함으로 변한다)'가 핵심 주장이다. 역접(Rather than) 이후 'make good behaviors automatic'이 결론이므로 ①이 적절하다.",
+      "difficulty": "중"
+    },
+    {
+      "id": "eng-20260331-104",
+      "subject": "english",
+      "topic": "제목 파악",
+      "question": "다음 글의 제목으로 가장 적절한 것은?\n\nResearchers have discovered that the same neural pathways activated during physical pain are also triggered during social rejection. When someone is excluded from a group or ignored by peers, the brain registers this experience in a manner similar to physical injury. This finding challenges the common dismissal of emotional hurt as 'just feelings' and suggests that social belonging is a fundamental human need, not a luxury. Organizations and communities should take social exclusion as seriously as they do physical harm.",
+      "options": [
+        "① Social Pain: When Rejection Hurts Like Physical Injury",
+        "② How to Build Stronger Social Networks",
+        "③ The Brain's Role in Managing Physical Pain",
+        "④ Why Emotional Intelligence Matters in Leadership"
+      ],
+      "answer": 0,
+      "explanation": "사회적 거절이 신체적 고통과 동일한 신경 경로를 활성화한다는 연구 결과를 다루며, 사회적 소속이 기본 욕구임을 주장하는 글이다. '사회적 고통: 거절이 신체적 부상처럼 아픈 이유'를 담은 ①이 가장 적절하다.",
+      "difficulty": "중"
+    },
+    {
+      "id": "kor-20260331-101",
+      "subject": "korean",
+      "topic": "화법 이론",
+      "question": "다음 상황에서 '나-전달법'에 따라 말한 것으로 가장 적절한 것은?\n[상황] 모둠장인 나는 발표를 해야 하는데, 모둠원인 친구가 모둠 활동 자료를 제때 완성하지 않아 걱정이 많이 되는 상황이다.",
+      "options": [
+        "① 네가 이번 모둠 활동 준비를 제대로 하지 않아서 나머지 모둠원들에게 큰 피해를 준 것 같아.",
+        "② 나는 모둠 활동을 위해서 어제 늦은 시간까지 준비했는데, 너는 무책임하게 모둠 활동 자료를 완성하지 않은 채 가지고 왔어.",
+        "③ 나는 모둠장으로서 발표를 해야 하는데, 모둠 활동 자료가 제때 완성되지 않아서 준비가 늦어질까 봐 걱정이 많이 되었어. 앞으로는 자료 완성이 어려우면 미리 이야기해서 함께 해결 방법을 찾았으면 좋겠어.",
+        "④ 너는 다른 친구들과 달리 모둠 활동을 준비하려는 노력이 많이 부족했던 것 같아. 다음 모둠 활동을 할 때에는 다른 사람의 입장도 생각해야 해."
+      ],
+      "answer": 2,
+      "explanation": "'나-전달법'은 자신을 주어로 하여 상대방의 행동에 대한 자신의 감정을 비난 없이 솔직하게 표현하고, 바라는 바를 긍정적으로 전달하는 대화 방법입니다\n1\n. ③은 '나'를 주어로 사건(자료 미완성), 감정(걱정), 기대(미리 이야기해서 함께 해결)를 잘 담고 있습니다\n2\n. ①, ②, ④는 상대방을 비난하거나 억압하는 표현이 포함된 '너-전달법'에 해당하므로 적절하지 않습니다\n2\n3\n.",
+      "difficulty": "중"
+    },
+    {
+      "id": "kor-20260331-102",
+      "subject": "korean",
+      "topic": "작문 이론",
+      "question": "' 관광 지구에 관광세를 도입해야 한다'는 주장의 글을 보완하기 위해 수집한 자료의 활용 방안으로 적절하지 않은 것은?\n[자료 1] 4월과 10월에 관광객 수가 다른 달에 비해 월등히 많은 통계 자료\n[자료 2] 관광객 밀집도 완화를 위해 관광세를 부과한 해외 도시 사례 기사",
+      "options": [
+        "① [자료 1]을 활용하여, 4월과 10월이 한시적 관광세 도입이 필요한 시기라는 점을 뒷받침한다.",
+        "② [자료 2]를 활용하여,  관광 지구에 도입하고자 하는 관광세 정책의 구체적 사례로 제시한다.",
+        "③ [자료 2]를 활용하여, 관광세 도입을 통해 관광객 밀집도가 완화될 수 있다는 기대 효과를 강조한다.",
+        "④ [자료 1]과 [자료 2]를 활용하여, 관광세가 도입되면 해당 지구의 관광 산업이 양적으로 크게 팽창할 것임을 입증한다."
+      ],
+      "answer": 3,
+      "explanation": "관광세 도입 주장은 특정 시기에 과도하게 몰리는 관광객을 분산시키고 관광 여건을 개선하여 지역 문제를 해결하려는 목적을 가집니다\n4\n5\n. 따라서 수집한 자료를 활용하여 관광 산업의 양적 팽창을 입증한다는 ④의 활용 방안은 글의 주장 및 목적에 부합하지 않아 적절하지 않습니다\n6\n7\n.",
+      "difficulty": "중"
+    },
+    {
+      "id": "calc-20260402-001",
+      "subject": "calculus",
+      "topic": "수열의 극한",
+      "question": "lim(n→∞) (2n+1)/(3n-2)의 값은?",
+      "options": [
+        "① 1/3",
+        "② 2/3",
+        "③ 3/2",
+        "④ 2"
+      ],
+      "answer": 1,
+      "explanation": "분모·분자를 n으로 나누면 (2+1/n)/(3-2/n)이 되고, n→∞이면 1/n→0이므로 극한값은 2/3이다.",
+      "difficulty": "하"
+    },
+    {
+      "id": "calc-20260402-002",
+      "subject": "calculus",
+      "topic": "수열의 극한",
+      "question": "lim(n→∞) (√(n²+4n) - n)의 값은?",
+      "options": [
+        "① 1",
+        "② 2",
+        "③ 4",
+        "④ 8"
+      ],
+      "answer": 1,
+      "explanation": "분자를 유리화: (√(n²+4n) - n) × (√(n²+4n) + n)/(√(n²+4n) + n) = 4n/(√(n²+4n) + n). 분자분모를 n으로 나누면 4/(√(1+4/n) + 1) → 4/2 = 2",
+      "difficulty": "중"
+    },
+    {
+      "id": "calc-20260402-003",
+      "subject": "calculus",
+      "topic": "수열의 극한",
+      "question": "lim(n→∞) (3^(n+1) + 2^n)/(3^n - 1)의 값은?",
+      "options": [
+        "① 1",
+        "② 2",
+        "③ 3",
+        "④ 6"
+      ],
+      "answer": 2,
+      "explanation": "분모·분자를 3^n으로 나누면 (3 + (2/3)^n)/(1 - (1/3)^n)이 된다. n→∞이면 (2/3)^n→0, (1/3)^n→0이므로 극한값은 3/1 = 3이다.",
+      "difficulty": "상"
+    },
+    {
+      "id": "calc-20260402-004",
+      "subject": "calculus",
+      "topic": "급수",
+      "question": "등비급수 3 + 1 + 1/3 + 1/9 + ...의 합은?",
+      "options": [
+        "① 4",
+        "② 9/2",
+        "③ 5",
+        "④ 6"
+      ],
+      "answer": 1,
+      "explanation": "첫째항 a=3, 공비 r=1/3. |r|<1이므로 등비급수는 수렴한다. S = a/(1-r) = 3/(1-1/3) = 3/(2/3) = 9/2",
+      "difficulty": "하"
+    },
+    {
+      "id": "calc-20260402-005",
+      "subject": "calculus",
+      "topic": "급수",
+      "question": "Σ(n=1 to ∞) 3/(n(n+3))의 값은?",
+      "options": [
+        "① 11/6",
+        "② 2",
+        "③ 11/3",
+        "④ 3"
+      ],
+      "answer": 0,
+      "explanation": "부분분수 분해: 3/(n(n+3)) = 1/n - 1/(n+3). 텔레스코핑 급수에서 S_N = (1/1 + 1/2 + 1/3) - (1/(N+1) + 1/(N+2) + 1/(N+3)) → 1 + 1/2 + 1/3 = 11/6",
+      "difficulty": "중"
+    },
+    {
+      "id": "calc-20260402-006",
+      "subject": "calculus",
+      "topic": "급수",
+      "question": "수열 {a_n}의 첫째항부터 제n항까지의 합이 S_n = 3n/(n+1)일 때, Σ(n=1 to ∞) a_n의 값은?",
+      "options": [
+        "① 1",
+        "② 2",
+        "③ 3",
+        "④ 발산"
+      ],
+      "answer": 2,
+      "explanation": "급수의 합 = lim(n→∞) S_n = lim 3n/(n+1). 분모·분자를 n으로 나누면 3/(1+1/n) → 3. 또한 a_n = S_n - S_{n-1} = 3/(n(n+1)) > 0이고 lim a_n = 0이므로 수렴이 보장된다. 따라서 Σa_n = 3",
+      "difficulty": "상"
+    },
+    {
+      "id": "eng-20260404-001",
+      "subject": "english",
+      "topic": "글의 목적 파악",
+      "question": "다음 글의 목적으로 가장 적절한 것은?\n\nDear Parents,\nAt Greenwood High School, we take great pride in the cultural diversity that enriches our community. We are very pleased to share with you our special new project, a recipe book, created to celebrate the traditions and flavors of families from around the world. This unique collection features 100 recipes from 26 countries, highlighting beloved dishes passed down through generations. It offers a special chance to explore global cuisine and share meaningful moments with your children. We encourage you to try some of these recipes together over the summer. You can download this online recipe book from our school website. Food brings us together, and this project reflects the joy and unity that diversity brings to our school. Thank you, as always, for your continued support.\n\nWarm regards,\nDr. Helen Brooks\nPrincipal, Greenwood High School",
+      "options": [
+        "① 학생들의 특별 요리 실습 계획을 안내하려고",
+        "② 학교에서 제작한 온라인 요리책 이용을 권장하려고",
+        "③ 다문화 교육 관련 학부모 설명회 개최를 홍보하려고",
+        "④ 학교의 다문화 축제에 학부모들의 참여를 독려하려고"
+      ],
+      "answer": 1,
+      "explanation": "다문화 가정을 아우르는 전 세계의 요리법을 담은 온라인 요리책(recipe book)을 제작했음을 알리며, 학부모들에게 웹사이트에서 다운로드하여 자녀와 함께 요리해 볼 것을 권장(encourage)하는 글이므로 ②가 가장 적절합니다.",
+      "difficulty": "하"
+    },
+    {
+      "id": "eng-20260404-002",
+      "subject": "english",
+      "topic": "제목 파악",
+      "question": "다음 글의 제목으로 가장 적절한 것은?\n\nYou’ve probably heard that it takes about ten thousand hours of practice to become an expert in anything — a musical instrument, a sport, chess, cooking, or a foreign language. The research by K. Anders Ericsson on this topic has been written about many times, and it was made even more famous when Malcolm Gladwell described it in his bestselling book Outliers. However, recently, a cohort of researchers reexamined the studies and research behind the 10K figure and said, quite dramatically, that the ten-thousand-hour rule was utter nonsense. Specifically, there is nothing particularly special about ten thousand hours, and while practice is clearly important to boost performance, other factors may play an even more important role. What are those other factors that get us to expert levels of performance? Pure innate talent? Intelligence? Luck of the draw? Perseverance? Hard work? Yes, it’s all of that... and more. Age, experience, and environment all play a role. In other words, there’s no one certain factor that can predict or ensure mastery or optimal performance of anything.",
+      "options": [
+        "① The 10,000-hour Myth: Mastery Requires More Than Practice",
+        "② Follow the Crowd: Truth Lies in Popular Belief",
+        "③ Born to Be Great: Why Natural Talent Beats Hard Work",
+        "④ Unlocking Genius: Intelligence Matters More Than Luck!"
+      ],
+      "answer": 0,
+      "explanation": "이 글은 전문가가 되기 위해 1만 시간의 연습이 필요하다는 기존의 대중적인 규칙(ten-thousand-hour rule)이 실제로는 허구(utter nonsense)이며, 훈련뿐만 아니라 선천적 재능, 지능, 운, 인내, 경험, 환경 등 매우 다양하고 복합적인 요소들이 숙달(mastery)에 필요하다는 내용을 다루고 있습니다. 따라서 ① '1만 시간의 신화: 숙달은 연습 그 이상을 요구한다'가 제목으로 가장 적절합니다.",
+      "difficulty": "중"
+    },
+    {
+      "id": "eng-20260404-003",
+      "subject": "english",
+      "topic": "어휘 적절성 파악",
+      "question": "다음 글의 밑줄 친 부분 중, 문맥상 낱말의 쓰임이 적절하지 않은 것은?\n\nSituational ethics is an ethical theory that takes into account the context of a situation or an act when judging whether it is ethical. Supporters of this theory willingly permit casting aside ① absolute moral standards. In the absence of a universal standard or law, what matters is the outcome or consequences; so, the end ② justifies the means. Possibly the following contrasting realities can help illustrate the application of situational ethics. In a pickup game of basketball played among friends, everyone is expected to call his or her own fouls or acknowledge knocking the ball out-of-bounds. Caring about one’s friends and maybe getting to keep playing with the group leads to these actions. But, once an organized game is played with officials, most athletes will not admit to the same fouls or violations as the end goal of winning is more important than expressing ③ concern for competitors. Situational ethics has been extended by many athletes and coaches to mean trying to get away with as many actions on the field or court as possible to ④ abandon competitive advantages.",
+      "options": [
+        "① absolute",
+        "② justifies",
+        "③ concern",
+        "④ abandon"
+      ],
+      "answer": 3,
+      "explanation": "상황 윤리(Situational ethics)는 맥락을 중시하며 결과가 수단을 정당화한다는 이론입니다. 심판이 있는 정식 경기에서 선수나 코치들은 승리라는 목적을 위해 최대한 규칙 위반을 들키지 않고 넘어가려 애쓰며 이를 통해 경쟁적 우위를 '버리려는(abandon)' 것이 아니라 '얻으려는(gain)' 것이므로 ④번의 쓰임이 문맥상 적절하지 않습니다.",
+      "difficulty": "상"
+    },
+    {
+      "id": "eng-20260404-004",
+      "subject": "english",
+      "topic": "환경·자원 지문",
+      "question": "다음 글의 주제로 가장 적절한 것은?\n\nWhat is soft-path river engineering? One way to visualize its spirit is to liken it to a footpath in the forest. Suppose a tree falls across a footpath. A soft-path response would be simply to redirect the trail around the fallen tree. A more interventionist response would be to remove the tree and restore the original route. A still more interventionist response might be to straighten and pave the path to insert it more permanently in the landscape. The true high-modernist step would, of course, be to create a superhighway that removes the landscape and bulldozes straight through all obstacles in the topography. Soft-path engineering has the unique advantage of intellectual modesty with respect to what we actually know about river movement and its environmental effects. In contrast to hard-path engineering, soft-path engineering accepts variability in the river’s movement as significant until proven otherwise. Backwaters, short-lived wetlands, braids and channels, swamps — all undesirable to hard-path engineering — are presumed by soft-path engineers to be ecologically important.",
+      "options": [
+        "① benefits of modernizing and straightening river infrastructures",
+        "② approaches of soft-path engineering respecting natural variability",
+        "③ negative environmental effects of creating forest footpaths",
+        "④ necessity of removing natural obstacles for public safety"
+      ],
+      "answer": 1,
+      "explanation": "장애물을 강제로 제거하고 포장하는 개입주의적인 하드 패스 공학(hard-path engineering)과 대비하여, 자연의 가변성(variability)을 존중하고 우회하며 생태학적 중요성을 지키는 소프트 패스 하천 공학(soft-path engineering)의 특징과 자연 친화적 접근법을 설명하는 글입니다. 따라서 ②가 가장 적절합니다.",
+      "difficulty": "중"
+    },
+    {
+      "id": "kor-20260404-001",
+      "subject": "korean",
+      "topic": "화법의 원리",
+      "question": "다음은 전문가의 강연 일부를 듣고 파악한 내용이다. 이 강연에 대한 설명으로 가장 적절한 것은?\n[강연 내용 요약] 국립국악원 학예 연구사가 고등학생들을 대상으로 궁중 연회 의례 문서인 '홀기'와 '정재'의 뜻을 설명하고, 홀기의 영인 작업이 지니는 의의를 시청각 자료와 함께 전달함.",
+      "options": [
+        "① 강연의 진행 순서를 밝혀 청중이 내용을 예측하며 듣도록 하고 있다.",
+        "② 낯선 용어의 개념을 정의하여 강연 내용에 대한 청중의 이해를 돕고 있다.",
+        "③ 제재를 선정하게 된 계기를 밝히며 강연을 시작하고 있다.",
+        "④ 강연 중간중간에 앞서 언급한 주요 내용을 요약하여 주제를 강조하고 있다."
+      ],
+      "answer": 1,
+      "explanation": "강연의 앞부분에서 '홀기', '정재'와 같은 전문 용어의 개념을 정의하여 강연 내용에 대한 청중의 이해를 돕고 있으므로 ②가 가장 적절합니다. 강연의 진행 순서나 제재 선정 계기, 중간 내용 요약 등은 나타나지 않습니다.",
+      "difficulty": "중"
+    },
+    {
+      "id": "kor-20260404-002",
+      "subject": "korean",
+      "topic": "작문의 원리",
+      "question": "'인공 강우 기술'을 제재로 설명문 초고를 작성하기 위해 세운 글쓰기 계획 중, 초고에 반영되지 않은 것은?\n[초고 내용 요약] 인공 강우가 생성되는 원리와 과정 설명, 생태계 및 주변국에 미칠 수 있는 잠재적 위험과 부작용 제시, 기후 변화 대응 기술로서의 유망성과 관련 진학 학과(기상학과 등) 소개 포함.",
+      "options": [
+        "① 인공 강우 기술의 원리를 알려 주기 위해 인공 강우가 생성되는 과정을 구체적으로 설명해야겠어.",
+        "② 기후 변화 대응과 관련된 진로의 유망성을 안내하기 위해 관련된 학문을 전공할 수 있는 학과를 소개해야겠어.",
+        "③ 인공 강우 기술의 발전 과정을 소개하기 위해 국가별 인공 강우 기술의 발전 수준을 비교해야겠어.",
+        "④ 인공 강우의 잠재적 위험을 강조하기 위해 환경적 논란과 국제적 영향에 대한 문제를 포함해야겠어."
+      ],
+      "answer": 2,
+      "explanation": "글에서 인공 강우 기술이 과거 미국에서 처음 시작되어 우리나라에서도 실험이 이어져 오고 있다고 언급하지만, '국가별 인공 강우 기술의 발전 수준'을 서로 비교하여 서술한 부분은 찾아볼 수 없으므로 ③이 적절하지 않습니다. 생성 과정(①), 학과 소개(②), 잠재적 위험(④)은 모두 반영되었습니다.",
+      "difficulty": "중"
     }
   ],
   "cards": [
@@ -218,133 +638,152 @@
       "deck": "calc",
       "front": "미분계수의 정의",
       "back": "f'(a) = lim(h→0) [f(a+h) - f(a)] / h",
-      "tag": "미분계수와 도함수"
+      "tag": "미분계수와 도함수",
+      "subject": "calculus"
     },
     {
       "id": "calc-card-20260331-002",
       "deck": "calc",
       "front": "합성함수 미분법 (체인룰)",
       "back": "{f(g(x))}' = f'(g(x)) · g'(x)\n\n바깥 미분 × 안쪽 미분",
-      "tag": "합성함수 미분"
+      "tag": "합성함수 미분",
+      "subject": "calculus"
     },
     {
       "id": "calc-card-20260331-003",
       "deck": "calc",
       "front": "(sin x)' = ?",
       "back": "cos x",
-      "tag": "삼각함수 도함수"
+      "tag": "삼각함수 도함수",
+      "subject": "calculus"
     },
     {
       "id": "calc-card-20260331-004",
       "deck": "calc",
       "front": "(cos x)' = ?",
       "back": "-sin x",
-      "tag": "삼각함수 도함수"
+      "tag": "삼각함수 도함수",
+      "subject": "calculus"
     },
     {
       "id": "calc-card-20260331-005",
       "deck": "calc",
       "front": "(tan x)' = ?",
       "back": "sec²x",
-      "tag": "삼각함수 도함수"
+      "tag": "삼각함수 도함수",
+      "subject": "calculus"
     },
     {
       "id": "calc-card-20260331-006",
       "deck": "calc",
       "front": "(e^x)' = ?",
       "back": "e^x\n\n(a^x)' = a^x · ln a",
-      "tag": "지수함수 도함수"
+      "tag": "지수함수 도함수",
+      "subject": "calculus"
     },
     {
       "id": "calc-card-20260331-007",
       "deck": "calc",
       "front": "(ln x)' = ?",
       "back": "1/x\n\n(log_a x)' = 1/(x · ln a)",
-      "tag": "로그함수 도함수"
+      "tag": "로그함수 도함수",
+      "subject": "calculus"
     },
     {
       "id": "calc-card-20260331-008",
       "deck": "calc",
       "front": "음함수 미분법",
       "back": "양변을 x에 대해 미분\ny를 x의 함수로 보고 dy/dx를 구함\n\n예) x²+y²=r² → 2x+2y(dy/dx)=0 → dy/dx=-x/y",
-      "tag": "음함수 미분"
+      "tag": "음함수 미분",
+      "subject": "calculus"
     },
     {
       "id": "calc-card-20260331-009",
       "deck": "calc",
       "front": "매개변수 미분법",
       "back": "dy/dx = (dy/dt) / (dx/dt)\n\nx=f(t), y=g(t)일 때",
-      "tag": "매개변수 미분"
+      "tag": "매개변수 미분",
+      "subject": "calculus"
     },
     {
       "id": "calc-card-20260331-010",
       "deck": "calc",
       "front": "역함수 미분법",
       "back": "(f⁻¹)'(b) = 1 / f'(a)\n(단, f(a) = b)\n\n역함수의 기울기 = 원래 함수 기울기의 역수",
-      "tag": "역함수 미분"
+      "tag": "역함수 미분",
+      "subject": "calculus"
     },
     {
       "id": "vocab-20260331-001",
       "deck": "vocab",
       "front": "ubiquitous",
       "back": "어디에나 있는, 편재하는\n예문: Smartphones have become ubiquitous in modern society.",
-      "tag": "수특 1강"
+      "tag": "수특 1강",
+      "subject": "english"
     },
     {
       "id": "vocab-20260331-002",
       "deck": "vocab",
       "front": "implications",
       "back": "영향, 결과; 암시, 함축\n예문: The findings have significant implications for education policy.",
-      "tag": "수특 1강"
+      "tag": "수특 1강",
+      "subject": "english"
     },
     {
       "id": "vocab-20260331-003",
       "deck": "vocab",
       "front": "reluctant",
       "back": "꺼리는, 마지못해 하는\n예문: He was reluctant to admit his mistake.",
-      "tag": "수특 2강"
+      "tag": "수특 2강",
+      "subject": "english"
     },
     {
       "id": "vocab-20260331-004",
       "deck": "vocab",
       "front": "paradox",
       "back": "역설, 모순\n예문: The paradox of choice suggests more options can reduce satisfaction.",
-      "tag": "수특 2강"
+      "tag": "수특 2강",
+      "subject": "english"
     },
     {
       "id": "vocab-20260331-005",
       "deck": "vocab",
       "front": "inherent",
       "back": "내재하는, 본질적인\n예문: There are inherent risks in any new venture.",
-      "tag": "수특 3강"
+      "tag": "수특 3강",
+      "subject": "english"
     },
     {
       "id": "korean-card-20260331-001",
       "deck": "korean",
       "front": "공감적 듣기란?",
       "back": "상대방의 감정과 처지를 이해하며 듣는 것\n· 감정 인정 반응\n· 요약하여 되묻기\n· 비언어적 경청 표현",
-      "tag": "화법"
+      "tag": "화법",
+      "subject": "korean"
     },
     {
       "id": "korean-card-20260331-002",
       "deck": "korean",
       "front": "토론의 반론 vs 반박",
       "back": "반론: 상대 주장의 근거를 약화시킴\n반박: 상대 반론에 대해 재반박\n\n핵심: 논리적 근거로 상대 논증의 허점 지적",
-      "tag": "화법"
+      "tag": "화법",
+      "subject": "korean"
     },
     {
       "id": "korean-card-20260331-003",
       "deck": "korean",
       "front": "고쳐쓰기의 원리",
       "back": "· 문장 성분 호응 확인\n· 불필요한 반복 삭제\n· 주제 통일성 유지\n· 문체 일관성 유지\n· 맞춤법/띄어쓰기 점검",
-      "tag": "작문"
+      "tag": "작문",
+      "subject": "korean"
     },
     {
       "id": "engsum-20260331-001",
       "deck": "engsum",
       "front": "라벨링 효과 (Labeling Effect)",
       "back": "사람에게 라벨을 붙이면 그 라벨의 렌즈로만 보게 됨.\n'영재' 라벨 → 수행 압박\n'느린 학생' 라벨 → 노력 포기\n→ 라벨이 실제 행동에 영향을 미침",
-      "tag": "수특 1강"
+      "tag": "수특 1강",
+      "subject": "english"
     },
     {
       "id": "engsum-20260331-002",
@@ -352,6 +791,134 @@
       "front": "선택의 역설 (Paradox of Choice)",
       "back": "더 많은 선택지 ≠ 더 큰 만족\nBarry Schwartz 연구: 선택지 과다 → 불안 유발\n→ 선택지를 제한하면 의사결정이 개선됨",
       "tag": "수특 2강"
+    },
+    {
+      "id": "calc-card-20260331-100",
+      "deck": "calc",
+      "front": "매개변수로 나타낸 함수의 미분법",
+      "back": "매개변수 t로 나타낸 함수 x=f(t), y=g(t)에서 두 함수 f(t), g(t)가 미분가능하고 f'(t) ≠ 0일 때, dy/dx = (dy/dt) / (dx/dt) = g'(t) / f'(t) 이다.",
+      "tag": "매개변수 미분",
+      "subject": "calculus"
+    },
+    {
+      "id": "eng-card-20260331-101",
+      "deck": "engsum",
+      "front": "3강 / 디지털 플랫폼과 클라우드 노동",
+      "back": "요약: 디지털 플랫폼은 서비스 노동과 특정 장소 간의 연결을 끊고 비지역적 클라우드 노동을 가능하게 한다.\n핵심 논지: 기업은 지역 사무실을 짓거나 현지 규정을 따를 필요 없이 디지털 플랫폼을 통해 다른 국가의 프리랜서를 고용할 수 있으며, 이로 인해 노동의 공간적 제약이 사라진다.\n주요 어휘: sticky (끈끈한), modularised (모듈화된), non-proximate (비지역적인), trace (흔적)",
+      "tag": "3강",
+      "subject": "english"
+    },
+    {
+      "id": "eng-card-20260331-102",
+      "deck": "engsum",
+      "front": "5강 / 현대 작사가들의 문학적 기여",
+      "back": "요약: 문학계는 현대 작사가들이 언어와 문학에 미친 놀라운 기여를 문학의 영역으로 인정해야 한다.\n핵심 논지: 셰익스피어가 영단어 발전에 미친 영향으로 칭송받는 것과 달리 현대 작사가들은 크게 무시되어 왔으나, 이들 역시 복합적인 심상을 띠는 가사를 통해 우리 언어와 문학을 풍요롭게 했다.\n주요 어휘: lyricist (작사가), restraint (제약), manipulation (조작, 솜씨 있게 다루기), imagery (심상)",
+      "tag": "5강",
+      "subject": "english"
+    },
+    {
+      "id": "eng-card-20260331-103",
+      "deck": "engsum",
+      "front": "6강 / 대중교통에서 운행 빈도의 중요성",
+      "back": "요약: 대중교통 시스템은 속도보다 원할 때 바로 이용할 수 있는 운행 빈도가 보장되어야 그 가치가 있다.\n핵심 논지: 항상 그 자리에 있는 도로와 달리 대중교통은 다가오고 있어야만 이용이 가능하므로, 빈도(frequency)가 뒷받침되지 않는 속도(speed)의 단축은 대기 시간으로 인해 무의미해진다.\n주요 어휘: frequency (빈도), timetable (시간표), transit (대중교통), worthless (가치 없는)",
+      "tag": "6강",
+      "subject": "english"
+    },
+    {
+      "id": "eng-card-20260331-104",
+      "deck": "engsum",
+      "front": "11강 / 적응과 집단적 정보 축적",
+      "back": "요약: 인류가 전 세계의 다양한 환경에 적응할 수 있었던 것은 타인으로부터 배우고 정보를 축적하는 집단적 학습 능력 덕분이다.\n핵심 논지: 인간 개인의 지능만으로는 복잡한 도구나 적응 기술을 창조할 수 없으나, 타인으로부터 모방하고 학습하려는 심리를 통해 개인의 한계를 뛰어넘는 거대한 정보 풀(pool)을 축적할 수 있었다.\n주요 어휘: adapt (적응하다), forage (수렵 채집하다), accumulate (축적하다), capacity (능력)",
+      "tag": "11강",
+      "subject": "english"
+    },
+    {
+      "id": "kor-card-20260331-101",
+      "deck": "korean",
+      "front": "화법의 원리 - 갈등 관리와 '나-전달법'",
+      "back": "분석: 갈등 상황에서 상대방을 비난하지 않고 자신의 감정과 생각을 진솔하게 전달하는 대화 방식을 다룸\n1\n.\n핵심 개념: 나-전달법(사건, 감정, 기대를 포함하여 '나'를 주어로 말하기)\n1\n8\n.\n출제 포인트: 주어진 갈등 상황(예: 모둠 활동 자료 미제출 등)에서 '나'를 주어로 사건, 감정, 기대를 포함하여 적절하게 말하는 방식을 고르는 문제 출제 가능\n2\n.",
+      "tag": "화법/작문",
+      "subject": "korean"
+    },
+    {
+      "id": "kor-card-20260331-102",
+      "deck": "korean",
+      "front": "작문의 원리 - 설득하는 글 쓰기 (관광세 도입)",
+      "back": "분석: 특정 관광 지구의 문제(관광객 과밀, 환경 훼손 등)를 해결하기 위해 '관광세 도입'을 주장하는 논설문 작성 과정을 다룸\n4\n9\n.\n핵심 개념: 타당성, 신뢰성, 공정성을 갖춘 논거 수집 및 매체 활용\n10\n.\n출제 포인트: 초고를 보완하기 위해 수집한 통계 자료, 신문 기사 등 다양한 매체 자료의 적절한 활용 방안을 묻는 문제 출제 가능\n5\n.",
+      "tag": "화법/작문",
+      "subject": "korean"
+    },
+    {
+      "id": "eng-card-20260404-001",
+      "deck": "engsum",
+      "front": "1강 / 온라인 요리책 이용 권장",
+      "back": "요약: 전 세계의 요리법을 모아 학교에서 제작한 온라인 요리책을 학부모들에게 소개하며 활용을 권장합니다.\n핵심 논지: 문화적 다양성을 기념하기 위해 26개국 100가지 요리법을 담은 레시피 북을 출간했으니, 자녀와 함께 의미 있는 요리 시간을 가져보기를 권합니다.\n주요 어휘: diversity (다양성), feature (특징으로 하다/포함하다), culinary/cuisine (요리)",
+      "tag": "1강",
+      "subject": "english"
+    },
+    {
+      "id": "eng-card-20260404-002",
+      "deck": "engsum",
+      "front": "7강 / 1만 시간의 법칙의 허상",
+      "back": "요약: 전문가가 되기 위해 단순히 1만 시간의 연습만 필요한 것이 아니며, 여러 가지 다양한 요인들이 복합적으로 작용합니다.\n핵심 논지: 1만 시간의 연습 규칙은 매력적이지만 터무니없는 주장(utter nonsense)이며, 최고 수준의 수행 능력을 위해서는 선천적 재능, 인내, 운, 환경, 경험 등 많은 요소가 함께 중요합니다.\n주요 어휘: cohort (집단), utter (완전한), innate (타고난), perseverance (인내), optimal (최적의)",
+      "tag": "7강",
+      "subject": "english"
+    },
+    {
+      "id": "eng-card-20260404-003",
+      "deck": "engsum",
+      "front": "12강 / 상황 윤리의 적용",
+      "back": "요약: 맥락과 상황에 따라 윤리성이 달라진다는 상황 윤리가 스포츠 경기에 어떻게 적용되는지 보여줍니다.\n핵심 논지: 상황 윤리는 목적이 수단을 정당화한다고 봅니다. 친선 경기에서는 배려를 중시해 스스로 파울을 시인하지만, 정식 경기에서는 이기기 위해 파울을 속이고 경쟁적 우위를 취하는 것이 그 예입니다.\n주요 어휘: situational ethics (상황 윤리), outcome (결과), justify (정당화하다), competitive advantage (경쟁적 우위)",
+      "tag": "12강",
+      "subject": "english"
+    },
+    {
+      "id": "eng-card-20260404-004",
+      "deck": "engsum",
+      "front": "22강 / 소프트 패스 하천 공학",
+      "back": "요약: 자연의 장애물을 억지로 제거하는 대신, 하천의 흐름과 생태계를 존중하는 소프트 패스 하천 공학의 우수성을 설명합니다.\n핵심 논지: 인위적이고 통제 지향적인 '하드 패스' 공학과 달리 '소프트 패스' 공학은 자연의 지형과 변동성을 수용하며 지류와 늪지 등의 생태학적 중요성을 인정합니다.\n주요 어휘: interventionist (개입주의적인), topography (지형), modesty (겸손), variability (변동성), backwater (지류)",
+      "tag": "22강",
+      "subject": "english"
+    },
+    {
+      "id": "kor-card-20260404-001",
+      "deck": "korean",
+      "front": "화법 유형 - 정보 전달 강연 (전통 춤과 홀기)",
+      "back": "분석: 국립국악원 학예 연구사가 고등학생을 대상으로 '홀기(의례 문서)'의 개념과 고해상도 영인 작업의 의의를 설명하는 전문가 강연 지문.\n핵심 개념: 정보 전달을 위한 말하기 전략 (청자 수준을 고려한 개념 정의, 동영상 등 시각 매체 자료 활용).\n출제 포인트: 화자의 말하기 방식(개념 정의, 경험 환기 등) 파악 및 제시된 자료(사진, 영상)의 구체적인 활용 목적과 청중의 반응 분석.",
+      "tag": "화법/작문",
+      "subject": "korean"
+    },
+    {
+      "id": "kor-card-20260404-002",
+      "deck": "korean",
+      "front": "작문 유형 - 설명문 쓰기 (인공 강우 기술)",
+      "back": "분석: 필자가 자신의 진로(기상학, 환경 공학)와 관련하여 '인공 강우 기술'의 생성 원리, 한계점, 유망성 등을 친구들에게 설명하기 위해 작성한 초고.\n핵심 개념: 작문 맥락(예상 독자, 목적)을 고려한 내용 생성 및 조직, 신뢰성 있는 자료의 선별과 활용.\n출제 포인트: 작문 계획이 초고에 실제 어떻게 반영되었는지 확인하는 문제, 초고 보완을 위해 추가 수집한 자료(통계 자료, 학술 자료)의 적절한 활용 방안 평가.",
+      "tag": "화법/작문",
+      "subject": "korean"
+    },
+    {
+      "id": "korsum-mock-1775390558",
+      "deck": "korsum",
+      "front": "[KORSUM 배포] 화법과 작문 요약 덱",
+      "back": "내용 요약: 화작 핵심 개념 복습 카드입니다.",
+      "tag": "화법/작문",
+      "subject": "korean"
+    },
+    {
+      "id": "eng-mock-1775390980-1",
+      "deck": "engsum",
+      "subject": "english",
+      "front": "수특 영어 14강 지문 요약",
+      "back": "핵심 주제: 인공지능이 현대 음악 산업에 미치는 영향\n주요 어휘:\n- algorithm: 알고리즘\n- mainstream: 주류",
+      "tag": "14강"
+    },
+    {
+      "id": "kor-mock-1775390980-2",
+      "deck": "korsum",
+      "subject": "korean",
+      "front": "화법과 작문 p86~92 요약",
+      "back": "핵심 주제: 토론의 입론과 교차 조사 방법\n주요 포인트:\n- 입론: 주장의 타당성 입증\n- 교차 조사: 상대 주장의 논리적 허점 공략",
+      "tag": "p86~92"
     },
     {
       "id": "engsum-20260405-001",
@@ -506,6 +1073,232 @@
       "front": "설명문 내용 조직 순서",
       "back": "서론: 주제·목적 제시, 관심 유발\n본론: 개념 정의 → 원리 설명 → 사례/효과\n결론: 요약·정리, 의의·전망\n예) 인공강우: 정의→원리→효과→한계",
       "tag": "작문"
+    }
+  ],
+  "concepts": [
+    {
+      "id": "concept-calc-seq-limit",
+      "subject": "calculus",
+      "topic": "수열의 극한",
+      "content": "## 핵심 개념\n수열 {a_n}에서 n이 무한히 커질 때 a_n이 일정한 값 α에 가까워지면 lim(n→∞) a_n = α 라 한다. 수렴하지 않으면 발산.\n\n## 핵심 공식\n- 유리식 극한: 분모·분자를 n의 최고차항으로 나누기\n- 무리식 극한: 분자유리화(공액식 곱하기) 후 정리\n  lim(n→∞) (√(n²+an) - n) = a/2\n- 등비수열: |r|<1 → 0, |r|=1 → 1, r=-1 → 발산, |r|>1 → ∞\n\n## 풀이 포인트\n1. 분수형: 최고차항으로 나눠 ∞/∞ 형태 해소\n2. 무리식: 공액식 곱해 분자유리화\n3. ∞-∞ 형태: 통분 또는 유리화로 변환\n4. 최종 답: 분모 차수 > 분자 → 0, 같으면 계수비, 분자가 크면 ±∞\n\n## 예제\nlim(n→∞) (3n+1)/(2n-1) = 3/2  (분모·분자를 n으로 나누면)\nlim(n→∞) (√(n²+n) - n) = lim n/(√(n²+n)+n) = 1/2",
+      "date": "20260402"
+    },
+    {
+      "id": "concept-calc-series",
+      "subject": "calculus",
+      "topic": "급수",
+      "content": "## 핵심 개념\n무한급수 Σa_n의 부분합 S_n이 S로 수렴할 때 급수값이 S. 부분합 수열의 극한이 급수값.\n\n## 핵심 공식\n- 등비급수: 첫째항 a, 공비 r (|r|<1) → S = a/(1-r)\n- 급수-수열 관계: Σa_n 수렴 → lim a_n = 0 (역은 불성립)\n- 부분분수: 1/(n(n+1)) = 1/n - 1/(n+1) (텔레스코핑)\n- a_n = S_n - S_{n-1} (n≥2), a_1 = S_1\n\n## 풀이 포인트\n1. 등비급수: 공비 |r|<1 확인 후 a/(1-r) 적용\n2. 부분합 S_n 주어질 때: a_n = S_n - S_{n-1} 이용\n3. lim a_n ≠ 0이면 급수 발산 (가장 빠른 판정법)\n4. 텔레스코핑: 인수분해 후 부분분수, 항 소거\n\n## 예제\n1 + 1/2 + 1/4 + ... = 1/(1-1/2) = 2\nΣ 1/(n(n+1)) = Σ(1/n - 1/(n+1)) = 1 (텔레스코핑)",
+      "date": "20260402"
+    },
+    {
+      "id": "concept-calc-various-diff",
+      "subject": "calculus",
+      "topic": "여러 가지 함수의 미분",
+      "content": "## 핵심 개념\n삼각함수, 지수함수, 로그함수의 도함수 공식. 합성함수 미분법(체인룰)과 결합해 적용.\n\n## 핵심 공식\n- (sin x)' = cos x\n- (cos x)' = -sin x\n- (tan x)' = sec²x\n- (e^x)' = e^x,  (a^x)' = a^x·ln a\n- (ln x)' = 1/x,  (log_a x)' = 1/(x·ln a)\n- 합성함수 체인룰: {f(g(x))}' = f'(g(x))·g'(x)\n\n## 풀이 포인트\n1. 체인룰 적용: 바깥 미분 × 안쪽 미분\n2. e^{h(x)} → h'(x)·e^{h(x)}\n3. ln(h(x)) → h'(x)/h(x)\n4. a^{h(x)} → h'(x)·a^{h(x)}·ln a\n5. 곱의 미분 (f·g)' = f'g + fg' 병행 활용\n\n## 예제\nf(x) = e^{3x}: f'(x) = 3e^{3x}\nf(x) = ln(x²+1): f'(x) = 2x/(x²+1)",
+      "date": "20260402"
+    },
+    {
+      "id": "concept-calc-various-methods",
+      "subject": "calculus",
+      "topic": "여러가지 미분법(음함수의 미분)까지",
+      "content": "## 핵심 개념\n음함수, 매개변수, 역함수 미분법. F(x,y)=0, x=f(t)·y=g(t), y=f⁻¹(x) 형태 처리.\n\n## 핵심 공식\n- 음함수: 양변을 x에 대해 미분 (y 포함 항은 ×dy/dx)\n- 매개변수: dy/dx = (dy/dt)÷(dx/dt)  (dx/dt≠0)\n- 역함수: (f⁻¹)'(b) = 1/f'(a)  (단, f(a)=b)\n\n## 풀이 포인트\n1. 음함수: y를 x의 함수로 취급, 미분 후 dy/dx 이항\n2. 매개변수: dx/dt와 dy/dt 각각 구한 후 나누기\n3. 역함수: f(a)=b인 a값 먼저 찾고 f'(a) 계산\n4. 매개변수 dy/dx 최솟값: 완전제곱식으로 변환\n5. 이계도함수: d²y/dx² = d(dy/dx)/dt ÷ dx/dt\n\n## 예제\nx²+y²=25 → 2x+2y(dy/dx)=0 → dy/dx=-x/y\nx=t², y=t³ → dy/dx = 3t²/2t = 3t/2",
+      "date": "20260402"
+    },
+    {
+      "id": "concept-eng-20260404",
+      "subject": "english",
+      "topic": "수능특강 독해",
+      "content": "## 오늘의 지문 요약\n- **1강(목적)**: 다문화 가정을 기리는 온라인 요리책 제작을 알리며 자녀와의 요리 체험을 장려함.\n- **7강(제목)**: 숙달의 조건으로 '1만 시간의 법칙'은 허상이며, 지능, 재능, 환경, 인내 등 다양한 요소가 필수적임.\n- **12강(어휘)**: 상황 윤리의 개념, 즉 맥락과 목적에 따라 도덕적 기준이 달라짐을 스포츠 경기의 예(친선전 vs 정식 경기)로 설명함.\n- **22강(환경/자원)**: 자연의 지형을 파괴하는 하드 패스 공학과 대조되는, 자연의 변동성과 생태계를 수용하는 소프트 패스 하천 공학의 접근법.\n\n## 핵심 어휘\n- **perseverance**: 인내(심) - 목표 달성을 위한 복합적 요인 중 하나.\n- **justify**: 정당화하다 - 상황 윤리에서 '목적이 수단을 정당화한다(the end justifies the means)'에 사용.\n- **interventionist**: 개입주의적인 - 자연을 인위적으로 통제하려는 태도.\n- **topography**: 지형 - 자연이 만들어낸 물리적 표면 상태.\n\n## 독해 포인트\n- **글의 목적 파악**: 주로 서반부의 배경 설명 후, 후반부의 'I am writing to~', 'We encourage you to~' 등의 동사를 통해 글쓴이의 실제 의도를 잡아냅니다.\n- **어휘 적절성 파악**: 반의어가 들어갈 자리를 노립니다. 특히 문장 내 인과관계(승리가 가장 중요하므로 -> 반칙을 숨겨서 이점을 '버린다(abandon)'가 아닌 '얻으려(gain)' 한다)를 정밀히 파악해야 합니다.\n- **제목 및 요지 파악**: 첫 문장의 통념(1만 시간의 법칙)이 'However' 등의 역접을 통해 어떻게 반박되는지 파악하여 진정한 주제를 도출합니다.",
+      "date": "20260404"
+    },
+    {
+      "id": "concept-kor-20260404",
+      "subject": "korean",
+      "topic": "화법과 작문의 원리 및 실제",
+      "content": "## 오늘의 지문 분석\n1. 강연 (홀기와 전통 춤 복원): 전문가가 고등학생의 눈높이에 맞춰 '홀기'와 '정재'라는 낯선 개념을 정의하고, 사진과 영상을 통해 전통 춤 복원의 가치를 효과적으로 전달한 화법 지문.\n2. 설명문 (인공 강우 기술): 기상/환경 분야로 진로를 희망하는 학생이 인공 강우의 원리와 부작용, 전망을 인과 및 나열의 방식으로 체계화하여 전달한 작문 지문.\n\n## 핵심 개념 정리\n- 정보 전달을 위한 화법: 청자의 흥미와 배경지식을 분석하고, 어려운 전문 용어는 쉽게 풀어서 설명(개념 정의)하며, 시청각 매체를 적절히 활용하여 정보의 이해도와 전달력을 높임.\n- 정보 전달을 위한 작문: 글의 목적과 독자 수준을 분석해 글쓰기 계획을 세우고, 가치 있는 정보를 선별하여 논리적(분류, 인과, 비교/대조 등)으로 조직함.\n\n## 출제 포인트\n- 화법: 발표자(강연자)의 말하기 방식 특징(질문, 내용 요약, 매체 활용 등) 파악, 청중의 반응(이해, 점검, 추가 정보 탐색 등) 분석 문제.\n- 작문: 글쓰기 계획의 초고 반영 여부 점검, 글을 다듬기 위한 조건별 고쳐쓰기, 그리고 가장 빈출되는 '추가 수집 자료의 적절한 활용 방안' 파악 문제.",
+      "date": "20260404"
+    },
+    {
+      "id": "concept-calc-20260405-0",
+      "subject": "calculus",
+      "topic": "수열의 수렴과 발산",
+      "content": "## 핵심 개념\nlim(n→∞) an = α. 수열이 한 값에 가까워지는 것을 수렴이라 함.\n\n## 출제 포인트\n해당 개념을 이용한 계산 문제와 도형에서의 극한 문제 빈출.",
+      "date": "20260405"
+    },
+    {
+      "id": "concept-calc-20260405-1",
+      "subject": "calculus",
+      "topic": "극한값의 계산",
+      "content": "## 핵심 개념\n무한대/무한대, 무한대-무한대 꼴의 계산 방법 및 최고차항 계수 비교.\n\n## 출제 포인트\n해당 개념을 이용한 계산 문제와 도형에서의 극한 문제 빈출.",
+      "date": "20260405"
+    },
+    {
+      "id": "concept-calc-20260405-2",
+      "subject": "calculus",
+      "topic": "등비급수의 극한",
+      "content": "## 핵심 개념\nlim(n→∞) r^n에서 |r|<1일 때 수렴.\n\n## 출제 포인트\n해당 개념을 이용한 계산 문제와 도형에서의 극한 문제 빈출.",
+      "date": "20260405"
+    },
+    {
+      "id": "concept-calc-20260405-3",
+      "subject": "calculus",
+      "topic": "수열의 극한의 대소 관계",
+      "content": "## 핵심 개념\nan ≤ bn 일 때, lim an ≤ lim bn 성립.\n\n## 출제 포인트\n해당 개념을 이용한 계산 문제와 도형에서의 극한 문제 빈출.",
+      "date": "20260405"
+    },
+    {
+      "id": "concept-calc-20260405-4",
+      "subject": "calculus",
+      "topic": "샌드위치 정리",
+      "content": "## 핵심 개념\nan ≤ cn ≤ bn 이고 lim an = lim bn = L 이면 lim cn = L.\n\n## 출제 포인트\n해당 개념을 이용한 계산 문제와 도형에서의 극한 문제 빈출.",
+      "date": "20260405"
+    },
+    {
+      "id": "concept-calc-20260405-5",
+      "subject": "calculus",
+      "topic": "급수의 수렴과 발산",
+      "content": "## 핵심 개념\n부분합 Sn의 극한이 존재하면 급수가 수렴.\n\n## 출제 포인트\n해당 개념을 이용한 계산 문제와 도형에서의 극한 문제 빈출.",
+      "date": "20260405"
+    },
+    {
+      "id": "concept-calc-20260405-6",
+      "subject": "calculus",
+      "topic": "등비급수",
+      "content": "## 핵심 개념\n초항 a, 공비 r일 때 |r|<1이면 a/(1-r)로 수렴.\n\n## 출제 포인트\n해당 개념을 이용한 계산 문제와 도형에서의 극한 문제 빈출.",
+      "date": "20260405"
+    },
+    {
+      "id": "concept-calc-20260405-7",
+      "subject": "calculus",
+      "topic": "급수의 성질",
+      "content": "## 핵심 개념\nΣan, Σbn이 수렴할 때 Σ(an+bn) = Σan + Σbn.\n\n## 출제 포인트\n해당 개념을 이용한 계산 문제와 도형에서의 극한 문제 빈출.",
+      "date": "20260405"
+    },
+    {
+      "id": "concept-calc-20260405-8",
+      "subject": "calculus",
+      "topic": "급수와 부분합의 관계",
+      "content": "## 핵심 개념\n급수 Σan이 수렴하면 lim an = 0.\n\n## 출제 포인트\n해당 개념을 이용한 계산 문제와 도형에서의 극한 문제 빈출.",
+      "date": "20260405"
+    },
+    {
+      "id": "concept-calc-20260405-9",
+      "subject": "calculus",
+      "topic": "여러 가지 급수의 합",
+      "content": "## 핵심 개념\n부분분수 분해, 유리화 등을 이용한 급수 합산.\n\n## 출제 포인트\n해당 개념을 이용한 계산 문제와 도형에서의 극한 문제 빈출.",
+      "date": "20260405"
+    },
+    {
+      "id": "concept-calc-20260405-10",
+      "subject": "calculus",
+      "topic": "지수함수의 미분",
+      "content": "## 핵심 개념\n(e^x)' = e^x, (a^x)' = a^x ln(a).\n\n## 출제 포인트\n해당 개념을 이용한 계산 문제와 도형에서의 극한 문제 빈출.",
+      "date": "20260405"
+    },
+    {
+      "id": "concept-calc-20260405-11",
+      "subject": "calculus",
+      "topic": "로그함수의 미분",
+      "content": "## 핵심 개념\n(ln x)' = 1/x, (log_a x)' = 1/(x ln a).\n\n## 출제 포인트\n해당 개념을 이용한 계산 문제와 도형에서의 극한 문제 빈출.",
+      "date": "20260405"
+    },
+    {
+      "id": "concept-calc-20260405-12",
+      "subject": "calculus",
+      "topic": "삼각함수의 미분",
+      "content": "## 핵심 개념\n(sin x)' = cos x, (cos x)' = -sin x 등 도함수 공식.\n\n## 출제 포인트\n해당 개념을 이용한 계산 문제와 도형에서의 극한 문제 빈출.",
+      "date": "20260405"
+    },
+    {
+      "id": "concept-calc-20260405-13",
+      "subject": "calculus",
+      "topic": "삼각함수의 극한",
+      "content": "## 핵심 개념\nlim(x→0) (sin x)/x = 1 등 주요 극한 공식.\n\n## 출제 포인트\n해당 개념을 이용한 계산 문제와 도형에서의 극한 문제 빈출.",
+      "date": "20260405"
+    },
+    {
+      "id": "concept-calc-20260405-14",
+      "subject": "calculus",
+      "topic": "자연로그의 밑 e",
+      "content": "## 핵심 개념\nlim(x→0) (1+x)^(1/x) = e 의 정의.\n\n## 출제 포인트\n해당 개념을 이용한 계산 문제와 도형에서의 극한 문제 빈출.",
+      "date": "20260405"
+    },
+    {
+      "id": "concept-calc-20260405-15",
+      "subject": "calculus",
+      "topic": "합성함수의 미분법",
+      "content": "## 핵심 개념\nf(g(x))' = f'(g(x))g'(x) = y' = (dy/du)*(du/dx).\n\n## 출제 포인트\n해당 개념을 이용한 계산 문제와 도형에서의 극한 문제 빈출.",
+      "date": "20260405"
+    },
+    {
+      "id": "concept-calc-20260405-16",
+      "subject": "calculus",
+      "topic": "매개변수로 나타낸 함수의 미분법",
+      "content": "## 핵심 개념\nx=f(t), y=g(t)일 때 dy/dx = g'(t)/f'(t).\n\n## 출제 포인트\n해당 개념을 이용한 계산 문제와 도형에서의 극한 문제 빈출.",
+      "date": "20260405"
+    },
+    {
+      "id": "concept-calc-20260405-17",
+      "subject": "calculus",
+      "topic": "음함수의 미분법",
+      "content": "## 핵심 개념\ny를 x의 함수로 보고 각 항을 x에 대해 미분.\n\n## 출제 포인트\n해당 개념을 이용한 계산 문제와 도형에서의 극한 문제 빈출.",
+      "date": "20260405"
+    },
+    {
+      "id": "concept-calc-20260405-18",
+      "subject": "calculus",
+      "topic": "역함수의 미분법",
+      "content": "## 핵심 개념\ny=f(x)의 역함수를 g(x)라 할 때 g'(x) = 1/f'(y).\n\n## 출제 포인트\n해당 개념을 이용한 계산 문제와 도형에서의 극한 문제 빈출.",
+      "date": "20260405"
+    },
+    {
+      "id": "concept-eng-20260405-0",
+      "subject": "english",
+      "topic": "글의 목적 파악",
+      "content": "## 지문 핵심 요약\n이 단원의 대표 지문은 화자가 특정한 목적과 감정을 전달하기 위해 작성된 글입니다. 맥락과 핵심 어휘를 파악하는 것이 중요합니다.\n\n## 주요 구문\n- Not only A but also B\n- 관계대명사 계속적 용법",
+      "date": "20260405"
+    },
+    {
+      "id": "concept-eng-20260405-1",
+      "subject": "english",
+      "topic": "심경 변화 파악",
+      "content": "## 지문 핵심 요약\n이 단원의 대표 지문은 화자가 특정한 목적과 감정을 전달하기 위해 작성된 글입니다. 맥락과 핵심 어휘를 파악하는 것이 중요합니다.\n\n## 주요 구문\n- Not only A but also B\n- 관계대명사 계속적 용법",
+      "date": "20260405"
+    },
+    {
+      "id": "concept-eng-20260405-2",
+      "subject": "english",
+      "topic": "함축적 의미 파악",
+      "content": "## 지문 핵심 요약\n이 단원의 대표 지문은 화자가 특정한 목적과 감정을 전달하기 위해 작성된 글입니다. 맥락과 핵심 어휘를 파악하는 것이 중요합니다.\n\n## 주요 구문\n- Not only A but also B\n- 관계대명사 계속적 용법",
+      "date": "20260405"
+    },
+    {
+      "id": "concept-eng-20260405-3",
+      "subject": "english",
+      "topic": "요지 파악",
+      "content": "## 지문 핵심 요약\n이 단원의 대표 지문은 화자가 특정한 목적과 감정을 전달하기 위해 작성된 글입니다. 맥락과 핵심 어휘를 파악하는 것이 중요합니다.\n\n## 주요 구문\n- Not only A but also B\n- 관계대명사 계속적 용법",
+      "date": "20260405"
+    },
+    {
+      "id": "concept-kor-20260405-0",
+      "subject": "korean",
+      "topic": "화법 이론",
+      "content": "## 화법 이론 핵심 요약\n화법 이론에 자주 등장하는 토론과 협상, 고쳐쓰기 유형의 주요 포인트입니다.\n\n## 출제 포인트\n상대방의 논리적 허점을 파악하는 비판적 듣기와 맥락에 맞는 쓰기 전략.",
+      "date": "20260405"
+    },
+    {
+      "id": "concept-kor-20260405-1",
+      "subject": "korean",
+      "topic": "작문 이론",
+      "content": "## 작문 이론 핵심 요약\n작문 이론에 자주 등장하는 토론과 협상, 고쳐쓰기 유형의 주요 포인트입니다.\n\n## 출제 포인트\n상대방의 논리적 허점을 파악하는 비판적 듣기와 맥락에 맞는 쓰기 전략.",
+      "date": "20260405"
+    },
+    {
+      "id": "concept-kor-20260405-2",
+      "subject": "korean",
+      "topic": "3모 비문학",
+      "content": "## 3모 비문학 핵심 요약\n3모 비문학에 자주 등장하는 토론과 협상, 고쳐쓰기 유형의 주요 포인트입니다.\n\n## 출제 포인트\n상대방의 논리적 허점을 파악하는 비판적 듣기와 맥락에 맞는 쓰기 전략.",
+      "date": "20260405"
     }
   ]
 }

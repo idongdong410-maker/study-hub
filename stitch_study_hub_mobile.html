@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Study Hub - Zen Mode</title>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts: Inter -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-primary": "#dce2f7",
+              "primary-fixed": "#575e70",
+              "surface-container-highest": "#e2e2e2",
+              "outline": "#777777",
+              "on-secondary-container": "#1b1b1b",
+              "on-background": "#1a1c1c",
+              "tertiary": "#3b3b3b",
+              "surface-dim": "#dadada",
+              "on-error-container": "#410002",
+              "on-secondary-fixed-variant": "#3b3b3b",
+              "secondary-container": "#d4d4d4",
+              "surface": "#f9f9f9",
+              "tertiary-fixed-dim": "#474747",
+              "error-container": "#ffdad6",
+              "surface-tint": "#575e70",
+              "background": "#f9f9f9",
+              "on-primary-fixed-variant": "#dce2f7",
+              "on-surface": "#1a1c1c",
+              "inverse-surface": "#2f3131",
+              "primary-container": "#343b4c",
+              "on-secondary-fixed": "#1b1b1b",
+              "surface-container-low": "#f3f3f4",
+              "outline-variant": "#c6c6c6",
+              "inverse-primary": "#c0c6db",
+              "surface-container": "#eeeeee",
+              "surface-variant": "#e2e2e2",
+              "secondary-fixed-dim": "#ababab",
+              "on-tertiary-fixed-variant": "#e2e2e2",
+              "inverse-on-surface": "#f0f1f1",
+              "secondary-fixed": "#c6c6c6",
+              "on-secondary": "#ffffff",
+              "on-tertiary": "#e2e2e2",
+              "primary": "#000000",
+              "error": "#ba1a1a",
+              "on-tertiary-fixed": "#ffffff",
+              "on-primary-container": "#ffffff",
+              "primary-fixed-dim": "#404758",
+              "surface-container-lowest": "#ffffff",
+              "on-error": "#ffffff",
+              "tertiary-fixed": "#5e5e5e",
+              "surface-bright": "#f9f9f9",
+              "on-primary-fixed": "#ffffff",
+              "secondary": "#5e5e5e",
+              "tertiary-container": "#747474",
+              "on-surface-variant": "#474747",
+              "on-tertiary-container": "#ffffff",
+              "surface-container-high": "#e8e8e8"
+            },
+            fontFamily: {
+              "headline": ["Inter"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {
+              "DEFAULT": "0.125rem", 
+              "lg": "0.25rem", 
+              "xl": "0.5rem", 
+              "full": "0.75rem",
+              "zen": "18px"
+            },
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #ffffff;
+            color: #111827;
+            -webkit-font-smoothing: antialiased;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 200, 'GRAD' 0, 'opsz' 24;
+        }
+        /* Custom Zen Mode Utilities */
+        .zen-padding {
+            padding-left: 1.25rem;
+            padding-right: 1.25rem;
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+        }
+        .pb-safe {
+            padding-bottom: env(safe-area-inset-bottom);
+        }
+        .soft-shadow {
+            box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+        }
+    </style>
+</head>
+<body class="font-body selection:bg-primary-container selection:text-white">
+<!-- TopAppBar Shell -->
+<header class="fixed top-0 w-full z-50 bg-[#ffffff]/80 backdrop-blur-md flex items-center justify-between px-6 h-14 w-full no-border tonal-shift">
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-[#111827] hover:bg-[#eeeeee] transition-colors active:scale-95 duration-200 p-2 rounded-full" data-icon="menu">menu</button>
+</div>
+<h1 class="font-bold lowercase tracking-tight text-base text-[#111827]">study hub</h1>
+<div class="flex items-center">
+<div class="w-7 h-7 rounded-full overflow-hidden border border-outline-variant/10">
+<img alt="Profile" class="w-full h-full object-cover" data-alt="minimalist studio portrait of a young student with neutral expression, soft natural side lighting, clean white background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuByWtwdRafOjpCMjA0BgRfo-HxeDzqbfxITiVJxPGX269yicQ8BA2qf6MuOh6pwoc2Q775khE50pNExIGhhEXYpq0JAcpGnwhhdZ29bqf_bojlYF5J4O1IJLyN27lySVggd9ZtkraIi2r_8G3s-4Z5tALBHl4EGF7fdMwBqLy3m1XiG4-vX9-EWiSvpEFS6MVhdR6TO_9NJTX87X_2BCYcTr_-YaqCBINjwbhqtU16dG2spHLwcASx-W7LlWWdKClg2_udIthwhH1M"/>
+</div>
+</div>
+</header>
+<!-- Main Canvas: Zen Mode Layout -->
+<main class="min-h-screen pt-14 pb-20 zen-padding flex flex-col items-center">
+<div class="w-full max-w-xl mx-auto space-y-4">
+<!-- Compact Editorial Introduction -->
+<section class="space-y-1">
+<h2 class="font-headline text-[2.25rem] leading-[1.05] font-light tracking-tighter text-[#111827] lowercase">
+                    focus <br/>
+                    is the new <br/>
+<span class="font-extrabold italic">luxury.</span>
+</h2>
+<p class="font-label text-secondary text-[8px] tracking-[0.3em] uppercase opacity-40">zen mode active</p>
+</section>
+<!-- Hero Action Cards - Optimized Height -->
+<section class="grid grid-cols-1 gap-3 w-full">
+<div class="group relative flex items-center min-h-[110px] w-full bg-[#f3f3f4] rounded-zen soft-shadow p-5 transition-all hover:bg-[#eeeeee] duration-300">
+<div class="mr-5 flex flex-col items-center">
+<span class="text-3xl mb-1 block transform group-hover:scale-110 transition-transform">📚</span>
+<button class="px-5 py-1.5 bg-[#111827] text-white text-[10px] font-semibold rounded-full active:scale-95 transition-all">Start</button>
+</div>
+<div class="flex-grow">
+<h3 class="text-xl font-bold tracking-tight text-[#111827]">StudyFlow</h3>
+<p class="text-[9px] font-medium text-secondary/60 mt-0.5 uppercase tracking-widest">3/5 sessions complete</p>
+<div class="mt-2 w-20 h-1 bg-outline-variant/30 rounded-full overflow-hidden">
+<div class="w-[60%] h-full bg-primary-fixed"></div>
+</div>
+</div>
+<div class="absolute top-1/2 -translate-y-1/2 right-5 material-symbols-outlined opacity-20 text-xs group-hover:opacity-100 transition-opacity">arrow_forward_ios</div>
+</div>
+<div class="group relative flex items-center min-h-[110px] w-full bg-[#111827] rounded-zen soft-shadow p-5 transition-all hover:bg-[#1a1c1c] duration-300 text-white">
+<div class="mr-5 flex flex-col items-center">
+<span class="text-3xl mb-1 block transform group-hover:scale-110 transition-transform">🧠</span>
+<button class="px-5 py-1.5 bg-white text-[#111827] text-[10px] font-semibold rounded-full active:scale-95 transition-all">Review</button>
+</div>
+<div class="flex-grow">
+<h3 class="text-xl font-bold tracking-tight">MemoryFlow</h3>
+<div class="mt-1 flex items-center gap-2">
+<span class="text-[8px] font-bold uppercase tracking-widest text-white/50 bg-white/10 px-1.5 py-0.5 rounded">Daily Goal</span>
+<p class="text-[9px] font-medium text-white/70">12 cards left</p>
+</div>
+</div>
+<div class="absolute top-1/2 -translate-y-1/2 right-5 material-symbols-outlined opacity-40 text-xs group-hover:opacity-100 transition-opacity">bolt</div>
+</div>
+</section>
+<!-- Tightened Collapsible Panels -->
+<section class="w-full space-y-0">
+<div class="border-t border-[#eeeeee]">
+<button class="w-full flex items-center justify-between py-3 group">
+<span class="text-sm font-medium tracking-tight text-[#111827] opacity-80 group-hover:opacity-100 transition-opacity">Statistics</span>
+<span class="material-symbols-outlined text-[#111827] opacity-20 group-hover:opacity-60 transition-opacity text-lg">expand_more</span>
+</button>
+</div>
+<div class="border-t border-[#eeeeee]">
+<button class="w-full flex items-center justify-between py-3 group">
+<span class="text-sm font-medium tracking-tight text-[#111827] opacity-80 group-hover:opacity-100 transition-opacity">Planner</span>
+<span class="material-symbols-outlined text-[#111827] opacity-20 group-hover:opacity-60 transition-opacity text-lg">expand_more</span>
+</button>
+</div>
+<div class="border-t border-[#eeeeee]">
+<button class="w-full flex items-center justify-between py-3 group">
+<span class="text-sm font-medium tracking-tight text-[#111827] opacity-80 group-hover:opacity-100 transition-opacity">Sync</span>
+<span class="material-symbols-outlined text-[#111827] opacity-20 group-hover:opacity-60 transition-opacity text-lg">expand_more</span>
+</button>
+</div>
+<!-- Exam Scope Collapsible (Compressed View) -->
+<div class="border-t border-b border-[#eeeeee]">
+<div class="w-full">
+<button class="w-full flex items-center justify-between py-3 group">
+<span class="text-sm font-medium tracking-tight text-[#111827] opacity-100 transition-opacity">Exam Scope</span>
+<span class="material-symbols-outlined text-[#111827] opacity-60 transition-opacity rotate-180 text-lg">expand_more</span>
+</button>
+<div class="pb-4 pt-0 space-y-2.5">
+<div class="space-y-1">
+<label class="block text-[8px] font-semibold uppercase tracking-widest text-[#111827] opacity-60 ml-1">Calculus</label>
+<input class="w-full px-3 py-2 bg-transparent border border-[#E5E7EB] rounded-lg focus:ring-1 focus:ring-[#111827] focus:border-[#111827] outline-none transition-all placeholder:text-[#ababab] font-body text-xs" placeholder="Enter chapters..." type="text"/>
+</div>
+<div class="space-y-1">
+<label class="block text-[8px] font-semibold uppercase tracking-widest text-[#111827] opacity-60 ml-1">Speech and Writing</label>
+<input class="w-full px-3 py-2 bg-transparent border border-[#E5E7EB] rounded-lg focus:ring-1 focus:ring-[#111827] focus:border-[#111827] outline-none transition-all placeholder:text-[#ababab] font-body text-xs" placeholder="Enter chapters..." type="text"/>
+</div>
+<div class="space-y-1">
+<label class="block text-[8px] font-semibold uppercase tracking-widest text-[#111827] opacity-60 ml-1">Probability and Statistics</label>
+<input class="w-full px-3 py-2 bg-transparent border border-[#E5E7EB] rounded-lg focus:ring-1 focus:ring-[#111827] focus:border-[#111827] outline-none transition-all placeholder:text-[#ababab] font-body text-xs" placeholder="Enter chapters..." type="text"/>
+</div>
+<div class="space-y-1">
+<label class="block text-[8px] font-semibold uppercase tracking-widest text-[#111827] opacity-60 ml-1">Life and Ethics</label>
+<input class="w-full px-3 py-2 bg-transparent border border-[#E5E7EB] rounded-lg focus:ring-1 focus:ring-[#111827] focus:border-[#111827] outline-none transition-all placeholder:text-[#ababab] font-body text-xs" placeholder="Enter chapters..." type="text"/>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- BottomNavBar - Minimal & Clear -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-10 py-3 bg-[#ffffff]/90 backdrop-blur-md pb-safe no-border tonal-shift z-50">
+<!-- Home -->
+<a class="flex items-center justify-center bg-[#111827] text-white rounded-full w-9 h-9 active:scale-90 duration-300 ease-out" href="#">
+<span class="material-symbols-outlined text-lg" data-icon="home_max">home_max</span>
+</a>
+<!-- Library -->
+<a class="flex items-center justify-center text-[#5e5e5e] w-9 h-9 hover:text-[#111827] transition-all active:scale-90 duration-300 ease-out" href="#">
+<span class="material-symbols-outlined text-lg" data-icon="auto_stories">auto_stories</span>
+</a>
+<!-- Timer -->
+<a class="flex items-center justify-center text-[#5e5e5e] w-9 h-9 hover:text-[#111827] transition-all active:scale-90 duration-300 ease-out" href="#">
+<span class="material-symbols-outlined text-lg" data-icon="timer">timer</span>
+</a>
+<!-- Profile -->
+<a class="flex items-center justify-center text-[#5e5e5e] w-9 h-9 hover:text-[#111827] transition-all active:scale-90 duration-300 ease-out" href="#">
+<span class="material-symbols-outlined text-lg" data-icon="person">person</span>
+</a>
+</nav>
+<!-- Zen Progress Indicator -->
+<div class="fixed top-0 left-0 h-[2px] bg-[#111827] z-[60] w-1/3"></div>
+</body></html>
