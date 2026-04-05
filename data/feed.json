@@ -638,238 +638,288 @@
       "deck": "calc",
       "front": "미분계수의 정의",
       "back": "f'(a) = lim(h→0) [f(a+h) - f(a)] / h",
-      "tag": "미분계수와 도함수"
+      "tag": "미분계수와 도함수",
+      "subject": "calculus"
     },
     {
       "id": "calc-card-20260331-002",
       "deck": "calc",
       "front": "합성함수 미분법 (체인룰)",
       "back": "{f(g(x))}' = f'(g(x)) · g'(x)\n\n바깥 미분 × 안쪽 미분",
-      "tag": "합성함수 미분"
+      "tag": "합성함수 미분",
+      "subject": "calculus"
     },
     {
       "id": "calc-card-20260331-003",
       "deck": "calc",
       "front": "(sin x)' = ?",
       "back": "cos x",
-      "tag": "삼각함수 도함수"
+      "tag": "삼각함수 도함수",
+      "subject": "calculus"
     },
     {
       "id": "calc-card-20260331-004",
       "deck": "calc",
       "front": "(cos x)' = ?",
       "back": "-sin x",
-      "tag": "삼각함수 도함수"
+      "tag": "삼각함수 도함수",
+      "subject": "calculus"
     },
     {
       "id": "calc-card-20260331-005",
       "deck": "calc",
       "front": "(tan x)' = ?",
       "back": "sec²x",
-      "tag": "삼각함수 도함수"
+      "tag": "삼각함수 도함수",
+      "subject": "calculus"
     },
     {
       "id": "calc-card-20260331-006",
       "deck": "calc",
       "front": "(e^x)' = ?",
       "back": "e^x\n\n(a^x)' = a^x · ln a",
-      "tag": "지수함수 도함수"
+      "tag": "지수함수 도함수",
+      "subject": "calculus"
     },
     {
       "id": "calc-card-20260331-007",
       "deck": "calc",
       "front": "(ln x)' = ?",
       "back": "1/x\n\n(log_a x)' = 1/(x · ln a)",
-      "tag": "로그함수 도함수"
+      "tag": "로그함수 도함수",
+      "subject": "calculus"
     },
     {
       "id": "calc-card-20260331-008",
       "deck": "calc",
       "front": "음함수 미분법",
       "back": "양변을 x에 대해 미분\ny를 x의 함수로 보고 dy/dx를 구함\n\n예) x²+y²=r² → 2x+2y(dy/dx)=0 → dy/dx=-x/y",
-      "tag": "음함수 미분"
+      "tag": "음함수 미분",
+      "subject": "calculus"
     },
     {
       "id": "calc-card-20260331-009",
       "deck": "calc",
       "front": "매개변수 미분법",
       "back": "dy/dx = (dy/dt) / (dx/dt)\n\nx=f(t), y=g(t)일 때",
-      "tag": "매개변수 미분"
+      "tag": "매개변수 미분",
+      "subject": "calculus"
     },
     {
       "id": "calc-card-20260331-010",
       "deck": "calc",
       "front": "역함수 미분법",
       "back": "(f⁻¹)'(b) = 1 / f'(a)\n(단, f(a) = b)\n\n역함수의 기울기 = 원래 함수 기울기의 역수",
-      "tag": "역함수 미분"
+      "tag": "역함수 미분",
+      "subject": "calculus"
     },
     {
       "id": "vocab-20260331-001",
       "deck": "vocab",
       "front": "ubiquitous",
       "back": "어디에나 있는, 편재하는\n예문: Smartphones have become ubiquitous in modern society.",
-      "tag": "수특 1강"
+      "tag": "수특 1강",
+      "subject": "english"
     },
     {
       "id": "vocab-20260331-002",
       "deck": "vocab",
       "front": "implications",
       "back": "영향, 결과; 암시, 함축\n예문: The findings have significant implications for education policy.",
-      "tag": "수특 1강"
+      "tag": "수특 1강",
+      "subject": "english"
     },
     {
       "id": "vocab-20260331-003",
       "deck": "vocab",
       "front": "reluctant",
       "back": "꺼리는, 마지못해 하는\n예문: He was reluctant to admit his mistake.",
-      "tag": "수특 2강"
+      "tag": "수특 2강",
+      "subject": "english"
     },
     {
       "id": "vocab-20260331-004",
       "deck": "vocab",
       "front": "paradox",
       "back": "역설, 모순\n예문: The paradox of choice suggests more options can reduce satisfaction.",
-      "tag": "수특 2강"
+      "tag": "수특 2강",
+      "subject": "english"
     },
     {
       "id": "vocab-20260331-005",
       "deck": "vocab",
       "front": "inherent",
       "back": "내재하는, 본질적인\n예문: There are inherent risks in any new venture.",
-      "tag": "수특 3강"
+      "tag": "수특 3강",
+      "subject": "english"
     },
     {
       "id": "korean-card-20260331-001",
       "deck": "korean",
       "front": "공감적 듣기란?",
       "back": "상대방의 감정과 처지를 이해하며 듣는 것\n· 감정 인정 반응\n· 요약하여 되묻기\n· 비언어적 경청 표현",
-      "tag": "화법"
+      "tag": "화법",
+      "subject": "korean"
     },
     {
       "id": "korean-card-20260331-002",
       "deck": "korean",
       "front": "토론의 반론 vs 반박",
       "back": "반론: 상대 주장의 근거를 약화시킴\n반박: 상대 반론에 대해 재반박\n\n핵심: 논리적 근거로 상대 논증의 허점 지적",
-      "tag": "화법"
+      "tag": "화법",
+      "subject": "korean"
     },
     {
       "id": "korean-card-20260331-003",
       "deck": "korean",
       "front": "고쳐쓰기의 원리",
       "back": "· 문장 성분 호응 확인\n· 불필요한 반복 삭제\n· 주제 통일성 유지\n· 문체 일관성 유지\n· 맞춤법/띄어쓰기 점검",
-      "tag": "작문"
+      "tag": "작문",
+      "subject": "korean"
     },
     {
       "id": "engsum-20260331-001",
       "deck": "engsum",
       "front": "라벨링 효과 (Labeling Effect)",
       "back": "사람에게 라벨을 붙이면 그 라벨의 렌즈로만 보게 됨.\n'영재' 라벨 → 수행 압박\n'느린 학생' 라벨 → 노력 포기\n→ 라벨이 실제 행동에 영향을 미침",
-      "tag": "수특 1강"
+      "tag": "수특 1강",
+      "subject": "english"
     },
     {
       "id": "engsum-20260331-002",
       "deck": "engsum",
       "front": "선택의 역설 (Paradox of Choice)",
       "back": "더 많은 선택지 ≠ 더 큰 만족\nBarry Schwartz 연구: 선택지 과다 → 불안 유발\n→ 선택지를 제한하면 의사결정이 개선됨",
-      "tag": "수특 2강"
+      "tag": "수특 2강",
+      "subject": "english"
     },
     {
       "id": "calc-card-20260331-100",
       "deck": "calc",
       "front": "매개변수로 나타낸 함수의 미분법",
       "back": "매개변수 t로 나타낸 함수 x=f(t), y=g(t)에서 두 함수 f(t), g(t)가 미분가능하고 f'(t) ≠ 0일 때, dy/dx = (dy/dt) / (dx/dt) = g'(t) / f'(t) 이다.",
-      "tag": "매개변수 미분"
+      "tag": "매개변수 미분",
+      "subject": "calculus"
     },
     {
       "id": "eng-card-20260331-101",
       "deck": "engsum",
       "front": "3강 / 디지털 플랫폼과 클라우드 노동",
       "back": "요약: 디지털 플랫폼은 서비스 노동과 특정 장소 간의 연결을 끊고 비지역적 클라우드 노동을 가능하게 한다.\n핵심 논지: 기업은 지역 사무실을 짓거나 현지 규정을 따를 필요 없이 디지털 플랫폼을 통해 다른 국가의 프리랜서를 고용할 수 있으며, 이로 인해 노동의 공간적 제약이 사라진다.\n주요 어휘: sticky (끈끈한), modularised (모듈화된), non-proximate (비지역적인), trace (흔적)",
-      "tag": "3강"
+      "tag": "3강",
+      "subject": "english"
     },
     {
       "id": "eng-card-20260331-102",
       "deck": "engsum",
       "front": "5강 / 현대 작사가들의 문학적 기여",
       "back": "요약: 문학계는 현대 작사가들이 언어와 문학에 미친 놀라운 기여를 문학의 영역으로 인정해야 한다.\n핵심 논지: 셰익스피어가 영단어 발전에 미친 영향으로 칭송받는 것과 달리 현대 작사가들은 크게 무시되어 왔으나, 이들 역시 복합적인 심상을 띠는 가사를 통해 우리 언어와 문학을 풍요롭게 했다.\n주요 어휘: lyricist (작사가), restraint (제약), manipulation (조작, 솜씨 있게 다루기), imagery (심상)",
-      "tag": "5강"
+      "tag": "5강",
+      "subject": "english"
     },
     {
       "id": "eng-card-20260331-103",
       "deck": "engsum",
       "front": "6강 / 대중교통에서 운행 빈도의 중요성",
       "back": "요약: 대중교통 시스템은 속도보다 원할 때 바로 이용할 수 있는 운행 빈도가 보장되어야 그 가치가 있다.\n핵심 논지: 항상 그 자리에 있는 도로와 달리 대중교통은 다가오고 있어야만 이용이 가능하므로, 빈도(frequency)가 뒷받침되지 않는 속도(speed)의 단축은 대기 시간으로 인해 무의미해진다.\n주요 어휘: frequency (빈도), timetable (시간표), transit (대중교통), worthless (가치 없는)",
-      "tag": "6강"
+      "tag": "6강",
+      "subject": "english"
     },
     {
       "id": "eng-card-20260331-104",
       "deck": "engsum",
       "front": "11강 / 적응과 집단적 정보 축적",
       "back": "요약: 인류가 전 세계의 다양한 환경에 적응할 수 있었던 것은 타인으로부터 배우고 정보를 축적하는 집단적 학습 능력 덕분이다.\n핵심 논지: 인간 개인의 지능만으로는 복잡한 도구나 적응 기술을 창조할 수 없으나, 타인으로부터 모방하고 학습하려는 심리를 통해 개인의 한계를 뛰어넘는 거대한 정보 풀(pool)을 축적할 수 있었다.\n주요 어휘: adapt (적응하다), forage (수렵 채집하다), accumulate (축적하다), capacity (능력)",
-      "tag": "11강"
+      "tag": "11강",
+      "subject": "english"
     },
     {
       "id": "kor-card-20260331-101",
       "deck": "korean",
       "front": "화법의 원리 - 갈등 관리와 '나-전달법'",
       "back": "분석: 갈등 상황에서 상대방을 비난하지 않고 자신의 감정과 생각을 진솔하게 전달하는 대화 방식을 다룸\n1\n.\n핵심 개념: 나-전달법(사건, 감정, 기대를 포함하여 '나'를 주어로 말하기)\n1\n8\n.\n출제 포인트: 주어진 갈등 상황(예: 모둠 활동 자료 미제출 등)에서 '나'를 주어로 사건, 감정, 기대를 포함하여 적절하게 말하는 방식을 고르는 문제 출제 가능\n2\n.",
-      "tag": "화법/작문"
+      "tag": "화법/작문",
+      "subject": "korean"
     },
     {
       "id": "kor-card-20260331-102",
       "deck": "korean",
       "front": "작문의 원리 - 설득하는 글 쓰기 (관광세 도입)",
       "back": "분석: 특정 관광 지구의 문제(관광객 과밀, 환경 훼손 등)를 해결하기 위해 '관광세 도입'을 주장하는 논설문 작성 과정을 다룸\n4\n9\n.\n핵심 개념: 타당성, 신뢰성, 공정성을 갖춘 논거 수집 및 매체 활용\n10\n.\n출제 포인트: 초고를 보완하기 위해 수집한 통계 자료, 신문 기사 등 다양한 매체 자료의 적절한 활용 방안을 묻는 문제 출제 가능\n5\n.",
-      "tag": "화법/작문"
+      "tag": "화법/작문",
+      "subject": "korean"
     },
     {
       "id": "eng-card-20260404-001",
       "deck": "engsum",
       "front": "1강 / 온라인 요리책 이용 권장",
       "back": "요약: 전 세계의 요리법을 모아 학교에서 제작한 온라인 요리책을 학부모들에게 소개하며 활용을 권장합니다.\n핵심 논지: 문화적 다양성을 기념하기 위해 26개국 100가지 요리법을 담은 레시피 북을 출간했으니, 자녀와 함께 의미 있는 요리 시간을 가져보기를 권합니다.\n주요 어휘: diversity (다양성), feature (특징으로 하다/포함하다), culinary/cuisine (요리)",
-      "tag": "1강"
+      "tag": "1강",
+      "subject": "english"
     },
     {
       "id": "eng-card-20260404-002",
       "deck": "engsum",
       "front": "7강 / 1만 시간의 법칙의 허상",
       "back": "요약: 전문가가 되기 위해 단순히 1만 시간의 연습만 필요한 것이 아니며, 여러 가지 다양한 요인들이 복합적으로 작용합니다.\n핵심 논지: 1만 시간의 연습 규칙은 매력적이지만 터무니없는 주장(utter nonsense)이며, 최고 수준의 수행 능력을 위해서는 선천적 재능, 인내, 운, 환경, 경험 등 많은 요소가 함께 중요합니다.\n주요 어휘: cohort (집단), utter (완전한), innate (타고난), perseverance (인내), optimal (최적의)",
-      "tag": "7강"
+      "tag": "7강",
+      "subject": "english"
     },
     {
       "id": "eng-card-20260404-003",
       "deck": "engsum",
       "front": "12강 / 상황 윤리의 적용",
       "back": "요약: 맥락과 상황에 따라 윤리성이 달라진다는 상황 윤리가 스포츠 경기에 어떻게 적용되는지 보여줍니다.\n핵심 논지: 상황 윤리는 목적이 수단을 정당화한다고 봅니다. 친선 경기에서는 배려를 중시해 스스로 파울을 시인하지만, 정식 경기에서는 이기기 위해 파울을 속이고 경쟁적 우위를 취하는 것이 그 예입니다.\n주요 어휘: situational ethics (상황 윤리), outcome (결과), justify (정당화하다), competitive advantage (경쟁적 우위)",
-      "tag": "12강"
+      "tag": "12강",
+      "subject": "english"
     },
     {
       "id": "eng-card-20260404-004",
       "deck": "engsum",
       "front": "22강 / 소프트 패스 하천 공학",
       "back": "요약: 자연의 장애물을 억지로 제거하는 대신, 하천의 흐름과 생태계를 존중하는 소프트 패스 하천 공학의 우수성을 설명합니다.\n핵심 논지: 인위적이고 통제 지향적인 '하드 패스' 공학과 달리 '소프트 패스' 공학은 자연의 지형과 변동성을 수용하며 지류와 늪지 등의 생태학적 중요성을 인정합니다.\n주요 어휘: interventionist (개입주의적인), topography (지형), modesty (겸손), variability (변동성), backwater (지류)",
-      "tag": "22강"
+      "tag": "22강",
+      "subject": "english"
     },
     {
       "id": "kor-card-20260404-001",
       "deck": "korean",
       "front": "화법 유형 - 정보 전달 강연 (전통 춤과 홀기)",
       "back": "분석: 국립국악원 학예 연구사가 고등학생을 대상으로 '홀기(의례 문서)'의 개념과 고해상도 영인 작업의 의의를 설명하는 전문가 강연 지문.\n핵심 개념: 정보 전달을 위한 말하기 전략 (청자 수준을 고려한 개념 정의, 동영상 등 시각 매체 자료 활용).\n출제 포인트: 화자의 말하기 방식(개념 정의, 경험 환기 등) 파악 및 제시된 자료(사진, 영상)의 구체적인 활용 목적과 청중의 반응 분석.",
-      "tag": "화법/작문"
+      "tag": "화법/작문",
+      "subject": "korean"
     },
     {
       "id": "kor-card-20260404-002",
       "deck": "korean",
       "front": "작문 유형 - 설명문 쓰기 (인공 강우 기술)",
       "back": "분석: 필자가 자신의 진로(기상학, 환경 공학)와 관련하여 '인공 강우 기술'의 생성 원리, 한계점, 유망성 등을 친구들에게 설명하기 위해 작성한 초고.\n핵심 개념: 작문 맥락(예상 독자, 목적)을 고려한 내용 생성 및 조직, 신뢰성 있는 자료의 선별과 활용.\n출제 포인트: 작문 계획이 초고에 실제 어떻게 반영되었는지 확인하는 문제, 초고 보완을 위해 추가 수집한 자료(통계 자료, 학술 자료)의 적절한 활용 방안 평가.",
-      "tag": "화법/작문"
+      "tag": "화법/작문",
+      "subject": "korean"
     },
     {
       "id": "korsum-mock-1775390558",
       "deck": "korsum",
       "front": "[KORSUM 배포] 화법과 작문 요약 덱",
       "back": "내용 요약: 화작 핵심 개념 복습 카드입니다.",
-      "tag": "화법/작문"
+      "tag": "화법/작문",
+      "subject": "korean"
+    },
+    {
+      "id": "eng-mock-1775390980-1",
+      "deck": "engsum",
+      "subject": "english",
+      "front": "수특 영어 14강 지문 요약",
+      "back": "핵심 주제: 인공지능이 현대 음악 산업에 미치는 영향\n주요 어휘:\n- algorithm: 알고리즘\n- mainstream: 주류",
+      "tag": "14강"
+    },
+    {
+      "id": "kor-mock-1775390980-2",
+      "deck": "korsum",
+      "subject": "korean",
+      "front": "화법과 작문 p86~92 요약",
+      "back": "핵심 주제: 토론의 입론과 교차 조사 방법\n주요 포인트:\n- 입론: 주장의 타당성 입증\n- 교차 조사: 상대 주장의 논리적 허점 공략",
+      "tag": "p86~92"
     }
   ],
   "concepts": [
