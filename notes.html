@@ -141,6 +141,7 @@ function saveNote(subj,topicId,text){
   localStorage.setItem(`note-${subj}-${topicId}`,text);
 }
 
+<<<<<<< HEAD
 const SEED_CONCEPTS=[{"id": "seed-calc-0", "subject": "calculus", "topic": "수열의 수렴과 발산", "date": "2026-04-05T00:00:00Z", "content": "## 핵심 개념
 * 수렴: 수열 {a_n}에서 n이 한없이 커질 때 일반항 a_n의 값이 일정한 값 α에 한없이 가까워지면 수렴한다고 하며, lim(n→∞) a_n = α로 나타냅니다.
 * 발산: 양의 무한대, 음의 무한대, 혹은 진동(교대 부호 등)하는 경우입니다.
@@ -274,6 +275,9 @@ y를 미분할 때는 일반 미분 후 반드시 (dy/dx)를 곱합니다."}, {"
 1. 문단별 소주제를 한 줄로 요약하며 넘어갑니다.
 2. 대비되는 두 입장 혹은 두 개념 (예: 하드패스 vs 소프트패스)은 표처럼 정리하며 읽습니다.
 3. 특정 기술의 '과정(Process)'이나 '순서'는 지문에 동그라미 번호를 매겨 시각화해야 추론 문제를 풀 때 시간이 단축됩니다."}];
+=======
+const SEED_CONCEPTS=[];
+>>>>>>> f4fd4373866c10d4aa0a4c06ea3abfcc90d6c3b2
 function getAutoConcept(subj,topicName){
   const all=SEED_CONCEPTS.concat(JSON.parse(localStorage.getItem("hub-concepts")||"[]"));
   return all.filter(c=>c.subject===subj&&c.topic===topicName).sort((a,b)=>b.date.localeCompare(a.date))[0]||null;
