@@ -119,12 +119,84 @@ const DECKS={
   calc:{name:"미적분 공식",emoji:"∫",color:"#7c6aef",dim:"rgba(124,106,239,.12)",
     prompt:`미적분 시험에 나오는 핵심 공식과 개념을 플래시카드로 만들어줘.\n\nJSON 배열만:\n[{"front":"공식 이름 또는 문제","back":"공식 내용 또는 답","tag":"단원명"}]\n\n규칙:\n- 수학 공식은 텍스트로: f'(x), dy/dx, lim(x→a), ∫, Σ 등\n- 미분계수, 도함수, 접선, 합성함수 미분, 매개변수 미분, 음함수 미분, 역함수 미분, 삼각/지수/로그 도함수 범위\n- 15개 만들어줘\nJSON만 출력.`},
   vocab:{name:"영단어",emoji:"📝",color:"#3b9eff",dim:"rgba(59,158,255,.12)",
-    prompt:`수능특강 영어에 나오는 핵심 영단어를 플래시카드로 만들어줘.\n\nJSON 배열만:\n[{"front":"English word","back":"한국어 뜻 + 예문","tag":"강/단원"}]\n\n- 수능 빈출 고난도 어휘 위주\n- back에는 뜻과 짧은 예문 포함\n- 15개 만들어줘\nJSON만 출력.`},
+    prompt:`2027 수능특강 영어 시험범위(1강2·3번, 2강2번, 3강2·3번, 4강1·2번, 5강1·4번, 6강1·2번, 7강3번, 11강2·4번, 12강4번, 13강3번, 21강2번, 22강1번, 23강1번, 24강1번) 지문의 핵심 영단어를 플래시카드로 만들어줘.\n\nJSON 배열만:\n[{"front":"English word / phrase","back":"한국어 뜻 + 예문(지문 맥락 연관)","tag":"강번호"}]\n\n- 수능 빈출 고난도 어휘 위주\n- back에는 뜻과 짧은 예문 포함\n- 15개 만들어줘\nJSON만 출력.`},
   korean:{name:"화작 핵심",emoji:"✍️",color:"#f5a623",dim:"rgba(245,166,35,.12)",
-    prompt:`화법과 작문 수능 핵심 개념을 플래시카드로 만들어줘.\n\nJSON 배열만:\n[{"front":"개념/용어","back":"정의 및 핵심 설명","tag":"화법/작문"}]\n\n- 화법 이론, 작문 이론, 비문학 독해 전략 포함\n- 시험에 자주 나오는 핵심만\n- 15개 만들어줘\nJSON만 출력.`},
+    prompt:`2027 수능특강 화법과 작문 핵심 개념을 플래시카드로 만들어줘.\n시험범위: 화법1(1~6번), 작문1(1~6번), 통합(01~05통합)\n\nJSON 배열만:\n[{"front":"개념/용어","back":"정의 및 핵심 설명","tag":"화법/작문"}]\n\n화법 범위: 대화(자아개념·나-전달법), 토론(반대신문·폐쇄형질문), 협상(시작-조정-해결 3단계), 면접(의도파악·구체사례), 발표(청자분석), 연설(인성·이성·감성 설득), 표현전략(언어·준언어·비언어), 맥락(상황·사회문화)\n작문 범위: 정보전달글 5가지 조직방법, 보고서 구성요소, 논설문(귀납·연역), 건의문(처음-가운데-끝), 논거 3요건(타당성·신뢰성·공정성), 작문 3단계 과정\n- 15개 만들어줘\nJSON만 출력.`},
   engsum:{name:"수특 요약",emoji:"📖",color:"#2dd4bf",dim:"rgba(45,212,191,.12)",
-    prompt:`수능특강 영어 독해 핵심 내용을 플래시카드로 만들어줘.\n\nJSON 배열만:\n[{"front":"지문 주제 또는 핵심 질문","back":"핵심 요약 (2~3문장)","tag":"강번호"}]\n\n- 주요 지문의 핵심 논지, 주제, 요지를 요약\n- 빈칸추론/순서배열에 나올 법한 핵심 로직 포함\n- 15개 만들어줘\nJSON만 출력.`}
+    prompt:`2027 수능특강 영어 시험범위 지문 핵심을 플래시카드로 만들어줘.\n시험범위: 1강2·3번, 2강2번, 3강2·3번, 4강1·2번, 5강1·4번, 6강1·2번, 7강3번, 11강2·4번, 12강4번, 13강3번, 21강2번, 22강1번, 23강1번, 24강1번\n\nJSON 배열만:\n[{"front":"강번호·번호: 주제/제목","back":"핵심 요약 (2~3문장) + 핵심 어휘 3개","tag":"강번호"}]\n\n- 각 지문의 주제·논지·핵심 로직 포함\n- 빈칸·순서·제목 유형 대비\nJSON만 출력.`},
+  korsum:{name:"화작 요약",emoji:"📚",color:"#f472b6",dim:"rgba(244,114,182,.12)",
+    prompt:`2027 수능특강 화법과 작문 시험범위 지문을 플래시카드로 만들어줘.\n시험범위: 화법1(1~6번), 작문1(1~6번), 01~05통합\n\nJSON 배열만:\n[{"front":"단원·문항: 지문 소재","back":"갈래/유형 + 핵심 내용(2~3줄) + 중요 요소 + 정답 요약","tag":"단원명"}]\n\n- 각 지문별 핵심 개념과 정답 포인트 포함\n- 통합은 (가)+(나) 각각 요약\nJSON만 출력.`}
 };
+
+// ===== SEED CARDS (시험범위 기반 기본 카드) =====
+const SEED_CARDS=[
+  // 화작 핵심 — 화법 개념
+  {id:"k-s1",deck:"korean",front:"대화의 자아 개념",back:"자아 개념 ↔ 대화 방식 상호 영향\n긍정적 자아 → 자신을 적절히 드러내고 타인 말 수용 → 긍정적 인상\n자기표현(진솔하게, 적절한 수준) + 상대방 말 적극 경청 → 긍정적 관계 형성",tag:"화법",level:0,lastReview:null,reviews:0},
+  {id:"k-s2",deck:"korean",front:"나-전달법 (I-message)",back:"[사건] 비난 없이 상대 행동을 구체적으로 진술\n→ [감정] 그에 대한 나의 솔직한 감정 표현\n→ [기대] 내가 바라는 상대의 행동 전달\n상대가 억압받는다는 느낌 없이 요구 수용 → 갈등 예방·대인관계 개선",tag:"화법",level:0,lastReview:null,reviews:0},
+  {id:"k-s3",deck:"korean",front:"토론의 반대 신문",back:"상대측 논증의 신뢰성·타당성·공정성 비판적으로 검토\n폐쇄형 질문(예/아니요 유도)으로 토론 흐름 주도\n드러난 상대의 논리적 허점 → 자기 반론의 근거로 활용",tag:"화법",level:0,lastReview:null,reviews:0},
+  {id:"k-s4",deck:"korean",front:"협상의 3단계",back:"[시작] 갈등 원인 분석, 양측 기본 입장 확인\n[조정] 상대 관점 이해, 대안 상호 검토, 입장 차이 좁히기\n[해결] 최선의 해결안으로 상호 만족 방향 도출\n상황별 전략 유연하게 적용(절충안 / 상대 요구 수용 / 협상 유예 등)",tag:"화법",level:0,lastReview:null,reviews:0},
+  {id:"k-s5",deck:"korean",front:"면접 답변 전략",back:"질문의 내용 + 숨은 의도를 정확히 파악하여 답변\n막연한 진술 피하고 구체적 사례·경험 제시\n정직하고 정중하며 자신감 있는 태도로 신뢰감 형성",tag:"화법",level:0,lastReview:null,reviews:0},
+  {id:"k-s6",deck:"korean",front:"발표 청자 분석",back:"청자의 관심 분석: 관심 없으면 주제가 삶과 어떻게 관련되는지 제시\n청자의 능력 분석: 배경지식 부족하면 보완 내용 포함\n청자 수준에 맞는 단어 선택, 질문으로 청자 관심·호기심 자극",tag:"화법",level:0,lastReview:null,reviews:0},
+  {id:"k-s7",deck:"korean",front:"연설의 3가지 설득 전략",back:"인성적(Ethos): 화자의 성품·전문성으로 공신력 확보\n이성적(Logos): 객관적 자료로 논리적 타당성 확보\n감성적(Pathos): 청중의 욕망·자긍심·동정심 등 감정에 호소\n공신력 = 전문성 + 신뢰성 + 사회성",tag:"화법",level:0,lastReview:null,reviews:0},
+  {id:"k-s8",deck:"korean",front:"화법의 3가지 표현 전략",back:"언어적: 어휘·담화 표지·문장·담화 구조\n준언어적(반언어적): 말의 속도·어조·성량·억양\n비언어적: 표정·몸짓·시선\n목적에 효과적인 표현 선택, 내용·상황 변화에 따라 적절히 변화",tag:"화법",level:0,lastReview:null,reviews:0},
+  {id:"k-s9",deck:"korean",front:"화법의 맥락",back:"상황 맥락: 화자·청자·주제·목적·매체·시간·장소\n사회문화적 맥락: 보편적 가치관·담화 관습(존대·겸양, 상대 배려)\n맥락에 맞는 내용과 표현으로 화법 활동 수행 → 의사소통 목적 달성",tag:"화법",level:0,lastReview:null,reviews:0},
+  // 화작 핵심 — 작문 개념
+  {id:"k-s10",deck:"korean",front:"정보 전달 글의 5가지 조직 방법",back:"나열: 대등한 여러 정보 늘어놓기\n순서: 시간적·공간적 순서\n문제-해결: 문제점 + 해결 방안\n비교·대조: 공통점과 차이점\n원인-결과: 사건의 인과관계\n설명 대상의 특성에 맞게 선택",tag:"작문",level:0,lastReview:null,reviews:0},
+  {id:"k-s11",deck:"korean",front:"보고서의 필수 구성 요소",back:"연구의 목적과 필요성 → 연구 방법 → 연구 과정과 내용\n→ 연구 결과 → 결론 → 제언 → 참고 자료\n객관적 정보 전달이 목적, 쓰기 윤리 준수, 간결한 문장 사용",tag:"작문",level:0,lastReview:null,reviews:0},
+  {id:"k-s12",deck:"korean",front:"논설문의 특징과 논리",back:"사실·현상·가치에 대한 주장 → 독자의 동의·공감 추구\n서론-본론-결론 구성\n귀납법: 개별→일반 (인과 관계 확정에 사용)\n연역법: 일반→개별 (삼단논법이 대표적)",tag:"작문",level:0,lastReview:null,reviews:0},
+  {id:"k-s13",deck:"korean",front:"건의문의 구성",back:"처음: 인사 + 건의자 소개 + 건의 목적\n가운데: 문제 상황 + 해결 방안 + 기대 효과(실현 가능성 설명)\n끝: 핵심 요약 + 마무리 인사\n건의 대상자에게 실현 가능성과 효과를 명시",tag:"작문",level:0,lastReview:null,reviews:0},
+  {id:"k-s14",deck:"korean",front:"논거의 타당성·신뢰성·공정성",back:"타당성: 주장을 뒷받침하는 합리적·객관적 근거인가?\n신뢰성: 믿을 만한 출처인가?\n공정성: 특정 입장에 치우치지 않았는가?\n사실 논거(통계·사례) vs 소견 논거(전문가 의견)",tag:"작문",level:0,lastReview:null,reviews:0},
+  {id:"k-s15",deck:"korean",front:"작문의 3단계 과정",back:"계획: 작문 맥락 분석(목적·주제·독자·매체) + 자료 수집·선별\n초고 작성: 내용 조직 + 글쓰기\n수정·보완: 평가 기준으로 점검 + 추가 자료로 보완\n전 단계에서 쓰기 윤리 준수",tag:"작문",level:0,lastReview:null,reviews:0},
+
+  // 화작 요약
+  {id:"ks-s1",deck:"korsum",front:"화법1 1~3번: 냄새와 후각 (발표)",back:"갈래: 발표\n핵심: 후각 정보는 시상 거치지 않고 후각피질로 직달 / 입체이성질체로 같은 분자식이라도 다른 냄새 / 냄새=물리적(객관)+심리적(주관) 자극\n전략: 일상 발화 인용(관심환기)·구체 사례·대조·비언어적(분무기)\n정답: 1②/2④/3②",tag:"화법1",level:0,lastReview:null,reviews:0},
+  {id:"ks-s2",deck:"korsum",front:"화법1 4~6번: AI도 예술가로? (토론)",back:"갈래: 토론\n쟁점① 예술의 정의(도구 사용 여부 vs 창작물의 지적 속성)\n쟁점② 독창성·창의성(무작위 생성 vs 선택과 의도 필요)\n쟁점③ 감정 필요 여부(경험 기반 감정 필요)\n반대신문 전략 사용 / 정답: 4⑤/5③/6③",tag:"화법1",level:0,lastReview:null,reviews:0},
+  {id:"ks-s3",deck:"korsum",front:"작문1 1~3번: 인공 강우 기술 (설명문)",back:"갈래: 설명문 (진로 관련 정보 전달)\n구성: 물 부족 문제→기술 원리(구름 씨뿌리기)→부작용(생태계·주변국)→역사(1940년대 미국, 1960년대 한국)·진로(기상학과·환경공학과)\n정답: 1②/2⑤/3⑤",tag:"작문1",level:0,lastReview:null,reviews:0},
+  {id:"ks-s4",deck:"korsum",front:"작문1 4~6번: 수면과 학업 성취 (보고서)",back:"갈래: 보고서\n구성: 조사 목적→방법(설문+면담+문헌)→결과→결론\n핵심: 수면 부족→집중력 저하·학업 능률 저하 악순환\n주요 출제 포인트: 계획 반영 여부, 설문 초고 수정, 자료 활용\n정답: 4①/5②/6④",tag:"작문1",level:0,lastReview:null,reviews:0},
+  {id:"ks-s5",deck:"korsum",front:"01통합 1~5번: 밈(Meme) 문화",back:"(가) 교지 편집부 학생들의 대화 — 비평문 작성 회의\n(나) 비평문: 밈의 긍정(스트레스 해소·공감·소통) vs 부정(조롱·사실 왜곡)\n주장: 제작자 의도와 사회적 맥락 파악하여 비판적으로 수용\n정답: 1①/2②/3④/4③/5③",tag:"01통합",level:0,lastReview:null,reviews:0},
+  {id:"ks-s6",deck:"korsum",front:"02통합 1~5번: 공주 탐구 여행",back:"(가) 공주 탐구 여행 후기 블로그 글\n(나) 학생회 온라인 대화\n핵심 포인트: 블로그의 매체 특성, 대화에서 정보 공유 방식, 화자의 의도 파악, 여행 후기 글쓰기 전략",tag:"02통합",level:0,lastReview:null,reviews:0},
+  {id:"ks-s7",deck:"korsum",front:"03통합 1~5번: 소담 공원",back:"(가) 소담 공원 관련 전문가 대담\n(나) 건의문\n핵심: 대담에서 전문 정보 수집 방식, 건의문의 처음-가운데-끝 구성, 문제 상황+해결 방안+기대 효과 제시",tag:"03통합",level:0,lastReview:null,reviews:0},
+  {id:"ks-s8",deck:"korsum",front:"04통합 1~5번: 빗물 재활용 협상",back:"(가) 빗물 재활용 시스템 협상\n(나) 기사문\n핵심: 협상의 시작-조정-해결 3단계 전략, 기사문의 육하원칙 구성, 협상 결과를 기사문으로 전환",tag:"04통합",level:0,lastReview:null,reviews:0},
+  {id:"ks-s9",deck:"korsum",front:"05통합 1~5번: 피가로의 결혼 감상",back:"(가) 오페라 '피가로의 결혼' 감상 대화\n(나) 감상문\n핵심: 감상 대화의 특성(개인적 반응 공유), 감상문의 갈래 특성(체험-반응-성찰), 대화 내용을 감상문으로 전환하는 방법",tag:"05통합",level:0,lastReview:null,reviews:0},
+
+  // 영어 수특 요약
+  {id:"es-s1",deck:"engsum",front:"1강 2번: 원고 수정 요청",back:"글의 목적: 마감 임박한 원고의 수정·제출 촉구. 검토자 피드백을 철저히 반영하여 기한 내 수정본 제출 요청. 장르: 학술지 편집자의 공손한 요청 편지\nkey: revise, manuscript, deadline, reviewers",tag:"1강",level:0,lastReview:null,reviews:0},
+  {id:"es-s2",deck:"engsum",front:"1강 3번: 꽃 환불 요청",back:"글의 목적: 손상된 데이비드 오스틴 장미 전액 환불 요구. 결혼 1주년 기념 꽃이 시들고 얼룩진 상태로 도착. 1년 전 피해 + 이번 피해 언급. 장르: 불만 편지\nkey: refund, lifeless, spotted, anniversary",tag:"1강",level:0,lastReview:null,reviews:0},
+  {id:"es-s3",deck:"engsum",front:"2강 2번: 고산병으로 일행에 짐이 됨",back:"심경 변화: 자신감/흥분 → 자책/미안함. 고지대 산행에서 체력 과시하다 고산병으로 쓰러져 일행에게 큰 짐이 됨.\nkey: altitude sickness, arrogance, burden, self-reproach",tag:"2강",level:0,lastReview:null,reviews:0},
+  {id:"es-s4",deck:"engsum",front:"3강 2번: 직장에 대한 진정한 충성심",back:"함축: 단기 금전·진급보다 회사의 대의명분(cause)에 공감할 때 진정한 충성심 발휘. 성당을 짓는 일처럼 의미 있는 사명에 헌신.\nkey: loyalty, cause, authentic, cathedral, trump",tag:"3강",level:0,lastReview:null,reviews:0},
+  {id:"es-s5",deck:"engsum",front:"3강 3번: DNA는 생물학적 역사 기록",back:"함축: 'trapped in this vehicle of history' = DNA의 생물학적 역사에서 벗어날 수 없음. DNA = 자연선택으로 수없는 세월 동안 축적된 생물학적 역사의 물리적 결정체.\nkey: DNA, natural selection, blueprint, generation",tag:"3강",level:0,lastReview:null,reviews:0},
+  {id:"es-s6",deck:"engsum",front:"4강 1번: 에너지 지식 축적으로 번영한 인류",back:"요지: 인류가 먹는 음식 = 태양 에너지가 수천 년간 축적된 농업 지식을 통해 여과·농축된 결과. 에너지 활용 지식의 누적이 인류 번영의 원동력.\nkey: distill, irrigation, tap into, accumulated knowledge",tag:"4강",level:0,lastReview:null,reviews:0},
+  {id:"es-s7",deck:"engsum",front:"4강 2번: 정보 민주화와 시민 언론",back:"요지: 디지털 기술로 일반 시민들이 전통 언론을 대신해 정보 문지기(gatekeeper) 역할 수행. 저널리즘은 이제 시민의 것.\nkey: democratization, gatekeeper, accountability, news desert",tag:"4강",level:0,lastReview:null,reviews:0},
+  {id:"es-s8",deck:"engsum",front:"5강 1번: 위기를 작은 단위로 나누어 대처",back:"주장: 압도적 위기 상황에서는 문제를 감당 가능한 작은 크기로 나누어 대처해야 함. 통제 불가능한 덩어리에 집중하지 말 것.\nkey: overwhelm, manageable, chunk, break down",tag:"5강",level:0,lastReview:null,reviews:0},
+  {id:"es-s9",deck:"engsum",front:"5강 4번: 운동 외 시간에 느린 호흡 연습",back:"주장: 경기 중 과활성화된 교감 신경계를 안정시키려면 운동 外 시간에 느린 호흡을 의식적으로 연습해야 함. 교감신경 과활성화 → 회복에 부교감신경 활성화 필요.\nkey: sympathetic nervous system, arousal, slow breathing",tag:"5강",level:0,lastReview:null,reviews:0},
+  {id:"es-s10",deck:"engsum",front:"6강 1번: 빈도가 속도보다 중요한 대중교통",back:"주제: 도로=항상 존재, 대중교통=시간 맞아야 탈 수 있음. 속도가 아무리 빨라도 운행 빈도(frequency)가 낮으면 대기 시간이 장점을 소멸.\nkey: frequency, transit, timetable, span",tag:"6강",level:0,lastReview:null,reviews:0},
+  {id:"es-s11",deck:"engsum",front:"6강 2번: 위치에 따른 물체의 다양한 해석",back:"주제: 동일한 콜라 캔이 길거리에서는 쓰레기, 미술관 받침대(pedestal) 위에서는 물질주의 비판 예술 작품으로 해석됨. 맥락(위치)이 의미를 결정.\nkey: pedestal, interpret, context, materialistic",tag:"6강",level:0,lastReview:null,reviews:0},
+  {id:"es-s12",deck:"engsum",front:"7강 3번: CAD 설계와 조기 고착",back:"제목: CAD 건축 설계가 초래한 조기 고착(premature fixation). CAD 사용 → 초기에 설계 확정 → 수작업 스케치의 창의적 유희와 정서적 연결 상실.\nkey: premature fixation, CAD, expressiveness, freehand sketch",tag:"7강",level:0,lastReview:null,reviews:0},
+  {id:"es-s13",deck:"engsum",front:"11강 2번: 시장 효율성과 사회적 가치 소외",back:"핵심: 금전과 이윤만 중시하는 시장 논리는 노동자 착취·환경 훼손 같은 진정한 사회·환경적 가치를 소외시킴.\nkey: market efficiency, exploitation, externality, marginalize",tag:"11강",level:0,lastReview:null,reviews:0},
+  {id:"es-s14",deck:"engsum",front:"12강 4번: 문학 읽기의 역동성",back:"핵심: 독자의 나이·경험이 달라지면 같은 문학 텍스트도 매번 다른 의미로 다가옴. 문학 읽기 = 정보 처리 + 상상력·감정의 전면적 참여.\nkey: dynamic, full participation, perspective, reassess",tag:"12강",level:0,lastReview:null,reviews:0},
+  {id:"es-s15",deck:"engsum",front:"13강 3번: 내부 감각과 공감 능력",back:"빈칸: 내부 감각 수용 능력(interoception)이 공감의 핵심. 타인의 표정·몸짓을 무의식적으로 모방 → 몸에서 발생하는 신호를 내부 감각으로 인식 → 타인 감정에 깊이 공감.\nkey: interoception, mimicry, empathy",tag:"13강",level:0,lastReview:null,reviews:0},
+  {id:"es-s16",deck:"engsum",front:"21강 2번: 데카르트의 회의와 확신",back:"핵심: 감각이 환상일 수 있다고 의심했지만, 의심하고 생각하는 나 자신은 반드시 존재해야 한다는 사실 깨달음. cogito ergo sum: 나는 생각한다, 고로 나는 존재한다.\nkey: doubt, cogito, certainty, existence",tag:"21강",level:0,lastReview:null,reviews:0},
+  {id:"es-s17",deck:"engsum",front:"22강 1번: 연결성 감소와 서식지 파편화",back:"핵심: 인간 중심 연결성 확보(도로망 확장)는 동식물에게는 이동 장벽 → 서식지 분절·유전적 고립 초래. 연결성의 인간 관점 vs 동물 관점이 정반대.\nkey: connectivity, fragmentation, habitat, barrier",tag:"22강",level:0,lastReview:null,reviews:0},
+  {id:"es-s18",deck:"engsum",front:"23강 1번: 상대 속도와 운동량",back:"핵심: 모든 속도는 상대적. 총알이라도 비행기와의 상대 속도가 0에 가까우면 손으로 잡을 수 있음. 운동량도 상대적.\nkey: relative velocity, momentum, air drag, negligible",tag:"23강",level:0,lastReview:null,reviews:0},
+  {id:"es-s19",deck:"engsum",front:"24강 1번: 문화 관광의 변화",back:"핵심: 과거(미술관·유적지 시각적 감상) → 현재(현지 원주민 일상 직접 체험). 문화 관광이 더 참여적·체험적으로 변화.\nkey: cultural tourism, indigenous, immersive, heritage",tag:"24강",level:0,lastReview:null,reviews:0},
+
+  // 영단어
+  {id:"v-s1",deck:"vocab",front:"revise / revision",back:"수정하다 / 수정본\nPlease revise your manuscript thoroughly before the deadline. | 1강(원고 수정 요청)",tag:"1강",level:0,lastReview:null,reviews:0},
+  {id:"v-s2",deck:"vocab",front:"refund",back:"환불(하다), 반환\nShe demanded a full refund for the damaged anniversary flowers. | 1강(환불 요청)",tag:"1강",level:0,lastReview:null,reviews:0},
+  {id:"v-s3",deck:"vocab",front:"altitude",back:"고도, 해발 높이\nMany hikers suffer from altitude sickness when climbing high-altitude peaks. | 2강(고산병 산행)",tag:"2강",level:0,lastReview:null,reviews:0},
+  {id:"v-s4",deck:"vocab",front:"loyalty / allegiance",back:"충성(심)\nTrue loyalty to a company comes from believing in its cause, not from salary. | 3강(직장 충성심)",tag:"3강",level:0,lastReview:null,reviews:0},
+  {id:"v-s5",deck:"vocab",front:"distill",back:"증류하다; 정제하다; 핵심을 뽑아내다\nFood is solar energy distilled through centuries of agricultural knowledge. | 4강(에너지 지식)",tag:"4강",level:0,lastReview:null,reviews:0},
+  {id:"v-s6",deck:"vocab",front:"gatekeeper",back:"정보 문지기, 접근 통제자\nCitizens now serve as gatekeepers to information in their local communities. | 4강(정보 민주화)",tag:"4강",level:0,lastReview:null,reviews:0},
+  {id:"v-s7",deck:"vocab",front:"sympathetic nervous system",back:"교감 신경계\nThe sympathetic nervous system becomes highly active during intense athletic competition. | 5강(호흡 연습)",tag:"5강",level:0,lastReview:null,reviews:0},
+  {id:"v-s8",deck:"vocab",front:"frequency",back:"빈도, 잦음; 주파수\nIn public transit, frequency matters more than speed — riders need service when they need it. | 6강(대중교통)",tag:"6강",level:0,lastReview:null,reviews:0},
+  {id:"v-s9",deck:"vocab",front:"pedestal",back:"받침대, 기좌; 높이 올리다\nA soda can on a pedestal in an art gallery becomes a commentary on materialism. | 6강(위치와 해석)",tag:"6강",level:0,lastReview:null,reviews:0},
+  {id:"v-s10",deck:"vocab",front:"premature fixation",back:"조기 고착 (초기 단계에서 변경 어려운 상태로 확정됨)\nCAD causes premature fixation, removing the reflective playfulness of freehand sketching. | 7강(CAD 설계)",tag:"7강",level:0,lastReview:null,reviews:0},
+  {id:"v-s11",deck:"vocab",front:"interoception",back:"내부 감각 수용(체내 신호를 인식하는 능력)\nInteroception allows us to feel others' emotions by sensing our own bodily reactions during mimicry. | 13강(공감)",tag:"13강",level:0,lastReview:null,reviews:0},
+  {id:"v-s12",deck:"vocab",front:"fragmentation / habitat fragmentation",back:"파편화; 서식지 파편화\nHabitat fragmentation caused by roads genetically isolates animal populations. | 22강(서식지)",tag:"22강",level:0,lastReview:null,reviews:0},
+  {id:"v-s13",deck:"vocab",front:"momentum",back:"운동량; 기세, 추진력\nSince only relative velocity matters, the bullet's momentum was negligible to the pilot. | 23강(상대속도)",tag:"23강",level:0,lastReview:null,reviews:0},
+  {id:"v-s14",deck:"vocab",front:"cogito ergo sum",back:"나는 생각한다, 고로 나는 존재한다 (데카르트)\nDescartes concluded cogito ergo sum — the act of doubting proves his own existence. | 21강(데카르트)",tag:"21강",level:0,lastReview:null,reviews:0},
+  {id:"v-s15",deck:"vocab",front:"indigenous",back:"원주민의, 토착의\nCultural tourism now focuses on experiencing the everyday lives of indigenous peoples. | 24강(문화관광)",tag:"24강",level:0,lastReview:null,reviews:0}
+];
 
 // ===== SR ALGORITHM =====
 // Simple SM-2 variant: level 0-5, interval doubles each level
@@ -145,6 +217,13 @@ let S={
   // Add
   loading:false
 };
+
+// 첫 실행 시 시드 카드 로드
+if(!localStorage.getItem("mf-seeded-v1")){
+  SEED_CARDS.forEach(c=>S.cards.push(c));
+  localStorage.setItem("mf-cards",JSON.stringify(S.cards));
+  localStorage.setItem("mf-seeded-v1","1");
+}
 
 function save(){localStorage.setItem("mf-cards",JSON.stringify(S.cards))}
 
@@ -362,7 +441,7 @@ function renderAdd(d){
       <div style="font-size:13px;font-weight:600;margin-bottom:8px">직접 추가</div>
       <input id="addFront" placeholder="앞면 (문제/단어/공식)" style="width:100%;padding:10px 12px;border-radius:var(--radius-sm);border:1px solid var(--bg3);background:var(--bg);color:var(--t1);font-size:14px;margin-bottom:8px;font-family:inherit">
       <textarea id="addBack" placeholder="뒷면 (답/뜻/설명)" style="width:100%;padding:10px 12px;border-radius:var(--radius-sm);border:1px solid var(--bg3);background:var(--bg);color:var(--t1);font-size:14px;min-height:60px;resize:vertical;font-family:inherit;margin-bottom:8px"></textarea>
-      <input id="addTag" placeholder="태그 (선택, 예: 합성함수)" style="width:100%;padding:10px 12px;border-radius:var(--radius-sm);border:1px solid var(--bg3);background:var(--bg);color:var(--t1);font-size:13px;margin-bottom:10px;font-family:inherit">
+      <input id="addTag" placeholder="태그 (선택, 예: 화법1)" style="width:100%;padding:10px 12px;border-radius:var(--radius-sm);border:1px solid var(--bg3);background:var(--bg);color:var(--t1);font-size:13px;margin-bottom:10px;font-family:inherit">
       <button class="btn btn-primary btn-full" style="background:${dk.color}" onclick="addManual()">카드 추가</button>
       <div id="manualStatus"></div>
     </div>

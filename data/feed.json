@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-03-31T09:00:00Z",
+  "lastUpdated": "2026-04-05T09:00:00Z",
   "questions": [
     {
       "id": "calc-20260331-001",
@@ -352,6 +352,160 @@
       "front": "선택의 역설 (Paradox of Choice)",
       "back": "더 많은 선택지 ≠ 더 큰 만족\nBarry Schwartz 연구: 선택지 과다 → 불안 유발\n→ 선택지를 제한하면 의사결정이 개선됨",
       "tag": "수특 2강"
+    },
+    {
+      "id": "engsum-20260405-001",
+      "deck": "engsum",
+      "front": "1강2번: 원고 수정 요청 (글의 목적)",
+      "back": "필자가 제출한 원고를 편집자에게 수정 요청\n목적 키워드: request revision / I'm writing to...\n→ 목적: 원고 수정을 부탁하려고",
+      "tag": "수특 1강"
+    },
+    {
+      "id": "engsum-20260405-002",
+      "deck": "engsum",
+      "front": "1강3번: 꽃 환불 요청 (글의 목적)",
+      "back": "주문한 꽃이 상해서 배송됨 → 환불/교환 요청\n항의 키워드: disappointed / damaged / request a refund\n→ 목적: 손상된 상품에 대해 환불 요청",
+      "tag": "수특 1강"
+    },
+    {
+      "id": "engsum-20260405-003",
+      "deck": "engsum",
+      "front": "4강1번: 에너지 활용 지식 → 인류 번영 (요지)",
+      "back": "에너지를 효율적으로 활용하는 지식이 인류 발전의 핵심\n키워드: energy knowledge, human flourishing, prosperity\n요지: 에너지 활용 지식이 인류 번영을 이끈다",
+      "tag": "수특 4강"
+    },
+    {
+      "id": "engsum-20260405-004",
+      "deck": "engsum",
+      "front": "4강2번: 정보 민주화 → 시민 언론인 (요지)",
+      "back": "인터넷·SNS로 정보가 민주화 → 누구나 언론인이 될 수 있는 시대\n키워드: democratization of information, citizen journalism\n요지: 정보 민주화가 시민 언론인 시대를 열었다",
+      "tag": "수특 4강"
+    },
+    {
+      "id": "engsum-20260405-005",
+      "deck": "engsum",
+      "front": "5강1번: 큰 위기 → 작은 문제로 분해 (주장)",
+      "back": "주장: 거대한 위기는 작고 관리 가능한 단위로 쪼개서 해결하라\n키워드: break down, manageable problems, step by step\n논리: 문제 제시 → 분해 전략 → 해결 가능성",
+      "tag": "수특 5강"
+    },
+    {
+      "id": "engsum-20260405-006",
+      "deck": "engsum",
+      "front": "5강4번: 느린 호흡 연습의 중요성 (주장)",
+      "back": "주장: 신체 건강을 위해 운동 외에도 느린 호흡 연습이 필요\n운동만 강조하는 경향에 대한 반론\n키워드: slow breathing, health benefits, complementary",
+      "tag": "수특 5강"
+    },
+    {
+      "id": "engsum-20260405-007",
+      "deck": "engsum",
+      "front": "6강2번: 물체의 의미는 맥락에 따라 변한다 (주제)",
+      "back": "같은 물체도 장소·상황·문화에 따라 전혀 다른 의미를 가짐\n주제: 물체의 의미는 고정되지 않고 장소·맥락에 따라 결정된다\n키워드: context, meaning, objects, place-dependent",
+      "tag": "수특 6강"
+    },
+    {
+      "id": "engsum-20260405-008",
+      "deck": "engsum",
+      "front": "7강3번: CAD와 Premature Fixation (제목)",
+      "back": "CAD(컴퓨터 지원 설계) 사용 시 설계 초기 아이디어 고착 문제\n핵심: premature fixation이 창의성을 저해\n제목 힌트: 설계 초기 고착화의 위험성",
+      "tag": "수특 7강"
+    },
+    {
+      "id": "engsum-20260405-009",
+      "deck": "engsum",
+      "front": "13강3번: 공감과 Interoception (빈칸)",
+      "back": "진정한 공감 = 상대의 신체 감각을 내면으로 느끼는 것\n빈칸 정답: ② sampling their emotions\n핵심: empathy ≠ 이해 → 신체적·감각적 공명",
+      "tag": "수특 13강"
+    },
+    {
+      "id": "engsum-20260405-010",
+      "deck": "engsum",
+      "front": "13강4번: 기술 의존과 발달 저해 (빈칸)",
+      "back": "기술 과의존 → 본래 능력 발달이 저해됨\n빈칸 정답: ④ arrested development (발달 저해/정체)\n핵심: technology dependency → skill atrophy",
+      "tag": "수특 13강"
+    },
+    {
+      "id": "engsum-20260405-011",
+      "deck": "engsum",
+      "front": "21강2번: 데카르트 cogito ergo sum (철학)",
+      "back": "방법론적 회의: 의심 가능한 모든 것을 의심 → 확실한 토대 탐색\n결론: 의심하는 행위 자체는 의심 불가\n'cogito ergo sum' = 나는 생각한다, 고로 나는 존재한다",
+      "tag": "수특 21강"
+    },
+    {
+      "id": "engsum-20260405-012",
+      "deck": "engsum",
+      "front": "22강1번: 경관 연결성과 파편화 (환경)",
+      "back": "경관 연결성↑ → 동물 이동 가능 → 생물 다양성 유지\nhabitat fragmentation(파편화): 개발로 서식지가 조각남\n키워드: landscape connectivity, biodiversity",
+      "tag": "수특 22강"
+    },
+    {
+      "id": "engsum-20260405-013",
+      "deck": "engsum",
+      "front": "22강3번: 사바나 코끼리 Keystone Species (환경)",
+      "back": "keystone species: 개체 수에 비해 생태계에 불균형적으로 큰 영향\n코끼리 역할: 초목 제거→초원유지, 물웅덩이 형성, 씨앗 분산\n코끼리 감소 → 생태계 전체 균형 붕괴",
+      "tag": "수특 22강"
+    },
+    {
+      "id": "engsum-20260405-014",
+      "deck": "engsum",
+      "front": "23강1번: 상대 속도와 운동량 (과학)",
+      "back": "상대 속도: 관찰자 운동 상태에 따라 달리 측정\n총알 잡기 예시: 같은 속도로 움직이면 총알이 정지해 보임\n핵심: 속도는 절대적이 아닌 관찰자에 상대적",
+      "tag": "수특 23강"
+    },
+    {
+      "id": "engsum-20260405-015",
+      "deck": "engsum",
+      "front": "24강1번: 문화 관광의 성격 변화 (스포츠·레저)",
+      "back": "기존: 수동적 관람(박물관 방문) → 현재: 능동적 체험 참여\n예시: 현지 요리 배우기, 전통 공예 만들기, 지역 축제 참여\n핵심: passive tourism → participatory tourism",
+      "tag": "수특 24강"
+    },
+    {
+      "id": "korsum-20260405-001",
+      "deck": "korsum",
+      "front": "화법1 발표 (1~3번): 냄새/후각 주제",
+      "back": "발표 준비: 청자 분석(배경지식·관심사) → 내용·수준 조절\n준언어: 말 속도·높낮이·강약 조절\n비언어: 시선·몸짓·표정·자세 → 언어 표현 보완",
+      "tag": "화법"
+    },
+    {
+      "id": "korsum-20260405-002",
+      "deck": "korsum",
+      "front": "화법1 토론 (4~6번): AI 예술가 주제",
+      "back": "쟁점: AI 작품을 예술로 인정할 것인가?\n반대신문: 상대 논증의 전제·근거 허점 공략 (≠ 새 주장)\n쟁점 분석: 창의성의 정의, 저작권, 예술의 본질",
+      "tag": "화법"
+    },
+    {
+      "id": "korsum-20260405-003",
+      "deck": "korsum",
+      "front": "작문1 설명문 (1~3번): 인공강우 주제",
+      "back": "인공강우: 요오드화은 뿌리기 → 빙정핵 형성 → 강수 유도\n내용 조직: 정의→원리→효과→한계\n고쳐쓰기: 주제 통일성, 문장 성분 호응, 불필요한 반복 제거",
+      "tag": "작문"
+    },
+    {
+      "id": "korsum-20260405-004",
+      "deck": "korsum",
+      "front": "작문1 보고서 (4~6번): 수면과 학업 주제",
+      "back": "보고서 구성: 제목/목적/방법/결과/결론\n설문 타당성: 문항이 주제를 직접 측정하는지, 편향 없는지 확인\n결론: 수면 부족→집중력·기억통합 저하→학업 성취 하락",
+      "tag": "작문"
+    },
+    {
+      "id": "korean-card-20260405-001",
+      "deck": "korean",
+      "front": "발표의 비언어적 표현 vs 준언어적 표현",
+      "back": "준언어적: 말의 속도, 높낮이, 강약, 쉬는 곳\n비언어적: 시선, 몸짓, 표정, 자세\n★ 비언어 표현은 언어로 전달 못하는 감정·강조를 보완",
+      "tag": "화법"
+    },
+    {
+      "id": "korean-card-20260405-002",
+      "deck": "korean",
+      "front": "토론의 반대신문 전략",
+      "back": "반대신문 = 상대 논증의 전제·근거 허점 공략\n형식: '그렇다면 ~는 어떻게 설명할 것인가?'\n★ 목적: 상대 논증 약화 (새 주장 제시가 아님!)",
+      "tag": "화법"
+    },
+    {
+      "id": "korean-card-20260405-003",
+      "deck": "korean",
+      "front": "설명문 내용 조직 순서",
+      "back": "서론: 주제·목적 제시, 관심 유발\n본론: 개념 정의 → 원리 설명 → 사례/효과\n결론: 요약·정리, 의의·전망\n예) 인공강우: 정의→원리→효과→한계",
+      "tag": "작문"
     }
   ]
 }

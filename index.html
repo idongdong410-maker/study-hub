@@ -56,6 +56,16 @@ async function sync(){
       const nw=d.cards.filter(x=>!ids.has(x.id)).map((x,i)=>({...x,id:x.id||`ac-${Date.now()}-${i}`,dk:x.deck||x.dk||"calc",lv:0,lr:null,rv:0}));
       if(nw.length){c.push(...nw);localStorage.setItem("mf-cards",JSON.stringify(c));nC=nw.length}
     }
+    // concepts 동기화 → hub-concepts localStorage (notes.html 개념 데이터)
+    // [개념용] Study Hub Calculus Concept 노트 기반 데이터
+    if(d.concepts?.length){
+      const existing=JSON.parse(localStorage.getItem("hub-concepts")||"[]");
+      d.concepts.forEach(c=>{
+        const idx=existing.findIndex(e=>e.subject===c.subject&&e.topic===c.topic);
+        if(idx>=0)existing[idx]=c;else existing.push(c);
+      });
+      localStorage.setItem("hub-concepts",JSON.stringify(existing));
+    }
     if(nQ||nC){el.innerHTML=`<span class="dot" style="background:#34d399"></span>새 데이터: 문제 ${nQ}개, 카드 ${nC}개 동기화 완료!`;el.style.color="#34d399"}
     else{el.innerHTML=`<span class="dot" style="background:#34d399"></span>최신 상태`;el.style.color="#6b6a76"}
   }catch(e){el.innerHTML=`<span class="dot" style="background:#6b6a76"></span>오프라인 모드 · 수동 import 가능`}
