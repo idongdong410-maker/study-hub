@@ -511,8 +511,32 @@ function renderConceptStep(sub){
   const autoConcept=allConcepts
     .filter(c=>c.subject===S.subject&&c.topic===t.name)
     .sort((a,b)=>b.date.localeCompare(a.date))[0];
-  const displayContent=savedNote||(autoConcept?.content||"");
-  const isAuto=!!autoConcept&&!savedNote;
+  // 2차 폴백: mf-cards에서 관련 카드 매칭
+  let mfFallback="";
+  if(!savedNote&&!autoConcept){
+    const allCards=JSON.parse(localStorage.getItem("mf-cards")||"[]");
+    const relCards=allCards.filter(c=>{
+      if(!c.tag)return false;
+      const tn=t.name.replace(/\s+/g,"");
+      const ct=c.tag.replace(/\s+/g,"");
+      if(tn.includes(ct)||ct.includes(tn))return true;
+      if(S.subject==="english"&&(c.dk==="engsum"||c.dk==="vocab")){
+        if(t.id==="reading"&&c.dk==="engsum"&&ct.includes("수특"))return true;
+        if(t.id==="reading"&&c.dk==="engsum"&&ct.includes("강"))return true;
+        if(t.id==="vocab"&&c.dk==="vocab")return true;
+      }
+      if(S.subject==="korean"&&c.dk==="korean"){
+        if(tn.includes("화법")&&ct.includes("화법"))return true;
+        if(tn.includes("작문")&&ct.includes("작문"))return true;
+      }
+      return false;
+    });
+    if(relCards.length>0){
+      mfFallback=relCards.map(c=>`\u{1F4CC} [${c.tag}] ${c.front}\n${c.back}`).join("\n\n");
+    }
+  }
+  const displayContent=savedNote||(autoConcept?.content||"")||mfFallback;
+  const isAuto=!savedNote&&(!!autoConcept||!!mfFallback);
 
   if(displayContent){
     const renderedHtml=renderMd(displayContent);
