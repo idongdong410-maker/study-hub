@@ -126,8 +126,9 @@ function saveNote(subj,topicId,text){
   localStorage.setItem(`note-${subj}-${topicId}`,text);
 }
 
+const SEED_CONCEPTS=Array.from({length:20}).map((_,i)=>({id:`seed-${i}`,subject:'calculus',topic:'기본개념',content:`## 기본개념 ${i}\n앱 초기 구동 시 제공되는 SEED 개념입니다.`,date:new Date().toISOString()}));
 function getAutoConcept(subj,topicName){
-  const all=JSON.parse(localStorage.getItem("hub-concepts")||"[]");
+  const all=SEED_CONCEPTS.concat(JSON.parse(localStorage.getItem("hub-concepts")||"[]"));
   return all.filter(c=>c.subject===subj&&c.topic===topicName).sort((a,b)=>b.date.localeCompare(a.date))[0]||null;
 }
 
