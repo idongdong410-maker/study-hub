@@ -515,7 +515,210 @@
       "topic": "화법과 작문의 원리 및 실제",
       "content": "## 오늘의 지문 분석\n1. 강연 (홀기와 전통 춤 복원): 전문가가 고등학생의 눈높이에 맞춰 '홀기'와 '정재'라는 낯선 개념을 정의하고, 사진과 영상을 통해 전통 춤 복원의 가치를 효과적으로 전달한 화법 지문.\n2. 설명문 (인공 강우 기술): 기상/환경 분야로 진로를 희망하는 학생이 인공 강우의 원리와 부작용, 전망을 인과 및 나열의 방식으로 체계화하여 전달한 작문 지문.\n\n## 핵심 개념 정리\n- 정보 전달을 위한 화법: 청자의 흥미와 배경지식을 분석하고, 어려운 전문 용어는 쉽게 풀어서 설명(개념 정의)하며, 시청각 매체를 적절히 활용하여 정보의 이해도와 전달력을 높임.\n- 정보 전달을 위한 작문: 글의 목적과 독자 수준을 분석해 글쓰기 계획을 세우고, 가치 있는 정보를 선별하여 논리적(분류, 인과, 비교/대조 등)으로 조직함.\n\n## 출제 포인트\n- 화법: 발표자(강연자)의 말하기 방식 특징(질문, 내용 요약, 매체 활용 등) 파악, 청중의 반응(이해, 점검, 추가 정보 탐색 등) 분석 문제.\n- 작문: 글쓰기 계획의 초고 반영 여부 점검, 글을 다듬기 위한 조건별 고쳐쓰기, 그리고 가장 빈출되는 '추가 수집 자료의 적절한 활용 방안' 파악 문제.",
       "date": "20260404"
+    },
+    {
+      "id": "concept-calc-20260405-0",
+      "subject": "calculus",
+      "topic": "수열의 수렴과 발산",
+      "content": "## 핵심 개념\nlim(n→∞) an = α. 수열이 한 값에 가까워지는 것을 수렴이라 함.\n\n## 출제 포인트\n해당 개념을 이용한 계산 문제와 도형에서의 극한 문제 빈출.",
+      "date": "20260405"
+    },
+    {
+      "id": "concept-calc-20260405-1",
+      "subject": "calculus",
+      "topic": "극한값의 계산",
+      "content": "## 핵심 개념\n무한대/무한대, 무한대-무한대 꼴의 계산 방법 및 최고차항 계수 비교.\n\n## 출제 포인트\n해당 개념을 이용한 계산 문제와 도형에서의 극한 문제 빈출.",
+      "date": "20260405"
+    },
+    {
+      "id": "concept-calc-20260405-2",
+      "subject": "calculus",
+      "topic": "등비급수의 극한",
+      "content": "## 핵심 개념\nlim(n→∞) r^n에서 |r|<1일 때 수렴.\n\n## 출제 포인트\n해당 개념을 이용한 계산 문제와 도형에서의 극한 문제 빈출.",
+      "date": "20260405"
+    },
+    {
+      "id": "concept-calc-20260405-3",
+      "subject": "calculus",
+      "topic": "수열의 극한의 대소 관계",
+      "content": "## 핵심 개념\nan ≤ bn 일 때, lim an ≤ lim bn 성립.\n\n## 출제 포인트\n해당 개념을 이용한 계산 문제와 도형에서의 극한 문제 빈출.",
+      "date": "20260405"
+    },
+    {
+      "id": "concept-calc-20260405-4",
+      "subject": "calculus",
+      "topic": "샌드위치 정리",
+      "content": "## 핵심 개념\nan ≤ cn ≤ bn 이고 lim an = lim bn = L 이면 lim cn = L.\n\n## 출제 포인트\n해당 개념을 이용한 계산 문제와 도형에서의 극한 문제 빈출.",
+      "date": "20260405"
+    },
+    {
+      "id": "concept-calc-20260405-5",
+      "subject": "calculus",
+      "topic": "급수의 수렴과 발산",
+      "content": "## 핵심 개념\n부분합 Sn의 극한이 존재하면 급수가 수렴.\n\n## 출제 포인트\n해당 개념을 이용한 계산 문제와 도형에서의 극한 문제 빈출.",
+      "date": "20260405"
+    },
+    {
+      "id": "concept-calc-20260405-6",
+      "subject": "calculus",
+      "topic": "등비급수",
+      "content": "## 핵심 개념\n초항 a, 공비 r일 때 |r|<1이면 a/(1-r)로 수렴.\n\n## 출제 포인트\n해당 개념을 이용한 계산 문제와 도형에서의 극한 문제 빈출.",
+      "date": "20260405"
+    },
+    {
+      "id": "concept-calc-20260405-7",
+      "subject": "calculus",
+      "topic": "급수의 성질",
+      "content": "## 핵심 개념\nΣan, Σbn이 수렴할 때 Σ(an+bn) = Σan + Σbn.\n\n## 출제 포인트\n해당 개념을 이용한 계산 문제와 도형에서의 극한 문제 빈출.",
+      "date": "20260405"
+    },
+    {
+      "id": "concept-calc-20260405-8",
+      "subject": "calculus",
+      "topic": "급수와 부분합의 관계",
+      "content": "## 핵심 개념\n급수 Σan이 수렴하면 lim an = 0.\n\n## 출제 포인트\n해당 개념을 이용한 계산 문제와 도형에서의 극한 문제 빈출.",
+      "date": "20260405"
+    },
+    {
+      "id": "concept-calc-20260405-9",
+      "subject": "calculus",
+      "topic": "여러 가지 급수의 합",
+      "content": "## 핵심 개념\n부분분수 분해, 유리화 등을 이용한 급수 합산.\n\n## 출제 포인트\n해당 개념을 이용한 계산 문제와 도형에서의 극한 문제 빈출.",
+      "date": "20260405"
+    },
+    {
+      "id": "concept-calc-20260405-10",
+      "subject": "calculus",
+      "topic": "지수함수의 미분",
+      "content": "## 핵심 개념\n(e^x)' = e^x, (a^x)' = a^x ln(a).\n\n## 출제 포인트\n해당 개념을 이용한 계산 문제와 도형에서의 극한 문제 빈출.",
+      "date": "20260405"
+    },
+    {
+      "id": "concept-calc-20260405-11",
+      "subject": "calculus",
+      "topic": "로그함수의 미분",
+      "content": "## 핵심 개념\n(ln x)' = 1/x, (log_a x)' = 1/(x ln a).\n\n## 출제 포인트\n해당 개념을 이용한 계산 문제와 도형에서의 극한 문제 빈출.",
+      "date": "20260405"
+    },
+    {
+      "id": "concept-calc-20260405-12",
+      "subject": "calculus",
+      "topic": "삼각함수의 미분",
+      "content": "## 핵심 개념\n(sin x)' = cos x, (cos x)' = -sin x 등 도함수 공식.\n\n## 출제 포인트\n해당 개념을 이용한 계산 문제와 도형에서의 극한 문제 빈출.",
+      "date": "20260405"
+    },
+    {
+      "id": "concept-calc-20260405-13",
+      "subject": "calculus",
+      "topic": "삼각함수의 극한",
+      "content": "## 핵심 개념\nlim(x→0) (sin x)/x = 1 등 주요 극한 공식.\n\n## 출제 포인트\n해당 개념을 이용한 계산 문제와 도형에서의 극한 문제 빈출.",
+      "date": "20260405"
+    },
+    {
+      "id": "concept-calc-20260405-14",
+      "subject": "calculus",
+      "topic": "자연로그의 밑 e",
+      "content": "## 핵심 개념\nlim(x→0) (1+x)^(1/x) = e 의 정의.\n\n## 출제 포인트\n해당 개념을 이용한 계산 문제와 도형에서의 극한 문제 빈출.",
+      "date": "20260405"
+    },
+    {
+      "id": "concept-calc-20260405-15",
+      "subject": "calculus",
+      "topic": "합성함수의 미분법",
+      "content": "## 핵심 개념\nf(g(x))' = f'(g(x))g'(x) = y' = (dy/du)*(du/dx).\n\n## 출제 포인트\n해당 개념을 이용한 계산 문제와 도형에서의 극한 문제 빈출.",
+      "date": "20260405"
+    },
+    {
+      "id": "concept-calc-20260405-16",
+      "subject": "calculus",
+      "topic": "매개변수로 나타낸 함수의 미분법",
+      "content": "## 핵심 개념\nx=f(t), y=g(t)일 때 dy/dx = g'(t)/f'(t).\n\n## 출제 포인트\n해당 개념을 이용한 계산 문제와 도형에서의 극한 문제 빈출.",
+      "date": "20260405"
+    },
+    {
+      "id": "concept-calc-20260405-17",
+      "subject": "calculus",
+      "topic": "음함수의 미분법",
+      "content": "## 핵심 개념\ny를 x의 함수로 보고 각 항을 x에 대해 미분.\n\n## 출제 포인트\n해당 개념을 이용한 계산 문제와 도형에서의 극한 문제 빈출.",
+      "date": "20260405"
+    },
+    {
+      "id": "concept-calc-20260405-18",
+      "subject": "calculus",
+      "topic": "역함수의 미분법",
+      "content": "## 핵심 개념\ny=f(x)의 역함수를 g(x)라 할 때 g'(x) = 1/f'(y).\n\n## 출제 포인트\n해당 개념을 이용한 계산 문제와 도형에서의 극한 문제 빈출.",
+      "date": "20260405"
+    },
+    {
+      "id": "concept-eng-20260405-0",
+      "subject": "english",
+      "topic": "글의 목적 파악",
+      "content": "## 지문 핵심 요약\n이 단원의 대표 지문은 화자가 특정한 목적과 감정을 전달하기 위해 작성된 글입니다. 맥락과 핵심 어휘를 파악하는 것이 중요합니다.\n\n## 주요 구문\n- Not only A but also B\n- 관계대명사 계속적 용법",
+      "date": "20260405"
+    },
+    {
+      "id": "concept-eng-20260405-1",
+      "subject": "english",
+      "topic": "심경 변화 파악",
+      "content": "## 지문 핵심 요약\n이 단원의 대표 지문은 화자가 특정한 목적과 감정을 전달하기 위해 작성된 글입니다. 맥락과 핵심 어휘를 파악하는 것이 중요합니다.\n\n## 주요 구문\n- Not only A but also B\n- 관계대명사 계속적 용법",
+      "date": "20260405"
+    },
+    {
+      "id": "concept-eng-20260405-2",
+      "subject": "english",
+      "topic": "함축적 의미 파악",
+      "content": "## 지문 핵심 요약\n이 단원의 대표 지문은 화자가 특정한 목적과 감정을 전달하기 위해 작성된 글입니다. 맥락과 핵심 어휘를 파악하는 것이 중요합니다.\n\n## 주요 구문\n- Not only A but also B\n- 관계대명사 계속적 용법",
+      "date": "20260405"
+    },
+    {
+      "id": "concept-eng-20260405-3",
+      "subject": "english",
+      "topic": "요지 파악",
+      "content": "## 지문 핵심 요약\n이 단원의 대표 지문은 화자가 특정한 목적과 감정을 전달하기 위해 작성된 글입니다. 맥락과 핵심 어휘를 파악하는 것이 중요합니다.\n\n## 주요 구문\n- Not only A but also B\n- 관계대명사 계속적 용법",
+      "date": "20260405"
+    },
+    {
+      "id": "concept-kor-20260405-0",
+      "subject": "korean",
+      "topic": "화법 이론",
+      "content": "## 화법 이론 핵심 요약\n화법 이론에 자주 등장하는 토론과 협상, 고쳐쓰기 유형의 주요 포인트입니다.\n\n## 출제 포인트\n상대방의 논리적 허점을 파악하는 비판적 듣기와 맥락에 맞는 쓰기 전략.",
+      "date": "20260405"
+    },
+    {
+      "id": "concept-kor-20260405-1",
+      "subject": "korean",
+      "topic": "작문 이론",
+      "content": "## 작문 이론 핵심 요약\n작문 이론에 자주 등장하는 토론과 협상, 고쳐쓰기 유형의 주요 포인트입니다.\n\n## 출제 포인트\n상대방의 논리적 허점을 파악하는 비판적 듣기와 맥락에 맞는 쓰기 전략.",
+      "date": "20260405"
+    },
+    {
+      "id": "concept-kor-20260405-2",
+      "subject": "korean",
+      "topic": "3모 비문학",
+      "content": "## 3모 비문학 핵심 요약\n3모 비문학에 자주 등장하는 토론과 협상, 고쳐쓰기 유형의 주요 포인트입니다.\n\n## 출제 포인트\n상대방의 논리적 허점을 파악하는 비판적 듣기와 맥락에 맞는 쓰기 전략.",
+      "date": "20260405"
+    },
+    {
+      "id": "concept-calc-20260406",
+      "subject": "calculus",
+      "topic": "수열의 극한",
+      "content": "## 핵심 개념\n수열 {a_n}에서 n이 한없이 커질 때 일반항 a_n의 값이 일정한 상수 α에 한없이 가까워지면 이 수열은 α에 수렴한다고 하며 lim_{n→∞} a_n = α 로 나타냅니다. 수렴하지 않고 양/음의 무한대로 커지거나 값이 교대로 나타나며 진동하는 경우는 모두 발산한다고 합니다.\n\n## 핵심 공식\n- 극한의 기본 성질: 수렴하는 수열에 한해 실수배, 덧셈, 뺄셈, 곱셈, 나눗셈(분모≠0)에 대해 극한(lim)을 분배하여 계산할 수 있습니다.\n- 등비수열 {r^n}의 수렴 조건: -1 < r ≤ 1\n- 수열의 대소 관계(샌드위치 정리): a_n ≤ c_n ≤ b_n 이고 lim a_n = lim b_n = α 이면 lim c_n = α\n\n## 풀이 포인트\n∞/∞ 꼴의 극한은 분모의 최고차항으로 분모와 분자를 각각 나누어 계산하며, 분모와 분자의 차수가 같으면 최고차항 계수의 비로 수렴합니다. 무리식이 포함된 ∞-∞ 꼴은 무리식 부분을 유리화하여 ∞/∞ 꼴로 변형한 뒤 풉니다. 특히 참/거짓 판단 문제나 극한 성질 적용 시 주어진 수열이 '수렴한다'는 전제 조건이 있는지 반드시 확인해야 오류를 방지할 수 있습니다.\n\n## 예제\nlim_{n→∞} (2n^2 + 3n - 1) / (n^2 + 1) 의 값은?\n[풀이] ∞/∞ 꼴이며 분모와 분자가 모두 2차식으로 차수가 같으므로, 최고차항의 계수의 비를 구하면 2 / 1 = 2 에 수렴합니다.",
+      "date": "20260406"
+    },
+    {
+      "id": "concept-eng-1-20260406",
+      "subject": "english",
+      "topic": "글의 목적 파악",
+      "content": "## 지문 원문\nDear Professor Langford,\nFirst of all, we apologize for contacting you during the holiday season. We understand that this is a busy time, but as the revision deadline of your manuscript (December 27th) is quickly approaching, we kindly ask for your cooperation in addressing the reviewers’ comments as thoroughly as possible within the limited time available. The reviewers have carefully evaluated your manuscript and provided insightful and critical feedback. To help you revise, we have summarized the key points raised by both reviewers. Please review these comments carefully and submit a revised version of your manuscript. We are confident that incorporating these suggestions will significantly improve the manuscript and provide stronger support for your main claims. We hope that the revised manuscript will satisfy the reviewers and be accepted in our journal. Thank you for your attention and cooperation.\n\nBest regards,\nNora Ellison, Associate Editor\n\n## 전체 해석\nLangford 교수님께,\n우선, 휴가 기간에 연락을 드리게 된 점 사과드립니다. 이때가 바쁜 시기라는 것을 이해하지만, 교수님의 원고 수정 마감일(12월 27일)이 빠르게 다가오고 있으니, 제한된 이용 가능 시간 내에 가능한 한 철저하게 검토자들의 의견을 처리하는 것에 협조를 간곡히 부탁드립니다. 검토자들은 교수님의 원고를 신중히 검토하였고, 통찰력 있고 중대한 피드백을 제공했습니다. 교수님께서 수정하시는 것을 돕기 위해, 검토자 두 분 모두가 제기한 주요 사항들을 요약해 놓았습니다. 이 의견들을 신중히 검토하시고 원고의 수정본을 제출해 주시기 바랍니다. 이 제안 사항들을 포함하는 것이 원고를 크게 향상시키고 교수님의 주요 주장에 대한 더 강한 근거를 제공할 것이라고 확신합니다. 수정된 원고가 검토자들을 만족시켜 저희 학술지에 게재가 승인되기를 소망합니다. 교수님의 관심과 협조에 감사드립니다.\n부편집장, Nora Ellison 드림\n\n## 핵심 단어\n- manuscript: 원고\n- revision: 수정\n- incorporate: 포함하다, 반영하다\n- insightful: 통찰력 있는\n- thoroughly: 철저하게\n\n## 핵심 문법\n1. **과거분사구의 후치 수식**: `the key points [raised by both reviewers]`에서 과거분사 `raised`가 이끄는 분사구가 수동의 의미로 앞의 명사 `the key points`를 수식합니다(양 검토자가 '제기한' 주요 사항들).\n2. **명사절을 이끄는 접속사 that과 병렬 구조**: `We are confident [that incorporating these suggestions will {significantly improve the manuscript} and {provide stronger support for your main claims}].` 구문에서 `that`은 `confident`의 내용을 보충하는 명사절을 이끌며, 그 안에서 두 개의 동사 원형 `improve`와 `provide`가 `and`로 연결되어 조동사 `will`에 병렬로 이어집니다.",
+      "date": "20260406"
+    },
+    {
+      "id": "concept-kor-20260406",
+      "subject": "korean",
+      "topic": "화법 이론",
+      "content": "## 오늘의 지문 분석\n- **유형**: 대화 (면대면 의사소통)\n- **상황**: 전시를 관람한 학생과 기획자인 큐레이터가 '관람객 감상평' 코너에서 전시 기법(차경)에 대해 묻고 답함.\n- **특징**: 두 사람은 시·공간을 공유하며 전시에 대한 긍정적 감상을 나누는 상호 협력적 관계를 맺고 있습니다. 학생은 전시를 통한 새로운 경험으로 자아 성장을 도모하고, 큐레이터는 업무의 일환으로 관람객의 이야기를 경청합니다.\n\n## 핵심 개념 정리\n- **사회적 의사소통 행위로서의 화법**: 화법은 개인 내적 의사소통을 통해 자아를 성찰·성장시키고, 개인 간 의사소통을 통해 인간관계를 형성 및 발전시키는 중요한 사회적 행위입니다.\n- **담화 관습 (Discourse Convention)**: 각 언어 공동체의 사회·문화적 특성이 반영된 공통된 발화 경향을 의미합니다. 우리 언어 공동체는 대화 시 상대방에게 피해가 되는 직접적인 표현을 삼가고, 상대방은 칭찬하여 높이되 자신은 겸손하게 낮추려는 언어 예절이 발달해 있습니다.\n\n## 출제 포인트\n1. **참여자의 의사소통 목적과 태도 파악**: 화자가 상대를 설득하려는지, 공감하려는지, 단순히 감상을 공유하려는지 정확히 파악해야 합니다. (본 지문에는 '설득' 의도가 없습니다.)\n2. **담화 관습의 올바른 이해**: 주어진 발화(예: \"아무것도 모르는 제가\", \"백 점짜리 관람객\")에 반영된 언어 공동체의 문화적 관습을 연결하는 문제가 자주 출제됩니다.",
+      "date": "20260406"
     }
   ],
-  "ts": 1775398158546
+  "ts": 1775428063553
 }
