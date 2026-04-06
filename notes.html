@@ -141,10 +141,24 @@ function saveNote(subj,topicId,text){
   localStorage.setItem(`note-${subj}-${topicId}`,text);
 }
 
-const SEED_CONCEPTS=[];
+const FEED_URL="https://raw.githubusercontent.com/idongdong410-maker/study-hub/main/data/feed.json";
 function getAutoConcept(subj,topicName){
-  const all=SEED_CONCEPTS.concat(JSON.parse(localStorage.getItem("hub-concepts")||"[]"));
+  const all=JSON.parse(localStorage.getItem("hub-concepts")||"[]");
   return all.filter(c=>c.subject===subj&&c.topic===topicName).sort((a,b)=>b.date.localeCompare(a.date))[0]||null;
+}
+async function loadConcepts(){
+  const existing=JSON.parse(localStorage.getItem("hub-concepts")||"[]");
+  const today=new Date().toISOString().slice(0,10).replace(/-/g,"");
+  const hasFresh=existing.some(c=>c.date>=today.slice(0,6));
+  if(hasFresh)return;
+  try{
+    const d=await(await fetch(FEED_URL+"?t="+Date.now())).json();
+    if(d.concepts?.length){
+      const ids=new Set(existing.map(c=>c.id));
+      const nw=d.concepts.filter(c=>!ids.has(c.id));
+      if(nw.length){existing.push(...nw);localStorage.setItem("hub-concepts",JSON.stringify(existing));}
+    }
+  }catch(e){}
 }
 
 function renderMd(text){
@@ -248,7 +262,7 @@ function toggleEdit(subj,topicId,viewId,editId,taId,btnId){
   }
 }
 
-render();
+loadConcepts().then(render);
 </script>
 </body>
 </html>
