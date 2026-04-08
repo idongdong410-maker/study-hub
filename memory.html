@@ -178,11 +178,12 @@ function renderDeckSelect(){
     ${Object.entries(DECKS).map(([k,d])=>{
       const total=getDeckCards(k).length;
       const due=getDueCards(k).length;
+      const weak=getDeckCards(k).filter(c=>(c.level||0)<4).length;
       return`<div class="deck-card" style="border-color:${d.color}22" onclick="openDeck('${k}')">
         ${due>0?`<div class="deck-due" style="background:${d.dim};color:${d.color}">${due}개 복습</div>`:""}
         <div class="deck-emoji">${d.emoji}</div>
         <div class="deck-name" style="color:${d.color}">${d.name}</div>
-        <div class="deck-count">${total}개 카드</div>
+        <div class="deck-count">${total}개 카드${weak>0?` · 미숙지 ${weak}`:""}</div>
         <div class="level-bar">
           ${[0,1,2,3,4].map(l=>{
             const n=getDeckCards(k).filter(c=>(c.level||0)>=l).length;
@@ -195,6 +196,9 @@ function renderDeckSelect(){
   </div>
   <button class="btn btn-full mt-16" onclick="reviewAll()" style="background:var(--purple);color:#fff">
     전체 복습 대기 카드 풀기 (${S.cards.filter(isDue).length}개)
+  </button>
+  <button class="btn btn-full mt-8" onclick="reviewWeak()" style="background:rgba(248,113,113,.15);color:var(--red)">
+    약점 먼저 복습 Lv.0-1 (${S.cards.filter(c=>(c.level||0)<=1&&isDue(c)).length}개)
   </button>`;
 }
 
@@ -204,32 +208,43 @@ function reviewAll(){
   if(!due.length)return;
   S.deck="__all__";S.page="review";S.currentCard=null;S.flipped=false;render();
 }
+function reviewWeak(){
+  const weak=S.cards.filter(c=>(c.level||0)<=1&&isDue(c));
+  if(!weak.length){S.deck="__all__";S.page="review";S.currentCard=null;S.flipped=false;render();return;}
+  S.deck="__weak__";S.page="review";S.currentCard=null;S.flipped=false;render();
+}
 
 // ===== DECK VIEW =====
 function renderDeckView(){
   const isAll=S.deck==="__all__";
-  const d=isAll?{name:"전체 복습",emoji:"🔄",color:"#7c6aef",dim:"rgba(124,106,239,.12)"}:DECKS[S.deck];
+  const isWeak=S.deck==="__weak__";
+  const isSpecial=isAll||isWeak;
+  const d=isAll?{name:"전체 복습",emoji:"🔄",color:"#7c6aef",dim:"rgba(124,106,239,.12)"}
+      :isWeak?{name:"약점 먼저",emoji:"⚡",color:"#f87171",dim:"rgba(248,113,113,.12)"}
+      :DECKS[S.deck];
 
   const navPages=[["review","복습"],["browse","카드 목록"],["add","추가"]];
-  if(isAll)navPages.splice(1); // all mode only has review
+  if(isSpecial)navPages.splice(1);
 
   let nav=`<div class="row-between mb-16">
     <button class="btn-ghost" onclick="S.deck=null;S.currentCard=null;render()">← 덱 선택</button>
     <span style="font-size:14px;font-weight:700;color:${d.color}">${d.emoji} ${d.name}</span>
   </div>
-  ${!isAll?`<div class="nav mb-20">${navPages.map(([k,l])=>
+  ${!isSpecial?`<div class="nav mb-20">${navPages.map(([k,l])=>
     `<button class="nav-btn ${S.page===k?"active":""}" onclick="S.page='${k}';S.currentCard=null;S.flipped=false;render()">${l}</button>`
   ).join("")}</div>`:""}`;
 
-  if(S.page==="review")return nav+renderReview(d,isAll);
+  if(S.page==="review")return nav+renderReview(d,isAll,isWeak);
   if(S.page==="browse")return nav+renderBrowse(d);
   if(S.page==="add")return nav+renderAdd(d);
   return nav;
 }
 
 // ===== REVIEW =====
-function renderReview(d,isAll){
-  const due=isAll?S.cards.filter(isDue):getDueCards(S.deck);
+function renderReview(d,isAll,isWeak){
+  const due=isWeak?S.cards.filter(c=>(c.level||0)<=1&&isDue(c))
+      :isAll?S.cards.filter(isDue)
+      :getDueCards(S.deck);
 
   if(!S.currentCard){
     if(!due.length){
